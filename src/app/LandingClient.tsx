@@ -180,69 +180,66 @@ export default function LandingClient({ content }: { content: SiteContent }) {
         </div>
       </section>
 
-      {/* ── TRANSPARENCY 20-10-70 ── */}
+      {/* ── OUR APPROACH ── */}
       <section className={s.section}>
         <div className={s.sectionTag}>
           <span className={s.sectionTagLine} />
-          Notre modèle
+          Notre approche
         </div>
         <h2 className={s.sectionTitle}>
-          Où va votre argent : le système 20 — 10 — 70
+          Des marges faibles. Des talents investis.
         </h2>
         <p className={s.sectionDesc}>
-          Contrairement aux agences classiques qui gardent 40-60% en marge,
-          nous redistribuons 70% directement à ceux qui font votre projet.
+          Notre modèle est conçu pour que la majorité de votre budget aille
+          directement aux experts qui construisent votre projet — pas dans
+          des frais de structure.
         </p>
 
         <div className={s.splitGrid}>
           <div className={s.splitVisual}>
             <div className={s.barChart}>
               <div className={`${s.bar} ${s.bar70}`}>
-                <span className={s.barLabel}>70%</span>
-                <span className={s.barDesc}>Techniciens</span>
+                <span className={s.barLabel}>&lt;15%</span>
+                <span className={s.barDesc}>Nos frais</span>
               </div>
               <div className={`${s.bar} ${s.bar20}`}>
-                <span className={s.barLabel}>20%</span>
-                <span className={s.barDesc}>Business</span>
-              </div>
-              <div className={`${s.bar} ${s.bar10}`}>
-                <span className={s.barLabel}>10%</span>
-                <span className={s.barDesc}>Formation</span>
+                <span className={s.barLabel}>40-60%</span>
+                <span className={s.barDesc}>Agences classiques</span>
               </div>
             </div>
             <div className={s.barBottom}>
-              Répartition réelle sur chaque projet — vérifiable
+              Comparaison marge Wikolabs vs agences traditionnelles
             </div>
           </div>
 
           <div className={s.splitContent}>
             <div className={s.splitItem}>
-              <div className={`${s.splitIcon} ${s.splitIcon70}`}>70</div>
+              <div className={`${s.splitIcon} ${s.splitIcon70}`}>✓</div>
               <div>
-                <div className={s.splitItemTitle}>70% — Vos techniciens</div>
+                <div className={s.splitItemTitle}>Budget optimisé</div>
                 <div className={s.splitItemText}>
-                  La majorité de votre investissement va directement aux experts
-                  qui construisent votre projet. Résultat : des talents motivés et investis.
+                  Nos frais de gestion sont parmi les plus bas du marché.
+                  Votre budget finance le travail réel, pas une structure lourde.
                 </div>
               </div>
             </div>
             <div className={s.splitItem}>
-              <div className={`${s.splitIcon} ${s.splitIcon20}`}>20</div>
+              <div className={`${s.splitIcon} ${s.splitIcon20}`}>✓</div>
               <div>
-                <div className={s.splitItemTitle}>20% — Développement business</div>
+                <div className={s.splitItemTitle}>Talents motivés</div>
                 <div className={s.splitItemText}>
-                  Prospection, qualification, gestion de la relation client.
-                  Le lien entre vos besoins et les bons profils.
+                  Nos experts sont rémunérés à la hauteur de leur contribution.
+                  Résultat : ils sont directement investis dans la réussite de votre projet.
                 </div>
               </div>
             </div>
             <div className={s.splitItem}>
-              <div className={`${s.splitIcon} ${s.splitIcon10}`}>10</div>
+              <div className={`${s.splitIcon} ${s.splitIcon10}`}>✓</div>
               <div>
-                <div className={s.splitItemTitle}>10% — Formation continue</div>
+                <div className={s.splitItemTitle}>Formation continue incluse</div>
                 <div className={s.splitItemText}>
-                  Certifications internationales, outils, plateforme de suivi.
-                  Ce qui garantit que vos techniciens restent à la pointe.
+                  Une partie de nos frais finance la montée en compétences permanente
+                  de nos membres. Vos techniciens restent à la pointe.
                 </div>
               </div>
             </div>

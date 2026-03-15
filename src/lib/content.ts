@@ -120,7 +120,7 @@ export const DEFAULTS: SiteContent = {
     },
     {
       title: "Transparence totale sur les coûts",
-      text: "Vous voyez exactement comment votre budget est réparti. 70% va aux techniciens qui font le travail. Zéro zone grise.",
+      text: "Vous voyez exactement comment votre budget est utilisé. Devis détaillé, suivi en temps réel, aucun frais caché. Zéro zone grise.",
     },
   ],
   roles: [
@@ -136,7 +136,7 @@ export const DEFAULTS: SiteContent = {
   ],
   why_clients: [
     { icon: "💰", title: "Rapport qualité-prix imbattable", text: "Professionnels expérimentés, formés en continu, à des tarifs 25% sous le marché européen. Même qualité, coûts divisés." },
-    { icon: "🔍", title: "Transparence totale", text: "Vous savez exactement où va votre argent. 70% aux techniciens, 10% formation/outils, 20% business. Pas de marge cachée." },
+    { icon: "🔍", title: "Transparence totale", text: "Vous savez exactement où va votre argent. Devis détaillé ligne par ligne, pas de marge cachée à 40-60% comme les agences classiques." },
     { icon: "🎓", title: "Talents sélectionnés et formés", text: "Recrutement rigoureux sur mini-projets réels. Certains membres détiennent des certifications internationales (AWS, GCP, Azure), tous bénéficient d'une formation continue financée." },
     { icon: "⚡", title: "Équipes dédiées et structurées", text: "Pas de freelances isolés. Des équipes constituées avec processus, outils de suivi, et un interlocuteur unique pour votre projet." },
     { icon: "🌍", title: "Fuseau horaire compatible", text: "Madagascar (UTC+3) : chevauchement naturel avec l'Europe. Communication en français et anglais courant." },
@@ -167,7 +167,7 @@ export const DEFAULTS: SiteContent = {
   ],
   faq: [
     { q: "Comment garantissez-vous la qualité ?", a: "Recrutement sur mini-projets réels, pas sur CV. Formation continue financée pour tous les membres. Certains détiennent des certifications internationales (AWS, GCP, Azure), tous sont évalués par les clients après chaque projet." },
-    { q: "Comment fonctionne la tarification ?", a: "TJM fixe par profil et niveau (Junior, Confirmé, Senior). Le devis détaille chaque poste, chaque jour estimé. 70% va directement aux techniciens — pas de marge cachée à 50% comme les agences classiques." },
+    { q: "Comment fonctionne la tarification ?", a: "TJM fixe par profil et niveau (Junior, Confirmé, Senior). Le devis détaille chaque poste, chaque jour estimé. Nos marges sont parmi les plus basses du marché — pas de surcoût caché à 40-60% comme les agences classiques." },
     { q: "Quelle est votre structure juridique ?", a: "Wikolabs est une SARLU malgache immatriculée au RCS, avec NIF et compte bancaire SWIFT. Contrats professionnels, factures conformes, propriété intellectuelle transférée." },
     { q: "Quels fuseaux horaires couvrez-vous ?", a: "Madagascar (UTC+3) offre un chevauchement naturel avec l'Europe. Communication bilingue français-anglais. Points hebdomadaires adaptés à vos horaires." },
     { q: "Et si le projet nécessite des ajustements ?", a: "Approche agile avec jalons intermédiaires. Tout changement de scope est négocié avec un avenant clair avant exécution. Vous gardez le contrôle à chaque étape." },
