@@ -21,35 +21,31 @@ jobs:
       - name: Build Next.js
         run: bun run build
 
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.WIKOLABS_VM_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.WIKOLABS_VM_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+
       - name: Copy build to VM
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.WIKOLABS_VM_HOST }}
-          username: ${{ secrets.WIKOLABS_VM_USER }}
-          key: ${{ secrets.WIKOLABS_VM_SSH_KEY }}
-          source: ".next/"
-          target: "~/wikolabs/"
-          overwrite: true
+        run: |
+          tar czf /tmp/next-build.tar.gz .next/
+          scp -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
+            /tmp/next-build.tar.gz \
+            ${{ secrets.WIKOLABS_VM_USER }}@${{ secrets.WIKOLABS_VM_HOST }}:~/wikolabs/
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
+            ${{ secrets.WIKOLABS_VM_USER }}@${{ secrets.WIKOLABS_VM_HOST }} \
+            "cd ~/wikolabs && rm -rf .next && tar xzf next-build.tar.gz && rm next-build.tar.gz"
 
-      - name: Deploy and restart
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.WIKOLABS_VM_HOST }}
-          username: ${{ secrets.WIKOLABS_VM_USER }}
-          key: ${{ secrets.WIKOLABS_VM_SSH_KEY }}
-          timeout: 300s
-          command_timeout: 300s
-          script: |
-            cd ~/wikolabs
-            git pull origin main
-
-            # Check if containers are already running
-            if docker ps --format '{{.Names}}' | grep -q wikolabs_app; then
-              echo "Containers running — restarting app only"
-              make prod-restart
-            else
-              echo "First deploy — starting all services"
-              make prod
-            fi
-
-            echo "Deployed at $(date)"
+      - name: Pull code and restart
+        run: |
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
+            ${{ secrets.WIKOLABS_VM_USER }}@${{ secrets.WIKOLABS_VM_HOST }} \
+            'cd ~/wikolabs && git pull origin main && \
+             if docker ps --format "{{.Names}}" | grep -q wikolabs_app; then \
+               make prod-restart; \
+             else \
+               make prod; \
+             fi && \
+             echo "Deployed at $(date)"'
