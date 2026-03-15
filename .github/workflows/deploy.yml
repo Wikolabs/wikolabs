@@ -36,17 +36,44 @@ jobs:
             ${{ secrets.WIKOLABS_VM_USER }}@${{ secrets.WIKOLABS_VM_HOST }}:~/wikolabs/
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
             ${{ secrets.WIKOLABS_VM_USER }}@${{ secrets.WIKOLABS_VM_HOST }} \
-            "cd ~/wikolabs && rm -rf .next-new && tar xzf next-build.tar.gz && mv .next .next-new && rm -f next-build.tar.gz"
+            "cd ~/wikolabs && rm -rf .next-new && mkdir .next-new && tar xzf next-build.tar.gz -C .next-new --strip-components=1 && rm -f next-build.tar.gz"
 
       - name: Pull code and restart
         run: |
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
-            ${{ secrets.WIKOLABS_VM_USER }}@${{ secrets.WIKOLABS_VM_HOST }} \
-            'cd ~/wikolabs && git pull origin main && \
-             if [ ! -d .next-new ]; then echo "Missing staged .next-new" >&2; exit 1; fi && \
-             make prod && \
-             rm -rf .next-old && if [ -d .next ]; then mv .next .next-old; fi && mv .next-new .next && \
-             if make prod-restart; then rm -rf .next-old && echo "Deployed at $(date)"; \
-             else echo "Restart failed, rolling back" >&2; \
-               mv .next .next-failed && if [ -d .next-old ]; then mv .next-old .next; fi && \
-               make prod-restart || true; exit 1; fi'
+            ${{ secrets.WIKOLABS_VM_USER }}@${{ secrets.WIKOLABS_VM_HOST }} << 'DEPLOY'
+            set -e
+            cd ~/wikolabs
+            git pull origin main
+
+            # Verify staged build exists
+            if [ ! -d .next-new ]; then
+              echo "Missing staged .next-new" >&2
+              exit 1
+            fi
+
+            # Swap: old → backup, new → live
+            rm -rf .next-old
+            if [ -d .next ]; then mv .next .next-old; fi
+            mv .next-new .next
+
+            # Start or restart
+            if docker ps --format '{{.Names}}' | grep -q wikolabs_app; then
+              make prod-restart
+            else
+              make prod
+            fi
+
+            # Verify app is healthy
+            sleep 5
+            if docker ps --format '{{.Names}}' | grep -q wikolabs_app; then
+              rm -rf .next-old
+              echo "Deployed at $(date)"
+            else
+              echo "App failed to start, rolling back" >&2
+              rm -rf .next
+              if [ -d .next-old ]; then mv .next-old .next; fi
+              make prod-restart || true
+              exit 1
+            fi
+          DEPLOY
