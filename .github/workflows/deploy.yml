@@ -1,0 +1,21 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to VM
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.WIKOLABS_VM_HOST }}
+          username: ${{ secrets.WIKOLABS_VM_USER }}
+          key: ${{ secrets.WIKOLABS_VM_SSH_KEY }}
+          script: |
+            cd ~/wikolabs
+            git pull origin main
+            docker compose -p wikolabs --env-file .env -f docker/docker-compose.yml up -d --build app
+            echo "Deployed at $(date)"
