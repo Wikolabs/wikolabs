@@ -5,8 +5,8 @@
     "pricing": "Pricing",
     "process": "Process",
     "faq": "FAQ",
-    "cta": "Start a project",
-    "cta_arrow": "Start a project →"
+    "cta": "Let's talk about your project",
+    "cta_arrow": "Book a 30 min call →"
   },
   "hero": {
     "how_it_works": "How it works"
@@ -68,7 +68,7 @@
   "cta": {
     "title": "Ready to launch your next project?",
     "desc": "Tell us about your needs. We'll get back to you within 24h with a team proposal and a transparent quote.",
-    "button": "Contact us →"
+    "button": "Book a 30 min call →"
   },
   "footer": {
     "brand_text": "Initiative of Independent Young Digital Talents founded in Madagascar. Registered SARLU.",

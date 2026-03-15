@@ -5,8 +5,8 @@
     "pricing": "Tarifs",
     "process": "Processus",
     "faq": "FAQ",
-    "cta": "Démarrer un projet",
-    "cta_arrow": "Démarrer un projet →"
+    "cta": "Parlons de votre projet",
+    "cta_arrow": "Réservez un appel de 30 min →"
   },
   "hero": {
     "how_it_works": "Comment ça marche"
@@ -68,7 +68,7 @@
   "cta": {
     "title": "Prêt à lancer votre prochain projet ?",
     "desc": "Décrivez-nous votre besoin. Nous vous répondons sous 24h avec une proposition d'équipe et un devis transparent.",
-    "button": "Contactez-nous →"
+    "button": "Réservez un appel de 30 min →"
   },
   "footer": {
     "brand_text": "Initiative des Jeunes Talents Indépendants du Numérique International fondé à Madagascar. SARLU immatriculée au RCS.",

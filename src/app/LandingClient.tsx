@@ -63,7 +63,11 @@ export default function LandingClient({
           <a href="#processus" className={s.navLink}>{t("nav.process")}</a>
           <a href="#faq" className={s.navLink}>{t("nav.faq")}</a>
           <LocaleSwitcher />
-          <a href="mailto:service@wikolabs.com" className={s.navCta}>
+          <a href="https://calendly.com/cedric-wikolabs/30min"
+            className={s.navCta}
+            target="_blank"
+            rel="noreferrer"
+          >
             {t("nav.cta")}
           </a>
         </div>
@@ -91,10 +95,12 @@ export default function LandingClient({
             <LocaleSwitcher />
           </div>
           <a
-            href="mailto:service@wikolabs.com"
+            href="https://calendly.com/cedric-wikolabs/30min"
             className={s.btnPrimary}
             onClick={closeMenu}
             style={{ marginTop: 8, textAlign: "center", justifyContent: "center" }}
+            target="_blank"
+            rel="noreferrer"
           >
             {t("nav.cta_arrow")}
           </a>
@@ -122,7 +128,12 @@ export default function LandingClient({
         <p className={s.heroSub}>{hero.subtitle}</p>
 
         <div className={s.heroActions}>
-          <a href="mailto:service@wikolabs.com" className={s.btnPrimary}>
+          <a
+            href="https://calendly.com/cedric-wikolabs/30min"
+            className={s.btnPrimary}
+            target="_blank"
+            rel="noreferrer"
+          >
             {t("nav.cta_arrow")}
           </a>
           <a href="#processus" className={s.btnSecondary}>
@@ -385,7 +396,12 @@ export default function LandingClient({
         <h2 className={s.ctaTitle}>{t("cta.title")}</h2>
         <p className={s.ctaText}>{t("cta.desc")}</p>
         <div className={s.ctaActions}>
-          <a href="mailto:service@wikolabs.com" className={s.btnPrimary}>
+          <a
+            href="https://calendly.com/cedric-wikolabs/30min"
+            className={s.btnPrimary}
+            target="_blank"
+            rel="noreferrer"
+          >
             {t("cta.button")}
           </a>
         </div>
@@ -412,7 +428,12 @@ export default function LandingClient({
             </div>
             <div className={s.footerCol}>
               <h4>{t("footer.contact_title")}</h4>
-              <a href="mailto:service@wikolabs.com">service@wikolabs.com</a>
+              <a
+                href="https://calendly.com/cedric-wikolabs/30min"
+                target="_blank"
+                rel="noreferrer"
+              >
+                service@wikolabs.com</a>
             </div>
           </div>
         </div>
