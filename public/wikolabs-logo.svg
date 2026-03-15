@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 100" fill="none">
+  <defs>
+    <linearGradient id="wk-dot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4ff00"/>
+      <stop offset="100%" stop-color="#a3cc00"/>
+    </linearGradient>
+  </defs>
+  <!-- Dot -->
+  <circle cx="20" cy="50" r="12" fill="url(#wk-dot)"/>
+  <!-- W letterform -->
+  <path d="M52 22L70 78L92 38L114 78L132 22" stroke="#f5f2eb" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- IKOLABS -->
+  <text x="152" y="68" font-family="'SF Mono','Fira Code','Courier New',monospace" font-size="46" font-weight="700" fill="#f5f2eb" letter-spacing="4">IKOLABS</text>
+  <!-- Underline accent -->
+  <rect x="52" y="88" width="410" height="2" rx="1" fill="url(#wk-dot)" opacity="0.3"/>
+</svg>
