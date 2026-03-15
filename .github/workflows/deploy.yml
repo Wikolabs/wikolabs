@@ -36,11 +36,16 @@ jobs:
             ${{ secrets.WIKOLABS_VM_USER }}@${{ secrets.WIKOLABS_VM_HOST }}:~/wikolabs/
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
             ${{ secrets.WIKOLABS_VM_USER }}@${{ secrets.WIKOLABS_VM_HOST }} \
-            "cd ~/wikolabs && rm -rf .next && tar xzf next-build.tar.gz && rm next-build.tar.gz"
+            "cd ~/wikolabs && rm -rf .next-new && tar xzf next-build.tar.gz && mv .next .next-new && rm -f next-build.tar.gz"
 
       - name: Pull code and restart
         run: |
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
             ${{ secrets.WIKOLABS_VM_USER }}@${{ secrets.WIKOLABS_VM_HOST }} \
-            'cd ~/wikolabs && git pull origin main && make prod && make prod-restart \
-             echo "Deployed at $(date)"'
+            'cd ~/wikolabs && git pull origin main && \
+             if [ ! -d .next-new ]; then echo "Missing staged .next-new" >&2; exit 1; fi && \
+             make prod && \
+             rm -rf .next-old && mv .next .next-old && mv .next-new .next && \
+             if make prod-restart; then rm -rf .next-old && echo "Deployed at $(date)"; \
+             else echo "Restart failed, rolling back" >&2; \
+               mv .next .next-failed && mv .next-old .next && make prod-restart || true; exit 1; fi'
