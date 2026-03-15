@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import s from "./page.module.css";
+import HeroBg from "./HeroBg";
 
 /* ─── DATA ─── */
 
@@ -309,6 +310,7 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <section className={s.hero}>
+        <HeroBg />
         <div className={`${s.heroGlow} ${s.heroGlow1}`} />
         <div className={`${s.heroGlow} ${s.heroGlow2}`} />
 
@@ -657,14 +659,14 @@ export default function Home() {
           <a href="mailto:service@wikolabs.com" className={s.btnPrimary}>
             Contactez-nous →
           </a>
-          <a
+          {/* <a
             href="https://mediwyz.com/"
             target="_blank"
             rel="noopener noreferrer"
             className={s.btnSecondary}
           >
             Voir Mediwyz — Projet livré
-          </a>
+          </a> */}
         </div>
       </section>
 
@@ -693,13 +695,13 @@ export default function Home() {
             <div className={s.footerCol}>
               <h4>Contact</h4>
               <a href="mailto:service@wikolabs.com">service@wikolabs.com</a>
-              <a
+              {/* <a
                 href="https://mediwyz.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Mediwyz (Projet livré)
-              </a>
+              </a> */}
             </div>
             {/* TODO: Uncomment when legal pages are ready
             <div className={s.footerCol}>
