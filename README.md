@@ -79,7 +79,7 @@ To wipe everything and start fresh:
 
 ```bash
 make stop
-docker volume rm docker_mariadb_data
+docker volume rm docker_wikolabs_mariadb_data
 make start-f
 ```
 
