@@ -42,10 +42,5 @@ jobs:
         run: |
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
             ${{ secrets.WIKOLABS_VM_USER }}@${{ secrets.WIKOLABS_VM_HOST }} \
-            'cd ~/wikolabs && git pull origin main && \
-             if docker ps --format "{{.Names}}" | grep -q wikolabs_app; then \
-               make prod-restart; \
-             else \
-               make prod; \
-             fi && \
+            'cd ~/wikolabs && git pull origin main && make prod && make prod-restart \
              echo "Deployed at $(date)"'

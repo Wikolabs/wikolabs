@@ -73,8 +73,8 @@ const DEFAULTS_FR: SiteContent = {
   hero: {
     tag: "Talents tech éprouvés — basés à Madagascar",
     title_line1: "Votre équipe tech",
-    title_line2: "d'experts",
-    title_accent: "éprouvés",
+    title_line2: "",
+    title_accent: "d'experts",
     subtitle:
       "Développeurs, AI Engineers, Data Scientists et Designers — sélectionnés sur projets réels, formés en continu, à des tarifs 25% sous le marché européen. Transparence totale sur chaque euro investi.",
     stats: [
