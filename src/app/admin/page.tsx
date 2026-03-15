@@ -5,6 +5,11 @@ import s from "./admin.module.css";
 
 type SiteContent = Record<string, unknown>;
 
+const LOCALES = [
+  { code: "fr", label: "🇫🇷 Français" },
+  { code: "en", label: "🇬🇧 English" },
+];
+
 /* ─── SECTION CONFIGS ─── */
 const SECTION_META: {
   key: string;
@@ -173,7 +178,7 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
   );
 }
 
-/* ─── HERO EDITOR (special: stats + marquee sub-arrays) ─── */
+/* ─── HERO EDITOR ─── */
 function HeroEditor({
   data,
   onChange,
@@ -195,13 +200,8 @@ function HeroEditor({
     onChange({ ...data, stats: next });
   };
 
-  const addStat = () => {
-    onChange({ ...data, stats: [...stats, { value: "", label: "" }] });
-  };
-
-  const removeStat = (i: number) => {
-    onChange({ ...data, stats: stats.filter((_, idx) => idx !== i) });
-  };
+  const addStat = () => onChange({ ...data, stats: [...stats, { value: "", label: "" }] });
+  const removeStat = (i: number) => onChange({ ...data, stats: stats.filter((_, idx) => idx !== i) });
 
   const updateMarquee = (i: number, val: string) => {
     const next = [...marquee];
@@ -209,13 +209,8 @@ function HeroEditor({
     onChange({ ...data, marquee_items: next });
   };
 
-  const addMarquee = () => {
-    onChange({ ...data, marquee_items: [...marquee, ""] });
-  };
-
-  const removeMarquee = (i: number) => {
-    onChange({ ...data, marquee_items: marquee.filter((_, idx) => idx !== i) });
-  };
+  const addMarquee = () => onChange({ ...data, marquee_items: [...marquee, ""] });
+  const removeMarquee = (i: number) => onChange({ ...data, marquee_items: marquee.filter((_, idx) => idx !== i) });
 
   return (
     <div className={s.editorFields}>
@@ -246,18 +241,8 @@ function HeroEditor({
         </h4>
         {stats.map((stat, i) => (
           <div key={i} className={s.inlineGroup}>
-            <input
-              className={s.inputSm}
-              value={stat.value}
-              onChange={(e) => updateStat(i, "value", e.target.value)}
-              placeholder="Valeur (ex: 70%)"
-            />
-            <input
-              className={s.inputSm}
-              value={stat.label}
-              onChange={(e) => updateStat(i, "label", e.target.value)}
-              placeholder="Label"
-            />
+            <input className={s.inputSm} value={stat.value} onChange={(e) => updateStat(i, "value", e.target.value)} placeholder="Valeur" />
+            <input className={s.inputSm} value={stat.label} onChange={(e) => updateStat(i, "label", e.target.value)} placeholder="Label" />
             <button className={s.btnDanger} onClick={() => removeStat(i)} type="button">×</button>
           </div>
         ))}
@@ -270,12 +255,7 @@ function HeroEditor({
         </h4>
         {marquee.map((item, i) => (
           <div key={i} className={s.inlineGroup}>
-            <input
-              className={s.input}
-              value={item}
-              onChange={(e) => updateMarquee(i, e.target.value)}
-              placeholder="Nom du rôle"
-            />
+            <input className={s.input} value={item} onChange={(e) => updateMarquee(i, e.target.value)} placeholder="Nom du rôle" />
             <button className={s.btnDanger} onClick={() => removeMarquee(i)} type="button">×</button>
           </div>
         ))}
@@ -284,7 +264,7 @@ function HeroEditor({
   );
 }
 
-/* ─── ARRAY EDITOR (generic for all list sections) ─── */
+/* ─── ARRAY EDITOR ─── */
 function ArrayEditor({
   data,
   itemFields,
@@ -306,9 +286,7 @@ function ArrayEditor({
     onChange([...data, empty]);
   };
 
-  const removeItem = (i: number) => {
-    onChange(data.filter((_, idx) => idx !== i));
-  };
+  const removeItem = (i: number) => onChange(data.filter((_, idx) => idx !== i));
 
   const moveItem = (i: number, dir: -1 | 1) => {
     const j = i + dir;
@@ -325,43 +303,18 @@ function ArrayEditor({
           <div className={s.arrayCardHeader}>
             <span className={s.arrayCardNum}>#{i + 1}</span>
             <div className={s.arrayCardActions}>
-              <button
-                className={s.btnSmall}
-                onClick={() => moveItem(i, -1)}
-                disabled={i === 0}
-                type="button"
-              >
-                ↑
-              </button>
-              <button
-                className={s.btnSmall}
-                onClick={() => moveItem(i, 1)}
-                disabled={i === data.length - 1}
-                type="button"
-              >
-                ↓
-              </button>
-              <button className={s.btnDanger} onClick={() => removeItem(i)} type="button">
-                Supprimer
-              </button>
+              <button className={s.btnSmall} onClick={() => moveItem(i, -1)} disabled={i === 0} type="button">↑</button>
+              <button className={s.btnSmall} onClick={() => moveItem(i, 1)} disabled={i === data.length - 1} type="button">↓</button>
+              <button className={s.btnDanger} onClick={() => removeItem(i)} type="button">Supprimer</button>
             </div>
           </div>
           {itemFields.map((f) => (
             <div key={f.key} className={s.field}>
               <label className={s.fieldLabel}>{f.label}</label>
               {f.multiline ? (
-                <textarea
-                  className={s.textarea}
-                  value={(item[f.key] as string) || ""}
-                  onChange={(e) => updateItem(i, f.key, e.target.value)}
-                  rows={3}
-                />
+                <textarea className={s.textarea} value={(item[f.key] as string) || ""} onChange={(e) => updateItem(i, f.key, e.target.value)} rows={3} />
               ) : (
-                <input
-                  className={s.input}
-                  value={(item[f.key] as string) || ""}
-                  onChange={(e) => updateItem(i, f.key, e.target.value)}
-                />
+                <input className={s.input} value={(item[f.key] as string) || ""} onChange={(e) => updateItem(i, f.key, e.target.value)} />
               )}
             </div>
           ))}
@@ -379,13 +332,18 @@ export default function AdminPage() {
   const [authed, setAuthed] = useState<boolean | null>(null);
   const [content, setContent] = useState<SiteContent | null>(null);
   const [activeSection, setActiveSection] = useState("hero");
+  const [activeLocale, setActiveLocale] = useState("fr");
   const [saving, setSaving] = useState(false);
   const [saveMsg, setSaveMsg] = useState("");
   const [dirty, setDirty] = useState<Set<string>>(new Set());
 
-  const loadContent = useCallback(async () => {
+  // Dirty keys include locale: "hero:fr", "faq:en"
+  const dirtyKey = (section: string) => `${section}:${activeLocale}`;
+
+  const loadContent = useCallback(async (locale?: string) => {
+    const loc = locale || activeLocale;
     try {
-      const res = await fetch("/api/admin/content");
+      const res = await fetch(`/api/admin/content?locale=${loc}`);
       if (res.status === 401) {
         setAuthed(false);
         return;
@@ -396,11 +354,17 @@ export default function AdminPage() {
     } catch {
       setAuthed(false);
     }
-  }, []);
+  }, [activeLocale]);
 
   useEffect(() => {
     loadContent();
   }, [loadContent]);
+
+  const handleLocaleSwitch = (loc: string) => {
+    setActiveLocale(loc);
+    setContent(null); // show loading
+    loadContent(loc);
+  };
 
   const handleSave = async (sectionKey: string) => {
     if (!content) return;
@@ -410,13 +374,18 @@ export default function AdminPage() {
       const res = await fetch("/api/admin/content", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ section: sectionKey, data: content[sectionKey] }),
+        body: JSON.stringify({
+          section: sectionKey,
+          data: content[sectionKey],
+          locale: activeLocale,
+        }),
       });
       if (!res.ok) throw new Error("Save failed");
-      setSaveMsg(`✓ ${sectionKey} sauvegardé`);
+      const locLabel = activeLocale.toUpperCase();
+      setSaveMsg(`✓ ${sectionKey} [${locLabel}] sauvegardé`);
       setDirty((prev) => {
         const next = new Set(prev);
-        next.delete(sectionKey);
+        next.delete(dirtyKey(sectionKey));
         return next;
       });
       setTimeout(() => setSaveMsg(""), 3000);
@@ -435,7 +404,7 @@ export default function AdminPage() {
 
   const updateSection = (key: string, data: unknown) => {
     setContent((prev) => (prev ? { ...prev, [key]: data } : prev));
-    setDirty((prev) => new Set(prev).add(key));
+    setDirty((prev) => new Set(prev).add(dirtyKey(key)));
   };
 
   // Loading
@@ -449,10 +418,10 @@ export default function AdminPage() {
 
   // Login
   if (!authed) {
-    return <LoginForm onLogin={loadContent} />;
+    return <LoginForm onLogin={() => loadContent()} />;
   }
 
-  const activeMeta = SECTION_META.find((s) => s.key === activeSection)!;
+  const activeMeta = SECTION_META.find((sec) => sec.key === activeSection)!;
 
   return (
     <div className={s.adminLayout}>
@@ -464,6 +433,20 @@ export default function AdminPage() {
             ADMIN
           </div>
         </div>
+
+        {/* Locale tabs */}
+        <div className={s.localeTabs}>
+          {LOCALES.map((loc) => (
+            <button
+              key={loc.code}
+              className={`${s.localeTab} ${activeLocale === loc.code ? s.localeTabActive : ""}`}
+              onClick={() => handleLocaleSwitch(loc.code)}
+            >
+              {loc.label}
+            </button>
+          ))}
+        </div>
+
         <nav className={s.sidebarNav}>
           {SECTION_META.map((sec) => (
             <button
@@ -472,12 +455,12 @@ export default function AdminPage() {
               onClick={() => setActiveSection(sec.key)}
             >
               {sec.label}
-              {dirty.has(sec.key) && <span className={s.dirtyDot} />}
+              {dirty.has(dirtyKey(sec.key)) && <span className={s.dirtyDot} />}
             </button>
           ))}
         </nav>
         <div className={s.sidebarFooter}>
-          <a href="/" className={s.sidebarLink} target="_blank">↗ Voir le site</a>
+          <a href={`/${activeLocale}`} className={s.sidebarLink} target="_blank">↗ Voir le site ({activeLocale.toUpperCase()})</a>
           <button className={s.sidebarLink} onClick={handleLogout}>⏻ Déconnexion</button>
         </div>
       </aside>
@@ -486,9 +469,12 @@ export default function AdminPage() {
       <main className={s.adminMain}>
         <div className={s.adminTopBar}>
           <div>
-            <h1 className={s.adminTitle}>{activeMeta.label}</h1>
+            <h1 className={s.adminTitle}>
+              {activeMeta.label}
+              <span className={s.localeBadge}>{activeLocale.toUpperCase()}</span>
+            </h1>
             <p className={s.adminSubtitle}>
-              Modifiez le contenu ci-dessous puis sauvegardez.
+              Modifiez le contenu <strong>{activeLocale === "fr" ? "français" : "anglais"}</strong> ci-dessous puis sauvegardez.
             </p>
           </div>
           <div className={s.topBarActions}>
@@ -496,7 +482,7 @@ export default function AdminPage() {
             <button
               className={s.btnPrimary}
               onClick={() => handleSave(activeSection)}
-              disabled={saving || !dirty.has(activeSection)}
+              disabled={saving || !dirty.has(dirtyKey(activeSection))}
             >
               {saving ? "Sauvegarde..." : "Sauvegarder"}
             </button>
@@ -504,18 +490,26 @@ export default function AdminPage() {
         </div>
 
         <div className={s.adminContent}>
-          {content && activeSection === "hero" && (
-            <HeroEditor
-              data={content.hero as Record<string, unknown>}
-              onChange={(d) => updateSection("hero", d)}
-            />
-          )}
-          {content && activeMeta.type === "array" && activeMeta.itemFields && (
-            <ArrayEditor
-              data={content[activeSection] as Record<string, unknown>[]}
-              itemFields={activeMeta.itemFields}
-              onChange={(d) => updateSection(activeSection, d)}
-            />
+          {!content ? (
+            <div className={s.loadingWrap} style={{ minHeight: 200 }}>
+              <div className={s.spinner} />
+            </div>
+          ) : (
+            <>
+              {activeSection === "hero" && (
+                <HeroEditor
+                  data={content.hero as Record<string, unknown>}
+                  onChange={(d) => updateSection("hero", d)}
+                />
+              )}
+              {activeMeta.type === "array" && activeMeta.itemFields && (
+                <ArrayEditor
+                  data={content[activeSection] as Record<string, unknown>[]}
+                  itemFields={activeMeta.itemFields}
+                  onChange={(d) => updateSection(activeSection, d)}
+                />
+              )}
+            </>
           )}
         </div>
       </main>

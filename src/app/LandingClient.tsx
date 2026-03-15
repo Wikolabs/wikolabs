@@ -1,11 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import s from "./page.module.css";
 import HeroBg from "./HeroBg";
+import LocaleSwitcher from "@/components/LocaleSwitcher";
 import type { SiteContent } from "@/lib/content";
 
-export default function LandingClient({ content }: { content: SiteContent }) {
+export default function LandingClient({
+  content,
+  locale,
+}: {
+  content: SiteContent;
+  locale: string;
+}) {
+  const t = useTranslations();
   const {
     hero,
     client_problems,
@@ -23,7 +32,7 @@ export default function LandingClient({ content }: { content: SiteContent }) {
 
   useEffect(() => {
     const onResize = () => {
-      if (window.innerWidth > 768) setMenuOpen(false);
+      if (window.innerWidth > 1135) setMenuOpen(false);
     };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
@@ -48,13 +57,14 @@ export default function LandingClient({ content }: { content: SiteContent }) {
           <img src="/wikolabs-logo.svg" alt="Wikolabs" height={36} className={s.logoImg} />
         </a>
         <div className={s.navLinks}>
-          <a href="#expertise" className={s.navLink}>Expertise</a>
-          <a href="#pourquoi" className={s.navLink}>Pourquoi nous</a>
-          <a href="#tarifs" className={s.navLink}>Tarifs</a>
-          <a href="#processus" className={s.navLink}>Processus</a>
-          <a href="#faq" className={s.navLink}>FAQ</a>
+          <a href="#expertise" className={s.navLink}>{t("nav.expertise")}</a>
+          <a href="#pourquoi" className={s.navLink}>{t("nav.why_us")}</a>
+          <a href="#tarifs" className={s.navLink}>{t("nav.pricing")}</a>
+          <a href="#processus" className={s.navLink}>{t("nav.process")}</a>
+          <a href="#faq" className={s.navLink}>{t("nav.faq")}</a>
+          <LocaleSwitcher />
           <a href="mailto:service@wikolabs.com" className={s.navCta}>
-            Démarrer un projet
+            {t("nav.cta")}
           </a>
         </div>
         <button
@@ -72,18 +82,21 @@ export default function LandingClient({ content }: { content: SiteContent }) {
         onClick={closeMenu}
       >
         <div className={s.mobileNav} onClick={(e) => e.stopPropagation()}>
-          <a href="#expertise" className={s.mobileLink} onClick={closeMenu}>Expertise</a>
-          <a href="#pourquoi" className={s.mobileLink} onClick={closeMenu}>Pourquoi nous</a>
-          <a href="#tarifs" className={s.mobileLink} onClick={closeMenu}>Tarifs</a>
-          <a href="#processus" className={s.mobileLink} onClick={closeMenu}>Processus</a>
-          <a href="#faq" className={s.mobileLink} onClick={closeMenu}>FAQ</a>
+          <a href="#expertise" className={s.mobileLink} onClick={closeMenu}>{t("nav.expertise")}</a>
+          <a href="#pourquoi" className={s.mobileLink} onClick={closeMenu}>{t("nav.why_us")}</a>
+          <a href="#tarifs" className={s.mobileLink} onClick={closeMenu}>{t("nav.pricing")}</a>
+          <a href="#processus" className={s.mobileLink} onClick={closeMenu}>{t("nav.process")}</a>
+          <a href="#faq" className={s.mobileLink} onClick={closeMenu}>{t("nav.faq")}</a>
+          <div style={{ padding: "12px 0" }}>
+            <LocaleSwitcher />
+          </div>
           <a
             href="mailto:service@wikolabs.com"
             className={s.btnPrimary}
             onClick={closeMenu}
-            style={{ marginTop: 16, textAlign: "center", justifyContent: "center" }}
+            style={{ marginTop: 8, textAlign: "center", justifyContent: "center" }}
           >
-            Démarrer un projet →
+            {t("nav.cta_arrow")}
           </a>
         </div>
       </div>
@@ -110,10 +123,10 @@ export default function LandingClient({ content }: { content: SiteContent }) {
 
         <div className={s.heroActions}>
           <a href="mailto:service@wikolabs.com" className={s.btnPrimary}>
-            Démarrer un projet →
+            {t("nav.cta_arrow")}
           </a>
           <a href="#processus" className={s.btnSecondary}>
-            Comment ça marche
+            {t("hero.how_it_works")}
           </a>
         </div>
 
@@ -140,21 +153,16 @@ export default function LandingClient({ content }: { content: SiteContent }) {
       <section id="pourquoi" className={`${s.section} ${s.problemSection}`}>
         <div className={s.sectionTag}>
           <span className={s.sectionTagLine} />
-          Le Constat
+          {t("problems.tag")}
         </div>
-        <h2 className={s.sectionTitle}>
-          Recruter des talents tech ne devrait pas coûter une fortune.
-        </h2>
-        <p className={s.sectionDesc}>
-          Que vous soyez une startup, une PME ou un grand groupe — vous méritez
-          une équipe tech de qualité à un prix juste, sans marge cachée.
-        </p>
+        <h2 className={s.sectionTitle}>{t("problems.title")}</h2>
+        <p className={s.sectionDesc}>{t("problems.desc")}</p>
 
         <div className={s.problemGrid}>
           <div className={s.problemCol}>
             <h3>
               <span className={`${s.problemBadge} ${s.problemBadgeRed}`}>
-                Vos frustrations
+                {t("problems.badge_bad")}
               </span>
             </h3>
             {client_problems.map((p, i) => (
@@ -167,7 +175,7 @@ export default function LandingClient({ content }: { content: SiteContent }) {
           <div className={s.problemCol}>
             <h3>
               <span className={`${s.problemBadge} ${s.problemBadgeGreen}`}>
-                Notre réponse
+                {t("problems.badge_good")}
               </span>
             </h3>
             {client_solutions.map((p, i) => (
@@ -184,63 +192,46 @@ export default function LandingClient({ content }: { content: SiteContent }) {
       <section className={s.section}>
         <div className={s.sectionTag}>
           <span className={s.sectionTagLine} />
-          Notre approche
+          {t("approach.tag")}
         </div>
-        <h2 className={s.sectionTitle}>
-          Des marges faibles. Des talents investis.
-        </h2>
-        <p className={s.sectionDesc}>
-          Notre modèle est conçu pour que la majorité de votre budget aille
-          directement aux experts qui construisent votre projet — pas dans
-          des frais de structure.
-        </p>
+        <h2 className={s.sectionTitle}>{t("approach.title")}</h2>
+        <p className={s.sectionDesc}>{t("approach.desc")}</p>
 
         <div className={s.splitGrid}>
           <div className={s.splitVisual}>
             <div className={s.barChart}>
               <div className={`${s.bar} ${s.bar70}`}>
                 <span className={s.barLabel}>&lt;15%</span>
-                <span className={s.barDesc}>Nos frais</span>
+                <span className={s.barDesc}>{t("approach.bar_label_us")}</span>
               </div>
               <div className={`${s.bar} ${s.bar20}`}>
                 <span className={s.barLabel}>40-60%</span>
-                <span className={s.barDesc}>Agences classiques</span>
+                <span className={s.barDesc}>{t("approach.bar_label_them")}</span>
               </div>
             </div>
-            <div className={s.barBottom}>
-              Comparaison marge Wikolabs vs agences traditionnelles
-            </div>
+            <div className={s.barBottom}>{t("approach.bar_bottom")}</div>
           </div>
 
           <div className={s.splitContent}>
             <div className={s.splitItem}>
               <div className={`${s.splitIcon} ${s.splitIcon70}`}>✓</div>
               <div>
-                <div className={s.splitItemTitle}>Budget optimisé</div>
-                <div className={s.splitItemText}>
-                  Nos frais de gestion sont parmi les plus bas du marché.
-                  Votre budget finance le travail réel, pas une structure lourde.
-                </div>
+                <div className={s.splitItemTitle}>{t("approach.item1_title")}</div>
+                <div className={s.splitItemText}>{t("approach.item1_text")}</div>
               </div>
             </div>
             <div className={s.splitItem}>
               <div className={`${s.splitIcon} ${s.splitIcon20}`}>✓</div>
               <div>
-                <div className={s.splitItemTitle}>Talents motivés</div>
-                <div className={s.splitItemText}>
-                  Nos experts sont rémunérés à la hauteur de leur contribution.
-                  Résultat : ils sont directement investis dans la réussite de votre projet.
-                </div>
+                <div className={s.splitItemTitle}>{t("approach.item2_title")}</div>
+                <div className={s.splitItemText}>{t("approach.item2_text")}</div>
               </div>
             </div>
             <div className={s.splitItem}>
               <div className={`${s.splitIcon} ${s.splitIcon10}`}>✓</div>
               <div>
-                <div className={s.splitItemTitle}>Formation continue incluse</div>
-                <div className={s.splitItemText}>
-                  Une partie de nos frais finance la montée en compétences permanente
-                  de nos membres. Vos techniciens restent à la pointe.
-                </div>
+                <div className={s.splitItemTitle}>{t("approach.item3_title")}</div>
+                <div className={s.splitItemText}>{t("approach.item3_text")}</div>
               </div>
             </div>
           </div>
@@ -251,15 +242,10 @@ export default function LandingClient({ content }: { content: SiteContent }) {
       <section className={`${s.section} ${s.valuesSection}`}>
         <div className={s.sectionTag}>
           <span className={s.sectionTagLine} />
-          Avantages
+          {t("why_clients.tag")}
         </div>
-        <h2 className={s.sectionTitle}>
-          Pourquoi nos clients nous choisissent.
-        </h2>
-        <p className={s.sectionDesc}>
-          Un modèle conçu pour aligner les intérêts de tous :
-          vous payez moins, nos talents gagnent plus. Tout le monde y gagne.
-        </p>
+        <h2 className={s.sectionTitle}>{t("why_clients.title")}</h2>
+        <p className={s.sectionDesc}>{t("why_clients.desc")}</p>
 
         <div className={s.valuesGrid}>
           {why_clients.map((v, i) => (
@@ -276,15 +262,12 @@ export default function LandingClient({ content }: { content: SiteContent }) {
       <section id="expertise" className={s.section}>
         <div className={s.sectionTag}>
           <span className={s.sectionTagLine} />
-          Expertise
+          {t("expertise.tag")}
         </div>
         <h2 className={s.sectionTitle}>
-          {roles.length} spécialisations à votre service.
+          {t("expertise.title", { count: roles.length })}
         </h2>
-        <p className={s.sectionDesc}>
-          Des profils sélectionnés sur projets réels, formés en continu, positionnés 25% sous le marché
-          international. De l&#39;IA au design, du backend au DevOps.
-        </p>
+        <p className={s.sectionDesc}>{t("expertise.desc")}</p>
 
         <div className={s.rolesGrid}>
           {roles.map((r, i) => (
@@ -302,24 +285,19 @@ export default function LandingClient({ content }: { content: SiteContent }) {
       <section id="tarifs" className={`${s.section} ${s.valuesSection}`}>
         <div className={s.sectionTag}>
           <span className={s.sectionTagLine} />
-          Grille Tarifaire
+          {t("pricing.tag")}
         </div>
-        <h2 className={s.sectionTitle}>
-          TJM clairs, par profil et niveau.
-        </h2>
-        <p className={s.sectionDesc}>
-          Junior (0-2 ans), Confirmé (2-5 ans), Senior (5+ ans).
-          Tarifs adaptés par marché : France, BE/LU, Canada, UK, Afrique.
-        </p>
+        <h2 className={s.sectionTitle}>{t("pricing.title")}</h2>
+        <p className={s.sectionDesc}>{t("pricing.desc")}</p>
 
         <div className={s.pricingWrap}>
           <table className={s.pricingTable}>
             <thead>
               <tr>
-                <th>Rôle</th>
-                <th>Junior</th>
-                <th>Confirmé</th>
-                <th>Senior</th>
+                <th>{t("pricing.th_role")}</th>
+                <th>{t("pricing.th_junior")}</th>
+                <th>{t("pricing.th_confirmed")}</th>
+                <th>{t("pricing.th_senior")}</th>
               </tr>
             </thead>
             <tbody>
@@ -340,23 +318,20 @@ export default function LandingClient({ content }: { content: SiteContent }) {
       <section id="processus" className={s.section}>
         <div className={s.sectionTag}>
           <span className={s.sectionTagLine} />
-          Processus
+          {t("process.tag")}
         </div>
         <h2 className={s.sectionTitle}>
-          Du brief à la livraison : {process.length} étapes.
+          {t("process.title", { count: process.length })}
         </h2>
-        <p className={s.sectionDesc}>
-          Un processus clair, agile, avec validation à chaque étape.
-          Vous gardez le contrôle de bout en bout.
-        </p>
+        <p className={s.sectionDesc}>{t("process.desc")}</p>
 
         <div className={s.timeline}>
-          {process.map((t, i) => (
+          {process.map((step, i) => (
             <div className={s.timelineItem} key={i}>
               <div className={s.timelineDot} />
-              <div className={s.timelineNum}>Étape {t.num}</div>
-              <div className={s.timelineTitle}>{t.title}</div>
-              <div className={s.timelineText}>{t.text}</div>
+              <div className={s.timelineNum}>{t("process.step")} {step.num}</div>
+              <div className={s.timelineTitle}>{step.title}</div>
+              <div className={s.timelineText}>{step.text}</div>
             </div>
           ))}
         </div>
@@ -366,21 +341,19 @@ export default function LandingClient({ content }: { content: SiteContent }) {
       <section className={`${s.section} ${s.clientSection}`}>
         <div className={s.sectionTag}>
           <span className={s.sectionTagLine} />
-          Ils nous font confiance
+          {t("testimonials.tag")}
         </div>
-        <h2 className={s.sectionTitle}>
-          Ce qu&#39;en disent nos clients.
-        </h2>
+        <h2 className={s.sectionTitle}>{t("testimonials.title")}</h2>
 
         <div className={s.clientGrid}>
-          {testimonials.map((t, i) => (
+          {testimonials.map((tm, i) => (
             <div className={s.clientCard} key={i}>
-              <div className={s.clientQuote}>{t.quote}</div>
+              <div className={s.clientQuote}>{tm.quote}</div>
               <div className={s.clientInfo}>
-                <div className={s.clientAvatar}>{t.initials}</div>
+                <div className={s.clientAvatar}>{tm.initials}</div>
                 <div>
-                  <div className={s.clientName}>{t.name}</div>
-                  <div className={s.clientRole}>{t.role}</div>
+                  <div className={s.clientName}>{tm.name}</div>
+                  <div className={s.clientRole}>{tm.role}</div>
                 </div>
               </div>
             </div>
@@ -392,11 +365,9 @@ export default function LandingClient({ content }: { content: SiteContent }) {
       <section id="faq" className={s.section}>
         <div className={s.sectionTag}>
           <span className={s.sectionTagLine} />
-          FAQ
+          {t("faq.tag")}
         </div>
-        <h2 className={s.sectionTitle}>
-          Questions fréquentes.
-        </h2>
+        <h2 className={s.sectionTitle}>{t("faq.title")}</h2>
 
         <div className={s.faqGrid}>
           {faq.map((f, i) => (
@@ -411,16 +382,11 @@ export default function LandingClient({ content }: { content: SiteContent }) {
       {/* ── CTA ── */}
       <section className={s.ctaSection}>
         <div className={s.ctaGlow} />
-        <h2 className={s.ctaTitle}>
-          Prêt à lancer votre prochain projet&nbsp;?
-        </h2>
-        <p className={s.ctaText}>
-          Décrivez-nous votre besoin. Nous vous répondons sous 24h
-          avec une proposition d&#39;équipe et un devis transparent.
-        </p>
+        <h2 className={s.ctaTitle}>{t("cta.title")}</h2>
+        <p className={s.ctaText}>{t("cta.desc")}</p>
         <div className={s.ctaActions}>
           <a href="mailto:service@wikolabs.com" className={s.btnPrimary}>
-            Contactez-nous →
+            {t("cta.button")}
           </a>
         </div>
       </section>
@@ -432,23 +398,20 @@ export default function LandingClient({ content }: { content: SiteContent }) {
             <div className={s.footerBrandName}>
               <img src="/wikolabs-logo.svg" alt="Wikolabs" height={32} className={s.logoImg} />
             </div>
-            <div className={s.footerBrandText}>
-              Initiative des Jeunes Talents Indépendants du Numérique
-              International fondé à Madagascar. SARLU immatriculée au RCS.
-            </div>
+            <div className={s.footerBrandText}>{t("footer.brand_text")}</div>
           </div>
 
           <div className={s.footerCols}>
             <div className={s.footerCol}>
-              <h4>Navigation</h4>
-              <a href="#expertise">Expertise</a>
-              <a href="#pourquoi">Pourquoi nous</a>
-              <a href="#tarifs">Tarifs</a>
-              <a href="#processus">Processus</a>
-              <a href="#faq">FAQ</a>
+              <h4>{t("footer.nav_title")}</h4>
+              <a href="#expertise">{t("nav.expertise")}</a>
+              <a href="#pourquoi">{t("nav.why_us")}</a>
+              <a href="#tarifs">{t("nav.pricing")}</a>
+              <a href="#processus">{t("nav.process")}</a>
+              <a href="#faq">{t("nav.faq")}</a>
             </div>
             <div className={s.footerCol}>
-              <h4>Contact</h4>
+              <h4>{t("footer.contact_title")}</h4>
               <a href="mailto:service@wikolabs.com">service@wikolabs.com</a>
             </div>
           </div>

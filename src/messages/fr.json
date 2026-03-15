@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "expertise": "Expertise",
+    "why_us": "Pourquoi nous",
+    "pricing": "Tarifs",
+    "process": "Processus",
+    "faq": "FAQ",
+    "cta": "Démarrer un projet",
+    "cta_arrow": "Démarrer un projet →"
+  },
+  "hero": {
+    "how_it_works": "Comment ça marche"
+  },
+  "problems": {
+    "tag": "Le Constat",
+    "title": "Recruter des talents tech ne devrait pas coûter une fortune.",
+    "desc": "Que vous soyez une startup, une PME ou un grand groupe — vous méritez une équipe tech de qualité à un prix juste, sans marge cachée.",
+    "badge_bad": "Vos frustrations",
+    "badge_good": "Notre réponse"
+  },
+  "approach": {
+    "tag": "Notre approche",
+    "title": "Des marges faibles. Des talents investis.",
+    "desc": "Notre modèle est conçu pour que la majorité de votre budget aille directement aux experts qui construisent votre projet — pas dans des frais de structure.",
+    "bar_label_us": "Nos frais",
+    "bar_label_them": "Agences classiques",
+    "bar_bottom": "Comparaison marge Wikolabs vs agences traditionnelles",
+    "item1_title": "Budget optimisé",
+    "item1_text": "Nos frais de gestion sont parmi les plus bas du marché. Votre budget finance le travail réel, pas une structure lourde.",
+    "item2_title": "Talents motivés",
+    "item2_text": "Nos experts sont rémunérés à la hauteur de leur contribution. Résultat : ils sont directement investis dans la réussite de votre projet.",
+    "item3_title": "Formation continue incluse",
+    "item3_text": "Une partie de nos frais finance la montée en compétences permanente de nos membres. Vos techniciens restent à la pointe."
+  },
+  "why_clients": {
+    "tag": "Avantages",
+    "title": "Pourquoi nos clients nous choisissent.",
+    "desc": "Un modèle conçu pour aligner les intérêts de tous : vous payez moins, nos talents gagnent plus. Tout le monde y gagne."
+  },
+  "expertise": {
+    "tag": "Expertise",
+    "title": "{count} spécialisations à votre service.",
+    "desc": "Des profils sélectionnés sur projets réels, formés en continu, positionnés 25% sous le marché international. De l'IA au design, du backend au DevOps."
+  },
+  "pricing": {
+    "tag": "Grille Tarifaire",
+    "title": "TJM clairs, par profil et niveau.",
+    "desc": "Junior (0-2 ans), Confirmé (2-5 ans), Senior (5+ ans). Tarifs adaptés par marché : France, BE/LU, Canada, UK, Afrique.",
+    "th_role": "Rôle",
+    "th_junior": "Junior",
+    "th_confirmed": "Confirmé",
+    "th_senior": "Senior"
+  },
+  "process": {
+    "tag": "Processus",
+    "title": "Du brief à la livraison : {count} étapes.",
+    "desc": "Un processus clair, agile, avec validation à chaque étape. Vous gardez le contrôle de bout en bout.",
+    "step": "Étape"
+  },
+  "testimonials": {
+    "tag": "Ils nous font confiance",
+    "title": "Ce qu'en disent nos clients."
+  },
+  "faq": {
+    "tag": "FAQ",
+    "title": "Questions fréquentes."
+  },
+  "cta": {
+    "title": "Prêt à lancer votre prochain projet ?",
+    "desc": "Décrivez-nous votre besoin. Nous vous répondons sous 24h avec une proposition d'équipe et un devis transparent.",
+    "button": "Contactez-nous →"
+  },
+  "footer": {
+    "brand_text": "Initiative des Jeunes Talents Indépendants du Numérique International fondé à Madagascar. SARLU immatriculée au RCS.",
+    "nav_title": "Navigation",
+    "contact_title": "Contact"
+  }
+}

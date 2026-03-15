@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "expertise": "Expertise",
+    "why_us": "Why us",
+    "pricing": "Pricing",
+    "process": "Process",
+    "faq": "FAQ",
+    "cta": "Start a project",
+    "cta_arrow": "Start a project →"
+  },
+  "hero": {
+    "how_it_works": "How it works"
+  },
+  "problems": {
+    "tag": "The Problem",
+    "title": "Hiring tech talent shouldn't cost a fortune.",
+    "desc": "Whether you're a startup, an SME or an enterprise — you deserve a quality tech team at a fair price, with no hidden fees.",
+    "badge_bad": "Your frustrations",
+    "badge_good": "Our answer"
+  },
+  "approach": {
+    "tag": "Our approach",
+    "title": "Low margins. Invested talent.",
+    "desc": "Our model is designed so that the majority of your budget goes directly to the experts building your project — not into overhead.",
+    "bar_label_us": "Our fees",
+    "bar_label_them": "Traditional agencies",
+    "bar_bottom": "Fee comparison: Wikolabs vs traditional agencies",
+    "item1_title": "Optimized budget",
+    "item1_text": "Our management fees are among the lowest in the industry. Your budget funds real work, not a bloated structure.",
+    "item2_title": "Motivated talent",
+    "item2_text": "Our experts are compensated in proportion to their contribution. Result: they are directly invested in YOUR project's success.",
+    "item3_title": "Continuous training included",
+    "item3_text": "A portion of our fees funds the ongoing upskilling of our members. Your developers stay at the cutting edge."
+  },
+  "why_clients": {
+    "tag": "Advantages",
+    "title": "Why our clients choose us.",
+    "desc": "A model designed to align everyone's interests: you pay less, our talent earns more. Everyone wins."
+  },
+  "expertise": {
+    "tag": "Expertise",
+    "title": "{count} specializations at your service.",
+    "desc": "Profiles selected on real projects, continuously trained, positioned 25% below the international market. From AI to design, backend to DevOps."
+  },
+  "pricing": {
+    "tag": "Pricing",
+    "title": "Clear daily rates, by profile and level.",
+    "desc": "Junior (0-2 yrs), Mid-level (2-5 yrs), Senior (5+ yrs). Rates adapted per market: France, BE/LU, Canada, UK, Africa.",
+    "th_role": "Role",
+    "th_junior": "Junior",
+    "th_confirmed": "Mid-level",
+    "th_senior": "Senior"
+  },
+  "process": {
+    "tag": "Process",
+    "title": "From brief to delivery: {count} steps.",
+    "desc": "A clear, agile process with validation at every stage. You stay in control from start to finish.",
+    "step": "Step"
+  },
+  "testimonials": {
+    "tag": "They trust us",
+    "title": "What our clients say."
+  },
+  "faq": {
+    "tag": "FAQ",
+    "title": "Frequently asked questions."
+  },
+  "cta": {
+    "title": "Ready to launch your next project?",
+    "desc": "Tell us about your needs. We'll get back to you within 24h with a team proposal and a transparent quote.",
+    "button": "Contact us →"
+  },
+  "footer": {
+    "brand_text": "Initiative of Independent Young Digital Talents founded in Madagascar. Registered SARLU.",
+    "nav_title": "Navigation",
+    "contact_title": "Contact"
+  }
+}
