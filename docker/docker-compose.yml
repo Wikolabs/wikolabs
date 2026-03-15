@@ -10,7 +10,7 @@ services:
         MARIADB_USER: ${NAMESPACE}
         MARIADB_PASSWORD: ${DB_PASSWORD:-password}
       volumes:
-        - mariadb_data:/var/lib/mysql
+        - wikolabs_mariadb_data:/var/lib/mysql
       ports:
         - "3306:3306"
       healthcheck:
@@ -70,7 +70,7 @@ services:
       - wikolabs-network
 
 volumes:
-  mariadb_data:
+  wikolabs_mariadb_data:
 
 networks:
   wikolabs-network:
