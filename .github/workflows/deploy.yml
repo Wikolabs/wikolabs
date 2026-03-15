@@ -57,12 +57,8 @@ jobs:
             if [ -d .next ]; then mv .next .next-old; fi
             mv .next-new .next
 
-            # Start or restart
-            if docker ps --format '{{.Names}}' | grep -q wikolabs_app; then
-              make prod-restart
-            else
-              make prod
-            fi
+            # Ensure all services are up, then restart app
+            make prod && make prod-restart
 
             # Verify app is healthy
             sleep 5
