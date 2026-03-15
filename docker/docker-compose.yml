@@ -54,7 +54,7 @@ services:
         else
           echo 'Using APP_ENV=development';
           echo 'Installing project dependencies ...';
-          # bun install;
+          bun install;
           echo 'Running dev environment ...';
           bun run dev;
         fi
