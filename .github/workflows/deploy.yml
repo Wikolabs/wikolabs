@@ -45,7 +45,8 @@ jobs:
             'cd ~/wikolabs && git pull origin main && \
              if [ ! -d .next-new ]; then echo "Missing staged .next-new" >&2; exit 1; fi && \
              make prod && \
-             rm -rf .next-old && mv .next .next-old && mv .next-new .next && \
+             rm -rf .next-old && if [ -d .next ]; then mv .next .next-old; fi && mv .next-new .next && \
              if make prod-restart; then rm -rf .next-old && echo "Deployed at $(date)"; \
              else echo "Restart failed, rolling back" >&2; \
-               mv .next .next-failed && mv .next-old .next && make prod-restart || true; exit 1; fi'
+               mv .next .next-failed && if [ -d .next-old ]; then mv .next-old .next; fi && \
+               make prod-restart || true; exit 1; fi'
