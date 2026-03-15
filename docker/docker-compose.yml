@@ -1,26 +1,24 @@
 services:
   db:
-      image: mariadb:latest
-      container_name: ${NAMESPACE}_db
-      working_dir: /app
-      restart: always
-      environment:
-        MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-password}
-        MARIADB_DATABASE: ${NAMESPACE}_db
-        MARIADB_USER: ${NAMESPACE}
-        MARIADB_PASSWORD: ${DB_PASSWORD:-password}
-      volumes:
-        - wikolabs_mariadb_data:/var/lib/mysql
-      ports:
-        - "3306:3306"
-      healthcheck:
-        test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
-        interval: 10s
-        timeout: 5s
-        retries: 5
-        start_period: 30s
-      networks:
-        - wikolabs-network
+    image: mariadb:latest
+    container_name: ${NAMESPACE}_db
+    working_dir: /app
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-password}
+      MARIADB_DATABASE: ${NAMESPACE}_db
+      MARIADB_USER: ${NAMESPACE}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-password}
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - wikolabs-network
 
   app:
     build:
@@ -31,13 +29,11 @@ services:
     restart: always
     environment:
       - APP_ENV=${APP_ENV:-development}
-      # DB connection for Next.js
       - DB_HOST=db
       - DB_PORT=3306
       - DB_USER=${NAMESPACE}
       - DB_PASSWORD=${DB_PASSWORD:-password}
       - DB_NAME=${NAMESPACE}_db
-      # Admin setup
       - ADMIN_SETUP_KEY=${ADMIN_SETUP_KEY:-wikolabs-setup-2026}
     volumes:
       - ../:/app
@@ -59,18 +55,45 @@ services:
           bun run dev;
         fi
       "
-    ports:
-      - "3000:3000"
-
     depends_on:
       db:
         condition: service_healthy
+    networks:
+      - wikolabs-network
 
+  nginx:
+    image: nginx:alpine
+    container_name: ${NAMESPACE}_nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - certbot_etc:/etc/letsencrypt:ro
+      - certbot_var:/var/lib/letsencrypt
+      - certbot_webroot:/var/www/certbot:ro
+    depends_on:
+      - app
+    networks:
+      - wikolabs-network
+
+  certbot:
+    image: certbot/certbot
+    container_name: ${NAMESPACE}_certbot
+    volumes:
+      - certbot_etc:/etc/letsencrypt
+      - certbot_var:/var/lib/letsencrypt
+      - certbot_webroot:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do sleep 12h & wait $${!}; certbot renew --webroot -w /var/www/certbot --quiet; done'"
     networks:
       - wikolabs-network
 
 volumes:
-  wikolabs_mariadb_data:
+  mariadb_data:
+  certbot_etc:
+  certbot_var:
+  certbot_webroot:
 
 networks:
   wikolabs-network:
