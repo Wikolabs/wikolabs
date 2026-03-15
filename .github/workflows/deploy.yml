@@ -31,14 +31,25 @@ jobs:
           target: "~/wikolabs/"
           overwrite: true
 
-      - name: Pull code and restart
+      - name: Deploy and restart
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.WIKOLABS_VM_HOST }}
           username: ${{ secrets.WIKOLABS_VM_USER }}
           key: ${{ secrets.WIKOLABS_VM_SSH_KEY }}
+          timeout: 300s
+          command_timeout: 300s
           script: |
             cd ~/wikolabs
             git pull origin main
-            docker compose -p wikolabs --env-file .env -f docker/docker-compose.yml restart app
+
+            # Check if containers are already running
+            if docker ps --format '{{.Names}}' | grep -q wikolabs_app; then
+              echo "Containers running — restarting app only"
+              make prod-restart
+            else
+              echo "First deploy — starting all services"
+              make prod
+            fi
+
             echo "Deployed at $(date)"

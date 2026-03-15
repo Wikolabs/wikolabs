@@ -1,0 +1,8 @@
+services:
+  app:
+    command: >
+      /bin/bash -c "
+        echo 'Using APP_ENV=production (pre-built)';
+        echo 'Starting the server ...';
+        bun run start;
+      "

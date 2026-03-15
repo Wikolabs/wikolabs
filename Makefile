@@ -6,9 +6,11 @@ help:
 	@echo ""
 	@echo "usage: make COMMAND"
 	@echo ""
-	@echo "Quick-start Commands:"
-	@echo " start                       Create and start containers in detached mode"
-	@echo " start-f                     Create and start containers"
+	@echo "Commands:"
+	@echo " start                       Start containers (dev) in detached mode"
+	@echo " start-f                     Start containers (dev) with logs"
+	@echo " prod                        Start containers (prod) in detached mode"
+	@echo " prod-restart                Restart app only (prod, after CI build)"
 	@echo " stop                        Stop containers"
 	@echo " kill                        Kill containers"
 	@echo " ssl                         Init SSL certificates (run once)"
@@ -19,6 +21,12 @@ start:
 
 start-f:
 	@docker compose -p ${NAMESPACE} --env-file .env -f docker/docker-compose.yml up
+
+prod:
+	@docker compose -p ${NAMESPACE} --env-file .env -f docker/docker-compose.yml -f docker/docker-compose.prod.yml up -d
+
+prod-restart:
+	@docker compose -p ${NAMESPACE} --env-file .env -f docker/docker-compose.yml -f docker/docker-compose.prod.yml restart app
 
 stop:
 	@docker compose -p ${NAMESPACE} --env-file .env -f docker/docker-compose.yml down
