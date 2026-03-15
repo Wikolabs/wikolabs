@@ -17,5 +17,6 @@ jobs:
           script: |
             cd ~/wikolabs
             git pull origin main
-            docker compose -p wikolabs --env-file .env -f docker/docker-compose.yml up -d --build app
+            docker compose -p wikolabs --env-file .env -f docker/docker-compose.yml down
+            docker compose -p wikolabs --env-file .env -f docker/docker-compose.yml up -d --build
             echo "Deployed at $(date)"
