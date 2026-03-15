@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Wikolabs — Initiative des Jeunes Talents du Numérique International",
+  title: "Wikolabs — Experts tech éprouvés depuis Madagascar",
   description:
-    "Plateforme de freelances tech organisés à Madagascar. Rémunération transparente 70% pour les créateurs de valeur. Rejoignez une communauté de professionnels indépendants de classe mondiale.",
+    "Équipes tech structurées, formées en continu, à des tarifs 25% sous le marché européen. AI Engineers, Data Scientists, Fullstack Devs, DevOps — sélectionnés sur projets réels.",
   keywords: [
     "freelance Madagascar",
     "développeur Madagascar",
@@ -13,11 +13,13 @@ export const metadata: Metadata = {
     "remote work Africa",
     "tech outsourcing Madagascar",
     "Wikolabs",
+    "équipe tech externalisée",
+    "nearshore Madagascar",
   ],
   openGraph: {
-    title: "Wikolabs — Talents Numériques Internationaux depuis Madagascar",
+    title: "Wikolabs — Votre équipe tech d'experts éprouvés",
     description:
-      "70% de la valeur que vous créez vous revient. Transparence totale. Liberté absolue.",
+      "Talents tech sélectionnés sur projets réels, formés en continu, à des tarifs 25% sous le marché. Marges parmi les plus basses du secteur.",
     type: "website",
     locale: "fr_FR",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
