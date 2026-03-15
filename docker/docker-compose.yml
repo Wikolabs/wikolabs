@@ -5,10 +5,10 @@ services:
       working_dir: /app
       restart: always
       environment:
-        MARIADB_ROOT_PASSWORD: password
+        MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-password}
         MARIADB_DATABASE: ${NAMESPACE}_db
         MARIADB_USER: ${NAMESPACE}
-        MARIADB_PASSWORD: password
+        MARIADB_PASSWORD: ${DB_PASSWORD:-password}
       volumes:
         - mariadb_data:/var/lib/mysql
       ports:
@@ -31,6 +31,14 @@ services:
     restart: always
     environment:
       - APP_ENV=${APP_ENV:-development}
+      # DB connection for Next.js
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=${NAMESPACE}
+      - DB_PASSWORD=${DB_PASSWORD:-password}
+      - DB_NAME=${NAMESPACE}_db
+      # Admin setup
+      - ADMIN_SETUP_KEY=${ADMIN_SETUP_KEY:-wikolabs-setup-2026}
     volumes:
       - ../:/app
     command: >
@@ -46,7 +54,7 @@ services:
         else
           echo 'Using APP_ENV=development';
           echo 'Installing project dependencies ...';
-          bun install;
+          # bun install;
           echo 'Running dev environment ...';
           bun run dev;
         fi
