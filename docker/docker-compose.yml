@@ -52,7 +52,7 @@ services:
           echo 'Installing project dependencies ...';
           bun install;
           echo 'Running dev environment ...';
-          bun run dev;
+          bun run dev; 
         fi
       "
     depends_on:
