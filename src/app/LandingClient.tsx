@@ -63,7 +63,7 @@ export default function LandingClient({
           <a href="#processus" className={s.navLink}>{t("nav.process")}</a>
           <a href="#faq" className={s.navLink}>{t("nav.faq")}</a>
           <LocaleSwitcher />
-          <a href="https://calendly.com/cedric-wikolabs/30min"
+          <a href="https://calendly.com/guillaume-wikolabs/30min"
             className={s.navCta}
             target="_blank"
             rel="noreferrer"
@@ -95,7 +95,7 @@ export default function LandingClient({
             <LocaleSwitcher />
           </div>
           <a
-            href="https://calendly.com/cedric-wikolabs/30min"
+            href="https://calendly.com/guillaume-wikolabs/30min"
             className={s.btnPrimary}
             onClick={closeMenu}
             style={{ marginTop: 8, textAlign: "center", justifyContent: "center" }}
@@ -129,7 +129,7 @@ export default function LandingClient({
 
         <div className={s.heroActions}>
           <a
-            href="https://calendly.com/cedric-wikolabs/30min"
+            href="https://calendly.com/guillaume-wikolabs/30min"
             className={s.btnPrimary}
             target="_blank"
             rel="noreferrer"
@@ -397,7 +397,7 @@ export default function LandingClient({
         <p className={s.ctaText}>{t("cta.desc")}</p>
         <div className={s.ctaActions}>
           <a
-            href="https://calendly.com/cedric-wikolabs/30min"
+            href="https://calendly.com/guillaume-wikolabs/30min"
             className={s.btnPrimary}
             target="_blank"
             rel="noreferrer"
@@ -429,7 +429,7 @@ export default function LandingClient({
             <div className={s.footerCol}>
               <h4>{t("footer.contact_title")}</h4>
               <a
-                href="https://calendly.com/cedric-wikolabs/30min"
+                href="https://calendly.com/guillaume-wikolabs/30min"
                 target="_blank"
                 rel="noreferrer"
               >
