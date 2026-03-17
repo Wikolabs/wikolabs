@@ -20,7 +20,7 @@
 .modal {
   position: relative;
   width: 100%;
-  max-width: 880px;
+  max-width: 850px;
   max-height: 90vh;
   overflow-y: auto;
   background: var(--wk-black);

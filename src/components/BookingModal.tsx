@@ -39,6 +39,8 @@ const i18n = {
     booked: "Rendez-vous confirmé !",
     bookedSub: "Vous recevrez un email de confirmation. À très vite !",
     close: "Fermer",
+    skip: "Passer cette étape",
+    emailError: "Nom et email requis pour continuer.",
   },
   en: {
     steps: ["Your project", "Your details", "Pick a slot"],
@@ -64,6 +66,8 @@ const i18n = {
     booked: "Meeting confirmed!",
     bookedSub: "You'll receive a confirmation email. Talk soon!",
     close: "Close",
+    skip: "Skip this step",
+    emailError: "Name and email are required to continue.",
   },
 };
 
@@ -85,6 +89,7 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
   const [booked, setBooked] = useState(false);
+  const [formError, setFormError] = useState("");
 
   // Listen for cal.com booking
   useEffect(() => {
@@ -217,7 +222,9 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
                 <span className={styles.resultVal}>{result.durationLabel}</span>
               </div>
             </div>
-
+            {/* <button className={styles.btnGhost} onClick={() => goTo(2)} style={{ marginTop: 4, fontSize: "0.85rem", opacity: 0.6 }}>
+              {t.skip}
+            </button> */}
             <button className={styles.btnPrimary} onClick={() => goTo(2)}>
               {t.next}
             </button>
@@ -253,11 +260,11 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
             <div className={styles.formRow}>
               <div className={styles.field}>
                 <label className={styles.label}>{t.nameLabel}</label>
-                <input type="text" className={styles.input} placeholder={t.namePlaceholder} value={name} onChange={(e) => setName(e.target.value)} />
+                <input type="text" className={styles.input} placeholder={t.namePlaceholder} value={name} onChange={(e) => { setName(e.target.value); setFormError(""); }}/>
               </div>
               <div className={styles.field}>
                 <label className={styles.label}>{t.emailLabel}</label>
-                <input type="email" className={styles.input} placeholder={t.emailPlaceholder} value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="email" className={styles.input} placeholder={t.emailPlaceholder} value={email} onChange={(e) => { setEmail(e.target.value); setFormError(""); }} />
               </div>
             </div>
 
@@ -265,10 +272,26 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
               <label className={styles.label}>{t.descLabel} <span className={styles.opt}>({t.optional})</span></label>
               <textarea className={styles.textarea} placeholder={t.descPlaceholder} rows={3} value={description} onChange={(e) => setDescription(e.target.value)} />
             </div>
-
+            {formError && (
+              <p style={{ color: "var(--color-error, #f87171)", fontSize: "0.85rem", margin: "4px 0 0" }}>
+                {formError}
+              </p>
+            )}
             <div className={styles.actions}>
               <button className={styles.btnGhost} onClick={() => goTo(1)}>{t.back}</button>
-              <button className={styles.btnPrimary} onClick={() => goTo(3)}>{t.bookCall}</button>
+              <button
+                className={styles.btnPrimary}
+                onClick={() => {
+                  if (!name.trim() || !email.trim()) {
+                    setFormError(t.emailError);
+                    return;
+                  }
+                  setFormError("");
+                  goTo(3);
+                }}
+              >
+                {t.bookCall}
+              </button>
             </div>
           </div>
         )}
