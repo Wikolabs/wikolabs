@@ -1,51 +1,55 @@
 {
   "nav": {
-    "expertise": "Expertise",
-    "why_us": "Pourquoi nous",
-    "pricing": "Tarifs",
+    "offers": "Offres",
     "process": "Processus",
+    "team": "L'équipe",
     "faq": "FAQ",
-    "cta": "Parlons de votre projet",
-    "cta_arrow": "Réservez un appel de 30 min →"
+    "cta": "Réserver un appel",
+    "cta_arrow": "Réserver un appel →"
   },
   "hero": {
     "how_it_works": "Comment ça marche"
   },
   "problems": {
     "tag": "Le Constat",
-    "title": "Recruter des talents tech ne devrait pas coûter une fortune.",
-    "desc": "Que vous soyez une startup, une PME ou un grand groupe — vous méritez une équipe tech de qualité à un prix juste, sans marge cachée.",
-    "badge_bad": "Vos frustrations",
+    "title": "Lancer un logiciel ne devrait pas coûter une fortune.",
+    "desc": "Vous avez l'idée, la vision, le marché — mais trouver la bonne équipe technique prend du temps et les résultats ne sont pas toujours au rendez-vous.",
+    "badge_bad": "Ce que vous vivez",
     "badge_good": "Notre réponse"
   },
   "approach": {
     "tag": "Notre approche",
-    "title": "Des marges faibles. Des talents investis.",
-    "desc": "Notre modèle est conçu pour que la majorité de votre budget aille directement aux experts qui construisent votre projet — pas dans des frais de structure.",
-    "bar_label_us": "Nos frais",
+    "title": "Focalisés sur votre produit.",
+    "desc": "Notre modèle est simple : une équipe dédiée qui se concentre à 100% sur la réussite de votre projet.",
+    "bar_label_us": "Wikolabs",
     "bar_label_them": "Agences classiques",
-    "bar_bottom": "Comparaison marge Wikolabs vs agences traditionnelles",
-    "item1_title": "Budget optimisé",
-    "item1_text": "Nos frais de gestion sont parmi les plus bas du marché. Votre budget finance le travail réel, pas une structure lourde.",
-    "item2_title": "Talents motivés",
-    "item2_text": "Nos experts sont rémunérés à la hauteur de leur contribution. Résultat : ils sont directement investis dans la réussite de votre projet.",
-    "item3_title": "Formation continue incluse",
-    "item3_text": "Une partie de nos frais finance la montée en compétences permanente de nos membres. Vos techniciens restent à la pointe."
+    "bar_bottom": "Part du budget investie dans le produit",
+    "item1_title": "Votre produit avant tout",
+    "item1_text": "Chaque membre de l'équipe travaille exclusivement sur votre projet. Pas de multitâche, pas de distractions.",
+    "item2_title": "Équipe motivée",
+    "item2_text": "Nos experts sont choisis pour leur passion et leur engagement. Ils sont investis dans la réussite de votre projet.",
+    "item3_title": "Formation continue",
+    "item3_text": "Nos membres se forment en permanence aux dernières technologies pour vous apporter le meilleur."
   },
   "why_clients": {
-    "tag": "Avantages",
+    "tag": "Pourquoi nous",
     "title": "Pourquoi nos clients nous choisissent.",
-    "desc": "Un modèle conçu pour aligner les intérêts de tous : vous payez moins, nos talents gagnent plus. Tout le monde y gagne."
+    "desc": "Une équipe complète, un processus clair, un produit livré dans les temps. Voici ce qui fait la différence."
   },
   "expertise": {
-    "tag": "Expertise",
-    "title": "{count} spécialisations à votre service.",
-    "desc": "Des profils sélectionnés sur projets réels, formés en continu, positionnés 25% sous le marché international. De l'IA au design, du backend au DevOps."
+    "tag": "L'équipe",
+    "title": "Tous les talents pour construire votre produit.",
+    "desc": "Intelligence artificielle, développement, données, design, infrastructure — une équipe complète, prête à donner vie à votre idée."
+  },
+  "offers": {
+    "tag": "Nos offres",
+    "title": "Trois façons de démarrer.",
+    "desc": "Du premier audit à la livraison complète de votre produit — choisissez l'entrée qui correspond à votre stade."
   },
   "pricing": {
-    "tag": "Grille Tarifaire",
-    "title": "TJM clairs, par profil et niveau.",
-    "desc": "Junior (0-2 ans), Confirmé (2-5 ans), Senior (5+ ans). Tarifs adaptés par marché : France, BE/LU, Canada, UK, Afrique.",
+    "tag": "Simulateur",
+    "title": "Estimez votre projet.",
+    "desc": "Sélectionnez votre besoin et l'envergure souhaitée pour une estimation instantanée.",
     "th_role": "Rôle",
     "th_junior": "Junior",
     "th_confirmed": "Confirmé",
@@ -53,8 +57,8 @@
   },
   "process": {
     "tag": "Processus",
-    "title": "Du brief à la livraison : {count} étapes.",
-    "desc": "Un processus clair, agile, avec validation à chaque étape. Vous gardez le contrôle de bout en bout.",
+    "title": "De l'idée au produit : {count} étapes.",
+    "desc": "Un processus clair, avec validation à chaque étape. Vous gardez le contrôle de bout en bout.",
     "step": "Étape"
   },
   "testimonials": {
@@ -66,12 +70,12 @@
     "title": "Questions fréquentes."
   },
   "cta": {
-    "title": "Prêt à lancer votre prochain projet ?",
-    "desc": "Décrivez-nous votre besoin. Nous vous répondons sous 24h avec une proposition d'équipe et un devis transparent.",
-    "button": "Réservez un appel de 30 min →"
+    "title": "Prêt à construire votre SaaS intelligent ?",
+    "desc": "Décrivez-nous votre idée. Nous vous répondons sous 24h avec une proposition d'équipe et un plan d'action.",
+    "button": "Réserver un appel →"
   },
   "footer": {
-    "brand_text": "Initiative des Jeunes Talents Indépendants du Numérique International fondé à Madagascar. SARLU immatriculée au RCS.",
+    "brand_text": "On construit votre SaaS intelligent — de l'idée au produit. Équipe dédiée, résultats concrets.",
     "nav_title": "Navigation",
     "contact_title": "Contact"
   }

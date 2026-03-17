@@ -1,0 +1,444 @@
+/* ============================================
+   PROJECT SIMULATOR
+   ============================================ */
+.simulator {
+  padding: 120px 48px;
+  position: relative;
+  background: var(--wk-gray-900);
+}
+
+.sectionTag {
+  font-family: var(--wk-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--wk-accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sectionTagLine {
+  width: 32px;
+  height: 1px;
+  background: var(--wk-accent);
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  max-width: 700px;
+  margin-bottom: 24px;
+}
+
+.sectionDesc {
+  font-size: 1.05rem;
+  color: var(--wk-gray-400);
+  max-width: 560px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ── LAYOUT ── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 48px;
+  margin-top: 64px;
+  align-items: start;
+}
+
+/* ── STEP GROUPS ── */
+.selectors {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.stepGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stepLabel {
+  font-family: var(--wk-font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--wk-gray-300);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stepNum {
+  font-size: 0.65rem;
+  color: var(--wk-accent);
+  background: rgba(200, 255, 0, 0.08);
+  border: 1px solid rgba(200, 255, 0, 0.15);
+  padding: 3px 10px;
+  border-radius: 100px;
+  letter-spacing: 2px;
+}
+
+/* ── PROJECT TYPE OPTIONS ── */
+.optionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.optionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 20px;
+  background: var(--wk-black);
+  border: 1px solid var(--wk-gray-800);
+  border-radius: var(--wk-radius);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.optionCard:hover {
+  border-color: var(--wk-gray-600);
+}
+
+.optionActive {
+  border-color: var(--wk-accent) !important;
+  background: rgba(200, 255, 0, 0.03);
+  box-shadow: 0 0 0 1px var(--wk-accent), 0 4px 24px rgba(200, 255, 0, 0.06);
+}
+
+.optionIcon {
+  font-size: 1.4rem;
+  margin-bottom: 2px;
+}
+
+.optionLabel {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--wk-white);
+}
+
+.optionDesc {
+  font-size: 0.78rem;
+  color: var(--wk-gray-400);
+  line-height: 1.5;
+}
+
+/* ── SCALE OPTIONS ── */
+.scaleRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.scaleCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 18px 20px;
+  background: var(--wk-black);
+  border: 1px solid var(--wk-gray-800);
+  border-radius: var(--wk-radius);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.scaleCard:hover {
+  border-color: var(--wk-gray-600);
+}
+
+.scaleActive {
+  border-color: var(--wk-accent) !important;
+  background: rgba(200, 255, 0, 0.03);
+  box-shadow: 0 0 0 1px var(--wk-accent), 0 4px 24px rgba(200, 255, 0, 0.06);
+}
+
+.scaleLabel {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--wk-white);
+}
+
+.scaleDesc {
+  font-size: 0.75rem;
+  color: var(--wk-gray-400);
+  line-height: 1.4;
+}
+
+.scaleDuration {
+  font-family: var(--wk-font-mono);
+  font-size: 0.7rem;
+  color: var(--wk-accent);
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* ── MARKET CHIPS ── */
+.marketRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.marketChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--wk-black);
+  border: 1px solid var(--wk-gray-800);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--wk-gray-300);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.marketChip:hover {
+  border-color: var(--wk-gray-600);
+  color: var(--wk-white);
+}
+
+.marketActive {
+  border-color: var(--wk-accent) !important;
+  color: var(--wk-accent) !important;
+  background: rgba(200, 255, 0, 0.05);
+}
+
+.marketFlag {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* ── RESULT PANEL ── */
+.resultPanel {
+  position: sticky;
+  top: 120px;
+}
+
+.resultInner {
+  background: var(--wk-black);
+  border: 1px solid var(--wk-gray-800);
+  border-radius: var(--wk-radius-lg);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.resultInner::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: var(--wk-accent);
+  filter: blur(120px);
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.resultHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--wk-gray-800);
+}
+
+.resultIcon {
+  font-size: 1.6rem;
+}
+
+.resultType {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--wk-white);
+}
+
+/* Duration */
+.resultDuration {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resultDurationLabel {
+  font-size: 0.8rem;
+  color: var(--wk-gray-400);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: var(--wk-font-mono);
+}
+
+.resultDurationValue {
+  font-family: var(--wk-font-mono);
+  font-size: 0.88rem;
+  color: var(--wk-white);
+  font-weight: 700;
+}
+
+/* Price */
+.resultPrice {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 0;
+  border-top: 1px solid var(--wk-gray-800);
+  border-bottom: 1px solid var(--wk-gray-800);
+}
+
+.resultPriceLabel {
+  font-size: 0.75rem;
+  color: var(--wk-gray-400);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-family: var(--wk-font-mono);
+}
+
+.resultPriceValue {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 900;
+  color: var(--wk-accent);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+/* Savings */
+.resultSavings {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.resultSavingsLabel {
+  font-size: 0.75rem;
+  color: var(--wk-gray-400);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-family: var(--wk-font-mono);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resultSavingsVs {
+  font-size: 0.65rem;
+  color: var(--wk-gray-600);
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--wk-font-display);
+}
+
+.resultSavingsValue {
+  font-family: var(--wk-font-mono);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #4ade80;
+  letter-spacing: -0.5px;
+}
+
+/* CTA */
+.resultCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 32px;
+  background: var(--wk-accent);
+  color: var(--wk-black);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.resultCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(200, 255, 0, 0.25);
+}
+
+.resultNote {
+  font-size: 0.72rem;
+  color: var(--wk-gray-600);
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .simulator {
+    padding: 80px 28px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .resultPanel {
+    position: static;
+  }
+
+  .optionsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1135px) {
+  .simulator {
+    padding: 64px 20px;
+  }
+
+  .scaleRow {
+    grid-template-columns: 1fr;
+  }
+
+  .optionsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .simulator {
+    padding: 56px 16px;
+  }
+
+  .grid {
+    gap: 32px;
+  }
+
+  .resultInner {
+    padding: 28px 24px;
+  }
+
+  .marketRow {
+    gap: 8px;
+  }
+
+  .marketChip {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+}

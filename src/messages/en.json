@@ -1,51 +1,55 @@
 {
   "nav": {
-    "expertise": "Expertise",
-    "why_us": "Why us",
-    "pricing": "Pricing",
+    "offers": "Offers",
     "process": "Process",
+    "team": "Team",
     "faq": "FAQ",
-    "cta": "Let's talk about your project",
-    "cta_arrow": "Book a 30 min call →"
+    "cta": "Book a call",
+    "cta_arrow": "Book a call →"
   },
   "hero": {
     "how_it_works": "How it works"
   },
   "problems": {
     "tag": "The Problem",
-    "title": "Hiring tech talent shouldn't cost a fortune.",
-    "desc": "Whether you're a startup, an SME or an enterprise — you deserve a quality tech team at a fair price, with no hidden fees.",
-    "badge_bad": "Your frustrations",
+    "title": "Launching software shouldn't cost a fortune.",
+    "desc": "You have the idea, the vision, the market — but finding the right technical team takes time and results aren't always guaranteed.",
+    "badge_bad": "What you're facing",
     "badge_good": "Our answer"
   },
   "approach": {
     "tag": "Our approach",
-    "title": "Low margins. Invested talent.",
-    "desc": "Our model is designed so that the majority of your budget goes directly to the experts building your project — not into overhead.",
-    "bar_label_us": "Our fees",
+    "title": "Focused on your product.",
+    "desc": "Our model is simple: a dedicated team that focuses 100% on your project's success.",
+    "bar_label_us": "Wikolabs",
     "bar_label_them": "Traditional agencies",
-    "bar_bottom": "Fee comparison: Wikolabs vs traditional agencies",
-    "item1_title": "Optimized budget",
-    "item1_text": "Our management fees are among the lowest in the industry. Your budget funds real work, not a bloated structure.",
-    "item2_title": "Motivated talent",
-    "item2_text": "Our experts are compensated in proportion to their contribution. Result: they are directly invested in YOUR project's success.",
-    "item3_title": "Continuous training included",
-    "item3_text": "A portion of our fees funds the ongoing upskilling of our members. Your developers stay at the cutting edge."
+    "bar_bottom": "Share of budget invested in the product",
+    "item1_title": "Your product first",
+    "item1_text": "Every team member works exclusively on your project. No multitasking, no distractions.",
+    "item2_title": "Motivated team",
+    "item2_text": "Our experts are chosen for their passion and commitment. They are invested in your project's success.",
+    "item3_title": "Continuous training",
+    "item3_text": "Our members continuously train on the latest technologies to bring you the best."
   },
   "why_clients": {
-    "tag": "Advantages",
+    "tag": "Why us",
     "title": "Why our clients choose us.",
-    "desc": "A model designed to align everyone's interests: you pay less, our talent earns more. Everyone wins."
+    "desc": "A complete team, a clear process, a product delivered on time. Here's what makes the difference."
   },
   "expertise": {
-    "tag": "Expertise",
-    "title": "{count} specializations at your service.",
-    "desc": "Profiles selected on real projects, continuously trained, positioned 25% below the international market. From AI to design, backend to DevOps."
+    "tag": "The Team",
+    "title": "All the talent to build your product.",
+    "desc": "Artificial intelligence, development, data, design, infrastructure — a complete team, ready to bring your idea to life."
+  },
+  "offers": {
+    "tag": "Our offers",
+    "title": "Three ways to get started.",
+    "desc": "From a first audit to a complete product delivery — choose the entry point that matches your stage."
   },
   "pricing": {
-    "tag": "Pricing",
-    "title": "Clear daily rates, by profile and level.",
-    "desc": "Junior (0-2 yrs), Mid-level (2-5 yrs), Senior (5+ yrs). Rates adapted per market: France, BE/LU, Canada, UK, Africa.",
+    "tag": "Simulator",
+    "title": "Estimate your project.",
+    "desc": "Select your need and desired scale for an instant estimate.",
     "th_role": "Role",
     "th_junior": "Junior",
     "th_confirmed": "Mid-level",
@@ -53,8 +57,8 @@
   },
   "process": {
     "tag": "Process",
-    "title": "From brief to delivery: {count} steps.",
-    "desc": "A clear, agile process with validation at every stage. You stay in control from start to finish.",
+    "title": "From idea to product: {count} steps.",
+    "desc": "A clear process with validation at every stage. You stay in control from start to finish.",
     "step": "Step"
   },
   "testimonials": {
@@ -66,12 +70,12 @@
     "title": "Frequently asked questions."
   },
   "cta": {
-    "title": "Ready to launch your next project?",
-    "desc": "Tell us about your needs. We'll get back to you within 24h with a team proposal and a transparent quote.",
-    "button": "Book a 30 min call →"
+    "title": "Ready to build your intelligent SaaS?",
+    "desc": "Tell us about your idea. We'll get back to you within 24h with a team proposal and an action plan.",
+    "button": "Book a call →"
   },
   "footer": {
-    "brand_text": "Initiative of Independent Young Digital Talents founded in Madagascar. Registered SARLU.",
+    "brand_text": "We build your intelligent SaaS — from idea to product. Dedicated team, concrete results.",
     "nav_title": "Navigation",
     "contact_title": "Contact"
   }

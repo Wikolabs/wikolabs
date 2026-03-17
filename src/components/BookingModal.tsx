@@ -1,0 +1,314 @@
+"use client";
+
+import { useState, useMemo, useEffect, useCallback } from "react";
+import Cal, { getCalApi } from "@calcom/embed-react";
+import styles from "./BookingModal.module.css";
+import {
+  PROJECT_TYPES,
+  PROJECT_SCALES,
+  computeEstimate,
+  formatPrice,
+  type Lang,
+} from "@/lib/simulatorData";
+import type { BookingPrefill } from "@/app/LandingClient";
+
+const CAL_LINK = "cedric-rabarijohn/30min";
+
+const i18n = {
+  fr: {
+    steps: ["Votre projet", "Vos coordonnées", "Choisir un créneau"],
+    step1Title: "Quel projet avez-vous en tête ?",
+    step2Title: "Comment vous contacter ?",
+    step2Sub: "Pour qu'on puisse préparer notre échange.",
+    step3Title: "Choisissez un créneau",
+    step3Sub: "30 minutes pour discuter de votre projet.",
+    projectType: "Type de projet",
+    projectScale: "Envergure",
+    estimate: "Estimation",
+    duration: "Durée",
+    next: "Continuer",
+    back: "Retour",
+    nameLabel: "Nom",
+    namePlaceholder: "Marie Dupont",
+    emailLabel: "Email",
+    emailPlaceholder: "marie@exemple.com",
+    descLabel: "Décrivez votre projet",
+    descPlaceholder: "Je veux créer un chatbot pour mon cabinet médical qui répond aux questions fréquentes des patients...",
+    optional: "facultatif",
+    bookCall: "Choisir un créneau",
+    booked: "Rendez-vous confirmé !",
+    bookedSub: "Vous recevrez un email de confirmation. À très vite !",
+    close: "Fermer",
+  },
+  en: {
+    steps: ["Your project", "Your details", "Pick a slot"],
+    step1Title: "What project do you have in mind?",
+    step2Title: "How can we reach you?",
+    step2Sub: "So we can prepare our conversation.",
+    step3Title: "Pick a time slot",
+    step3Sub: "30 minutes to discuss your project.",
+    projectType: "Project type",
+    projectScale: "Scale",
+    estimate: "Estimate",
+    duration: "Duration",
+    next: "Continue",
+    back: "Back",
+    nameLabel: "Name",
+    namePlaceholder: "Jane Smith",
+    emailLabel: "Email",
+    emailPlaceholder: "jane@example.com",
+    descLabel: "Describe your project",
+    descPlaceholder: "I want to create a chatbot for my medical practice that answers common patient questions...",
+    optional: "optional",
+    bookCall: "Pick a slot",
+    booked: "Meeting confirmed!",
+    bookedSub: "You'll receive a confirmation email. Talk soon!",
+    close: "Close",
+  },
+};
+
+interface BookingModalProps {
+  locale: string;
+  open: boolean;
+  onClose: () => void;
+  prefill?: BookingPrefill;
+}
+
+export default function BookingModal({ locale, open, onClose, prefill }: BookingModalProps) {
+  const lang = (locale === "en" ? "en" : "fr") as Lang;
+  const t = i18n[lang];
+
+  const [step, setStep] = useState(1);
+  const [selectedType, setSelectedType] = useState("mvp-saas");
+  const [selectedScale, setSelectedScale] = useState("mvp");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [description, setDescription] = useState("");
+  const [booked, setBooked] = useState(false);
+
+  // Listen for cal.com booking
+  useEffect(() => {
+    let mounted = true;
+    getCalApi().then((cal) => {
+      if (!mounted) return;
+      cal("on", {
+        action: "bookingSuccessful",
+        callback: () => setBooked(true),
+      });
+    });
+    return () => { mounted = false; };
+  }, []);
+
+  // Apply prefill and reset on open
+  useEffect(() => {
+    if (open) {
+      setBooked(false);
+      if (prefill?.type) setSelectedType(prefill.type);
+      if (prefill?.scale) setSelectedScale(prefill.scale);
+      setStep(prefill?.startStep || 1);
+    }
+  }, [open, prefill]);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  const result = useMemo(() => {
+    const est = computeEstimate(selectedType, selectedScale);
+    return { ...est, durationLabel: est.duration[lang] };
+  }, [selectedType, selectedScale, lang]);
+
+  const typeObj = PROJECT_TYPES.find((p) => p.id === selectedType);
+  const typeLabel = typeObj?.label[lang] || "";
+  const scaleLabel = PROJECT_SCALES.find((s) => s.id === selectedScale)?.label[lang] || "";
+
+  const bookingNotes = useMemo(() => {
+    if (prefill?.offerLabel) {
+      return [
+        `Offre: ${prefill.offerLabel}`,
+        `Prix: ${prefill.offerPrice}`,
+        `Durée: ${prefill.offerDuration}`,
+        description ? `Description: ${description}` : "",
+      ].filter(Boolean).join("\n");
+    }
+    return [
+      `Projet: ${typeLabel} — ${scaleLabel}`,
+      `Estimation: ${formatPrice(result.min, lang)} – ${formatPrice(result.max, lang)} €`,
+      `Durée: ${result.durationLabel}`,
+      description ? `Description: ${description}` : "",
+    ].filter(Boolean).join("\n");
+  }, [prefill, typeLabel, scaleLabel, result, description, lang]);
+
+  const goTo = useCallback((s: number) => setStep(s), []);
+
+  if (!open) return null;
+
+  return (
+    <div className={styles.overlay} onClick={onClose}>
+      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+        <button className={styles.closeBtn} onClick={onClose} aria-label="Close">
+          <span /><span />
+        </button>
+
+        {/* ── Step indicator ── */}
+        {!booked && (
+          <div className={styles.stepper}>
+            {t.steps.map((label, i) => (
+              <div key={i} className={`${styles.stepperItem} ${step > i + 1 ? styles.stepperDone : ""} ${step === i + 1 ? styles.stepperCurrent : ""}`}>
+                <div className={styles.stepperNum}>{step > i + 1 ? "✓" : i + 1}</div>
+                <span className={styles.stepperLabel}>{label}</span>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* ── STEP 1: Project selection ── */}
+        {step === 1 && (
+          <div className={styles.body}>
+            <h3 className={styles.title}>{t.step1Title}</h3>
+
+            <div className={styles.group}>
+              <label className={styles.label}>{t.projectType}</label>
+              <div className={styles.optionsGrid}>
+                {PROJECT_TYPES.map((pt) => (
+                  <button
+                    key={pt.id}
+                    className={`${styles.chip} ${selectedType === pt.id ? styles.chipActive : ""}`}
+                    onClick={() => setSelectedType(pt.id)}
+                  >
+                    <span className={styles.chipIcon}>{pt.icon}</span>
+                    {pt.label[lang]}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className={styles.group}>
+              <label className={styles.label}>{t.projectScale}</label>
+              <div className={styles.scaleRow}>
+                {PROJECT_SCALES.map((sc) => (
+                  <button
+                    key={sc.id}
+                    className={`${styles.scaleCard} ${selectedScale === sc.id ? styles.scaleActive : ""}`}
+                    onClick={() => setSelectedScale(sc.id)}
+                  >
+                    <span className={styles.scaleName}>{sc.label[lang]}</span>
+                    <span className={styles.scaleDur}>{sc.duration[lang]}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className={styles.resultBar}>
+              <div className={styles.resultCol}>
+                <span className={styles.resultLabel}>{t.estimate}</span>
+                <span className={styles.resultVal}>{formatPrice(result.min, lang)} – {formatPrice(result.max, lang)} €</span>
+              </div>
+              <div className={styles.resultDivider} />
+              <div className={styles.resultCol}>
+                <span className={styles.resultLabel}>{t.duration}</span>
+                <span className={styles.resultVal}>{result.durationLabel}</span>
+              </div>
+            </div>
+
+            <button className={styles.btnPrimary} onClick={() => goTo(2)}>
+              {t.next}
+            </button>
+          </div>
+        )}
+
+        {/* ── STEP 2: Contact form ── */}
+        {step === 2 && (
+          <div className={styles.body}>
+            <h3 className={styles.title}>{t.step2Title}</h3>
+            <p className={styles.subtitle}>{t.step2Sub}</p>
+
+            <div className={styles.recap}>
+              {prefill?.offerLabel ? (
+                <>
+                  <span>{prefill.offerLabel}</span>
+                  <span className={styles.recapDot}>·</span>
+                  <span className={styles.recapAccent}>{prefill.offerPrice}</span>
+                  <span className={styles.recapDot}>·</span>
+                  <span>{prefill.offerDuration}</span>
+                </>
+              ) : (
+                <>
+                  <span>{typeObj?.icon} {typeLabel}</span>
+                  <span className={styles.recapDot}>·</span>
+                  <span>{scaleLabel}</span>
+                  <span className={styles.recapDot}>·</span>
+                  <span className={styles.recapAccent}>{formatPrice(result.min, lang)} – {formatPrice(result.max, lang)} €</span>
+                </>
+              )}
+            </div>
+
+            <div className={styles.formRow}>
+              <div className={styles.field}>
+                <label className={styles.label}>{t.nameLabel}</label>
+                <input type="text" className={styles.input} placeholder={t.namePlaceholder} value={name} onChange={(e) => setName(e.target.value)} />
+              </div>
+              <div className={styles.field}>
+                <label className={styles.label}>{t.emailLabel}</label>
+                <input type="email" className={styles.input} placeholder={t.emailPlaceholder} value={email} onChange={(e) => setEmail(e.target.value)} />
+              </div>
+            </div>
+
+            <div className={styles.field}>
+              <label className={styles.label}>{t.descLabel} <span className={styles.opt}>({t.optional})</span></label>
+              <textarea className={styles.textarea} placeholder={t.descPlaceholder} rows={3} value={description} onChange={(e) => setDescription(e.target.value)} />
+            </div>
+
+            <div className={styles.actions}>
+              <button className={styles.btnGhost} onClick={() => goTo(1)}>{t.back}</button>
+              <button className={styles.btnPrimary} onClick={() => goTo(3)}>{t.bookCall}</button>
+            </div>
+          </div>
+        )}
+
+        {/* ── STEP 3: Cal.com ── */}
+        {step === 3 && !booked && (
+          <div className={styles.body}>
+            <h3 className={styles.title}>{t.step3Title}</h3>
+            <p className={styles.subtitle}>{t.step3Sub}</p>
+
+            <div className={styles.calWrap}>
+              <Cal
+                calLink={CAL_LINK}
+                style={{ width: "100%", height: "100%", overflow: "auto" }}
+                config={{
+                  layout: "month_view",
+                  theme: "dark",
+                  name: name || '',
+                  email: email || '',
+                  notes: bookingNotes,
+                }}
+              />
+            </div>
+
+            <button className={styles.btnGhost} onClick={() => goTo(2)} style={{ alignSelf: "flex-start" }}>{t.back}</button>
+          </div>
+        )}
+
+        {/* ── Success ── */}
+        {booked && (
+          <div className={styles.body}>
+            <div className={styles.success}>
+              <div className={styles.successCheck}>✓</div>
+              <h3 className={styles.title}>{t.booked}</h3>
+              <p className={styles.subtitle}>{t.bookedSub}</p>
+              <button className={styles.btnPrimary} onClick={onClose} style={{ marginTop: 8 }}>{t.close}</button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

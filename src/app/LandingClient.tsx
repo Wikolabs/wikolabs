@@ -1,11 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import s from "./page.module.css";
 import HeroBg from "./HeroBg";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 import type { SiteContent } from "@/lib/content";
+import ProjectSimulator from "@/components/ProjectSimulator";
+import PackagedOffers from "@/components/PackagedOffers";
+import BookingModal from "@/components/BookingModal";
+
+export interface BookingPrefill {
+  type?: string;
+  scale?: string;
+  startStep?: number;
+  offerLabel?: string;
+  offerPrice?: string;
+  offerDuration?: string;
+}
 
 export default function LandingClient({
   content,
@@ -21,7 +33,6 @@ export default function LandingClient({
     client_solutions,
     roles,
     why_clients,
-    pricing,
     process,
     testimonials,
     faq,
@@ -29,6 +40,13 @@ export default function LandingClient({
 
   const marqueeDouble = [...hero.marquee_items, ...hero.marquee_items];
   const [menuOpen, setMenuOpen] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const [bookingPrefill, setBookingPrefill] = useState<BookingPrefill>({});
+
+  const openBooking = useCallback((prefill?: BookingPrefill) => {
+    setBookingPrefill(prefill || {});
+    setBookingOpen(true);
+  }, []);
 
   useEffect(() => {
     const onResize = () => {
@@ -40,9 +58,7 @@ export default function LandingClient({
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
@@ -57,19 +73,14 @@ export default function LandingClient({
           <img src="/wikolabs-logo.svg" alt="Wikolabs" height={36} className={s.logoImg} />
         </a>
         <div className={s.navLinks}>
-          <a href="#expertise" className={s.navLink}>{t("nav.expertise")}</a>
-          <a href="#pourquoi" className={s.navLink}>{t("nav.why_us")}</a>
-          <a href="#tarifs" className={s.navLink}>{t("nav.pricing")}</a>
+          <a href="#offres" className={s.navLink}>{t("nav.offers")}</a>
           <a href="#processus" className={s.navLink}>{t("nav.process")}</a>
+          <a href="#expertise" className={s.navLink}>{t("nav.team")}</a>
           <a href="#faq" className={s.navLink}>{t("nav.faq")}</a>
           <LocaleSwitcher />
-          <a href="https://calendly.com/guillaume-wikolabs/30min"
-            className={s.navCta}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <button onClick={() => openBooking()} className={s.navCta}>
             {t("nav.cta")}
-          </a>
+          </button>
         </div>
         <button
           className={`${s.mobileMenuBtn} ${menuOpen ? s.mobileMenuOpen : ""}`}
@@ -86,24 +97,20 @@ export default function LandingClient({
         onClick={closeMenu}
       >
         <div className={s.mobileNav} onClick={(e) => e.stopPropagation()}>
-          <a href="#expertise" className={s.mobileLink} onClick={closeMenu}>{t("nav.expertise")}</a>
-          <a href="#pourquoi" className={s.mobileLink} onClick={closeMenu}>{t("nav.why_us")}</a>
-          <a href="#tarifs" className={s.mobileLink} onClick={closeMenu}>{t("nav.pricing")}</a>
+          <a href="#offres" className={s.mobileLink} onClick={closeMenu}>{t("nav.offers")}</a>
           <a href="#processus" className={s.mobileLink} onClick={closeMenu}>{t("nav.process")}</a>
+          <a href="#expertise" className={s.mobileLink} onClick={closeMenu}>{t("nav.team")}</a>
           <a href="#faq" className={s.mobileLink} onClick={closeMenu}>{t("nav.faq")}</a>
           <div style={{ padding: "12px 0" }}>
             <LocaleSwitcher />
           </div>
-          <a
-            href="https://calendly.com/guillaume-wikolabs/30min"
+          <button
             className={s.btnPrimary}
-            onClick={closeMenu}
+            onClick={() => { closeMenu(); openBooking(); }}
             style={{ marginTop: 8, textAlign: "center", justifyContent: "center" }}
-            target="_blank"
-            rel="noreferrer"
           >
             {t("nav.cta_arrow")}
-          </a>
+          </button>
         </div>
       </div>
 
@@ -128,14 +135,9 @@ export default function LandingClient({
         <p className={s.heroSub}>{hero.subtitle}</p>
 
         <div className={s.heroActions}>
-          <a
-            href="https://calendly.com/guillaume-wikolabs/30min"
-            className={s.btnPrimary}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <button onClick={() => openBooking()} className={s.btnPrimary}>
             {t("nav.cta_arrow")}
-          </a>
+          </button>
           <a href="#processus" className={s.btnSecondary}>
             {t("hero.how_it_works")}
           </a>
@@ -199,56 +201,6 @@ export default function LandingClient({
         </div>
       </section>
 
-      {/* ── OUR APPROACH ── */}
-      <section className={s.section}>
-        <div className={s.sectionTag}>
-          <span className={s.sectionTagLine} />
-          {t("approach.tag")}
-        </div>
-        <h2 className={s.sectionTitle}>{t("approach.title")}</h2>
-        <p className={s.sectionDesc}>{t("approach.desc")}</p>
-
-        <div className={s.splitGrid}>
-          <div className={s.splitVisual}>
-            <div className={s.barChart}>
-              <div className={`${s.bar} ${s.bar70}`}>
-                <span className={s.barLabel}>&lt;15%</span>
-                <span className={s.barDesc}>{t("approach.bar_label_us")}</span>
-              </div>
-              <div className={`${s.bar} ${s.bar20}`}>
-                <span className={s.barLabel}>40-60%</span>
-                <span className={s.barDesc}>{t("approach.bar_label_them")}</span>
-              </div>
-            </div>
-            <div className={s.barBottom}>{t("approach.bar_bottom")}</div>
-          </div>
-
-          <div className={s.splitContent}>
-            <div className={s.splitItem}>
-              <div className={`${s.splitIcon} ${s.splitIcon70}`}>✓</div>
-              <div>
-                <div className={s.splitItemTitle}>{t("approach.item1_title")}</div>
-                <div className={s.splitItemText}>{t("approach.item1_text")}</div>
-              </div>
-            </div>
-            <div className={s.splitItem}>
-              <div className={`${s.splitIcon} ${s.splitIcon20}`}>✓</div>
-              <div>
-                <div className={s.splitItemTitle}>{t("approach.item2_title")}</div>
-                <div className={s.splitItemText}>{t("approach.item2_text")}</div>
-              </div>
-            </div>
-            <div className={s.splitItem}>
-              <div className={`${s.splitIcon} ${s.splitIcon10}`}>✓</div>
-              <div>
-                <div className={s.splitItemTitle}>{t("approach.item3_title")}</div>
-                <div className={s.splitItemText}>{t("approach.item3_text")}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── WHY CLIENTS ── */}
       <section className={`${s.section} ${s.valuesSection}`}>
         <div className={s.sectionTag}>
@@ -286,44 +238,16 @@ export default function LandingClient({
               <span className={s.roleEmoji}>{r.emoji}</span>
               <div className={s.roleTitle}>{r.title}</div>
               <div className={s.roleDesc}>{r.desc}</div>
-              <div className={s.roleTjm}>{r.tjm}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── PRICING ── */}
-      <section id="tarifs" className={`${s.section} ${s.valuesSection}`}>
-        <div className={s.sectionTag}>
-          <span className={s.sectionTagLine} />
-          {t("pricing.tag")}
-        </div>
-        <h2 className={s.sectionTitle}>{t("pricing.title")}</h2>
-        <p className={s.sectionDesc}>{t("pricing.desc")}</p>
+      {/* ── PACKAGED OFFERS ── */}
+      <PackagedOffers locale={locale} onBooking={openBooking} />
 
-        <div className={s.pricingWrap}>
-          <table className={s.pricingTable}>
-            <thead>
-              <tr>
-                <th>{t("pricing.th_role")}</th>
-                <th>{t("pricing.th_junior")}</th>
-                <th>{t("pricing.th_confirmed")}</th>
-                <th>{t("pricing.th_senior")}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {pricing.map((p, i) => (
-                <tr key={i}>
-                  <td><span className={s.pricingRole}>{p.role}</span></td>
-                  <td><span className={`${s.pricingLevel} ${s.levelJunior}`}>{p.junior}</span></td>
-                  <td><span className={`${s.pricingLevel} ${s.levelConfirmed}`}>{p.confirmed}</span></td>
-                  <td><span className={`${s.pricingLevel} ${s.levelSenior}`}>{p.senior}</span></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
+      {/* ── PROJECT SIMULATOR ── */}
+      <ProjectSimulator locale={locale} onBooking={openBooking} />
 
       {/* ── PROCESS ── */}
       <section id="processus" className={s.section}>
@@ -396,14 +320,9 @@ export default function LandingClient({
         <h2 className={s.ctaTitle}>{t("cta.title")}</h2>
         <p className={s.ctaText}>{t("cta.desc")}</p>
         <div className={s.ctaActions}>
-          <a
-            href="https://calendly.com/guillaume-wikolabs/30min"
-            className={s.btnPrimary}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <button onClick={() => openBooking()} className={s.btnPrimary}>
             {t("cta.button")}
-          </a>
+          </button>
         </div>
       </section>
 
@@ -420,20 +339,14 @@ export default function LandingClient({
           <div className={s.footerCols}>
             <div className={s.footerCol}>
               <h4>{t("footer.nav_title")}</h4>
-              <a href="#expertise">{t("nav.expertise")}</a>
-              <a href="#pourquoi">{t("nav.why_us")}</a>
-              <a href="#tarifs">{t("nav.pricing")}</a>
+              <a href="#offres">{t("nav.offers")}</a>
               <a href="#processus">{t("nav.process")}</a>
+              <a href="#expertise">{t("nav.team")}</a>
               <a href="#faq">{t("nav.faq")}</a>
             </div>
             <div className={s.footerCol}>
               <h4>{t("footer.contact_title")}</h4>
-              <a
-                href="https://calendly.com/guillaume-wikolabs/30min"
-                target="_blank"
-                rel="noreferrer"
-              >
-                service@wikolabs.com</a>
+              <a href="mailto:service@wikolabs.com">service@wikolabs.com</a>
             </div>
           </div>
         </div>
@@ -444,6 +357,14 @@ export default function LandingClient({
           </div>
         </div>
       </footer>
+
+      {/* ── BOOKING MODAL ── */}
+      <BookingModal
+        locale={locale}
+        open={bookingOpen}
+        onClose={() => setBookingOpen(false)}
+        prefill={bookingPrefill}
+      />
     </>
   );
 }

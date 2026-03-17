@@ -1,0 +1,235 @@
+/* ============================================
+   PACKAGED OFFERS
+   ============================================ */
+.offers {
+  padding: 120px 48px;
+  position: relative;
+}
+
+.sectionTag {
+  font-family: var(--wk-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--wk-accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sectionTagLine {
+  width: 32px;
+  height: 1px;
+  background: var(--wk-accent);
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  max-width: 700px;
+  margin-bottom: 24px;
+}
+
+.sectionDesc {
+  font-size: 1.05rem;
+  color: var(--wk-gray-400);
+  max-width: 560px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ── GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 64px;
+}
+
+/* ── CARD ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 36px 32px;
+  background: var(--wk-gray-900);
+  border: 1px solid var(--wk-gray-800);
+  border-radius: var(--wk-radius-lg);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  border-color: var(--wk-gray-700);
+  transform: translateY(-4px);
+}
+
+.cardHighlighted {
+  border-color: var(--wk-accent) !important;
+  background: rgba(200, 255, 0, 0.02);
+  box-shadow: 0 0 0 1px var(--wk-accent), 0 8px 40px rgba(200, 255, 0, 0.06);
+}
+
+.cardHighlighted:hover {
+  border-color: var(--wk-accent) !important;
+  transform: translateY(-6px);
+  box-shadow: 0 0 0 1px var(--wk-accent), 0 16px 60px rgba(200, 255, 0, 0.1);
+}
+
+/* ── BADGE ── */
+.badge {
+  font-family: var(--wk-font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--wk-gray-400);
+  background: var(--wk-gray-800);
+  padding: 5px 14px;
+  border-radius: 100px;
+  align-self: flex-start;
+  margin-bottom: 20px;
+}
+
+.badgeHighlighted {
+  color: var(--wk-black);
+  background: var(--wk-accent);
+}
+
+/* ── CONTENT ── */
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.cardDesc {
+  font-size: 0.88rem;
+  color: var(--wk-gray-400);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* ── PRICE ── */
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 0;
+  border-top: 1px solid var(--wk-gray-800);
+  border-bottom: 1px solid var(--wk-gray-800);
+  margin-bottom: 24px;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--wk-accent);
+  letter-spacing: -0.5px;
+}
+
+.duration {
+  font-family: var(--wk-font-mono);
+  font-size: 0.72rem;
+  color: var(--wk-gray-400);
+  letter-spacing: 0.5px;
+}
+
+/* ── FEATURES ── */
+.features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+  flex-grow: 1;
+}
+
+.features li {
+  font-size: 0.85rem;
+  color: var(--wk-gray-300);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.check {
+  color: var(--wk-accent);
+  font-weight: 700;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── CTA ── */
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 28px;
+  border: 1px solid var(--wk-gray-700);
+  background: none;
+  color: var(--wk-white);
+  font-family: var(--wk-font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin-top: auto;
+}
+
+.cta:hover {
+  border-color: var(--wk-accent);
+  color: var(--wk-accent);
+  transform: translateY(-2px);
+}
+
+.ctaHighlighted {
+  background: var(--wk-accent);
+  color: var(--wk-black);
+  border-color: var(--wk-accent);
+}
+
+.ctaHighlighted:hover {
+  color: var(--wk-black);
+  box-shadow: 0 12px 40px rgba(200, 255, 0, 0.25);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .offers {
+    padding: 80px 28px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 1135px) {
+  .offers {
+    padding: 64px 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .offers {
+    padding: 56px 16px;
+  }
+
+  .card {
+    padding: 28px 24px;
+  }
+}
