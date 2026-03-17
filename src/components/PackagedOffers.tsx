@@ -42,7 +42,12 @@ const OFFERS: Offer[] = [
       ],
     },
     cta: { fr: "Demander un audit →", en: "Request an audit →" },
-    prefill: { type: "ai-integration", scale: "mvp", startStep: 2, offerLabel: "Audit & Plan d'action", offerPrice: "À partir de 1 500 €", offerDuration: "1 – 2 semaines" },
+    prefill: {
+      type: "ai-integration", scale: "mvp", startStep: 2,
+      offerLabel: { fr: "Audit & Plan d'action", en: "Audit & Action Plan" },
+      offerPrice: { fr: "À partir de 1 500 €", en: "From €1,500" },
+      offerDuration: { fr: "1 – 2 semaines", en: "1 – 2 weeks" },
+    },
   },
   {
     badge: { fr: "Le plus populaire", en: "Most popular" },
@@ -73,7 +78,12 @@ const OFFERS: Offer[] = [
     },
     cta: { fr: "Construire mon produit →", en: "Build my product →" },
     highlighted: true,
-    prefill: { type: "mvp-saas", scale: "medium", startStep: 2, offerLabel: "Produit de A à Z", offerPrice: "À partir de 8 000 €", offerDuration: "4 – 8 semaines" },
+    prefill: {
+      type: "mvp-saas", scale: "medium", startStep: 2,
+      offerLabel: { fr: "Produit de A à Z", en: "Your product from A to Z" },
+      offerPrice: { fr: "À partir de 8 000 €", en: "From €8,000" },
+      offerDuration: { fr: "4 – 8 semaines", en: "4 – 8 weeks" },
+    },
   },
   {
     badge: { fr: "Pour produits existants", en: "For existing products" },
@@ -101,7 +111,12 @@ const OFFERS: Offer[] = [
       ],
     },
     cta: { fr: "Ajouter de l'IA →", en: "Add AI →" },
-    prefill: { type: "ai-integration", scale: "medium", startStep: 2, offerLabel: "Ajouter de l'IA", offerPrice: "À partir de 5 000 €", offerDuration: "2 – 6 semaines" },
+    prefill: {
+      type: "ai-integration", scale: "medium", startStep: 2,
+      offerLabel: { fr: "Ajouter de l'IA", en: "Add AI to your product" },
+      offerPrice: { fr: "À partir de 5 000 €", en: "From €5,000" },
+      offerDuration: { fr: "2 – 6 semaines", en: "2 – 6 weeks" },
+    },
   },
 ];
 

@@ -81,7 +81,9 @@ interface BookingModalProps {
 export default function BookingModal({ locale, open, onClose, prefill }: BookingModalProps) {
   const lang = (locale === "en" ? "en" : "fr") as Lang;
   const t = i18n[lang];
-
+  const offerLabel = prefill?.offerLabel?.[lang];
+  const offerPrice = prefill?.offerPrice?.[lang];
+  const offerDuration = prefill?.offerDuration?.[lang];
   const [step, setStep] = useState(1);
   const [selectedType, setSelectedType] = useState("mvp-saas");
   const [selectedScale, setSelectedScale] = useState("mvp");
@@ -135,11 +137,11 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
   const scaleLabel = PROJECT_SCALES.find((s) => s.id === selectedScale)?.label[lang] || "";
 
   const bookingNotes = useMemo(() => {
-    if (prefill?.offerLabel) {
+    if (offerLabel) {
       return [
-        `Offre: ${prefill.offerLabel}`,
-        `Prix: ${prefill.offerPrice}`,
-        `Durée: ${prefill.offerDuration}`,
+        `Offre: ${offerLabel}`,
+        `Prix: ${offerPrice}`,
+        `Durée: ${offerDuration}`,
         description ? `Description: ${description}` : "",
       ].filter(Boolean).join("\n");
     }
@@ -238,13 +240,13 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
             <p className={styles.subtitle}>{t.step2Sub}</p>
 
             <div className={styles.recap}>
-              {prefill?.offerLabel ? (
+              {offerLabel ? (
                 <>
-                  <span>{prefill.offerLabel}</span>
+                  <span>{offerLabel}</span>
                   <span className={styles.recapDot}>·</span>
-                  <span className={styles.recapAccent}>{prefill.offerPrice}</span>
+                  <span className={styles.recapAccent}>{offerPrice}</span>
                   <span className={styles.recapDot}>·</span>
-                  <span>{prefill.offerDuration}</span>
+                  <span>{offerDuration}</span>
                 </>
               ) : (
                 <>
@@ -260,7 +262,7 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
             <div className={styles.formRow}>
               <div className={styles.field}>
                 <label className={styles.label}>{t.nameLabel}</label>
-                <input type="text" className={styles.input} placeholder={t.namePlaceholder} value={name} onChange={(e) => { setName(e.target.value); setFormError(""); }}/>
+                <input type="text" className={styles.input} placeholder={t.namePlaceholder} value={name} onChange={(e) => { setName(e.target.value); setFormError(""); }} />
               </div>
               <div className={styles.field}>
                 <label className={styles.label}>{t.emailLabel}</label>

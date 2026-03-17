@@ -14,9 +14,9 @@ export interface BookingPrefill {
   type?: string;
   scale?: string;
   startStep?: number;
-  offerLabel?: string;
-  offerPrice?: string;
-  offerDuration?: string;
+  offerLabel?: { fr: string; en: string };
+  offerPrice?: { fr: string; en: string };
+  offerDuration?: { fr: string; en: string };
 }
 
 export default function LandingClient({
