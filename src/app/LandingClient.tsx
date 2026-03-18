@@ -346,7 +346,7 @@ export default function LandingClient({
             </div>
             <div className={s.footerCol}>
               <h4>{t("footer.contact_title")}</h4>
-              <a href="mailto:service@wikolabs.com">service@wikolabs.com</a>
+              <a href="mailto:team@wikolabs.com">team@wikolabs.com</a>
             </div>
           </div>
         </div>
