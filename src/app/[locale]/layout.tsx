@@ -18,54 +18,74 @@ export async function generateMetadata({
 
   if (locale === "en") {
     return {
-      title: "Wikolabs — Proven tech experts from Madagascar",
+      title: "Wikolabs — We build your intelligent SaaS",
       description:
-        "Structured tech teams, continuously trained, at rates 25% below the European market. AI Engineers, Data Scientists, Fullstack Devs, DevOps — selected on real projects.",
+        "A complete team — AI engineers, developers, designers — that turns your idea into a working product in 4 to 8 weeks. From idea to launch, with AI built in.",
       keywords: [
-        "freelance Madagascar",
-        "developer Madagascar",
-        "AI Engineer",
-        "Data Scientist",
-        "remote work Africa",
-        "tech outsourcing Madagascar",
+        "SaaS development Madagascar",
+        "AI product studio",
+        "build SaaS with AI",
+        "intelligent web app",
+        "MVP development",
+        "AI integration existing product",
+        "dedicated tech team",
         "Wikolabs",
-        "outsourced tech team",
-        "nearshore Madagascar",
+        "software development Madagascar",
+        "nearshore SaaS studio",
       ],
       openGraph: {
-        title: "Wikolabs — Your proven tech expert team",
+        title: "Wikolabs — We build your intelligent SaaS",
         description:
-          "Tech talent selected on real projects, continuously trained, at rates 25% below market. Among the lowest fees in the industry.",
+          "From idea to product in 4–8 weeks. A full team of AI engineers, developers and designers — ready to build your SaaS.",
         type: "website",
         locale: "en_US",
-        images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+        url: "https://wikolabs.com",
+        siteName: "Wikolabs",
+        images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Wikolabs — We build your intelligent SaaS" }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Wikolabs — We build your intelligent SaaS",
+        description:
+          "From idea to product in 4–8 weeks. AI engineers, developers and designers — all in one team.",
+        images: ["/og-image.png"],
       },
       icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
     };
   }
 
   return {
-    title: "Wikolabs — Experts tech éprouvés depuis Madagascar",
+    title: "Wikolabs — On construit votre SaaS intelligent",
     description:
-      "Équipes tech structurées, formées en continu, à des tarifs 25% sous le marché européen. AI Engineers, Data Scientists, Fullstack Devs, DevOps — sélectionnés sur projets réels.",
+      "Une équipe complète — ingénieurs IA, développeurs, designers — qui transforme votre idée en produit fonctionnel en 4 à 8 semaines. De l'idée au lancement, avec l'IA intégrée.",
     keywords: [
-      "freelance Madagascar",
-      "développeur Madagascar",
-      "AI Engineer",
-      "Data Scientist",
-      "remote work Africa",
-      "tech outsourcing Madagascar",
+      "développement SaaS Madagascar",
+      "studio produit IA",
+      "créer SaaS avec IA",
+      "application web intelligente",
+      "développement MVP",
+      "intégration IA produit existant",
+      "équipe tech dédiée",
       "Wikolabs",
-      "équipe tech externalisée",
-      "nearshore Madagascar",
+      "développement logiciel Madagascar",
+      "studio SaaS nearshore",
     ],
     openGraph: {
-      title: "Wikolabs — Votre équipe tech d'experts éprouvés",
+      title: "Wikolabs — On construit votre SaaS intelligent",
       description:
-        "Talents tech sélectionnés sur projets réels, formés en continu, à des tarifs 25% sous le marché. Marges parmi les plus basses du secteur.",
+        "De l'idée au produit en 4 à 8 semaines. Une équipe complète d'ingénieurs IA, développeurs et designers — prête à construire votre SaaS.",
       type: "website",
       locale: "fr_FR",
-      images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+      url: "https://wikolabs.com",
+      siteName: "Wikolabs",
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Wikolabs — On construit votre SaaS intelligent" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Wikolabs — On construit votre SaaS intelligent",
+      description:
+        "De l'idée au produit en 4 à 8 semaines. Ingénieurs IA, développeurs et designers — tout en une seule équipe.",
+      images: ["/og-image.png"],
     },
     icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
   };
