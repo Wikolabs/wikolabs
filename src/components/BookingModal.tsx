@@ -12,7 +12,7 @@ import {
 } from "@/lib/simulatorData";
 import type { BookingPrefill } from "@/app/LandingClient";
 
-const CAL_LINK = "cedric-rabarijohn/30min";
+const CAL_LINK = "wikolabs-team/30min";
 
 const i18n = {
   fr: {
@@ -146,9 +146,9 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
       ].filter(Boolean).join("\n");
     }
     return [
-      `Projet: ${typeLabel} — ${scaleLabel}`,
-      `Estimation: ${formatPrice(result.min, lang)} – ${formatPrice(result.max, lang)} €`,
-      `Durée: ${result.durationLabel}`,
+      `${t.projectType}: ${typeLabel} — ${scaleLabel}`,
+      `${t.estimate}: ${formatPrice(result.min, lang)} – ${formatPrice(result.max, lang)} €`,
+      `${t.duration}: ${result.durationLabel}`,
       description ? `Description: ${description}` : "",
     ].filter(Boolean).join("\n");
   }, [prefill, typeLabel, scaleLabel, result, description, lang]);
