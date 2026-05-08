@@ -273,7 +273,7 @@ export default function LandingClient({
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className={`${s.section} ${s.clientSection}`}>
+      {/* <section className={`${s.section} ${s.clientSection}`}>
         <div className={s.sectionTag}>
           <span className={s.sectionTagLine} />
           {t("testimonials.tag")}
@@ -294,7 +294,7 @@ export default function LandingClient({
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* ── FAQ ── */}
       <section id="faq" className={s.section}>
