@@ -75,6 +75,12 @@ export default function LandingClient({
 
   const closeMenu = () => setMenuOpen(false);
 
+  // Force scroll to top on every page load (prevent browser scroll restoration)
+  useEffect(() => {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, []);
+
   // Theme toggle
   useEffect(() => {
     const saved = localStorage.getItem("wk-theme") as "dark" | "light" | null;
