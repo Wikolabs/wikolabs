@@ -271,9 +271,6 @@ export default function LandingClient({
           ))}
         </div>
 
-        <div className={s.scrollIndicator}>
-          <div className={s.scrollDot} />
-        </div>
       </section>
 
       {/* ── MARQUEE ── */}
