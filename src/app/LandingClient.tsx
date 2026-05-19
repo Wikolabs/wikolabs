@@ -233,7 +233,7 @@ export default function LandingClient({
       {/* ── NAV ── */}
       <nav className={s.nav}>
         <a href="#" className={s.logo} onClick={closeMenu}>
-          <img src="/wikolabs-logo.svg" alt="Wikolabs" height={32} className={s.logoImg} />
+          <img src="/wikolabs-logo.png" alt="Wikolabs" height={32} className={s.logoImg} />
         </a>
         <div className={s.navLinks}>
           <a href="#services" className={s.navLink}>{t("nav.offers")}</a>
@@ -462,43 +462,23 @@ export default function LandingClient({
         </h2>
         <p className={`reveal d2 ${s.sectionDesc}`}>{t("process.desc")}</p>
 
-        <div className={s.timeline}>
+        <div className={s.stepper}>
           {process.map((step, i) => (
-            <div className={`reveal d${Math.min(i + 1, 4)} ${s.timelineItem}`} key={i}>
-              <div className={s.timelineDot} />
-              <div className={s.timelineNum}>{t("process.step")} {step.num}</div>
-              <div className={s.timelineTitle}>{step.title}</div>
-              <div className={s.timelineText}>{step.text}</div>
+            <div className={`reveal d${Math.min(i + 1, 4)} ${s.stepperItem}`} key={i}>
+              <div className={s.stepperHead}>
+                <div className={s.stepperCircle}>{String(i + 1).padStart(2, "0")}</div>
+                {i < process.length - 1 && <div className={s.stepperConnector} />}
+              </div>
+              <div className={s.stepperBody}>
+                <div className={s.stepperLabel}>{t("process.step")} {step.num}</div>
+                <div className={s.stepperTitle}>{step.title}</div>
+                <div className={s.stepperText}>{step.text}</div>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
-      {testimonials.length > 0 && (
-        <section className={`${s.section} ${s.clientSection}`}>
-          <div className={`reveal ${s.sectionTag}`}>
-            <span className={s.sectionTagLine} />
-            {t("testimonials.tag")}
-          </div>
-          <h2 className={`reveal d1 ${s.sectionTitle}`}>{t("testimonials.title")}</h2>
-
-          <div className={s.clientGrid}>
-            {testimonials.map((tm, i) => (
-              <div className={`reveal d${i + 1} ${s.clientCard}`} key={i}>
-                <div className={s.clientQuote}>{tm.quote}</div>
-                <div className={s.clientInfo}>
-                  <div className={s.clientAvatar}>{tm.initials}</div>
-                  <div>
-                    <div className={s.clientName}>{tm.name}</div>
-                    <div className={s.clientRole}>{tm.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
 
       {/* ── FAQ ── */}
       <section id="faq" className={s.section}>
@@ -557,7 +537,7 @@ export default function LandingClient({
         <div className={s.footerTop}>
           <div className={s.footerBrand}>
             <div className={s.footerBrandName}>
-              <img src="/wikolabs-logo.svg" alt="Wikolabs" height={28} className={s.logoImg} />
+              <img src="/wikolabs-logo.png" alt="Wikolabs" height={28} className={s.logoImg} />
             </div>
             <div className={s.footerBrandText}>{t("footer.brand_text")}</div>
           </div>

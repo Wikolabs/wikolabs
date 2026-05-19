@@ -13,7 +13,7 @@ const i18n = {
         icon: "🔍",
         label: "Recherche & Recommandation",
         title: "Trouvez le bon client, au bon moment",
-        desc: "Quand votre entreprise doit mettre le bon produit, service ou contenu face à la bonne personne au bon instant, nous construisons des systèmes de recherche et recommandation intelligents. Recherche sémantique, lexicale, multimodale — votre catalogue ou votre offre devient immédiatement accessible.",
+        desc: "Recherche sémantique, lexicale, knowledge graph et multimodale sur vos catalogues, contenus et données structurées. Le bon produit, service ou contenu face à la bonne personne, instantanément.",
         tags: ["Recherche sémantique", "Recommandation personnalisée", "Vision IA"],
         featured: false,
       },
@@ -21,7 +21,7 @@ const i18n = {
         icon: "🤖",
         label: "Logiciels IA de Production",
         title: "Des logiciels qui apprennent et s'améliorent",
-        desc: "Nous construisons des logiciels et systèmes complets où l'IA accélère chaque couche. Plateformes RAG, pipelines de données, agents intelligents avec mémoire et compétences, intelligence support, triage automatisé et déploiement MLOps inclus.",
+        desc: "Plateformes RAG, pipelines de données, agents intelligents avec mémoire et compétences, intelligence support, triage automatisé et déploiement MLOps. Chaque couche de la stack, accélérée par l'IA.",
         tags: ["RAG Platform", "Agents IA", "MLOps", "Fine-tuning"],
         featured: true,
       },
@@ -29,7 +29,7 @@ const i18n = {
         icon: "📊",
         label: "Intelligence Décisionnelle",
         title: "Vos données vous parlent, enfin",
-        desc: "La performance de votre entreprise ne devrait pas nécessiter un analyste pour être comprise. Nous construisons prévisions, détection d'anomalies et intelligence décisionnelle sur vos données synchronisées, interrogeables en langage naturel.",
+        desc: "Prévisions, détection d'anomalies et intelligence décisionnelle sur vos données synchronisées, interrogeables en langage naturel. CRM multi-agent avec scoring, pipeline, rétention et réactivation.",
         tags: ["Forecasting", "BI Naturel", "CRM Multi-agent", "Rétention"],
         featured: false,
       },
@@ -37,7 +37,7 @@ const i18n = {
         icon: "📞",
         label: "Automatisation Commerciale",
         title: "Votre cycle commercial, entièrement automatisé",
-        desc: "Nous automatisons l'intégralité du cycle commercial de A à Z : génération de leads, qualification BANT, prospection multicanale (email, LinkedIn, appel), suivi, prise de rendez-vous, call intelligence, CRM et suivi d'exécution avec routage intelligent.",
+        desc: "Du sourcing à l'onboarding : génération de leads, enrichissement BANT, outreach multicanal, qualification, setting, proposition, closing, support et rétention — avec routage intelligent à chaque étape.",
         tags: ["Lead Gen", "Outreach IA", "CRM Auto", "Call Intelligence"],
         featured: false,
       },
@@ -45,28 +45,67 @@ const i18n = {
         icon: "📄",
         label: "Données Non Structurées & Vision",
         title: "Exploitez vos documents et environnements visuels",
-        desc: "La plupart des systèmes ne savent pas traiter les données non structurées dans vos documents, emails et environnements visuels. OCR, extraction contractuelle, parsing de formulaires, détection d'objets, BIM, point cloud, inventaire logistique et cartographie.",
+        desc: "OCR, extraction contractuelle, parsing de formulaires, automation emails via MCP — étendu à la détection d'objets, segmentation, BIM, point cloud, inventaire logistique et cartographie géospatiale.",
         tags: ["OCR IA", "Extraction documentaire", "Vision IA", "Supply Chain"],
         featured: false,
       },
     ],
-    tangibleTitle: "Solutions clés en main — concrètes et déployables",
-    tangibleDesc: "Des exemples concrets de ce que nous livrons, testés en production.",
-    solutions: [
+    offersTag: "Nos agents & solutions",
+    offersTitle: "20+ offres concrètes et déployables",
+    offersDesc: "Chaque solution est un agent IA ou un système autonome testé en production, intégrable dans votre stack existante.",
+    categories: [
       {
-        num: "01",
-        title: "Agent SAV intelligent pour votre boutique en ligne",
-        desc: "Un agent IA répond à vos clients par email et WhatsApp en utilisant les données de votre site (statut commande, livraison, retours) avec vos règles de gestion définies dans Notion. Compatible WooCommerce, Shopify et tout site e-commerce.",
+        label: "Cycle Commercial & Marketing",
+        icon: "📣",
+        offers: [
+          { title: "Agent Veille Marché", desc: "Scraping quotidien de vos concurrents, nouveaux entrants et opportunités — résumé LLM dans Notion ou Slack." },
+          { title: "Agent Sourcing de Leads", desc: "Collecte automatisée de contacts B2B qualifiés via Apollo, LinkedIn et annuaires, synchronisés dans votre CRM." },
+          { title: "Agent Outreach Multicanal", desc: "Séquences personnalisées email + LinkedIn + appel générées par LLM, avec tracking et relances automatiques." },
+          { title: "Agent Qualification BANT", desc: "Analyse des réponses prospects, score BANT mis à jour, routage intelligent : HOT → setter / COLD → nurturing." },
+          { title: "Agent Setter (Prise de RDV)", desc: "Proposition de créneaux via Calendly, confirmations, rappels J-1 et brief pré-call généré par LLM." },
+          { title: "Agent Proposition Commerciale", desc: "Draft de proposition commerciale généré depuis les notes du discovery call, PDF envoyé via DocuSign automatiquement." },
+          { title: "Agent Rétention & Upsell", desc: "Détection de churn risk par analyse comportementale, email de réengagement personnalisé et séquence upsell déclenchée après succès." },
+        ],
       },
       {
-        num: "02",
-        title: "Veille concurrentielle automatisée dans Notion",
-        desc: "Scraping automatique quotidien ou hebdomadaire qui remplit et met à jour un tableau Notion avec vos concurrents en ligne et leurs critères produits — sans intervention manuelle.",
+        label: "Support & Service Client",
+        icon: "💬",
+        offers: [
+          { title: "Agent SAV E-commerce (RAG)", desc: "Répond aux clients par email et WhatsApp sur statut commande, livraison et retours — règles métier dans Notion. Compatible WooCommerce, Shopify." },
+          { title: "Agent Triage & Escalade", desc: "Priorisation automatique des tickets par urgence et catégorie, réponse aux questions fréquentes, escalade vers humain si complexe." },
+          { title: "Agent Onboarding Client", desc: "Email de bienvenue automatique, checklist d'onboarding suivie dans Notion ou Jira, rappels si étapes non complétées." },
+          { title: "Agent Notes Discovery", desc: "Transcription automatique des calls (Whisper) et résumé LLM structuré — fiche créée automatiquement dans le CRM." },
+        ],
       },
       {
-        num: "03",
-        title: "Reporting BI PowerPoint généré automatiquement",
-        desc: "Un dashboard PowerPoint ou PDF généré automatiquement depuis vos données WooCommerce, Shopify ou tout autre source, enrichi avec des données externes pour analyser la demande et piloter votre activité.",
+        label: "BI & Intelligence Décisionnelle",
+        icon: "📈",
+        offers: [
+          { title: "Agent BI Langage Naturel", desc: "Questions en français ou anglais → SQL généré → dashboard automatique. Vos équipes lisent leurs KPIs sans analyste." },
+          { title: "Reporting Automatique (PPT/PDF)", desc: "Dashboard PowerPoint ou PDF généré depuis WooCommerce, Shopify ou toute source, enrichi de données externes pour le pilotage." },
+          { title: "Forecasting & Anomalies", desc: "Prévisions de revenus sur 3/6/12 mois, détection d'anomalies en temps réel, alertes automatiques sur churn risk et dérives." },
+          { title: "CRM Multi-agent & Pipeline", desc: "Scoring LTV, pipeline orchestration, alertes renouvellement et réactivation — CRM piloté par l'IA, pas par vos commerciaux." },
+        ],
+      },
+      {
+        label: "Recherche & Données Structurées",
+        icon: "🔎",
+        offers: [
+          { title: "Moteur de Recherche Sémantique", desc: "Recherche vectorielle sur vos catalogues, bases de connaissance et contenus — résultats pertinents dès le premier mot." },
+          { title: "Recommandation Personnalisée", desc: "Collaborative filtering et matching hybride pour surface le bon produit ou service à la bonne personne au bon moment." },
+          { title: "Pipeline de Données Intelligent", desc: "ETL, CDC, synchronisation temps réel et data warehouse interrogeable en langage naturel via MCP." },
+          { title: "Fine-tuning & MLOps", desc: "Entraînement, RLHF, déploiement et monitoring de modèles IA sur votre infrastructure ou la nôtre (GCP, AWS, Azure)." },
+        ],
+      },
+      {
+        label: "Documents, Vision & Industrie",
+        icon: "🏭",
+        offers: [
+          { title: "OCR & Extraction Documentaire", desc: "Extraction intelligente de données dans vos contrats, formulaires, factures et emails — structurées en base automatiquement." },
+          { title: "Vision IA & Détection d'Objets", desc: "Détection, segmentation et classification visuelle pour inventaire, qualité industrielle, logistique et retail." },
+          { title: "BIM & Point Cloud", desc: "Traitement de maquettes numériques (BIM) et données 3D point cloud pour le bâtiment, la construction et l'industrie." },
+          { title: "Cartographie & Géolocalisation", desc: "Analyse spatiale, routage logistique intelligent et cartographie automatisée depuis vos données terrain." },
+        ],
       },
     ],
   },
@@ -80,7 +119,7 @@ const i18n = {
         icon: "🔍",
         label: "Search & Recommendation",
         title: "Find the right customer, at the right moment",
-        desc: "When your business needs to surface the right product, service, or content to the right person at the right moment, we build search and recommendation systems using hybrid retrieval combining semantic, lexical, and multimodal search.",
+        desc: "Semantic, lexical, knowledge graph and multimodal search across your catalogues, content and structured data. The right product, service or content to the right person, instantly.",
         tags: ["Semantic Search", "Personalized Recommendation", "Vision AI"],
         featured: false,
       },
@@ -88,7 +127,7 @@ const i18n = {
         icon: "🤖",
         label: "Production AI Software",
         title: "Software that learns and improves",
-        desc: "We build production-grade software and data systems where AI accelerates every layer. RAG platforms, data pipelines, intelligent agents with memory and skills, support intelligence, automated triage, and full MLOps deployment.",
+        desc: "RAG platforms, data pipelines, intelligent agents with memory and skills, support intelligence, automated triage and MLOps deployment. Every layer of the stack, accelerated by AI.",
         tags: ["RAG Platform", "AI Agents", "MLOps", "Fine-tuning"],
         featured: true,
       },
@@ -96,7 +135,7 @@ const i18n = {
         icon: "📊",
         label: "Decision Intelligence",
         title: "Your data finally speaks to you",
-        desc: "Business performance should never require a data analyst to interpret it. We build forecasting, anomaly detection, and decision intelligence on synchronized data warehouses, queryable in plain language.",
+        desc: "Forecasting, anomaly detection and decision intelligence on synchronized data warehouses, queryable in plain language. Multi-agent CRM with scoring, pipeline orchestration, retention and reactivation.",
         tags: ["Forecasting", "Natural Language BI", "Multi-agent CRM", "Retention"],
         featured: false,
       },
@@ -104,7 +143,7 @@ const i18n = {
         icon: "📞",
         label: "Sales Automation",
         title: "Your entire sales cycle, automated",
-        desc: "We automate the full commercial cycle end to end: lead generation, BANT scoring, multichannel outreach (email, LinkedIn, cold call), follow-up, appointment setting, call intelligence, CRM automation, and fulfillment tracking.",
+        desc: "From sourcing to onboarding: lead generation, BANT enrichment, multichannel outreach, qualification, appointment setting, proposal, closing, support and retention — with intelligent routing at every stage.",
         tags: ["Lead Gen", "AI Outreach", "CRM Auto", "Call Intelligence"],
         featured: false,
       },
@@ -112,28 +151,67 @@ const i18n = {
         icon: "📄",
         label: "Unstructured Data & Vision",
         title: "Unlock your documents and visual environments",
-        desc: "Most systems cannot process unstructured data locked in documents, emails, and visual environments. OCR, contract extraction, form parsing, object detection, BIM integration, point cloud processing, and logistics intelligence.",
+        desc: "OCR, contract extraction, form parsing, email automation via MCP — extended to object detection, segmentation, BIM integration, point cloud processing, logistics intelligence and geospatial mapping.",
         tags: ["AI OCR", "Document Extraction", "Vision AI", "Supply Chain"],
         featured: false,
       },
     ],
-    tangibleTitle: "Ready-to-deploy concrete solutions",
-    tangibleDesc: "Examples of what we deliver, tested in production.",
-    solutions: [
+    offersTag: "Our agents & solutions",
+    offersTitle: "20+ concrete, deployable offers",
+    offersDesc: "Every solution is a production-tested AI agent or autonomous system, integrable into your existing stack.",
+    categories: [
       {
-        num: "01",
-        title: "Intelligent SAV agent for your online store",
-        desc: "An AI agent answers your customers via email and WhatsApp using your store data (order status, shipping, returns) with business rules defined in Notion. Compatible with WooCommerce, Shopify, and any e-commerce platform.",
+        label: "Commercial Cycle & Marketing",
+        icon: "📣",
+        offers: [
+          { title: "Market Intelligence Agent", desc: "Daily scraping of competitors, new market entrants and opportunities — LLM-summarized in Notion or Slack." },
+          { title: "Lead Sourcing Agent", desc: "Automated B2B contact collection via Apollo, LinkedIn and directories, synced directly into your CRM." },
+          { title: "Multichannel Outreach Agent", desc: "LLM-personalized email + LinkedIn + call sequences with open tracking and automated follow-ups." },
+          { title: "BANT Qualification Agent", desc: "Analyzes prospect replies, updates BANT score, routes intelligently: HOT → setter / COLD → nurturing." },
+          { title: "Setter Agent (Meeting Booking)", desc: "Slot proposals via Calendly, confirmations, J-1 reminders and LLM-generated pre-call brief." },
+          { title: "Commercial Proposal Agent", desc: "Proposal draft generated from discovery call notes, PDF auto-sent via DocuSign API." },
+          { title: "Retention & Upsell Agent", desc: "Behavioral churn risk detection, personalized re-engagement email and upsell sequences triggered after success milestones." },
+        ],
       },
       {
-        num: "02",
-        title: "Automated competitive intelligence in Notion",
-        desc: "Automatic daily or weekly scraping that fills and updates a Notion table with your online competitors and their product criteria — fully automated.",
+        label: "Support & Customer Service",
+        icon: "💬",
+        offers: [
+          { title: "E-commerce SAV Agent (RAG)", desc: "Answers customers via email and WhatsApp on order status, shipping and returns — business rules in Notion. WooCommerce & Shopify ready." },
+          { title: "Triage & Escalation Agent", desc: "Automatic ticket prioritization by urgency and category, FAQ auto-response, escalation to human if complex." },
+          { title: "Client Onboarding Agent", desc: "Welcome email automation, onboarding checklist tracked in Notion or Jira, reminders for incomplete steps." },
+          { title: "Discovery Notes Agent", desc: "Automatic call transcription (Whisper) and LLM-structured summary — record auto-created in CRM." },
+        ],
       },
       {
-        num: "03",
-        title: "Automatically generated BI PowerPoint reports",
-        desc: "A PowerPoint or PDF dashboard automatically generated from your WooCommerce, Shopify, or any data source, enriched with external data for demand analysis.",
+        label: "BI & Decision Intelligence",
+        icon: "📈",
+        offers: [
+          { title: "Natural Language BI Agent", desc: "Questions in plain English → generated SQL → automatic dashboard. Your team reads KPIs without an analyst." },
+          { title: "Automatic Reporting (PPT/PDF)", desc: "Dashboard generated from WooCommerce, Shopify or any source, enriched with external data for executive reporting." },
+          { title: "Forecasting & Anomaly Detection", desc: "3/6/12-month revenue forecasts, real-time anomaly alerts on churn risk and performance drift." },
+          { title: "Multi-agent CRM & Pipeline", desc: "LTV scoring, pipeline orchestration, renewal alerts and reactivation — CRM driven by AI, not by your team." },
+        ],
+      },
+      {
+        label: "Search & Structured Data",
+        icon: "🔎",
+        offers: [
+          { title: "Semantic Search Engine", desc: "Vector search across your catalogues, knowledge bases and content — relevant results from the first word." },
+          { title: "Personalized Recommendation", desc: "Collaborative filtering and hybrid matching to surface the right product or service to the right person." },
+          { title: "Intelligent Data Pipeline", desc: "ETL, CDC, real-time sync and data warehouse queryable in plain language via MCP protocol." },
+          { title: "Fine-tuning & MLOps", desc: "Training, RLHF, deployment and model monitoring on your infrastructure or ours (GCP, AWS, Azure)." },
+        ],
+      },
+      {
+        label: "Documents, Vision & Industry",
+        icon: "🏭",
+        offers: [
+          { title: "OCR & Document Extraction", desc: "Intelligent data extraction from contracts, forms, invoices and emails — auto-structured into your database." },
+          { title: "Vision AI & Object Detection", desc: "Detection, segmentation and visual classification for inventory, industrial quality, logistics and retail." },
+          { title: "BIM & Point Cloud", desc: "Digital model (BIM) and 3D point cloud processing for construction, architecture and industrial environments." },
+          { title: "Geolocation & Mapping", desc: "Spatial analysis, intelligent logistics routing and automated mapping from your field data." },
+        ],
       },
     ],
   },
@@ -175,21 +253,32 @@ export default function Services({ locale }: { locale: string }) {
         ))}
       </div>
 
-      {/* Tangible Solutions */}
-      <div style={{ marginTop: 80 }}>
+      {/* All offers & agents */}
+      <div style={{ marginTop: 96 }}>
         <div className={`reveal ${styles.sectionTag}`}>
           <span className={styles.sectionTagLine} />
-          {t.tangibleTitle}
+          {t.offersTag}
         </div>
-        <p className={`reveal d1 ${styles.sectionDesc}`} style={{ marginBottom: 32 }}>
-          {t.tangibleDesc}
+        <h3 className={`reveal d1 ${styles.offersTitle}`}>{t.offersTitle}</h3>
+        <p className={`reveal d2 ${styles.sectionDesc}`} style={{ marginBottom: 48 }}>
+          {t.offersDesc}
         </p>
-        <div className={styles.solutionsRow}>
-          {t.solutions.map((s, i) => (
-            <div key={i} className={`reveal d${i + 1} ${styles.solutionCard}`}>
-              <div className={styles.solutionNumber}>{s.num}</div>
-              <h4 className={styles.solutionTitle}>{s.title}</h4>
-              <p className={styles.solutionDesc}>{s.desc}</p>
+
+        <div className={styles.categories}>
+          {t.categories.map((cat, ci) => (
+            <div key={ci} className={`reveal d${Math.min(ci + 1, 4)} ${styles.categoryBlock}`}>
+              <div className={styles.categoryHeader}>
+                <span className={styles.categoryIcon}>{cat.icon}</span>
+                <span className={styles.categoryLabel}>{cat.label}</span>
+              </div>
+              <div className={styles.offersGrid}>
+                {cat.offers.map((offer, oi) => (
+                  <div key={oi} className={styles.offerCard}>
+                    <div className={styles.offerTitle}>{offer.title}</div>
+                    <div className={styles.offerDesc}>{offer.desc}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
