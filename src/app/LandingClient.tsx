@@ -12,6 +12,7 @@ import Services from "@/components/Services";
 import DemoApps from "@/components/DemoApps";
 import TechStack from "@/components/TechStack";
 import ChatBot from "@/components/ChatBot";
+import HeroSlider from "@/components/HeroSlider";
 import type { IconType } from "react-icons";
 import { HiGlobeAlt, HiBolt, HiShieldCheck, HiCpuChip } from "react-icons/hi2";
 import { LuTarget, LuHandshake, LuLanguages, LuDatabase, LuBrain, LuRefreshCw, LuCloud, LuCode } from "react-icons/lu";
@@ -24,26 +25,6 @@ export interface BookingPrefill {
   offerPrice?: { fr: string; en: string };
   offerDuration?: { fr: string; en: string };
 }
-
-const TYPED_PHRASES_FR = [
-  "Agents IA Agentiques",
-  "Data Engineering",
-  "Automatisation Intelligente",
-  "Business Intelligence",
-  "Cycle Commercial IA",
-  "Recherche Sémantique",
-  "Développement Fullstack",
-];
-
-const TYPED_PHRASES_EN = [
-  "Agentic AI Agents",
-  "Data Engineering",
-  "Intelligent Automation",
-  "Business Intelligence",
-  "AI Sales Cycle",
-  "Semantic Search",
-  "Fullstack Development",
-];
 
 const VALUE_ICONS: IconType[] = [LuTarget, HiGlobeAlt, HiBolt, HiShieldCheck, LuHandshake, LuLanguages];
 const ROLE_ICONS: IconType[] = [HiCpuChip, LuDatabase, LuBrain, LuCode, LuRefreshCw, LuCloud];
@@ -70,10 +51,6 @@ export default function LandingClient({
   const [bookingOpen, setBookingOpen] = useState(false);
   const [bookingPrefill, setBookingPrefill] = useState<BookingPrefill>({});
   const [theme, setTheme] = useState<"dark" | "light">("dark");
-  const [typedText, setTypedText] = useState("");
-  const [typedPhaseIndex, setTypedPhaseIndex] = useState(0);
-  const [typedCharIndex, setTypedCharIndex] = useState(0);
-  const [typedDeleting, setTypedDeleting] = useState(false);
   const openBooking = useCallback((prefill?: BookingPrefill) => {
     setBookingPrefill(prefill || {});
     setBookingOpen(true);
@@ -177,35 +154,6 @@ export default function LandingClient({
     els.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
   }, []);
-
-  // Typed text animation
-  useEffect(() => {
-    const phrases = locale === "en" ? TYPED_PHRASES_EN : TYPED_PHRASES_FR;
-    const currentPhrase = phrases[typedPhaseIndex % phrases.length];
-    let timeout: ReturnType<typeof setTimeout>;
-
-    if (!typedDeleting) {
-      if (typedCharIndex < currentPhrase.length) {
-        timeout = setTimeout(() => {
-          setTypedText(currentPhrase.slice(0, typedCharIndex + 1));
-          setTypedCharIndex((c) => c + 1);
-        }, 55);
-      } else {
-        timeout = setTimeout(() => setTypedDeleting(true), 1800);
-      }
-    } else {
-      if (typedCharIndex > 0) {
-        timeout = setTimeout(() => {
-          setTypedText(currentPhrase.slice(0, typedCharIndex - 1));
-          setTypedCharIndex((c) => c - 1);
-        }, 30);
-      } else {
-        setTypedDeleting(false);
-        setTypedPhaseIndex((i) => i + 1);
-      }
-    }
-    return () => clearTimeout(timeout);
-  }, [typedText, typedDeleting, typedPhaseIndex, typedCharIndex, locale]);
 
   // Mobile menu resize
   useEffect(() => {
@@ -313,36 +261,7 @@ export default function LandingClient({
         <div className={`${s.heroGlow} ${s.heroGlow2}`} />
         <div className={`${s.heroGlow} ${s.heroGlow3}`} />
 
-        <div className={s.heroTag}>
-          <span className={s.heroTagLine} />
-          {hero.tag}
-        </div>
-
-        <h1 className={s.heroTitle}>
-          {hero.title_line1}
-          <br />
-          {hero.title_line2}{" "}
-          <span className={s.heroTitleAccent}>{hero.title_accent}</span>.
-        </h1>
-
-        <div className={s.typedWrap}>
-          <span className={s.typedPrefix}>
-            {locale === "fr" ? "Expert en " : "Expertise in "}
-          </span>
-          <span className={s.typedText}>{typedText}</span>
-          <span className={s.typedCursor}>|</span>
-        </div>
-
-        <p className={s.heroSub}>{hero.subtitle}</p>
-
-        <div className={s.heroActions}>
-          <button onClick={() => openBooking()} className={s.btnPrimary}>
-            {t("nav.cta_arrow")}
-          </button>
-          <a href="#processus" className={s.btnSecondary}>
-            {t("hero.how_it_works")}
-          </a>
-        </div>
+        <HeroSlider locale={locale} onBooking={() => openBooking()} />
 
         <div className={s.heroStats} ref={statsRef}>
           {hero.stats.map((stat, i) => (

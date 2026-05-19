@@ -1,0 +1,310 @@
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 0 56px;
+}
+
+.slideGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding: 40px 0 32px;
+}
+
+.slideContent {
+  animation: heroContentIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.slideTag {
+  display: inline-flex;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.slideHeadline {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 500;
+  color: var(--txt1);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.slideHeadline em {
+  font-style: italic;
+}
+
+.slideSub {
+  font-size: 1.05rem;
+  color: var(--txt2);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+
+.slideActions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #04080f;
+  transition: var(--tr);
+  border: none;
+  cursor: pointer;
+}
+
+.btnPrimary:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.btnSecondary {
+  padding: 13px 24px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  color: var(--txt2);
+  font-size: 0.9rem;
+  transition: var(--tr);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btnSecondary:hover {
+  border-color: var(--gold-border);
+  color: var(--gold);
+  background: var(--gold-dim);
+}
+
+/* Illustration */
+
+.illustWrap {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  animation: heroIllustIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.illustOrb {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  filter: blur(50px);
+}
+
+.illustRing {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 1px solid;
+}
+
+.illustRing2 {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 1px dashed;
+}
+
+.illustIconBox {
+  position: relative;
+  z-index: 2;
+  width: 110px;
+  height: 110px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.illustImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.illustDot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: illustFloat 3s ease-in-out infinite;
+}
+
+/* Navigation */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+}
+
+.navArrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--txt2);
+  transition: var(--tr);
+  cursor: pointer;
+}
+
+.navArrow:hover {
+  border-color: var(--gold-border);
+  color: var(--gold);
+  background: var(--gold-dim);
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dotActive {
+  width: 20px;
+  border-radius: 100px;
+}
+
+/* Progress bar */
+
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  animation: heroProgress 6s linear forwards;
+}
+
+/* Keyframes */
+
+@keyframes heroContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroIllustIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+@keyframes illustFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes heroProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .slideGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .illustWrap {
+    width: 240px;
+    height: 240px;
+  }
+
+  .illustRing {
+    width: 180px;
+    height: 180px;
+  }
+
+  .illustRing2 {
+    width: 220px;
+    height: 220px;
+  }
+
+  .slideHeadline {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .slider {
+    padding: 0 0 48px;
+  }
+
+  .slideGrid {
+    padding: 24px 0;
+  }
+
+  .slideActions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .illustWrap {
+    display: none;
+  }
+}

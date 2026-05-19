@@ -57,6 +57,7 @@ export default function ChatBot({ locale }: { locale: string }) {
   const suggestions = SUGGESTIONS[lang];
 
   const [open, setOpen] = useState(false);
+  const [fullscreen, setFullscreen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     { role: "assistant", content: t.greeting },
   ]);
@@ -66,6 +67,18 @@ export default function ChatBot({ locale }: { locale: string }) {
   const [streamText, setStreamText] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  // Escape closes fullscreen or panel
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (fullscreen) setFullscreen(false);
+        else if (open) setOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [fullscreen, open]);
 
   // Auto-open when hash is #faq
   useEffect(() => {
@@ -167,7 +180,7 @@ export default function ChatBot({ locale }: { locale: string }) {
 
       {/* Slide-up chat panel */}
       <div
-        className={`${styles.panel} ${open ? styles.panelOpen : ""}`}
+        className={`${styles.panel} ${open ? styles.panelOpen : ""} ${fullscreen ? styles.panelFullscreen : ""}`}
         role="dialog"
         aria-label="FAQLab chat panel"
         aria-modal="false"
@@ -178,15 +191,33 @@ export default function ChatBot({ locale }: { locale: string }) {
             <span className={styles.statusDot} />
             Wikolabs AI
           </div>
-          <select
-            className={styles.modelSelect}
-            value={model}
-            onChange={(e) => setModel(e.target.value)}
-          >
-            {MODELS.map((m) => (
-              <option key={m.id} value={m.id}>{m.label}</option>
-            ))}
-          </select>
+          <div className={styles.headerRight}>
+            <select
+              className={styles.modelSelect}
+              value={model}
+              onChange={(e) => setModel(e.target.value)}
+            >
+              {MODELS.map((m) => (
+                <option key={m.id} value={m.id}>{m.label}</option>
+              ))}
+            </select>
+            <button
+              className={styles.expandBtn}
+              onClick={() => setFullscreen((v) => !v)}
+              aria-label={fullscreen ? "Réduire" : "Agrandir"}
+              title={fullscreen ? "Réduire" : "Agrandir"}
+            >
+              {fullscreen ? (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              ) : (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Messages */}

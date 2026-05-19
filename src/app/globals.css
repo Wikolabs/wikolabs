@@ -203,16 +203,44 @@ img { max-width:100%; display:block; }
    SCROLL REVEAL
 ══════════════════════════════════════════════════════════ */
 .reveal {
-  opacity:0;
-  transform:translateY(28px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  opacity: 0;
+  transform: translateY(32px) scale(0.98);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal.on { opacity:1; transform:translateY(0); }
-.reveal.d1 { transition-delay:0.1s; }
-.reveal.d2 { transition-delay:0.2s; }
-.reveal.d3 { transition-delay:0.3s; }
-.reveal.d4 { transition-delay:0.4s; }
-.reveal.d5 { transition-delay:0.5s; }
+.reveal.on { opacity: 1; transform: translateY(0) scale(1); }
+.reveal.d1 { transition-delay: 0.08s; }
+.reveal.d2 { transition-delay: 0.18s; }
+.reveal.d3 { transition-delay: 0.28s; }
+.reveal.d4 { transition-delay: 0.38s; }
+.reveal.d5 { transition-delay: 0.48s; }
+
+/* Cards pop up with a more pronounced spring */
+.revealCard {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.revealCard.on { opacity: 1; transform: translateY(0) scale(1); }
+
+/* Slide in from left */
+.revealLeft {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.revealLeft.on { opacity: 1; transform: translateX(0); }
+
+/* Slide in from right */
+.revealRight {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.revealRight.on { opacity: 1; transform: translateX(0); }
 
 /* ═══════════════════════════════════════════════════════
    CURSOR SPOTLIGHT

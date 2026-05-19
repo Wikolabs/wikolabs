@@ -75,6 +75,16 @@
   pointer-events: auto;
 }
 
+.panelFullscreen {
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  border: none;
+  max-height: none;
+}
+
 /* ── Header ── */
 .chatHeader {
   display: flex;
@@ -95,6 +105,33 @@
   letter-spacing: 2px;
   color: var(--txt2);
   text-transform: uppercase;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.expandBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--txt3);
+  cursor: pointer;
+  transition: var(--tr);
+  flex-shrink: 0;
+}
+
+.expandBtn:hover {
+  border-color: var(--gold-border);
+  color: var(--gold);
+  background: var(--gold-dim);
 }
 
 .statusDot {
@@ -140,6 +177,12 @@
   gap: 14px;
   scroll-behavior: smooth;
   flex-shrink: 0;
+}
+
+.panelFullscreen .messages {
+  height: calc(100vh - 220px);
+  flex-shrink: 1;
+  flex: 1;
 }
 
 .messages::-webkit-scrollbar { width: 4px; }
