@@ -823,9 +823,22 @@
 }
 
 .roleEmoji {
-  font-size: 2rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 20px;
-  display: block;
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  transition: var(--tr);
+}
+
+.roleCard:hover .roleEmoji {
+  background: var(--gold);
+  color: var(--bg);
 }
 
 .roleTitle {
@@ -878,8 +891,22 @@
 }
 
 .valueIcon {
-  font-size: 1.6rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 20px;
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  transition: var(--tr);
+}
+
+.valueCard:hover .valueIcon {
+  background: var(--gold);
+  color: var(--bg);
 }
 
 .valueTitle {

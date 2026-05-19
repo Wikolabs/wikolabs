@@ -168,19 +168,22 @@
 .tag {
   font-family: var(--font-mono);
   font-size: 0.62rem;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 100px;
-  background: rgba(91,156,246,0.08);
-  color: var(--blue);
-  border: 1px solid rgba(91,156,246,0.15);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  font-weight: 600;
+  border: none;
 }
 
 .tagGold {
-  background: var(--gold-dim);
-  color: var(--gold);
-  border-color: var(--gold-border);
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.tagBlue {
+  background: rgba(91,156,246,0.22);
+  color: var(--blue);
 }
 
 /* Offers title */
@@ -215,17 +218,16 @@
   border-bottom: 1px solid var(--gold-border);
 }
 
-.categoryIcon {
-  font-size: 1.2rem;
+.categoryIconWrap {
   width: 36px;
   height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--gold-dim);
-  border: 1px solid var(--gold-border);
-  border-radius: 6px;
+  background: var(--gold);
+  border-radius: 8px;
   flex-shrink: 0;
+  color: var(--bg);
 }
 
 .categoryLabel {
@@ -277,10 +279,25 @@
   flex: 1;
 }
 
+/* Offer card illustration */
+.offerIllust {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
 .offerTechs {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 5px;
   margin-top: auto;
 }
 
@@ -289,14 +306,21 @@
   align-items: center;
   gap: 5px;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.5px;
-  padding: 3px 9px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 3px 8px;
   border-radius: 100px;
-  background: var(--gold-dim);
-  border: 1px solid var(--gold-border);
-  color: var(--gold);
+  border: 1px solid transparent;
   white-space: nowrap;
+}
+
+.techAbbrBadge {
+  font-size: 0.5rem;
+  font-weight: 800;
+  padding: 1px 3px;
+  border-radius: 3px;
+  letter-spacing: 0;
 }
 
 @media (max-width: 1280px) {

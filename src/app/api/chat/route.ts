@@ -1,11 +1,17 @@
 import Groq from "groq-sdk";
 import { NextRequest } from "next/server";
 
+// Lazy init — avoids build-time throw when GROQ_API_KEY is absent
 let _groq: Groq | null = null;
 function getGroq() {
-  if (!_groq) _groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+  const key = process.env.GROQ_API_KEY;
+  if (!key) throw new Error("GROQ_API_KEY environment variable is not set");
+  if (!_groq) _groq = new Groq({ apiKey: key });
   return _groq;
 }
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 const SYSTEM_PROMPT = `Tu es l'assistant IA de Wikolabs, une société spécialisée en intelligence artificielle et data engineering basée à Madagascar.
 
@@ -60,7 +66,8 @@ export async function POST(req: NextRequest) {
       headers: { "Content-Type": "text/plain; charset=utf-8" },
     });
   } catch (err) {
-    console.error("Groq API error:", err);
-    return new Response("Erreur lors de la connexion à l'assistant.", { status: 500 });
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error("Groq API error:", msg);
+    return new Response(msg, { status: 500 });
   }
 }

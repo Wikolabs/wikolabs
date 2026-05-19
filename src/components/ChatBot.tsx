@@ -32,10 +32,6 @@ const SUGGESTIONS = {
 
 const i18n = {
   fr: {
-    tag: "Assistant Wikolabs",
-    title: "Posez vos questions",
-    titleEm: "à notre IA",
-    desc: "Notre assistant connaît tous nos services, processus et domaines d'expertise. Posez-lui n'importe quelle question.",
     placeholder: "Posez votre question...",
     send: "Envoyer",
     thinking: "L'assistant réfléchit...",
@@ -45,10 +41,6 @@ const i18n = {
     greeting: "Bonjour ! Je suis l'assistant IA de Wikolabs. Je peux répondre à toutes vos questions sur nos services, notre processus de travail et nos domaines d'expertise. Comment puis-je vous aider ?",
   },
   en: {
-    tag: "Wikolabs Assistant",
-    title: "Ask your questions",
-    titleEm: "to our AI",
-    desc: "Our assistant knows all our services, processes and areas of expertise. Ask it anything.",
     placeholder: "Ask your question...",
     send: "Send",
     thinking: "Thinking...",
@@ -64,6 +56,7 @@ export default function ChatBot({ locale }: { locale: string }) {
   const t = i18n[lang];
   const suggestions = SUGGESTIONS[lang];
 
+  const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     { role: "assistant", content: t.greeting },
   ]);
@@ -74,9 +67,27 @@ export default function ChatBot({ locale }: { locale: string }) {
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
+  // Auto-open when hash is #faq
+  useEffect(() => {
+    const check = () => {
+      if (window.location.hash === "#faq") setOpen(true);
+    };
+    check();
+    window.addEventListener("hashchange", check);
+    return () => window.removeEventListener("hashchange", check);
+  }, []);
+
+  // Scroll to bottom on new messages or streaming
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, streamText]);
+
+  // Focus input when panel opens
+  useEffect(() => {
+    if (open) {
+      setTimeout(() => inputRef.current?.focus(), 320);
+    }
+  }, [open]);
 
   const send = async (text: string) => {
     if (!text.trim() || loading) return;
@@ -94,7 +105,11 @@ export default function ChatBot({ locale }: { locale: string }) {
         body: JSON.stringify({ messages: history, model }),
       });
 
-      if (!res.ok) throw new Error("API error");
+      if (!res.ok) {
+        const errText = await res.text().catch(() => "Unknown error");
+        console.error("Chat API error:", res.status, errText);
+        throw new Error(errText || t.errorMsg);
+      }
       const reader = res.body!.getReader();
       const dec = new TextDecoder();
       let full = "";
@@ -109,8 +124,9 @@ export default function ChatBot({ locale }: { locale: string }) {
 
       setMessages([...history, { role: "assistant", content: full }]);
       setStreamText("");
-    } catch {
-      setMessages([...history, { role: "assistant", content: t.errorMsg }]);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : t.errorMsg;
+      setMessages([...history, { role: "assistant", content: msg }]);
       setStreamText("");
     } finally {
       setLoading(false);
@@ -127,18 +143,36 @@ export default function ChatBot({ locale }: { locale: string }) {
   const showSuggestions = messages.length === 1;
 
   return (
-    <section id="faq" className={styles.section}>
-      <div className={`reveal ${styles.sectionTag}`}>
-        <span className={styles.sectionTagLine} />
-        {t.tag}
-      </div>
-      <h2 className={`reveal d1 ${styles.sectionTitle}`}>
-        {t.title} <em>{t.titleEm}</em>
-      </h2>
-      <p className={`reveal d2 ${styles.sectionDesc}`}>{t.desc}</p>
+    <>
+      {/* Floating toggle button */}
+      <button
+        id="faq"
+        className={`${styles.floatBtn} ${open ? styles.floatBtnOpen : ""}`}
+        onClick={() => setOpen((v) => !v)}
+        aria-label={open ? "Close chat" : "Open FAQLab"}
+      >
+        {open ? (
+          /* X icon */
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+          </svg>
+        ) : (
+          /* Chat bubble icon */
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        )}
+        {!open && <span className={styles.floatLabel}>FAQLab</span>}
+      </button>
 
-      <div className={`reveal d3 ${styles.chatWrap}`}>
-        {/* Model selector */}
+      {/* Slide-up chat panel */}
+      <div
+        className={`${styles.panel} ${open ? styles.panelOpen : ""}`}
+        role="dialog"
+        aria-label="FAQLab chat panel"
+        aria-modal="false"
+      >
+        {/* Header */}
         <div className={styles.chatHeader}>
           <div className={styles.chatStatus}>
             <span className={styles.statusDot} />
@@ -209,7 +243,7 @@ export default function ChatBot({ locale }: { locale: string }) {
           </div>
         )}
 
-        {/* Input */}
+        {/* Input row */}
         <form
           className={styles.inputRow}
           onSubmit={(e) => { e.preventDefault(); send(input); }}
@@ -235,6 +269,6 @@ export default function ChatBot({ locale }: { locale: string }) {
           </button>
         </form>
       </div>
-    </section>
+    </>
   );
 }

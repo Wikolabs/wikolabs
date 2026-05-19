@@ -12,6 +12,9 @@ import Services from "@/components/Services";
 import DemoApps from "@/components/DemoApps";
 import TechStack from "@/components/TechStack";
 import ChatBot from "@/components/ChatBot";
+import type { IconType } from "react-icons";
+import { HiGlobeAlt, HiBolt, HiShieldCheck, HiCpuChip } from "react-icons/hi2";
+import { LuTarget, LuHandshake, LuLanguages, LuDatabase, LuBrain, LuRefreshCw, LuCloud, LuCode } from "react-icons/lu";
 
 export interface BookingPrefill {
   type?: string;
@@ -41,6 +44,9 @@ const TYPED_PHRASES_EN = [
   "Semantic Search",
   "Fullstack Development",
 ];
+
+const VALUE_ICONS: IconType[] = [LuTarget, HiGlobeAlt, HiBolt, HiShieldCheck, LuHandshake, LuLanguages];
+const ROLE_ICONS: IconType[] = [HiCpuChip, LuDatabase, LuBrain, LuCode, LuRefreshCw, LuCloud];
 
 export default function LandingClient({
   content,
@@ -420,13 +426,16 @@ export default function LandingClient({
         <p className={`reveal d2 ${s.sectionDesc}`}>{t("why_clients.desc")}</p>
 
         <div className={s.valuesGrid}>
-          {why_clients.map((v, i) => (
-            <div className={`reveal d${Math.min(i + 1, 5)} ${s.valueCard}`} key={i}>
-              <div className={s.valueIcon}>{v.icon}</div>
-              <div className={s.valueTitle}>{v.title}</div>
-              <div className={s.valueText}>{v.text}</div>
-            </div>
-          ))}
+          {why_clients.map((v, i) => {
+            const VIcon = VALUE_ICONS[i];
+            return (
+              <div className={`reveal d${Math.min(i + 1, 5)} ${s.valueCard}`} key={i}>
+                <div className={s.valueIcon}>{VIcon && <VIcon size={26} />}</div>
+                <div className={s.valueTitle}>{v.title}</div>
+                <div className={s.valueText}>{v.text}</div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -442,13 +451,16 @@ export default function LandingClient({
         <p className={`reveal d2 ${s.sectionDesc}`}>{t("expertise.desc")}</p>
 
         <div className={s.rolesGrid}>
-          {roles.map((r, i) => (
-            <div className={`reveal d${Math.min(i + 1, 5)} ${s.roleCard}`} key={i}>
-              <span className={s.roleEmoji}>{r.emoji}</span>
-              <div className={s.roleTitle}>{r.title}</div>
-              <div className={s.roleDesc}>{r.desc}</div>
-            </div>
-          ))}
+          {roles.map((r, i) => {
+            const RIcon = ROLE_ICONS[i];
+            return (
+              <div className={`reveal d${Math.min(i + 1, 5)} ${s.roleCard}`} key={i}>
+                <div className={s.roleEmoji}>{RIcon && <RIcon size={28} />}</div>
+                <div className={s.roleTitle}>{r.title}</div>
+                <div className={s.roleDesc}>{r.desc}</div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
