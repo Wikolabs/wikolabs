@@ -35,6 +35,7 @@ services:
       - DB_PASSWORD=${DB_PASSWORD:-password}
       - DB_NAME=${NAMESPACE}_db
       - ADMIN_SETUP_KEY=${ADMIN_SETUP_KEY:-wikolabs-setup-2026}
+      - GROQ_API_KEY=${GROQ_API_KEY}
     volumes:
       - ../:/app
     command: >

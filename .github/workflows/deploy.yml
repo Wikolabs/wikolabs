@@ -46,6 +46,13 @@ jobs:
             cd ~/wikolabs
             git pull origin main
 
+            # Inject GROQ_API_KEY from CI secret into .env
+            if grep -q '^GROQ_API_KEY=' .env 2>/dev/null; then
+              sed -i "s|^GROQ_API_KEY=.*|GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}|" .env
+            else
+              echo "GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}" >> .env
+            fi
+
             # Verify staged build exists
             if [ ! -d .next-new ]; then
               echo "Missing staged .next-new" >&2
