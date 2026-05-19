@@ -5,10 +5,10 @@ import type { BookingPrefill } from "@/app/LandingClient";
 
 interface Offer {
   badge: { fr: string; en: string };
+  icon: string;
   title: { fr: string; en: string };
   desc: { fr: string; en: string };
-  price: { fr: string; en: string };
-  duration: { fr: string; en: string };
+  timeline: { fr: string; en: string };
   features: { fr: string[]; en: string[] };
   cta: { fr: string; en: string };
   highlighted?: boolean;
@@ -17,105 +17,105 @@ interface Offer {
 
 const OFFERS: Offer[] = [
   {
-    badge: { fr: "Point de départ", en: "Starting point" },
-    title: { fr: "Audit & Plan d'action", en: "Audit & Action Plan" },
+    badge: { fr: "Point de départ idéal", en: "Ideal starting point" },
+    icon: "🎯",
+    title: { fr: "Audit Stratégique IA", en: "Strategic AI Audit" },
     desc: {
-      fr: "On analyse votre idée, identifie comment l'intelligence artificielle peut la renforcer, et vous livre un plan d'action concret.",
-      en: "We analyze your idea, identify how AI can strengthen it, and deliver a concrete action plan.",
+      fr: "Nous analysons vos processus, identifions les opportunités d'automatisation et de valeur IA les plus impactantes pour votre organisation, et vous livrons un plan d'action concret et priorisé.",
+      en: "We analyze your processes, identify the most impactful AI automation opportunities for your organization, and deliver a concrete, prioritized action plan.",
     },
-    price: { fr: "À partir de 1 500 €", en: "From €1,500" },
-    duration: { fr: "1 – 2 semaines", en: "1 – 2 weeks" },
+    timeline: { fr: "1 – 2 semaines", en: "1 – 2 weeks" },
     features: {
       fr: [
-        "Analyse de faisabilité de votre idée",
-        "Identification des opportunités IA",
-        "Recommandations techniques claires",
-        "Liste des fonctionnalités prioritaires",
-        "Estimation du budget pour la suite",
+        "Analyse de vos processus et flux de données",
+        "Identification des quick wins IA prioritaires",
+        "Feuille de route technique et business",
+        "Estimation d'impact pour chaque cas d'usage",
+        "Présentation à votre direction",
       ],
       en: [
-        "Feasibility analysis of your idea",
-        "AI opportunity identification",
-        "Clear technical recommendations",
-        "Prioritized feature list",
-        "Budget estimate for next steps",
+        "Analysis of your processes and data flows",
+        "Identification of priority AI quick wins",
+        "Technical and business roadmap",
+        "Impact estimate for each use case",
+        "Presentation to your leadership",
       ],
     },
     cta: { fr: "Demander un audit →", en: "Request an audit →" },
     prefill: {
       type: "ai-integration", scale: "mvp", startStep: 2,
-      offerLabel: { fr: "Audit & Plan d'action", en: "Audit & Action Plan" },
-      offerPrice: { fr: "À partir de 1 500 €", en: "From €1,500" },
+      offerLabel: { fr: "Audit Stratégique IA", en: "Strategic AI Audit" },
+      offerPrice: { fr: "", en: "" },
       offerDuration: { fr: "1 – 2 semaines", en: "1 – 2 weeks" },
     },
   },
   {
-    badge: { fr: "Le plus populaire", en: "Most popular" },
-    title: { fr: "Votre produit de A à Z", en: "Your product from A to Z" },
+    badge: { fr: "Solution complète recommandée", en: "Recommended complete solution" },
+    icon: "🚀",
+    title: { fr: "Déploiement Complet", en: "Full Deployment" },
     desc: {
-      fr: "On construit votre logiciel en ligne complet — avec intelligence artificielle intégrée — prêt pour vos premiers utilisateurs.",
-      en: "We build your complete online software — with built-in AI — ready for your first users.",
+      fr: "Nous concevons et livrons votre solution IA de bout en bout — agent IA, plateforme data, logiciel, automatisation — avec intégration dans vos systèmes existants et formation de vos équipes.",
+      en: "We design and deliver your AI solution end to end — AI agent, data platform, software, automation — with integration into your existing systems and team training.",
     },
-    price: { fr: "À partir de 8 000 €", en: "From €8,000" },
-    duration: { fr: "4 – 8 semaines", en: "4 – 8 weeks" },
+    timeline: { fr: "4 – 12 semaines", en: "4 – 12 weeks" },
     features: {
       fr: [
-        "Application web complète et fonctionnelle",
-        "Intelligence artificielle intégrée sur mesure",
-        "Design professionnel et intuitif",
-        "Mise en ligne et hébergement sécurisé",
-        "Documentation pour votre équipe",
-        "2 semaines de support après livraison",
+        "Architecture et développement sur mesure",
+        "Intégration à vos outils existants (CRM, ERP...)",
+        "Daily standup et point hebdomadaire",
+        "Tests, recette et déploiement production",
+        "Documentation complète et formation équipe",
+        "Support post-livraison inclus",
       ],
       en: [
-        "Complete, working web application",
-        "Custom-built artificial intelligence",
-        "Professional, intuitive design",
-        "Launch and secure hosting",
-        "Documentation for your team",
-        "2 weeks of post-delivery support",
+        "Custom architecture and development",
+        "Integration with your existing tools (CRM, ERP...)",
+        "Daily standup and weekly review",
+        "Testing, UAT, and production deployment",
+        "Complete documentation and team training",
+        "Post-delivery support included",
       ],
     },
-    cta: { fr: "Construire mon produit →", en: "Build my product →" },
+    cta: { fr: "Démarrer un projet →", en: "Start a project →" },
     highlighted: true,
     prefill: {
       type: "mvp-saas", scale: "medium", startStep: 2,
-      offerLabel: { fr: "Produit de A à Z", en: "Your product from A to Z" },
-      offerPrice: { fr: "À partir de 8 000 €", en: "From €8,000" },
-      offerDuration: { fr: "4 – 8 semaines", en: "4 – 8 weeks" },
+      offerLabel: { fr: "Déploiement Complet", en: "Full Deployment" },
+      offerPrice: { fr: "", en: "" },
+      offerDuration: { fr: "4 – 12 semaines", en: "4 – 12 weeks" },
     },
   },
   {
-    badge: { fr: "Pour produits existants", en: "For existing products" },
-    title: { fr: "Ajouter de l'IA à votre produit", en: "Add AI to your product" },
+    badge: { fr: "Pour systèmes existants", en: "For existing systems" },
+    icon: "⚡",
+    title: { fr: "Intégration & Optimisation", en: "Integration & Optimization" },
     desc: {
-      fr: "Votre logiciel existe déjà ? On y ajoute de l'intelligence : chatbot, recommandations, analyse automatique.",
-      en: "Already have software? We add intelligence to it: chatbot, recommendations, automated analysis.",
+      fr: "Vous avez déjà des outils, des données, des workflows en place ? Nous y connectons l'IA pour les rendre plus intelligents : chatbot, recommandations, analyse automatique, reporting BI.",
+      en: "Already have tools, data, and workflows in place? We connect AI to make them smarter: chatbot, recommendations, automated analysis, BI reporting.",
     },
-    price: { fr: "À partir de 5 000 €", en: "From €5,000" },
-    duration: { fr: "2 – 6 semaines", en: "2 – 6 weeks" },
+    timeline: { fr: "2 – 8 semaines", en: "2 – 8 weeks" },
     features: {
       fr: [
-        "Analyse de votre produit existant",
-        "Développement de la brique IA",
-        "Connexion à votre logiciel actuel",
-        "Tests et optimisation des résultats",
+        "Audit de l'existant et identification des connexions",
+        "Développement des briques IA ciblées",
+        "Connexion API à vos systèmes en production",
+        "Tests de performance et validation",
         "Documentation pour votre équipe technique",
       ],
       en: [
-        "Analysis of your existing product",
-        "AI module development",
-        "Connection to your current software",
-        "Testing and results optimization",
-        "Documentation for your tech team",
+        "Audit of existing systems and connection points",
+        "Development of targeted AI components",
+        "API connection to your production systems",
+        "Performance testing and validation",
+        "Documentation for your technical team",
       ],
     },
-    cta: { fr: "Ajouter de l'IA →", en: "Add AI →" },
+    cta: { fr: "Enrichir mon système →", en: "Enrich my system →" },
     prefill: {
       type: "ai-integration", scale: "medium", startStep: 2,
-      offerLabel: { fr: "Ajouter de l'IA", en: "Add AI to your product" },
-      offerPrice: { fr: "À partir de 5 000 €", en: "From €5,000" },
-      offerDuration: { fr: "2 – 6 semaines", en: "2 – 6 weeks" },
+      offerLabel: { fr: "Intégration & Optimisation", en: "Integration & Optimization" },
+      offerPrice: { fr: "", en: "" },
+      offerDuration: { fr: "2 – 8 semaines", en: "2 – 8 weeks" },
     },
   },
 ];
@@ -124,14 +124,14 @@ const i18n = {
   fr: {
     tag: "Nos offres",
     title: "Trois façons de démarrer.",
-    desc: "Du premier audit à la livraison complète de votre produit — choisissez l'entrée qui correspond à votre stade.",
-    duration_label: "Durée",
+    desc: "Du premier audit stratégique à la livraison complète de votre solution — choisissez l'entrée qui correspond à votre situation actuelle.",
+    timeline_label: "Délai estimé",
   },
   en: {
     tag: "Our offers",
     title: "Three ways to get started.",
-    desc: "From a first audit to a complete product delivery — choose the entry point that matches your stage.",
-    duration_label: "Duration",
+    desc: "From a first strategic audit to the complete delivery of your solution — choose the entry point that fits your current situation.",
+    timeline_label: "Estimated timeline",
   },
 };
 
@@ -141,37 +141,36 @@ export default function PackagedOffers({ locale, onBooking }: { locale: string; 
 
   return (
     <section id="offres" className={styles.offers}>
-      <div className={styles.sectionTag}>
+      <div className={`reveal ${styles.sectionTag}`}>
         <span className={styles.sectionTagLine} />
         {t.tag}
       </div>
-      <h2 className={styles.sectionTitle}>{t.title}</h2>
-      <p className={styles.sectionDesc}>{t.desc}</p>
+      <h2 className={`reveal d1 ${styles.sectionTitle}`}>{t.title}</h2>
+      <p className={`reveal d2 ${styles.sectionDesc}`}>{t.desc}</p>
 
       <div className={styles.grid}>
         {OFFERS.map((offer, i) => (
           <div
-            className={`${styles.card} ${offer.highlighted ? styles.cardHighlighted : ""}`}
+            className={`reveal d${i + 1} ${styles.card} ${offer.highlighted ? styles.cardHighlighted : ""}`}
             key={i}
           >
             <div className={`${styles.badge} ${offer.highlighted ? styles.badgeHighlighted : ""}`}>
               {offer.badge[lang]}
             </div>
 
+            <div className={styles.cardIcon}>{offer.icon}</div>
             <h3 className={styles.cardTitle}>{offer.title[lang]}</h3>
             <p className={styles.cardDesc}>{offer.desc[lang]}</p>
 
-            <div className={styles.priceBlock}>
-              <span className={styles.price}>{offer.price[lang]}</span>
-              <span className={styles.duration}>
-                {t.duration_label} : {offer.duration[lang]}
-              </span>
+            <div className={styles.timeline}>
+              <span className={styles.timelineLabel}>{t.timeline_label}</span>
+              <span className={styles.timelineValue}>{offer.timeline[lang]}</span>
             </div>
 
             <ul className={styles.features}>
               {offer.features[lang].map((f, j) => (
                 <li key={j}>
-                  <span className={styles.check}>✓</span>
+                  <span className={styles.check}>✦</span>
                   {f}
                 </li>
               ))}

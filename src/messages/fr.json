@@ -1,8 +1,9 @@
 {
   "nav": {
-    "offers": "Offres",
+    "offers": "Services",
+    "demos": "Démos",
     "process": "Processus",
-    "team": "L'équipe",
+    "team": "Expertise",
     "faq": "FAQ",
     "cta": "Réserver un appel",
     "cta_arrow": "Réserver un appel →"
@@ -12,39 +13,25 @@
   },
   "problems": {
     "tag": "Le Constat",
-    "title": "Lancer un logiciel ne devrait pas coûter une fortune.",
-    "desc": "Vous avez l'idée, la vision, le marché — mais trouver la bonne équipe technique prend du temps et les résultats ne sont pas toujours au rendez-vous.",
-    "badge_bad": "Ce que vous vivez",
-    "badge_good": "Notre réponse"
-  },
-  "approach": {
-    "tag": "Notre approche",
-    "title": "Focalisés sur votre produit.",
-    "desc": "Notre modèle est simple : une équipe dédiée qui se concentre à 100% sur la réussite de votre projet.",
-    "bar_label_us": "Wikolabs",
-    "bar_label_them": "Agences classiques",
-    "bar_bottom": "Part du budget investie dans le produit",
-    "item1_title": "Votre produit avant tout",
-    "item1_text": "Chaque membre de l'équipe travaille exclusivement sur votre projet. Pas de multitâche, pas de distractions.",
-    "item2_title": "Équipe motivée",
-    "item2_text": "Nos experts sont choisis pour leur passion et leur engagement. Ils sont investis dans la réussite de votre projet.",
-    "item3_title": "Formation continue",
-    "item3_text": "Nos membres se forment en permanence aux dernières technologies pour vous apporter le meilleur."
+    "title": "L'IA transforme les entreprises. La vôtre aussi.",
+    "desc": "Vos concurrents automatisent déjà ce que vos équipes font manuellement. La fenêtre d'opportunité est ouverte — mais elle ne le restera pas indéfiniment.",
+    "badge_bad": "Ce qui freine votre croissance",
+    "badge_good": "Ce que nous mettons en place"
   },
   "why_clients": {
-    "tag": "Pourquoi nous",
-    "title": "Pourquoi nos clients nous choisissent.",
-    "desc": "Une équipe complète, un processus clair, un produit livré dans les temps. Voici ce qui fait la différence."
+    "tag": "Pourquoi Wikolabs",
+    "title": "Un partenaire qui livre des résultats, pas des promesses.",
+    "desc": "Rigueur méthodologique, expertise technologique et orientation résultats — voici ce qui distingue une collaboration avec Wikolabs."
   },
   "expertise": {
-    "tag": "L'équipe",
-    "title": "Tous les talents pour construire votre produit.",
-    "desc": "Intelligence artificielle, développement, données, design, infrastructure — une équipe complète, prête à donner vie à votre idée."
+    "tag": "Notre équipe",
+    "title": "Tous les expertises pour transformer votre entreprise.",
+    "desc": "De l'ingénieur IA agentique au spécialiste MLOps — des profils complémentaires qui couvrent l'intégralité du cycle de vie de vos projets data et IA."
   },
   "offers": {
     "tag": "Nos offres",
     "title": "Trois façons de démarrer.",
-    "desc": "Du premier audit à la livraison complète de votre produit — choisissez l'entrée qui correspond à votre stade."
+    "desc": "Du premier audit stratégique à la livraison de votre solution complète — choisissez l'entrée qui correspond à votre situation."
   },
   "pricing": {
     "tag": "Simulateur",
@@ -56,27 +43,34 @@
     "th_senior": "Senior"
   },
   "process": {
-    "tag": "Processus",
-    "title": "De l'idée au produit : {count} étapes.",
-    "desc": "Un processus clair, avec validation à chaque étape. Vous gardez le contrôle de bout en bout.",
+    "tag": "Notre processus",
+    "title": "De la découverte à la mise en production : {count} étapes.",
+    "desc": "Un processus structuré, avec daily standup et point hebdomadaire. Vous gardez le contrôle à chaque étape.",
     "step": "Étape"
   },
   "testimonials": {
-    "tag": "Ils nous font confiance",
-    "title": "Ce qu'en disent nos clients."
+    "tag": "Ce qu'ils en disent",
+    "title": "Des résultats concrets, des clients satisfaits."
   },
   "faq": {
     "tag": "FAQ",
     "title": "Questions fréquentes."
   },
   "cta": {
-    "title": "Prêt à construire votre SaaS intelligent ?",
-    "desc": "Décrivez-nous votre idée. Nous vous répondons sous 24h avec une proposition d'équipe et un plan d'action.",
-    "button": "Réserver un appel →"
+    "title": "Prêt à transformer votre entreprise avec l'IA ?",
+    "desc": "Décrivez votre besoin ou vos enjeux. Nous vous répondons sous 24h avec une première analyse et une proposition d'approche.",
+    "button": "Réserver un appel →",
+    "email": "Envoyer un email",
+    "phone": "Appeler directement"
   },
   "footer": {
-    "brand_text": "On construit votre SaaS intelligent — de l'idée au produit. Équipe dédiée, résultats concrets.",
+    "brand_text": "Intelligence Artificielle & Data pour dirigeants d'entreprise. Agents IA, automatisation, développement fullstack et data engineering.",
     "nav_title": "Navigation",
-    "contact_title": "Contact"
+    "services_title": "Services",
+    "contact_title": "Contact",
+    "contact_phone": "+261 38 66 261 00",
+    "contact_email1": "team@wikolabs.com",
+    "contact_email2": "contact@wikolabs.com",
+    "legal": "Wikolabs SARLU — Antananarivo, Madagascar — Société immatriculée au registre du commerce"
   }
 }

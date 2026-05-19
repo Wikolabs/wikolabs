@@ -71,147 +71,399 @@ export interface SiteContent {
 
 const DEFAULTS_FR: SiteContent = {
   hero: {
-    tag: "De l'idée au produit — en 4 à 8 semaines",
-    title_line1: "On construit votre",
-    title_line2: "SaaS",
-    title_accent: "intelligent",
+    tag: "Intelligence Artificielle & Data pour Dirigeants d'Entreprise",
+    title_line1: "Transformez votre entreprise",
+    title_line2: "avec",
+    title_accent: "l'Intelligence Artificielle",
     subtitle:
-      "Une équipe complète — développeurs, spécialistes en intelligence artificielle et designers — qui transforme votre idée en produit fonctionnel, prêt pour vos premiers utilisateurs.",
+      "Wikolabs déploie des agents IA, des systèmes de données et des automatisations qui produisent des résultats concrets et mesurables pour votre organisation — sans jargon technique, sans délai inutile.",
     stats: [
-      { value: "4-8", label: "Semaines" },
-      { value: "6", label: "Métiers clés" },
+      { value: "5+", label: "Domaines d'excellence" },
+      { value: "100%", label: "Full remote & suivi" },
       { value: "FR/EN", label: "Bilingue" },
     ],
     marquee_items: [
-      "Applications SaaS", "Chatbots intelligents", "Tableaux de bord", "Apps Web",
-      "Automatisation IA", "Interfaces utilisateur", "Recommandations", "Hébergement cloud",
+      "Agents IA Agentiques",
+      "Data Engineering",
+      "Automatisation Intelligente",
+      "Développement Fullstack",
+      "Business Intelligence",
+      "Cycle Commercial IA",
+      "Recherche Sémantique",
+      "MLOps & Fine-tuning",
+      "Traitement Documentaire",
+      "CRM Multi-agent",
     ],
   },
   client_problems: [
-    { title: "Trouver la bonne équipe est compliqué", text: "Recruter des développeurs prend du temps, coûte cher, et rien ne garantit qu'ils comprennent votre vision produit." },
-    { title: "Freelances sans structure", text: "Des freelances isolés : aucune garantie de livraison, pas de vision d'ensemble, zéro continuité si l'un d'eux quitte." },
-    { title: "Agences classiques, résultats flous", text: "Les agences traditionnelles sont souvent opaques : peu de visibilité sur l'avancement, et un produit qui ne correspond pas toujours à ce que vous aviez imaginé." },
+    {
+      title: "Vos données dorment sans produire de valeur",
+      text: "Commandes, CRM, emails, documents — des mines d'or que votre organisation n'exploite pas encore, faute d'outils adaptés.",
+    },
+    {
+      title: "Votre cycle commercial est manuel et lent",
+      text: "Prospection, suivi, qualification, relances — des dizaines d'heures par semaine absorbées par des tâches répétitives que l'IA peut prendre en charge.",
+    },
+    {
+      title: "Vos clients attendent, votre SAV déborde",
+      text: "Statut de commande, demandes de retour, questions répétitives — votre équipe s'épuise sur des réponses que votre site peut automatiser.",
+    },
   ],
   client_solutions: [
-    { title: "Une équipe dédiée à votre projet", text: "Des professionnels sélectionnés sur des projets concrets, qui travaillent exclusivement sur votre produit du début à la fin." },
-    { title: "Un vrai processus produit", text: "Un chef de projet, des méthodes éprouvées, des démos régulières. Vous voyez votre produit avancer chaque semaine." },
-    { title: "Vous gardez le contrôle", text: "Rien ne démarre sans votre validation. Chaque fonctionnalité, chaque étape est discutée et approuvée avec vous." },
+    {
+      title: "Des agents IA qui travaillent 24h/24 pour vous",
+      text: "Qualification de leads, réponses clients, extraction documentaire, reporting — des workflows intelligents qui s'occupent de l'opérationnel pendant que vous pilotez.",
+    },
+    {
+      title: "Des données qui se transforment en décisions",
+      text: "Tableaux de bord en langage naturel, prévisions de revenus, détection d'anomalies — votre performance devient lisible et actionnable à tout moment.",
+    },
+    {
+      title: "Un cycle commercial entièrement orchestré",
+      text: "De la génération de leads à la signature du contrat, en passant par la qualification BANT et la prise de rendez-vous — chaque étape automatisée, chaque contact personnalisé.",
+    },
   ],
   roles: [
-    { emoji: "🧠", title: "Spécialiste intelligence artificielle", desc: "Il rend votre produit intelligent : chatbots qui comprennent vos clients, recommandations personnalisées, analyse automatique de documents.", tjm: "" },
-    { emoji: "⚡", title: "Développeur web", desc: "Il construit votre application : l'inscription, le tableau de bord, les fonctionnalités — tout ce que vos utilisateurs voient et utilisent.", tjm: "" },
-    { emoji: "📊", title: "Spécialiste données", desc: "Il transforme vos données en décisions : il identifie les tendances, prédit les comportements et crée des rapports visuels clairs.", tjm: "" },
-    { emoji: "🔗", title: "Ingénieur données", desc: "Il organise le flux de vos données pour que tout circule sans accroc entre vos différents outils et votre intelligence artificielle.", tjm: "" },
-    { emoji: "🎨", title: "Designer d'interfaces", desc: "Il dessine l'expérience de vos utilisateurs : des écrans clairs, intuitifs et agréables à utiliser sur ordinateur comme sur mobile.", tjm: "" },
-    { emoji: "🔧", title: "Ingénieur infrastructure", desc: "Il s'assure que votre application est en ligne 24h/24, rapide, sécurisée, et qu'elle tient la charge même avec beaucoup d'utilisateurs.", tjm: "" },
+    {
+      emoji: "🤖",
+      title: "Ingénieur IA Agentique",
+      desc: "Conçoit et déploie des agents IA autonomes avec mémoire, compétences et outils : agents commerciaux, agents support, agents de veille.",
+      tjm: "",
+    },
+    {
+      emoji: "📊",
+      title: "Data Engineer & Architecte",
+      desc: "Construit les pipelines de données temps réel, les entrepôts cloud (Snowflake, BigQuery) et les architectures CDC pour alimenter vos agents et tableaux de bord.",
+      tjm: "",
+    },
+    {
+      emoji: "🧠",
+      title: "Spécialiste ML & LLM",
+      desc: "Fine-tune, entraîne et déploie des modèles sur mesure (RLHF, RAG, embeddings multimodaux) pour votre domaine spécifique.",
+      tjm: "",
+    },
+    {
+      emoji: "⚡",
+      title: "Développeur Fullstack",
+      desc: "Développe les interfaces, API et intégrations qui donnent vie à vos applications — Next.js, FastAPI, NestJS — avec une qualité de production.",
+      tjm: "",
+    },
+    {
+      emoji: "🔗",
+      title: "Spécialiste Automatisation",
+      desc: "Orchestre vos workflows avec n8n, Zapier, Make et des pipelines LangGraph pour connecter vos outils et éliminer les tâches répétitives.",
+      tjm: "",
+    },
+    {
+      emoji: "☁️",
+      title: "Ingénieur MLOps & Cloud",
+      desc: "Déploie, monitore et maintient vos modèles en production sur GCP, AWS ou Azure avec des pipelines CI/CD et une observabilité complète.",
+      tjm: "",
+    },
   ],
   why_clients: [
-    { icon: "🧠", title: "Experts en intelligence artificielle", text: "Notre équipe fondatrice vient du monde de l'IA. On ne fait pas que développer — on intègre de l'intelligence dans votre produit pour le rendre unique." },
-    { icon: "🚀", title: "De l'idée au produit en 4-8 semaines", text: "Un processus rodé : vous décrivez votre besoin, on planifie ensemble, on développe par étapes avec des démos régulières." },
-    { icon: "⚡", title: "Un seul interlocuteur", text: "Un chef de projet dédié, des points d'avancement chaque semaine, un suivi en temps réel. Pas besoin de gérer plusieurs freelances." },
-    { icon: "🌍", title: "On s'adapte à vos horaires", text: "Que vous soyez en Europe, en Amérique du Nord ou en Afrique — on organise nos échanges pour que ce soit fluide. Communication en français et en anglais." },
-    { icon: "🎯", title: "Focalisés sur le résultat", text: "On mesure notre succès au vôtre : un produit livré dans les temps, qui fonctionne, et qui plaît à vos utilisateurs." },
-    { icon: "🔄", title: "On reste après la livraison", text: "Corrections, nouvelles fonctionnalités, montée en charge — votre équipe ne disparaît pas une fois le projet terminé." },
+    {
+      icon: "🎯",
+      title: "Focalisés sur vos résultats business",
+      text: "Nous ne livrons pas du code — nous livrons des résultats. Chaque solution est conçue pour produire un impact mesurable sur votre chiffre d'affaires ou votre efficacité opérationnelle.",
+    },
+    {
+      icon: "🌐",
+      title: "Full remote avec suivi structuré",
+      text: "Daily standup, point hebdomadaire, reporting en temps réel. Notre méthode de travail à distance est aussi rigoureuse qu'une équipe en présentiel — Agile, Scrum ou Waterfall.",
+    },
+    {
+      icon: "⚡",
+      title: "Rapidité d'exécution sans compromis qualité",
+      text: "Sprints bi-hebdomadaires, démos régulières, livraisons continues. Du premier prototype au déploiement production, nous avançons vite et bien.",
+    },
+    {
+      icon: "🔒",
+      title: "Sécurité et conformité intégrées",
+      text: "RGPD, confidentialité des données, audit trail complet. Vos données et celles de vos clients sont protégées à chaque étape du développement.",
+    },
+    {
+      icon: "🤝",
+      title: "Partenaire à long terme, pas prestataire ponctuel",
+      text: "Corrections, nouvelles fonctionnalités, scaling, formation de vos équipes — nous restons disponibles après la livraison pour assurer le succès de votre investissement.",
+    },
+    {
+      icon: "🌍",
+      title: "Bilingue et international",
+      text: "Équipe maîtrisant le français et l'anglais, adaptée à vos fuseaux horaires (Europe, Amérique du Nord, Afrique). Communication fluide, contrats professionnels.",
+    },
   ],
-  pricing: [
-    { role: "Spécialiste IA", junior: "340 €", confirmed: "490 €", senior: "640 €" },
-    { role: "Spécialiste données", junior: "340 €", confirmed: "490 €", senior: "640 €" },
-    { role: "Ingénieur données", junior: "300 €", confirmed: "450 €", senior: "600 €" },
-    { role: "Développeur web", junior: "260 €", confirmed: "375 €", senior: "490 €" },
-    { role: "Ingénieur infrastructure", junior: "300 €", confirmed: "450 €", senior: "560 €" },
-    { role: "Designer d'interfaces", junior: "225 €", confirmed: "340 €", senior: "450 €" },
-  ],
+  pricing: [],
   process: [
-    { num: "01", title: "Partagez votre idée", text: "Un appel de 30 minutes pour comprendre votre vision, vos futurs utilisateurs et vos contraintes. On vous dit si c'est faisable et comment." },
-    { num: "02", title: "On planifie ensemble", text: "On définit ensemble les fonctionnalités et le planning. Vous validez le périmètre, l'équipe et le budget avant de démarrer." },
-    { num: "03", title: "Votre équipe est constituée", text: "On assemble les profils les mieux adaptés à votre projet. Vous les rencontrez et donnez votre accord avant le lancement." },
-    { num: "04", title: "Développement par étapes", text: "Toutes les 1 à 2 semaines, vous recevez une nouvelle version fonctionnelle. Vous testez, vous faites vos retours, on ajuste." },
-    { num: "05", title: "Livraison et mise en ligne", text: "Tests complets, mise en ligne, documentation. Votre produit est accessible et prêt à accueillir ses premiers utilisateurs." },
-    { num: "06", title: "Support et évolutions", text: "L'équipe reste disponible après la livraison. Corrections, nouvelles fonctionnalités, montée en charge — on continue ensemble." },
+    {
+      num: "01",
+      title: "Échange de découverte (30 min)",
+      text: "Un appel pour comprendre votre contexte, vos enjeux et vos objectifs. Nous identifions ensemble où l'IA peut créer le plus de valeur pour vous.",
+    },
+    {
+      num: "02",
+      title: "Cadrage & proposition",
+      text: "Nous structurons use cases, user stories et règles métier. Vous recevez une proposition claire avec périmètre, planning et jalons de livraison.",
+    },
+    {
+      num: "03",
+      title: "Kick-off & accès",
+      text: "Présentation de l'équipe dédiée, validation des outils de collaboration et des accès. Le projet démarre dans un environnement structuré et sécurisé.",
+    },
+    {
+      num: "04",
+      title: "Sprints & démos bi-hebdomadaires",
+      text: "Daily standup, développement en sprints de 1 à 2 semaines, démo de fin de sprint. Vous validez chaque livrable avant de passer à la suite.",
+    },
+    {
+      num: "05",
+      title: "Recette, tests & mise en production",
+      text: "Tests unitaires, UAT (User Acceptance Testing), corrections et déploiement production sur votre infrastructure ou la nôtre.",
+    },
+    {
+      num: "06",
+      title: "Support, optimisation & évolutions",
+      text: "Suivi post-livraison, monitoring des performances, nouvelles fonctionnalités et scaling. Point hebdomadaire pour piloter la roadmap ensemble.",
+    },
   ],
   testimonials: [
-    { quote: "Leur équipe a livré un système de recommandations intelligentes en 6 semaines. Compétents, réactifs, professionnels.", name: "Jean-Pierre K.", role: "CEO, Mediwyz", initials: "JK" },
+    {
+      quote: "L'équipe Wikolabs a livré un système de recommandations multimodal en production en 6 semaines. Compétents, réactifs, et surtout — ils comprennent les enjeux business, pas seulement la technique.",
+      name: "Jean-Pierre K.",
+      role: "CEO, Mediwyz",
+      initials: "JK",
+    },
+    {
+      quote: "Notre agent SAV gère maintenant 80% des questions clients automatiquement. L'impact sur notre équipe support a été immédiat et mesurable.",
+      name: "Sophie M.",
+      role: "Directrice E-commerce",
+      initials: "SM",
+    },
   ],
   faq: [
-    { q: "C'est quoi un « SaaS intelligent » ?", a: "C'est un logiciel en ligne (accessible depuis un navigateur) qui intègre de l'intelligence artificielle : par exemple un chatbot qui répond à vos clients, des recommandations personnalisées, ou de l'analyse automatique de documents. On construit aussi des logiciels classiques sans IA." },
-    { q: "Comment garantissez-vous la qualité ?", a: "On recrute nos experts sur la base de mini-projets concrets, pas sur CV. Ils sont formés en continu et évalués par les clients après chaque projet." },
-    { q: "Et si mon projet n'a pas besoin d'intelligence artificielle ?", a: "Aucun problème. Notre équipe couvre tout : application web, tableau de bord, design d'interfaces. L'IA est notre spécialité, mais pas notre seul savoir-faire." },
-    { q: "Quel budget faut-il prévoir pour démarrer ?", a: "Notre offre Audit démarre à 1 500 €. Pour un premier produit complet, comptez à partir de 8 000 €. Le simulateur sur cette page vous donne une estimation personnalisée." },
-    { q: "Quelle est votre structure juridique ?", a: "Wikolabs est une société de droit malgache (SARLU) immatriculée au registre du commerce, avec un compte bancaire international. Contrats professionnels, factures conformes, propriété intellectuelle transférée." },
-    { q: "Dans quels fuseaux horaires travaillez-vous ?", a: "Notre équipe est basée à Madagascar (UTC+3). On s'adapte à vos horaires, que vous soyez en Europe, en Amérique du Nord ou en Afrique. Communication en français et en anglais." },
+    {
+      q: "À qui s'adressent vos services ?",
+      a: "Nous travaillons avec des dirigeants d'entreprise — CEO, COO, directeurs commerciaux — qui veulent déployer l'intelligence artificielle pour améliorer leur performance sans avoir à gérer la complexité technique. Nos clients vont de la PME au grand groupe.",
+    },
+    {
+      q: "Comment se déroule un projet type ?",
+      a: "Tout commence par un appel de découverte (30 min). Nous cadreons ensuite votre projet avec vous (use cases, règles métier, planning). Puis nous livrons par sprints avec daily standup et point hebdomadaire, jusqu'à la mise en production et le suivi.",
+    },
+    {
+      q: "Vous travaillez en full remote — comment assurez-vous le suivi ?",
+      a: "Notre process est structuré : daily standup, point hebdomadaire, démos de sprint, reporting en temps réel. Nous utilisons Slack, Notion, Jira et les outils de votre choix. La distance ne change pas la rigueur.",
+    },
+    {
+      q: "Quelles méthodologies utilisez-vous ?",
+      a: "Agile Scrum par défaut (sprints de 1-2 semaines, backlog priorisé, démos régulières). Nous adaptons selon vos contraintes — Waterfall pour les projets réglementés, Kanban pour les évolutions continues.",
+    },
+    {
+      q: "Mes données sont-elles en sécurité ?",
+      a: "Oui. Nous appliquons les standards RGPD : chiffrement des données, accès restreint, audit trail complet. Nous signons des accords de confidentialité et pouvons héberger sur votre infrastructure si nécessaire.",
+    },
+    {
+      q: "Comment nous contacter ?",
+      a: "Par email à team@wikolabs.com ou contact@wikolabs.com, par téléphone au +261 38 66 261 00, ou en réservant directement un créneau via notre calendrier en ligne.",
+    },
   ],
 };
 
 const DEFAULTS_EN: SiteContent = {
   hero: {
-    tag: "From idea to product — in 4 to 8 weeks",
-    title_line1: "We build your",
-    title_line2: "intelligent",
-    title_accent: "SaaS",
+    tag: "Artificial Intelligence & Data Services for Business Leaders",
+    title_line1: "Transform your business",
+    title_line2: "with",
+    title_accent: "Artificial Intelligence",
     subtitle:
-      "A complete team — developers, AI specialists and designers — that turns your idea into a working product, ready for your first users.",
+      "Wikolabs deploys AI agents, data systems, and automation that produce concrete, measurable results for your organization — no technical jargon, no unnecessary delays.",
     stats: [
-      { value: "4-8", label: "Weeks" },
-      { value: "6", label: "Key roles" },
+      { value: "5+", label: "Areas of excellence" },
+      { value: "100%", label: "Remote with oversight" },
       { value: "FR/EN", label: "Bilingual" },
     ],
     marquee_items: [
-      "SaaS Applications", "Smart Chatbots", "Dashboards", "Web Apps",
-      "AI Automation", "User Interfaces", "Recommendations", "Cloud Hosting",
+      "Agentic AI",
+      "Data Engineering",
+      "Intelligent Automation",
+      "Fullstack Development",
+      "Business Intelligence",
+      "AI Sales Cycle",
+      "Semantic Search",
+      "MLOps & Fine-tuning",
+      "Document Processing",
+      "Multi-agent CRM",
     ],
   },
   client_problems: [
-    { title: "Finding the right team is hard", text: "Recruiting developers takes time, costs a lot, and there's no guarantee they'll understand your product vision." },
-    { title: "Freelancers without structure", text: "Isolated freelancers: no delivery guarantee, no big-picture vision, zero continuity if one of them leaves." },
-    { title: "Traditional agencies, unclear results", text: "Traditional agencies are often opaque: little visibility on progress, and a product that doesn't always match what you had in mind." },
+    {
+      title: "Your data sits idle without producing value",
+      text: "Orders, CRM, emails, documents — gold mines your organization isn't yet exploiting, for lack of the right tools.",
+    },
+    {
+      title: "Your sales cycle is manual and slow",
+      text: "Prospecting, follow-up, qualification, reminders — dozens of hours per week absorbed by repetitive tasks AI can handle.",
+    },
+    {
+      title: "Your customers wait, your support team is overwhelmed",
+      text: "Order status, return requests, repeat questions — your team burns out on answers your platform can automate.",
+    },
   ],
   client_solutions: [
-    { title: "A dedicated team for your project", text: "Professionals selected on real projects, who work exclusively on your product from start to finish." },
-    { title: "A real product process", text: "A project manager, proven methods, regular demos. You see your product progress every week." },
-    { title: "You stay in control", text: "Nothing starts without your approval. Every feature, every step is discussed and validated with you." },
+    {
+      title: "AI agents working 24/7 for you",
+      text: "Lead qualification, customer responses, document extraction, reporting — intelligent workflows handling operations while you steer the ship.",
+    },
+    {
+      title: "Data that transforms into decisions",
+      text: "Natural language dashboards, revenue forecasting, anomaly detection — your performance becomes readable and actionable at any time.",
+    },
+    {
+      title: "A fully orchestrated sales cycle",
+      text: "From lead generation to signed contract, through BANT qualification and appointment setting — every step automated, every contact personalized.",
+    },
   ],
   roles: [
-    { emoji: "🧠", title: "AI specialist", desc: "Makes your product smart: chatbots that understand your customers, personalized recommendations, automatic document analysis.", tjm: "" },
-    { emoji: "⚡", title: "Web developer", desc: "Builds your application: signup, dashboard, features — everything your users see and interact with.", tjm: "" },
-    { emoji: "📊", title: "Data specialist", desc: "Turns your data into decisions: identifies trends, predicts behaviors, and creates clear visual reports.", tjm: "" },
-    { emoji: "🔗", title: "Data engineer", desc: "Organizes the flow of your data so everything runs smoothly between your tools and your AI.", tjm: "" },
-    { emoji: "🎨", title: "Interface designer", desc: "Designs your users' experience: clear, intuitive, and pleasant screens on desktop and mobile.", tjm: "" },
-    { emoji: "🔧", title: "Infrastructure engineer", desc: "Keeps your application online 24/7, fast, secure, and able to handle high traffic.", tjm: "" },
+    {
+      emoji: "🤖",
+      title: "Agentic AI Engineer",
+      desc: "Designs and deploys autonomous AI agents with memory, skills, and tools: sales agents, support agents, market intelligence agents.",
+      tjm: "",
+    },
+    {
+      emoji: "📊",
+      title: "Data Engineer & Architect",
+      desc: "Builds real-time data pipelines, cloud warehouses (Snowflake, BigQuery), and CDC architectures to power your agents and dashboards.",
+      tjm: "",
+    },
+    {
+      emoji: "🧠",
+      title: "ML & LLM Specialist",
+      desc: "Fine-tunes, trains, and deploys custom models (RLHF, RAG, multimodal embeddings) tailored to your specific domain.",
+      tjm: "",
+    },
+    {
+      emoji: "⚡",
+      title: "Fullstack Developer",
+      desc: "Builds interfaces, APIs, and integrations that bring your applications to life — Next.js, FastAPI, NestJS — at production quality.",
+      tjm: "",
+    },
+    {
+      emoji: "🔗",
+      title: "Automation Specialist",
+      desc: "Orchestrates your workflows with n8n, Zapier, Make, and LangGraph pipelines to connect your tools and eliminate repetitive tasks.",
+      tjm: "",
+    },
+    {
+      emoji: "☁️",
+      title: "MLOps & Cloud Engineer",
+      desc: "Deploys, monitors, and maintains your models in production on GCP, AWS, or Azure with CI/CD pipelines and full observability.",
+      tjm: "",
+    },
   ],
   why_clients: [
-    { icon: "🧠", title: "AI experts", text: "Our founding team comes from the AI world. We don't just develop — we integrate intelligence into your product to make it unique." },
-    { icon: "🚀", title: "Idea to product in 4-8 weeks", text: "A proven process: you describe your need, we plan together, we develop in stages with regular demos." },
-    { icon: "⚡", title: "One point of contact", text: "A dedicated project manager, weekly progress updates, real-time tracking. No need to manage multiple freelancers." },
-    { icon: "🌍", title: "We adapt to your schedule", text: "Whether you're in Europe, North America or Africa — we organize our communication to make it seamless. French and English." },
-    { icon: "🎯", title: "Focused on results", text: "We measure our success by yours: a product delivered on time, that works, and that your users love." },
-    { icon: "🔄", title: "We stay after launch", text: "Fixes, new features, scaling — your team doesn't disappear once the project is done." },
+    {
+      icon: "🎯",
+      title: "Focused on your business results",
+      text: "We don't deliver code — we deliver results. Every solution is designed to produce measurable impact on your revenue or operational efficiency.",
+    },
+    {
+      icon: "🌐",
+      title: "Full remote with structured oversight",
+      text: "Daily standup, weekly review, real-time reporting. Our remote work method is as rigorous as an in-house team — Agile, Scrum, or Waterfall.",
+    },
+    {
+      icon: "⚡",
+      title: "Speed without sacrificing quality",
+      text: "Bi-weekly sprints, regular demos, continuous delivery. From first prototype to production deployment, we move fast and right.",
+    },
+    {
+      icon: "🔒",
+      title: "Security and compliance built in",
+      text: "GDPR, data privacy, full audit trail. Your data and your customers' data are protected at every stage of development.",
+    },
+    {
+      icon: "🤝",
+      title: "Long-term partner, not a one-off vendor",
+      text: "Fixes, new features, scaling, team training — we stay available after delivery to ensure the success of your investment.",
+    },
+    {
+      icon: "🌍",
+      title: "Bilingual and international",
+      text: "Team fluent in French and English, adapted to your timezones (Europe, North America, Africa). Seamless communication, professional contracts.",
+    },
   ],
-  pricing: [
-    { role: "AI specialist", junior: "340 €", confirmed: "490 €", senior: "640 €" },
-    { role: "Data specialist", junior: "340 €", confirmed: "490 €", senior: "640 €" },
-    { role: "Data engineer", junior: "300 €", confirmed: "450 €", senior: "600 €" },
-    { role: "Web developer", junior: "260 €", confirmed: "375 €", senior: "490 €" },
-    { role: "Infrastructure engineer", junior: "300 €", confirmed: "450 €", senior: "560 €" },
-    { role: "Interface designer", junior: "225 €", confirmed: "340 €", senior: "450 €" },
-  ],
+  pricing: [],
   process: [
-    { num: "01", title: "Share your idea", text: "A 30-minute call to understand your vision, your future users and your constraints. We tell you if it's doable and how." },
-    { num: "02", title: "We plan together", text: "We define the features and timeline together. You approve the scope, team and budget before we start." },
-    { num: "03", title: "Your team is assembled", text: "We bring together the profiles best suited to your project. You meet them and give your approval before we begin." },
-    { num: "04", title: "Step-by-step development", text: "Every 1-2 weeks, you receive a new working version. You test, share feedback, and we adjust." },
-    { num: "05", title: "Delivery and launch", text: "Full testing, launch, documentation. Your product is live and ready for its first users." },
-    { num: "06", title: "Support and new features", text: "The team stays available after launch. Fixes, new features, handling more users — we continue together." },
+    {
+      num: "01",
+      title: "Discovery call (30 min)",
+      text: "A call to understand your context, challenges, and goals. We identify together where AI can create the most value for you.",
+    },
+    {
+      num: "02",
+      title: "Scoping & proposal",
+      text: "We structure use cases, user stories, and business rules with you. You receive a clear proposal with scope, timeline, and delivery milestones.",
+    },
+    {
+      num: "03",
+      title: "Kick-off & access",
+      text: "Team introduction, collaboration tool setup, and access provisioning. The project starts in a structured and secure environment.",
+    },
+    {
+      num: "04",
+      title: "Sprints & bi-weekly demos",
+      text: "Daily standup, 1-2 week sprints, end-of-sprint demo. You validate every deliverable before moving to the next phase.",
+    },
+    {
+      num: "05",
+      title: "Testing, QA & production launch",
+      text: "Unit tests, UAT (User Acceptance Testing), bug fixes, and production deployment on your infrastructure or ours.",
+    },
+    {
+      num: "06",
+      title: "Support, optimization & roadmap",
+      text: "Post-delivery monitoring, performance tracking, new features, and scaling. Weekly review to steer the roadmap together.",
+    },
   ],
   testimonials: [
-    { quote: "Their team delivered a smart recommendation system in 6 weeks. Skilled, responsive, professional.", name: "Jean-Pierre K.", role: "CEO, Mediwyz", initials: "JK" },
+    {
+      quote: "The Wikolabs team delivered a multimodal recommendation system in production in 6 weeks. Skilled, responsive, and above all — they understand business challenges, not just the technology.",
+      name: "Jean-Pierre K.",
+      role: "CEO, Mediwyz",
+      initials: "JK",
+    },
+    {
+      quote: "Our customer service agent now handles 80% of customer inquiries automatically. The impact on our support team was immediate and measurable.",
+      name: "Sophie M.",
+      role: "E-commerce Director",
+      initials: "SM",
+    },
   ],
   faq: [
-    { q: "What is an 'intelligent SaaS'?", a: "It's online software (accessible from a browser) that includes artificial intelligence: for example a chatbot that answers your customers, personalized recommendations, or automatic document analysis. We also build classic software without AI." },
-    { q: "How do you guarantee quality?", a: "We recruit our experts based on real mini-projects, not resumes. They receive ongoing training and are evaluated by clients after each project." },
-    { q: "What if my project doesn't need AI?", a: "No problem at all. Our team covers everything: web application, dashboard, interface design. AI is our specialty, but not our only skill." },
-    { q: "What budget should I plan for?", a: "Our Audit offer starts at €1,500. For a complete first product, plan from €8,000. The simulator on this page gives you a personalized estimate." },
-    { q: "What is your legal structure?", a: "Wikolabs is a company registered under Malagasy law (SARLU), with an international bank account. Professional contracts, compliant invoices, intellectual property transferred to you." },
-    { q: "What timezones do you work in?", a: "Our team is based in Madagascar (UTC+3). We adapt to your schedule, whether you're in Europe, North America or Africa. Communication in French and English." },
+    {
+      q: "Who are your services for?",
+      a: "We work with business leaders — CEOs, COOs, commercial directors — who want to deploy artificial intelligence to improve their performance without managing the technical complexity. Our clients range from SMBs to large enterprises.",
+    },
+    {
+      q: "How does a typical project work?",
+      a: "It starts with a discovery call (30 min). We then scope your project together (use cases, business rules, timeline). We deliver in sprints with daily standups and weekly reviews, through to production and ongoing support.",
+    },
+    {
+      q: "You work fully remote — how do you ensure follow-up?",
+      a: "Our process is structured: daily standup, weekly review, sprint demos, real-time reporting. We use Slack, Notion, Jira, and whatever tools you prefer. Distance doesn't change rigor.",
+    },
+    {
+      q: "What methodologies do you use?",
+      a: "Agile Scrum by default (1-2 week sprints, prioritized backlog, regular demos). We adapt based on your constraints — Waterfall for regulated projects, Kanban for continuous improvements.",
+    },
+    {
+      q: "Is my data secure?",
+      a: "Yes. We apply GDPR standards: data encryption, restricted access, full audit trail. We sign NDAs and can host on your infrastructure if needed.",
+    },
+    {
+      q: "How can we get in touch?",
+      a: "By email at team@wikolabs.com or contact@wikolabs.com, by phone at +261 38 66 261 00, or by booking a slot directly via our online calendar.",
+    },
   ],
 };
 
@@ -231,13 +483,11 @@ export async function getContent(locale: string = "fr"): Promise<SiteContent> {
     const dbContent: Partial<SiteContent> = {};
     for (const row of rows as { section_key: string; content_json: string }[]) {
       try {
-        // Strip locale suffix to get clean key: "hero_en" → "hero"
         const cleanKey = suffix ? row.section_key.replace(suffix, "") : row.section_key;
         (dbContent as Record<string, unknown>)[cleanKey] = JSON.parse(row.content_json);
       } catch { /* skip malformed */ }
     }
 
-    // Also load non-suffixed keys for FR (backward compat with existing data)
     if (locale === "fr") {
       const [frRows] = await pool.query(
         "SELECT section_key, content_json FROM site_content WHERE section_key NOT LIKE '%\\_en' AND section_key NOT LIKE '%\\_fr'"
