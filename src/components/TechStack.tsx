@@ -32,10 +32,10 @@ const ROW1: TechItem[] = [
   { Icon: SiDocker,         name: "Docker",       color: "#2496ED" },
   { Icon: SiKubernetes,     name: "Kubernetes",   color: "#326CE5" },
   { Icon: SiLangchain,      name: "LangChain",    color: "#1C3C3C" },
-  { abbr: "LG", abbrColor: "#22D3EE", name: "LangGraph", color: "#22D3EE" },
-  { abbr: "CA", abbrColor: "#F59E0B", name: "CrewAI",    color: "#F59E0B" },
-  { abbr: "AG", abbrColor: "#A78BFA", name: "AutoGen",   color: "#A78BFA" },
-  { abbr: "PY", abbrColor: "#E0234E", name: "Pydantic",  color: "#E0234E" },
+  { imgSrc: "https://cdn.simpleicons.org/langgraph/7FC8FF", name: "LangGraph", color: "#7FC8FF" },
+  { imgSrc: "https://cdn.simpleicons.org/crewai/FF5A50",   name: "CrewAI",    color: "#FF5A50" },
+  { abbr: "AG", abbrColor: "#A78BFA",                      name: "AutoGen",   color: "#A78BFA" },
+  { imgSrc: "https://cdn.simpleicons.org/pydantic/E92063", name: "Pydantic",  color: "#E92063" },
   { Icon: SiTensorflow,     name: "TensorFlow",   color: "#FF6F00" },
 ];
 
@@ -46,7 +46,7 @@ const ROW2: TechItem[] = [
   { Icon: SiGooglebigquery, name: "BigQuery",     color: "#4285F4" },
   { abbr: "DF", abbrColor: "#4285F4", name: "Dataflow",  color: "#4285F4" },
   { Icon: SiDatabricks,     name: "Databricks",   color: "#FF3621" },
-  { abbr: "DK", abbrColor: "#FE5D16", name: "Dataiku",   color: "#FE5D16" },
+  { imgSrc: "https://cdn.simpleicons.org/dataiku/2AB1AC", name: "Dataiku",   color: "#2AB1AC" },
   { Icon: SiN8N,            name: "n8n",          color: "#EA4B71" },
   { Icon: SiZapier,         name: "Zapier",       color: "#FF4A00" },
   { abbr: "MK", abbrColor: "#6C00FF", name: "Make",      color: "#6C00FF" },
