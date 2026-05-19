@@ -76,7 +76,7 @@ const DEFAULTS_FR: SiteContent = {
     title_line2: "avec",
     title_accent: "l'Intelligence Artificielle",
     subtitle:
-      "Wikolabs déploie des agents IA, des systèmes de données et des automatisations qui produisent des résultats concrets et mesurables pour votre organisation — sans jargon technique, sans délai inutile.",
+      "Wikolabs déploie des agents IA, des systèmes de données et des automatisations qui produisent des résultats concrets et mesurables pour votre organisation. Sans jargon technique. Sans délai inutile.",
     stats: [
       { value: "5+", label: "Domaines d'excellence" },
       { value: "100%", label: "Full remote & suivi" },
@@ -275,7 +275,7 @@ const DEFAULTS_EN: SiteContent = {
     title_line2: "with",
     title_accent: "Artificial Intelligence",
     subtitle:
-      "Wikolabs deploys AI agents, data systems, and automation that produce concrete, measurable results for your organization — no technical jargon, no unnecessary delays.",
+      "Wikolabs deploys AI agents, data systems, and automation that produce concrete, measurable results for your organization. No technical jargon. No unnecessary delays.",
     stats: [
       { value: "5+", label: "Areas of excellence" },
       { value: "100%", label: "Remote with oversight" },

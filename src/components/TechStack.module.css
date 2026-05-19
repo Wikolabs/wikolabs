@@ -78,7 +78,7 @@
 /* Marquee rows */
 .marqueeRow {
   overflow: hidden;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .marqueeTrack {
@@ -101,9 +101,9 @@
 .techItem {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 20px;
-  margin: 0 6px;
+  gap: 14px;
+  padding: 14px 28px;
+  margin: 0 8px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 100px;
@@ -118,17 +118,18 @@
 }
 
 .techIcon {
-  font-size: 1.1rem;
-  width: 24px;
-  height: 24px;
+  font-size: 1.8rem;
+  width: 34px;
+  height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .techName {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.88rem;
   letter-spacing: 0.5px;
   color: var(--txt2);
   font-weight: 500;

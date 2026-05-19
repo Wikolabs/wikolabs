@@ -11,6 +11,7 @@ import BookingModal from "@/components/BookingModal";
 import Services from "@/components/Services";
 import DemoApps from "@/components/DemoApps";
 import TechStack from "@/components/TechStack";
+import ChatBot from "@/components/ChatBot";
 
 export interface BookingPrefill {
   type?: string;
@@ -56,8 +57,6 @@ export default function LandingClient({
     roles,
     why_clients,
     process,
-    testimonials,
-    faq,
   } = content;
 
   const marqueeDouble = [...hero.marquee_items, ...hero.marquee_items];
@@ -69,8 +68,6 @@ export default function LandingClient({
   const [typedPhaseIndex, setTypedPhaseIndex] = useState(0);
   const [typedCharIndex, setTypedCharIndex] = useState(0);
   const [typedDeleting, setTypedDeleting] = useState(false);
-  const [faqOpen, setFaqOpen] = useState<number | null>(null);
-
   const openBooking = useCallback((prefill?: BookingPrefill) => {
     setBookingPrefill(prefill || {});
     setBookingOpen(true);
@@ -234,6 +231,7 @@ export default function LandingClient({
       <nav className={s.nav}>
         <a href="#" className={s.logo} onClick={closeMenu}>
           <img src="/wikolabs-logo.png" alt="Wikolabs" height={32} className={s.logoImg} />
+          <span className={s.logoText}>WIKOLABS</span>
         </a>
         <div className={s.navLinks}>
           <a href="#services" className={s.navLink}>{t("nav.offers")}</a>
@@ -480,30 +478,8 @@ export default function LandingClient({
       </section>
 
 
-      {/* ── FAQ ── */}
-      <section id="faq" className={s.section}>
-        <div className={`reveal ${s.sectionTag}`}>
-          <span className={s.sectionTagLine} />
-          {t("faq.tag")}
-        </div>
-        <h2 className={`reveal d1 ${s.sectionTitle}`}>{t("faq.title")}</h2>
-
-        <div className={s.faqGrid}>
-          {faq.map((f, i) => (
-            <div
-              className={`reveal d${Math.min(i % 2 + 1, 2)} ${s.faqCard} ${faqOpen === i ? s.faqCardOpen : ""}`}
-              key={i}
-              onClick={() => setFaqOpen(faqOpen === i ? null : i)}
-            >
-              <div className={s.faqQ}>
-                <span>{f.q}</span>
-                <span className={s.faqChevron}>{faqOpen === i ? "▲" : "▼"}</span>
-              </div>
-              {faqOpen === i && <div className={s.faqA}>{f.a}</div>}
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* ── CHATBOT / FAQ ── */}
+      <ChatBot locale={locale} />
 
       {/* ── CTA ── */}
       <section className={s.ctaSection}>

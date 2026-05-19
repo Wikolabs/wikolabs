@@ -184,9 +184,25 @@ export default function DemoApps({ locale }: { locale: string }) {
           {apps.map((app, i) => (
             <div key={i} className={`reveal d${Math.min(i + 1, 4)} ${styles.card}`}>
               <div className={styles.cardPreview}>
-                <div className={styles.previewFallback}>
-                  <div className={styles.previewIcon}>{app.icon}</div>
-                  <div className={styles.previewLabel}>{app.title}</div>
+                <div className={styles.browserChrome}>
+                  <div className={styles.browserBar}>
+                    <div className={styles.browserDots}>
+                      <span className={styles.dotRed} />
+                      <span className={styles.dotYellow} />
+                      <span className={styles.dotGreen} />
+                    </div>
+                    <div className={styles.browserUrl}>
+                      {app.url.replace("https://", "")}
+                    </div>
+                  </div>
+                  <div className={styles.browserContent}>
+                    <iframe
+                      src={app.url}
+                      title={app.title}
+                      loading="lazy"
+                      sandbox="allow-scripts allow-same-origin"
+                    />
+                  </div>
                 </div>
                 {app.live && (
                   <div className={styles.liveBadge}>

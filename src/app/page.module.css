@@ -39,9 +39,18 @@
   letter-spacing: -0.5px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   text-decoration: none;
   color: var(--wk-white);
+}
+
+.logoText {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
 }
 
 .logoDot {
@@ -229,6 +238,7 @@
   padding: 140px 48px 80px;
   position: relative;
   overflow: hidden;
+  background: var(--bg2);
 }
 
 .heroGlow {
@@ -268,7 +278,7 @@
 
 .heroTag {
   font-family: var(--wk-font-mono);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--wk-accent);
@@ -277,6 +287,8 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  position: relative;
+  z-index: 1;
 }
 
 .heroTagLine {
@@ -287,13 +299,15 @@
 
 .heroTitle {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-size: clamp(3.2rem, 8.5vw, 7rem);
   font-weight: 400;
   line-height: 1;
-  letter-spacing: -0.5px;
-  max-width: 900px;
+  letter-spacing: -1px;
+  max-width: 1000px;
   animation: fadeInUp 0.8s ease 0.15s both;
   color: var(--txt1);
+  position: relative;
+  z-index: 1;
 }
 
 .heroTitleAccent {
@@ -308,20 +322,22 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-top: 20px;
+  margin-top: 24px;
   animation: fadeInUp 0.8s ease 0.25s both;
+  position: relative;
+  z-index: 1;
 }
 
 .typedPrefix {
   font-family: var(--font-mono);
-  font-size: 0.88rem;
+  font-size: 1.1rem;
   color: var(--txt3);
   letter-spacing: 0.5px;
 }
 
 .typedText {
   font-family: var(--font-mono);
-  font-size: 0.88rem;
+  font-size: 1.1rem;
   color: var(--gold);
   letter-spacing: 0.5px;
   font-weight: 500;
@@ -329,19 +345,21 @@
 
 .typedCursor {
   font-family: var(--font-mono);
-  font-size: 0.88rem;
+  font-size: 1.1rem;
   color: var(--gold);
   animation: blink 1s step-end infinite;
 }
 
 .heroSub {
-  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  font-size: clamp(1.1rem, 1.6vw, 1.45rem);
   color: var(--wk-gray-400);
-  max-width: 560px;
+  max-width: 620px;
   margin-top: 32px;
-  line-height: 1.7;
+  line-height: 1.75;
   font-weight: 300;
   animation: fadeInUp 0.8s ease 0.3s both;
+  position: relative;
+  z-index: 1;
 }
 
 .heroActions {
@@ -350,6 +368,8 @@
   margin-top: 48px;
   animation: fadeInUp 0.8s ease 0.45s both;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
 .btnPrimary {

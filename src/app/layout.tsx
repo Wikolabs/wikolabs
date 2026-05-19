@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  icons: {
+    icon: [{ url: "/wikolabs-logo.png", type: "image/png" }],
+    apple: "/wikolabs-logo.png",
+    shortcut: "/wikolabs-logo.png",
+  },
   title: "Wikolabs — Services IA, Data & Automatisation pour Entreprises",
   description:
     "Wikolabs transforme votre entreprise avec l'IA agentique, l'ingénierie des données, l'automatisation intelligente et le développement logiciel. Agents IA, BI, cycle commercial automatisé, traitement documentaire multimodal. Services pour dirigeants et CEO.",

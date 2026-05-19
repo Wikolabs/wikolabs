@@ -1,71 +1,67 @@
 "use client";
 
 import styles from "./TechStack.module.css";
+import {
+  SiGooglecloud,
+  SiPython, SiReact, SiNextdotjs, SiFastapi, SiNestjs,
+  SiDocker, SiKubernetes, SiLangchain,
+  SiTensorflow, SiPytorch, SiScikitlearn,
+  SiSnowflake, SiGooglebigquery, SiDatabricks,
+  SiN8N, SiZapier, SiZoho, SiRedis, SiPostgresql, SiMongodb,
+} from "react-icons/si";
+import type { IconType } from "react-icons";
 
-const ROW1 = [
-  { icon: "☁️", name: "Google Cloud" },
-  { icon: "🟠", name: "AWS" },
-  { icon: "🔵", name: "Azure" },
-  { icon: "🐍", name: "Python" },
-  { icon: "⚛️", name: "React" },
-  { icon: "🔺", name: "Next.js" },
-  { icon: "🚀", name: "FastAPI" },
-  { icon: "🏗️", name: "NestJS" },
-  { icon: "🐳", name: "Docker" },
-  { icon: "☸️", name: "Kubernetes" },
-  { icon: "🦜", name: "LangChain" },
-  { icon: "🔗", name: "LangGraph" },
-  { icon: "🤝", name: "CrewAI" },
-  { icon: "🧬", name: "AutoGen" },
-  { icon: "✅", name: "Pydantic" },
-  { icon: "🧠", name: "TensorFlow" },
+interface TechItem {
+  Icon?: IconType;
+  abbr?: string;
+  abbrColor?: string;
+  name: string;
+  color: string;
+}
+
+const ROW1: TechItem[] = [
+  { Icon: SiGooglecloud,       name: "Google Cloud", color: "#4285F4" },
+  { abbr: "AWS", abbrColor: "#FF9900", name: "AWS",   color: "#FF9900" },
+  { abbr: "AZ",  abbrColor: "#0078D4", name: "Azure", color: "#0078D4" },
+  { Icon: SiPython,            name: "Python",       color: "#3776AB" },
+  { Icon: SiReact,             name: "React",        color: "#61DAFB" },
+  { Icon: SiNextdotjs,         name: "Next.js",      color: "#F0EDE6" },
+  { Icon: SiFastapi,           name: "FastAPI",      color: "#009688" },
+  { Icon: SiNestjs,            name: "NestJS",       color: "#E0234E" },
+  { Icon: SiDocker,            name: "Docker",       color: "#2496ED" },
+  { Icon: SiKubernetes,        name: "Kubernetes",   color: "#326CE5" },
+  { Icon: SiLangchain,         name: "LangChain",    color: "#1C3C3C" },
+  { abbr: "LG", abbrColor: "#22D3EE", name: "LangGraph", color: "#22D3EE" },
+  { abbr: "CA", abbrColor: "#F59E0B", name: "CrewAI",    color: "#F59E0B" },
+  { abbr: "AG", abbrColor: "#A78BFA", name: "AutoGen",   color: "#A78BFA" },
+  { abbr: "PY", abbrColor: "#E0234E", name: "Pydantic",  color: "#E0234E" },
+  { Icon: SiTensorflow,        name: "TensorFlow",   color: "#FF6F00" },
 ];
 
-const ROW2 = [
-  { icon: "🔥", name: "PyTorch" },
-  { icon: "📊", name: "Scikit-learn" },
-  { icon: "❄️", name: "Snowflake" },
-  { icon: "📦", name: "BigQuery" },
-  { icon: "🌊", name: "Dataflow" },
-  { icon: "🧱", name: "Databricks" },
-  { icon: "🎯", name: "Dataiku" },
-  { icon: "🔄", name: "n8n" },
-  { icon: "⚡", name: "Zapier" },
-  { icon: "🏗️", name: "Make" },
-  { icon: "🔷", name: "GoHighLevel" },
-  { icon: "📋", name: "Zoho CRM" },
-  { icon: "🗄️", name: "PostgreSQL" },
-  { icon: "🍃", name: "MongoDB" },
-  { icon: "⚡", name: "Redis" },
-  { icon: "🔍", name: "Elasticsearch" },
+const ROW2: TechItem[] = [
+  { Icon: SiPytorch,     name: "PyTorch",      color: "#EE4C2C" },
+  { Icon: SiScikitlearn, name: "Scikit-learn", color: "#F7931E" },
+  { Icon: SiSnowflake,   name: "Snowflake",    color: "#29B5E8" },
+  { Icon: SiGooglebigquery, name: "BigQuery",  color: "#4285F4" },
+  { abbr: "DF", abbrColor: "#4285F4", name: "Dataflow",  color: "#4285F4" },
+  { Icon: SiDatabricks,  name: "Databricks",   color: "#FF3621" },
+  { abbr: "DK", abbrColor: "#FE5D16", name: "Dataiku",   color: "#FE5D16" },
+  { Icon: SiN8N,         name: "n8n",          color: "#EA4B71" },
+  { Icon: SiZapier,      name: "Zapier",       color: "#FF4A00" },
+  { abbr: "MK", abbrColor: "#6C00FF", name: "Make",      color: "#6C00FF" },
+  { abbr: "GHL",abbrColor: "#F97316", name: "GoHighLevel", color: "#F97316" },
+  { Icon: SiZoho,        name: "Zoho CRM",     color: "#E42527" },
+  { Icon: SiPostgresql,  name: "PostgreSQL",   color: "#4169E1" },
+  { Icon: SiMongodb,     name: "MongoDB",      color: "#47A248" },
+  { Icon: SiRedis,       name: "Redis",        color: "#FF4438" },
 ];
 
 const CATEGORIES = [
-  {
-    icon: "☁️",
-    name: "Cloud",
-    techs: "GCP · AWS · Azure",
-  },
-  {
-    icon: "🤖",
-    name: "IA & ML",
-    techs: "LangGraph · CrewAI · TensorFlow · PyTorch",
-  },
-  {
-    icon: "📊",
-    name: "Data",
-    techs: "Snowflake · BigQuery · Databricks · Dataiku",
-  },
-  {
-    icon: "🔄",
-    name: "Automation",
-    techs: "n8n · Zapier · Make · GoHighLevel",
-  },
-  {
-    icon: "💻",
-    name: "Dev",
-    techs: "Python · React · Next.js · FastAPI · Java · C#",
-  },
+  { abbr: "☁", name: "Cloud",      techs: "GCP · AWS · Azure",           color: "#4285F4" },
+  { abbr: "🤖", name: "IA & ML",   techs: "LangGraph · CrewAI · TensorFlow · PyTorch", color: "#D4AF37" },
+  { abbr: "📊", name: "Data",      techs: "Snowflake · BigQuery · Databricks", color: "#29B5E8" },
+  { abbr: "🔄", name: "Automation",techs: "n8n · Zapier · Make · GoHighLevel", color: "#EA4B71" },
+  { abbr: "💻", name: "Dev",       techs: "Python · React · Next.js · FastAPI", color: "#3776AB" },
 ];
 
 const i18n = {
@@ -83,11 +79,28 @@ const i18n = {
   },
 };
 
+function TechChip({ item }: { item: TechItem }) {
+  return (
+    <div className={styles.techItem}>
+      <span className={styles.techIcon} style={{ color: item.color }}>
+        {item.Icon ? (
+          <item.Icon size={28} />
+        ) : (
+          <span className={styles.techAbbr} style={{ background: `${item.abbrColor}22`, color: item.abbrColor }}>
+            {item.abbr}
+          </span>
+        )}
+      </span>
+      <span className={styles.techName}>{item.name}</span>
+    </div>
+  );
+}
+
 export default function TechStack({ locale }: { locale: string }) {
   const lang = locale === "en" ? "en" : "fr";
   const t = i18n[lang];
-  const doubleRow1 = [...ROW1, ...ROW1];
-  const doubleRow2 = [...ROW2, ...ROW2];
+  const double1 = [...ROW1, ...ROW1];
+  const double2 = [...ROW2, ...ROW2];
 
   return (
     <section className={styles.techStack}>
@@ -105,30 +118,20 @@ export default function TechStack({ locale }: { locale: string }) {
 
       <div className={styles.marqueeRow}>
         <div className={styles.marqueeTrack}>
-          {doubleRow1.map((tech, i) => (
-            <div key={i} className={styles.techItem}>
-              <span className={styles.techIcon}>{tech.icon}</span>
-              <span className={styles.techName}>{tech.name}</span>
-            </div>
-          ))}
+          {double1.map((tech, i) => <TechChip key={i} item={tech} />)}
         </div>
       </div>
 
       <div className={styles.marqueeRow}>
         <div className={styles.marqueeTrackReverse}>
-          {doubleRow2.map((tech, i) => (
-            <div key={i} className={styles.techItem}>
-              <span className={styles.techIcon}>{tech.icon}</span>
-              <span className={styles.techName}>{tech.name}</span>
-            </div>
-          ))}
+          {double2.map((tech, i) => <TechChip key={i} item={tech} />)}
         </div>
       </div>
 
       <div className={`reveal ${styles.categoryGrid}`}>
         {CATEGORIES.map((cat, i) => (
           <div key={i} className={`reveal d${i + 1} ${styles.categoryCard}`}>
-            <div className={styles.categoryIcon}>{cat.icon}</div>
+            <div className={styles.categoryIcon}>{cat.abbr}</div>
             <div className={styles.categoryName}>{cat.name}</div>
             <div className={styles.categoryTechs}>{cat.techs}</div>
           </div>
