@@ -1,5 +1,6 @@
 "use client";
 
+import Marquee from "react-fast-marquee";
 import styles from "./TechStack.module.css";
 import type { IconType } from "react-icons";
 import {
@@ -102,8 +103,6 @@ function TechChip({ item }: { item: TechItem }) {
 export default function TechStack({ locale }: { locale: string }) {
   const lang = locale === "en" ? "en" : "fr";
   const t = i18n[lang];
-  const double1 = [...ROW1, ...ROW1];
-  const double2 = [...ROW2, ...ROW2];
 
   return (
     <section className={styles.techStack}>
@@ -120,15 +119,15 @@ export default function TechStack({ locale }: { locale: string }) {
       </div>
 
       <div className={styles.marqueeRow}>
-        <div className={styles.marqueeTrack}>
-          {double1.map((tech, i) => <TechChip key={i} item={tech} />)}
-        </div>
+        <Marquee speed={50} pauseOnHover gradient={false} autoFill>
+          {ROW1.map((tech, i) => <TechChip key={i} item={tech} />)}
+        </Marquee>
       </div>
 
       <div className={styles.marqueeRow}>
-        <div className={styles.marqueeTrackReverse}>
-          {double2.map((tech, i) => <TechChip key={i} item={tech} />)}
-        </div>
+        <Marquee speed={40} direction="right" pauseOnHover gradient={false} autoFill>
+          {ROW2.map((tech, i) => <TechChip key={i} item={tech} />)}
+        </Marquee>
       </div>
 
       <div className={`reveal ${styles.categoryGrid}`}>
