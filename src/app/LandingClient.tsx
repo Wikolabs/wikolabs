@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useTranslations } from "next-intl";
 import s from "./page.module.css";
-import HeroBg from "./HeroBg";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 import type { SiteContent } from "@/lib/content";
 import PackagedOffers from "@/components/PackagedOffers";
@@ -256,7 +255,6 @@ export default function LandingClient({
 
       {/* ── HERO ── */}
       <section className={s.hero}>
-        <HeroBg />
         <div className={`${s.heroGlow} ${s.heroGlow1}`} />
         <div className={`${s.heroGlow} ${s.heroGlow2}`} />
         <div className={`${s.heroGlow} ${s.heroGlow3}`} />

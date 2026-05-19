@@ -12,6 +12,7 @@ interface App {
   features: string[];
   url: string;
   live: boolean;
+  screenshot: string;
 }
 
 const APPS: { fr: App[]; en: App[] } = {
@@ -30,6 +31,7 @@ const APPS: { fr: App[]; en: App[] } = {
       ],
       url: "https://productsearch.wikolabs.com/",
       live: true,
+      screenshot: "/screenshots/productsearch.png",
     },
     {
       icon: "🏢",
@@ -45,6 +47,7 @@ const APPS: { fr: App[]; en: App[] } = {
       ],
       url: "https://prestasearch.wikolabs.com/",
       live: true,
+      screenshot: "/screenshots/prestasearch.png",
     },
     {
       icon: "📈",
@@ -60,6 +63,7 @@ const APPS: { fr: App[]; en: App[] } = {
       ],
       url: "https://bi.wikolabs.com/",
       live: true,
+      screenshot: "/screenshots/bi-wikolabs.png",
     },
     {
       icon: "🏥",
@@ -75,6 +79,7 @@ const APPS: { fr: App[]; en: App[] } = {
       ],
       url: "https://mediwyz.com/",
       live: true,
+      screenshot: "/screenshots/mediwyz.png",
     },
   ],
   en: [
@@ -92,6 +97,7 @@ const APPS: { fr: App[]; en: App[] } = {
       ],
       url: "https://productsearch.wikolabs.com/",
       live: true,
+      screenshot: "/screenshots/productsearch.png",
     },
     {
       icon: "🏢",
@@ -107,6 +113,7 @@ const APPS: { fr: App[]; en: App[] } = {
       ],
       url: "https://prestasearch.wikolabs.com/",
       live: true,
+      screenshot: "/screenshots/prestasearch.png",
     },
     {
       icon: "📈",
@@ -122,6 +129,7 @@ const APPS: { fr: App[]; en: App[] } = {
       ],
       url: "https://bi.wikolabs.com/",
       live: true,
+      screenshot: "/screenshots/bi-wikolabs.png",
     },
     {
       icon: "🏥",
@@ -137,6 +145,7 @@ const APPS: { fr: App[]; en: App[] } = {
       ],
       url: "https://mediwyz.com/",
       live: true,
+      screenshot: "/screenshots/mediwyz.png",
     },
   ],
 };
@@ -196,11 +205,12 @@ export default function DemoApps({ locale }: { locale: string }) {
                     </div>
                   </div>
                   <div className={styles.browserContent}>
-                    <iframe
-                      src={app.url}
-                      title={app.title}
+                    <img
+                      src={app.screenshot}
+                      alt={`${app.title} preview`}
+                      className={styles.screenshotImg}
                       loading="lazy"
-                      sandbox="allow-scripts allow-same-origin"
+                      draggable={false}
                     />
                   </div>
                 </div>
