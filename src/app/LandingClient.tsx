@@ -275,6 +275,9 @@ export default function LandingClient({
 
       </section>
 
+      {/* ── TECH STACK ── */}
+      <TechStack locale={locale} />
+
       {/* ── MARQUEE ── */}
       <div className={s.marquee}>
         <div className={s.marqueeTrack}>
@@ -328,9 +331,6 @@ export default function LandingClient({
 
       {/* ── DEMO APPS ── */}
       <DemoApps locale={locale} />
-
-      {/* ── TECH STACK ── */}
-      <TechStack locale={locale} />
 
       {/* ── WHY CLIENTS ── */}
       <section className={`${s.section} ${s.valuesSection}`}>

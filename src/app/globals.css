@@ -27,7 +27,7 @@
   --tr:     all 0.32s cubic-bezier(0.4,0,0.2,1);
 
   --font-serif: 'Instrument Serif', Georgia, serif;
-  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans:  'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono:  'JetBrains Mono', 'Courier New', monospace;
 
   /* Legacy aliases for existing CSS modules */

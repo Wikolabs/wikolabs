@@ -52,6 +52,14 @@ const CAT_ICONS: IconType[] = [
   LuMegaphone, LuMessageSquare, LuTrendingUp, HiMagnifyingGlass, LuFactory,
 ];
 
+const CAT_SLUGS = [
+  "commercial-automation",
+  "production-ai",
+  "decision-intelligence",
+  "search-recommendation",
+  "data-vision",
+];
+
 /* ── Tech badges per offer (category × offer) ── */
 const CATEGORY_TECHS: Tech[][][] = [
   [
@@ -269,6 +277,8 @@ export default function Services({ locale }: { locale: string }) {
         <div className={styles.categories}>
           {t.categories.map((cat, ci) => {
             const CatIcon = CAT_ICONS[ci];
+            const catSlug = CAT_SLUGS[ci];
+            const discoverLabel = lang === "fr" ? "Découvrir →" : "Learn more →";
             return (
               <div key={ci} className={`reveal d${Math.min(ci + 1, 4)} ${styles.categoryBlock}`}>
                 <div className={styles.categoryHeader}>
@@ -276,6 +286,9 @@ export default function Services({ locale }: { locale: string }) {
                     <CatIcon size={18} />
                   </div>
                   <span className={styles.categoryLabel}>{cat.label}</span>
+                  <Link href={`/${locale}/services/${catSlug}`} className={styles.categoryDiscover}>
+                    {discoverLabel}
+                  </Link>
                 </div>
                 <div className={styles.offersGrid}>
                   {cat.offers.map((offer, oi) => {

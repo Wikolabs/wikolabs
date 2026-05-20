@@ -169,17 +169,28 @@
 .cardLink {
   display: inline-flex;
   align-items: center;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 1px;
+  gap: 6px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid var(--gold-border);
   color: var(--gold);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   text-decoration: none;
-  transition: opacity 0.2s;
-  margin-top: auto;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  margin-top: 20px;
+  align-self: flex-start;
 }
 
 .cardLink:hover {
-  opacity: 0.75;
+  background: var(--gold);
+  color: #04080f;
+  border-color: var(--gold);
+  transform: translateY(-2px);
 }
 
 .tag {
@@ -253,6 +264,30 @@
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--gold);
+  flex: 1;
+}
+
+.categoryDiscover {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  background: var(--gold);
+  color: #04080f;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: opacity 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.categoryDiscover:hover {
+  opacity: 0.85;
+  transform: translateX(3px);
 }
 
 .offersGrid {

@@ -49,7 +49,7 @@ const ROW2: TechItem[] = [
   { imgSrc: "https://cdn.simpleicons.org/dataiku/2AB1AC", name: "Dataiku",   color: "#2AB1AC" },
   { Icon: SiN8N,            name: "n8n",          color: "#EA4B71" },
   { Icon: SiZapier,         name: "Zapier",       color: "#FF4A00" },
-  { abbr: "MK", abbrColor: "#6C00FF", name: "Make",      color: "#6C00FF" },
+  { imgSrc: "https://cdn.simpleicons.org/make/6D00CC",   name: "Make",        color: "#6D00CC" },
   { abbr: "GHL",abbrColor: "#F97316", name: "GoHighLevel", color: "#F97316" },
   { Icon: SiZoho,           name: "Zoho CRM",     color: "#E42527" },
   { Icon: SiPostgresql,     name: "PostgreSQL",   color: "#4169E1" },
