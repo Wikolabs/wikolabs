@@ -203,7 +203,7 @@ const ORBITAL_NODES = [
   { Icon: LuNetwork,  angle: 198 },
 ];
 
-const NODE_R = 130; // orbit radius in px from center of 380px wrap
+const NODE_R = 155; // orbit radius in px from center of 460px wrap
 
 function SlideIllust({ slide, slideKey }: { slide: Slide; slideKey: number }) {
   if (slide.imgSrc) {
@@ -222,25 +222,25 @@ function SlideIllust({ slide, slideKey }: { slide: Slide; slideKey: number }) {
         style={{ background: `radial-gradient(circle, ${slide.color}22 0%, transparent 65%)` }}
       />
 
-      {/* Ring 3 — outer dashed, spins slowly */}
-      <div className={styles.illustRing3} style={{ borderColor: `${slide.color}12` }} />
-      {/* Ring 2 — middle dashed */}
-      <div className={styles.illustRing2} style={{ borderColor: `${slide.color}18` }} />
-      {/* Ring 1 — inner solid */}
-      <div className={styles.illustRing} style={{ borderColor: `${slide.color}28` }} />
+      {/* Outer ring — appears FIRST */}
+      <div className={`${styles.illustRing3} ${styles.revealFirst}`} style={{ borderColor: `${slide.color}14` }} />
+      {/* Middle ring — appears SECOND */}
+      <div className={`${styles.illustRing2} ${styles.revealSecond}`} style={{ borderColor: `${slide.color}20` }} />
+      {/* Inner ring — appears THIRD */}
+      <div className={`${styles.illustRing} ${styles.revealThird}`} style={{ borderColor: `${slide.color}32` }} />
 
-      {/* Central icon circle */}
+      {/* Central icon circle — appears LAST */}
       <div
-        className={styles.illustIconBox}
+        className={`${styles.illustIconBox} ${styles.revealLast}`}
         style={{
-          boxShadow: `0 0 0 1px ${slide.color}30, 0 0 32px ${slide.color}25, inset 0 0 20px ${slide.color}08`,
+          boxShadow: `0 0 0 1px ${slide.color}35, 0 0 40px ${slide.color}30, 0 0 80px ${slide.color}12, inset 0 0 20px ${slide.color}08`,
           background: `rgba(255,255,255,0.03)`,
         }}
       >
-        <slide.Icon size={56} color={slide.color} />
+        <slide.Icon size={62} color={slide.color} />
       </div>
 
-      {/* Orbital nodes */}
+      {/* Orbital nodes — appear 4th through 8th (outer→inner order) */}
       {ORBITAL_NODES.map((node, i) => {
         const rad = (node.angle * Math.PI) / 180;
         const x = Math.cos(rad) * NODE_R;
@@ -251,17 +251,17 @@ function SlideIllust({ slide, slideKey }: { slide: Slide; slideKey: number }) {
             className={styles.illustNode}
             style={{
               transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-              animationDelay: `${i * 0.4}s`,
+              animationDelay: `${0.55 + i * 0.1}s`,
             }}
           >
             <div
               className={styles.illustNodeInner}
               style={{
-                background: `${slide.color}12`,
-                boxShadow: `0 0 0 1px ${slide.color}30, 0 6px 20px rgba(0,0,0,0.25)`,
+                background: `${slide.color}14`,
+                boxShadow: `0 0 0 1px ${slide.color}35, 0 8px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)`,
               }}
             >
-              <node.Icon size={18} color={slide.color} />
+              <node.Icon size={20} color={slide.color} />
             </div>
           </div>
         );
