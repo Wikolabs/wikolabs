@@ -221,14 +221,12 @@
 }
 
 /* Planet wrapper: sits at the arm tip (radius = --orbit-r above center).
-   Counter-rotates at the same speed so the planet stays upright. */
+   Counter-rotates at the same speed so the planet stays upright.
+   width/height/margin are set via inline style (node.size varies per planet). */
 .orbitPlanetWrap {
   position: absolute;
   top: 0;
   left: 0;
-  width: 58px;
-  height: 58px;
-  margin: -29px 0 0 -29px;   /* center the 58px box on the arm anchor */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -250,10 +248,9 @@
   to   { transform: translateY(calc(-1 * var(--orbit-r))) rotate(-360deg); }
 }
 
-/* Planet icon circle: invisible until its staggered appear delay fires. */
+/* Planet icon circle: invisible until its staggered appear delay fires.
+   width/height set via inline style (node.size) so sizes vary per planet. */
 .orbitPlanet {
-  width: 58px;
-  height: 58px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -423,17 +420,6 @@
   .orbitPlanetWrap[data-ring="0"] { --orbit-r: 88px; }
   .orbitPlanetWrap[data-ring="1"] { --orbit-r: 117px; }
   .orbitPlanetWrap[data-ring="2"] { --orbit-r: 144px; }
-
-  .orbitPlanetWrap {
-    width: 42px;
-    height: 42px;
-    margin: -21px 0 0 -21px;
-  }
-
-  .orbitPlanet {
-    width: 42px;
-    height: 42px;
-  }
 
   .slideHeadline {
     font-size: clamp(1.8rem, 5.5vw, 2.6rem);
