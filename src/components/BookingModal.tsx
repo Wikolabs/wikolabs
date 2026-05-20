@@ -215,11 +215,6 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
 
             <div className={styles.resultBar}>
               <div className={styles.resultCol}>
-                <span className={styles.resultLabel}>{t.estimate}</span>
-                <span className={styles.resultVal}>{formatPrice(result.min, lang)} – {formatPrice(result.max, lang)} €</span>
-              </div>
-              <div className={styles.resultDivider} />
-              <div className={styles.resultCol}>
                 <span className={styles.resultLabel}>{t.duration}</span>
                 <span className={styles.resultVal}>{result.durationLabel}</span>
               </div>
@@ -254,7 +249,7 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
                   <span className={styles.recapDot}>·</span>
                   <span>{scaleLabel}</span>
                   <span className={styles.recapDot}>·</span>
-                  <span className={styles.recapAccent}>{formatPrice(result.min, lang)} – {formatPrice(result.max, lang)} €</span>
+                  <span className={styles.recapAccent}>{result.durationLabel}</span>
                 </>
               )}
             </div>
