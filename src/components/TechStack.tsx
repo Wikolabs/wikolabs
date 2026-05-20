@@ -31,8 +31,8 @@ const ROW1: TechItem[] = [
   { Icon: SiDocker,         name: "Docker",       color: "#2496ED" },
   { Icon: SiKubernetes,     name: "Kubernetes",   color: "#326CE5" },
   { Icon: SiLangchain,      name: "LangChain",    color: "#1C3C3C" },
-  { textOnly: true,         name: "LangGraph",    color: "#7FC8FF" },
-  { textOnly: true,         name: "CrewAI",       color: "#FF5A50" },
+  { imgSrc: "https://cdn.simpleicons.org/langgraph/7FC8FF", name: "LangGraph", color: "#7FC8FF" },
+  { imgSrc: "https://cdn.simpleicons.org/crewai/FF5A50",   name: "CrewAI",    color: "#FF5A50" },
   { textOnly: true,         name: "AutoGen",      color: "#A78BFA" },
   { imgSrc: "https://cdn.simpleicons.org/pydantic/E92063", name: "Pydantic",  color: "#E92063" },
   { Icon: SiTensorflow,     name: "TensorFlow",   color: "#FF6F00" },
@@ -65,7 +65,7 @@ const ROW2: TechItem[] = [
   { textOnly: true,                               name: "Azure OpenAI",      color: "#0078D4" },
   { textOnly: true,                               name: "Azure Data Factory", color: "#0078D4" },
   { imgSrc: "https://cdn.simpleicons.org/twilio/F22F46",        name: "Twilio",       color: "#F22F46" },
-  { textOnly: true,                                             name: "Asterisk",     color: "#F67400" },
+  { imgSrc: "https://cdn.simpleicons.org/asterisk/F67400",       name: "Asterisk",     color: "#F67400" },
   { imgSrc: "https://cdn.simpleicons.org/apachespark/E25A1C",   name: "Apache Spark", color: "#E25A1C" },
   { imgSrc: "https://cdn.simpleicons.org/apacheairflow/017CEE", name: "Airflow",      color: "#017CEE" },
   { imgSrc: "https://cdn.simpleicons.org/dbt/FF694B",           name: "dbt",          color: "#FF694B" },
@@ -90,7 +90,6 @@ const ROW3: TechItem[] = [
   { imgSrc: "/logos/gemini.svg",                              name: "Gemini",       color: "#8E75B2" },
   { imgSrc: "/logos/ray.svg",                                 name: "Ray",          color: "#028CF0" },
   { textOnly: true,                                           name: "Vertex Search", color: "#FF6D00" },
-  { textOnly: true,                                           name: "LangGraph",    color: "#7FC8FF" },
 ];
 
 const ROW4: TechItem[] = [
@@ -104,7 +103,7 @@ const ROW4: TechItem[] = [
   { imgSrc: "https://cdn.simpleicons.org/powerbi/F2C811",   name: "Power BI",   color: "#F2C811" },
   { imgSrc: "https://cdn.simpleicons.org/tableau/E97627",   name: "Tableau",    color: "#E97627" },
   { imgSrc: "https://cdn.simpleicons.org/looker/4285F4",    name: "Looker",     color: "#4285F4" },
-  { textOnly: true,                                         name: "Delta Lake", color: "#0078D4" },
+  { imgSrc: "/logos/delta-lake.svg",                        name: "Delta Lake", color: "#0078D4" },
   { textOnly: true,                                         name: "FAISS",      color: "#1877F2" },
   { imgSrc: "/logos/chroma.svg",                            name: "ChromaDB",   color: "#F47021" },
   { textOnly: true,                                         name: "AWS Bedrock", color: "#FF9900" },

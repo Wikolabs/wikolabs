@@ -194,16 +194,24 @@ const slidesEn: Slide[] = [
   },
 ];
 
-// Orbital node icons for each slide (5 nodes at different positions)
-const ORBITAL_NODES = [
-  { Icon: LuDatabase, angle: 270 },
-  { Icon: LuSearch,   angle: 342 },
-  { Icon: LuCloud,    angle: 54  },
-  { Icon: LuBrain,    angle: 126 },
-  { Icon: LuNetwork,  angle: 198 },
-];
+// Each planet orbits its own ring independently (solar-system model).
+// startAngle: visual degrees — 0=top(12h), 90=right(3h), 180=bottom(6h), 270=left(9h)
+// preSpin = -(startAngle/360)*period makes the arm start at the right angle immediately.
+interface OrbitalNode {
+  Icon: IconType;
+  ring: 0 | 1 | 2;       // inner / middle / outer
+  startAngle: number;     // visual clock position at slide start
+  period: number;         // seconds for one full orbit
+  appearDelay: number;    // seconds after slide mounts before planet fades in
+}
 
-const NODE_R = 155; // orbit radius in px from center of 460px wrap
+const ORBITAL_NODES: OrbitalNode[] = [
+  { Icon: LuDatabase, ring: 0, startAngle: 0,   period: 14, appearDelay: 0.3  },
+  { Icon: LuSearch,   ring: 1, startAngle: 60,  period: 22, appearDelay: 0.75 },
+  { Icon: LuCloud,    ring: 2, startAngle: 135, period: 32, appearDelay: 1.2  },
+  { Icon: LuBrain,    ring: 1, startAngle: 240, period: 22, appearDelay: 1.65 },
+  { Icon: LuNetwork,  ring: 2, startAngle: 315, period: 32, appearDelay: 2.1  },
+];
 
 function SlideIllust({ slide, slideKey }: { slide: Slide; slideKey: number }) {
   if (slide.imgSrc) {
@@ -240,28 +248,37 @@ function SlideIllust({ slide, slideKey }: { slide: Slide; slideKey: number }) {
         <slide.Icon size={62} color={slide.color} />
       </div>
 
-      {/* Orbital nodes — appear 4th through 8th (outer→inner order) */}
+      {/* Orbital planets — each on its own ring, appear one by one */}
       {ORBITAL_NODES.map((node, i) => {
-        const rad = (node.angle * Math.PI) / 180;
-        const x = Math.cos(rad) * NODE_R;
-        const y = Math.sin(rad) * NODE_R;
+        // Negative delay pre-spins the arm to startAngle before the slide mounts
+        const preSpin = -(node.startAngle / 360) * node.period;
         return (
           <div
             key={i}
-            className={styles.illustNode}
+            className={styles.orbitArm}
             style={{
-              transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-              animationDelay: `${0.55 + i * 0.1}s`,
-            }}
+              '--orbit-period': `${node.period}s`,
+              '--orbit-pre-spin': `${preSpin}s`,
+            } as React.CSSProperties}
           >
             <div
-              className={styles.illustNodeInner}
+              className={styles.orbitPlanetWrap}
+              data-ring={node.ring}
               style={{
-                background: `${slide.color}14`,
-                boxShadow: `0 0 0 1px ${slide.color}35, 0 8px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)`,
-              }}
+                '--orbit-period': `${node.period}s`,
+                '--orbit-pre-spin': `${preSpin}s`,
+              } as React.CSSProperties}
             >
-              <node.Icon size={20} color={slide.color} />
+              <div
+                className={styles.orbitPlanet}
+                style={{
+                  '--appear-delay': `${node.appearDelay}s`,
+                  background: `${slide.color}16`,
+                  boxShadow: `0 0 0 1px ${slide.color}45, 0 8px 28px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.1)`,
+                } as React.CSSProperties}
+              >
+                <node.Icon size={22} color={slide.color} />
+              </div>
             </div>
           </div>
         );

@@ -119,11 +119,6 @@
   to   { opacity: 1; transform: scale(1); }
 }
 
-@keyframes orbRevealNode {
-  from { opacity: 0; transform: scale(0.5); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
 /* Staggered reveal classes: outer first → center last */
 .revealFirst  { animation: orbReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.05s both; }
 .revealSecond { animation: orbReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.22s both; }
@@ -201,17 +196,62 @@
   50%       { transform: scale(1.05); }
 }
 
-/* ── Orbital node bubbles ── */
-.illustNode {
+/* ═══════════════════════════════════════════════════
+   SOLAR-SYSTEM ORBITAL PLANETS
+   Each planet has its own arm + counter-rotation so
+   it orbits independently at the correct ring radius.
+═══════════════════════════════════════════════════ */
+
+/* Arm: zero-size div anchored at illustration center.
+   Spins continuously; negative delay pre-spins to startAngle. */
+.orbitArm {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 0;
+  height: 0;
+  transform-origin: 0 0;
+  animation: orbitSpin var(--orbit-period) linear var(--orbit-pre-spin) infinite;
   z-index: 2;
-  /* opacity animated via JS animationDelay + orbRevealNode */
-  animation: orbRevealNode 0.55s cubic-bezier(0.34,1.3,0.64,1) both;
 }
 
-.illustNodeInner {
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Planet wrapper: sits at the arm tip (radius = --orbit-r above center).
+   Counter-rotates at the same speed so the planet stays upright. */
+.orbitPlanetWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 58px;
+  height: 58px;
+  margin: -29px 0 0 -29px;   /* center the 58px box on the arm anchor */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: orbitCounter var(--orbit-period) linear var(--orbit-pre-spin) infinite;
+}
+
+/* Ring radii (desktop 460px wrap):
+   ring 0 = inner (270px ring → r=135),
+   ring 1 = middle (360px ring → r=180),
+   ring 2 = outer (444px ring → r=222) */
+.orbitPlanetWrap[data-ring="0"] { --orbit-r: 135px; }
+.orbitPlanetWrap[data-ring="1"] { --orbit-r: 180px; }
+.orbitPlanetWrap[data-ring="2"] { --orbit-r: 222px; }
+
+@keyframes orbitCounter {
+  /* translateY(-r) positions the planet at the ring radius;
+     rotate(-θ) cancels the parent arm rotation → planet stays upright */
+  from { transform: translateY(calc(-1 * var(--orbit-r))) rotate(0deg); }
+  to   { transform: translateY(calc(-1 * var(--orbit-r))) rotate(-360deg); }
+}
+
+/* Planet icon circle: invisible until its staggered appear delay fires. */
+.orbitPlanet {
   width: 58px;
   height: 58px;
   border-radius: 50%;
@@ -220,12 +260,26 @@
   justify-content: center;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  transition: transform 0.35s cubic-bezier(0.34,1.3,0.64,1), box-shadow 0.3s ease;
+  opacity: 0;
+  animation: orbitPlanetAppear 0.65s cubic-bezier(0.34, 1.3, 0.64, 1) var(--appear-delay) both;
+  transition: transform 0.35s cubic-bezier(0.34, 1.3, 0.64, 1), box-shadow 0.3s ease;
+  cursor: default;
 }
 
-.illustNode:hover .illustNodeInner {
-  transform: scale(1.25);
-  box-shadow: 0 0 0 2px currentColor, 0 12px 32px rgba(0,0,0,0.4) !important;
+/* !important overrides forwards fill-mode so hover scale works */
+.orbitPlanet:hover {
+  transform: scale(1.28) !important;
+}
+
+@keyframes orbitPlanetAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.15) rotate(60deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
 }
 
 .illustImg {
@@ -364,7 +418,22 @@
   .illustRing2 { width: 232px; height: 232px; }
   .illustRing3 { width: 288px; height: 288px; }
   .illustIconBox { width: 84px; height: 84px; }
-  .illustNodeInner { width: 40px; height: 40px; }
+
+  /* Scale orbital radii proportionally (300/460 ≈ 0.652) */
+  .orbitPlanetWrap[data-ring="0"] { --orbit-r: 88px; }
+  .orbitPlanetWrap[data-ring="1"] { --orbit-r: 117px; }
+  .orbitPlanetWrap[data-ring="2"] { --orbit-r: 144px; }
+
+  .orbitPlanetWrap {
+    width: 42px;
+    height: 42px;
+    margin: -21px 0 0 -21px;
+  }
+
+  .orbitPlanet {
+    width: 42px;
+    height: 42px;
+  }
 
   .slideHeadline {
     font-size: clamp(1.8rem, 5.5vw, 2.6rem);

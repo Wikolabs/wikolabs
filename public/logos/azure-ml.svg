@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="100" height="100">
+  <title>Azure Machine Learning</title>
+  <defs>
+    <linearGradient id="a" x1="8.008" y1="8.734" x2="5.414" y2="14.478" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#005ba1"/>
+      <stop offset=".07" stop-color="#0060a9"/>
+      <stop offset=".36" stop-color="#0071c8"/>
+      <stop offset=".52" stop-color="#0078d4"/>
+    </linearGradient>
+    <linearGradient id="b" x1="11.185" y1="7.515" x2="13.965" y2="13.801" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0078d4"/>
+      <stop offset=".5" stop-color="#1490df"/>
+      <stop offset="1" stop-color="#37a3f1"/>
+    </linearGradient>
+  </defs>
+  <path d="M2 9.5L6 2l3.5 6.5L13 4l3 5.5-7 8.5z" fill="url(#a)"/>
+  <path d="M7 9.5l2-4 5 7.5-7 5.5z" fill="url(#b)" opacity=".8"/>
+  <circle cx="9" cy="3" r="2.5" fill="#50e6ff"/>
+  <circle cx="15" cy="7" r="1.5" fill="#50e6ff" opacity="0.7"/>
+</svg>
