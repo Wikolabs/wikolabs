@@ -459,7 +459,7 @@ export default function HeroSlider({
   useEffect(() => {
     const id = setInterval(() => {
       if (!pausedRef.current) setCurrent((c) => (c + 1) % slides.length);
-    }, 2500);
+    }, 3500);
     return () => clearInterval(id);
   }, [slides.length]);
 
