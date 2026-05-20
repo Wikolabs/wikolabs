@@ -12,11 +12,14 @@ import DemoApps from "@/components/DemoApps";
 import TechStack from "@/components/TechStack";
 import ChatBot from "@/components/ChatBot";
 import HeroSlider from "@/components/HeroSlider";
-import Testimonials from "@/components/Testimonials";
 import Values from "@/components/Values";
 import type { IconType } from "react-icons";
 import { HiGlobeAlt, HiBolt, HiShieldCheck, HiCpuChip } from "react-icons/hi2";
-import { LuTarget, LuHandshake, LuLanguages, LuDatabase, LuBrain, LuRefreshCw, LuCloud, LuCode } from "react-icons/lu";
+import {
+  LuTarget, LuHandshake, LuLanguages, LuDatabase, LuBrain, LuRefreshCw, LuCloud, LuCode,
+  LuMessageSquare, LuChartBar, LuLayers, LuClock, LuUsers, LuShield,
+  LuTrendingUp, LuMail, LuMonitor, LuLink, LuZap, LuStar, LuCheck,
+} from "react-icons/lu";
 
 export interface BookingPrefill {
   type?: string;
@@ -29,6 +32,8 @@ export interface BookingPrefill {
 
 const VALUE_ICONS: IconType[] = [LuTarget, HiGlobeAlt, HiBolt, HiShieldCheck, LuHandshake, LuLanguages];
 const ROLE_ICONS: IconType[] = [HiCpuChip, LuDatabase, LuBrain, LuCode, LuRefreshCw, LuCloud];
+const PROBLEM_ICONS: IconType[] = [LuDatabase, LuRefreshCw, LuMessageSquare, LuChartBar, LuLayers, LuClock, LuUsers, LuShield];
+const SOLUTION_ICONS: IconType[] = [LuBrain, LuTrendingUp, LuMail, LuMonitor, LuLink, LuZap, LuStar, LuCheck];
 
 export default function LandingClient({
   content,
@@ -306,12 +311,16 @@ export default function LandingClient({
                 {t("problems.badge_bad")}
               </span>
             </h3>
-            {client_problems.map((p, i) => (
-              <div className={`reveal d${i + 1} ${s.problemCard} ${s.problemCardBad}`} key={i}>
-                <div className={s.problemCardTitle}>{p.title}</div>
-                <div className={s.problemCardText}>{p.text}</div>
-              </div>
-            ))}
+            {client_problems.map((p, i) => {
+              const PIcon = PROBLEM_ICONS[i];
+              return (
+                <div className={`reveal d${Math.min(i + 1, 5)} ${s.problemCard} ${s.problemCardBad}`} key={i}>
+                  {PIcon && <div className={`${s.problemCardIcon} ${s.problemCardIconBad}`}><PIcon size={18} /></div>}
+                  <div className={s.problemCardTitle}>{p.title}</div>
+                  <div className={s.problemCardText}>{p.text}</div>
+                </div>
+              );
+            })}
           </div>
           <div className={s.problemCol}>
             <h3>
@@ -319,12 +328,16 @@ export default function LandingClient({
                 {t("problems.badge_good")}
               </span>
             </h3>
-            {client_solutions.map((p, i) => (
-              <div className={`reveal d${i + 1} ${s.problemCard} ${s.problemCardGood}`} key={i}>
-                <div className={s.problemCardTitle}>{p.title}</div>
-                <div className={s.problemCardText}>{p.text}</div>
-              </div>
-            ))}
+            {client_solutions.map((p, i) => {
+              const SIcon = SOLUTION_ICONS[i];
+              return (
+                <div className={`reveal d${Math.min(i + 1, 5)} ${s.problemCard} ${s.problemCardGood}`} key={i}>
+                  {SIcon && <div className={`${s.problemCardIcon} ${s.problemCardIconGood}`}><SIcon size={18} /></div>}
+                  <div className={s.problemCardTitle}>{p.title}</div>
+                  <div className={s.problemCardText}>{p.text}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -414,9 +427,6 @@ export default function LandingClient({
 
       {/* ── VALUES ── */}
       <Values locale={locale} />
-
-      {/* ── TESTIMONIALS ── */}
-      <Testimonials locale={locale} testimonials={content.testimonials} />
 
       {/* ── CHATBOT / FAQ ── */}
       <ChatBot locale={locale} />

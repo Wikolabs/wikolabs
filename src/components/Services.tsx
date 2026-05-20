@@ -12,6 +12,7 @@ import {
   LuEye, LuSearch, LuTarget, LuCalendarCheck, LuFileText, LuActivity,
   LuBell, LuNetwork, LuScan, LuChartBar, LuDatabase, LuFileSearch,
   LuBrain, LuLayers, LuWorkflow, LuScanLine, LuMap, LuBox, LuPackage,
+  LuTag, LuCloud, LuCode,
 } from "react-icons/lu";
 import {
   SiPython, SiLangchain, SiFastapi, SiN8N,
@@ -40,11 +41,17 @@ const SERVICE_SLUGS = [
   "decision-intelligence",
   "commercial-automation",
   "data-vision",
+  "data-annotation",
+  "data-engineering",
+  "cloud-infrastructure",
+  "seo-refonte",
+  "fullstack",
 ];
 
-/* ── Icon per service card (5 main) ── */
+/* ── Icon per service card (10 main) ── */
 const SERVICE_ICONS: IconType[] = [
   HiMagnifyingGlass, HiCpuChip, HiChartBar, HiPhone, HiDocumentText,
+  LuTag, LuDatabase, LuCloud, LuSearch, LuCode,
 ];
 
 /* ── Icon per category header (5 categories) ── */
@@ -119,6 +126,11 @@ const i18n = {
       { label: "Intelligence Décisionnelle", title: "Vos données vous parlent, enfin", desc: "Prévisions, détection d'anomalies et intelligence décisionnelle sur vos données synchronisées, interrogeables en langage naturel. CRM multi-agent avec scoring, pipeline, rétention et réactivation.", tags: ["Forecasting", "BI Naturel", "CRM Multi-agent", "Rétention"], featured: false },
       { label: "Automatisation Commerciale", title: "Votre cycle commercial, entièrement automatisé", desc: "Du sourcing à l'onboarding : génération de leads, enrichissement BANT, outreach multicanal, qualification, setting, proposition, closing, support et rétention. Routage intelligent à chaque étape.", tags: ["Lead Gen", "Outreach IA", "CRM Auto", "Call Intelligence"], featured: false },
       { label: "Données Non Structurées & Vision", title: "Exploitez vos documents et environnements visuels", desc: "OCR, extraction contractuelle, parsing de formulaires, automation emails via MCP. Étendu à la détection d'objets, segmentation, BIM, point cloud, inventaire logistique et cartographie géospatiale.", tags: ["OCR IA", "Extraction documentaire", "Vision IA", "Supply Chain"], featured: false },
+      { label: "Annotation de Données IA", title: "Des datasets prêts à entraîner vos modèles", desc: "Annotation texte, image, audio et vidéo à grande échelle avec contrôle qualité intégré. Vos modèles IA apprennent depuis des données précises, cohérentes et conformes à vos standards métier.", tags: ["Classification", "NLP", "Vision IA", "Qualité"], featured: false },
+      { label: "Data Engineering & Big Data", title: "Vos données, enfin sous contrôle", desc: "Pipelines ETL/ELT, traitement big data avec Spark et Airflow, architectures Lakehouse, CDC temps réel et data warehouses interrogeables. De la source brute au dashboard en quelques secondes.", tags: ["ETL/ELT", "Apache Spark", "Lakehouse", "Temps réel"], featured: false },
+      { label: "Migration & Infrastructure Cloud", title: "Passez au cloud sans risque ni temps d'arrêt", desc: "Audit de votre infrastructure actuelle, plan de migration vers AWS, GCP ou Azure, mise en place d'architectures cloud-native, sécurisation, monitoring et optimisation des coûts. Du on-premise au cloud en quelques semaines.", tags: ["AWS", "GCP", "Azure", "Cloud-native"], featured: false },
+      { label: "SEO & Refonte Web/Mobile", title: "Votre présence digitale comme levier de croissance", desc: "Audit SEO technique et sémantique, refonte de sites web et applications mobiles, débogage systématique, optimisation des performances et de l'expérience utilisateur. De l'analyse à la mise en production.", tags: ["Audit SEO", "Refonte UX", "Performance", "Débogage"], featured: false },
+      { label: "Développement Fullstack", title: "Des applications qui tiennent leurs promesses", desc: "Applications web et mobiles sur mesure, APIs RESTful et GraphQL, interfaces utilisateur, microservices et intégrations tierces. React, Next.js, FastAPI, NestJS — développées, testées et déployées en production.", tags: ["React / Next.js", "FastAPI / NestJS", "API & Microservices", "Production"], featured: false },
     ],
     offersTag: "Nos agents & solutions",
     offersTitle: "20+ offres concrètes et déployables",
@@ -170,6 +182,11 @@ const i18n = {
       { label: "Decision Intelligence", title: "Your data finally speaks to you", desc: "Forecasting, anomaly detection and decision intelligence on synchronized data warehouses, queryable in plain language. Multi-agent CRM with scoring, pipeline orchestration, retention and reactivation.", tags: ["Forecasting", "Natural Language BI", "Multi-agent CRM", "Retention"], featured: false },
       { label: "Sales Automation", title: "Your entire sales cycle, automated", desc: "From sourcing to onboarding: lead generation, BANT enrichment, multichannel outreach, qualification, appointment setting, proposal, closing, support and retention. Intelligent routing at every stage.", tags: ["Lead Gen", "AI Outreach", "CRM Auto", "Call Intelligence"], featured: false },
       { label: "Unstructured Data & Vision", title: "Unlock your documents and visual environments", desc: "OCR, contract extraction, form parsing, email automation via MCP. Extended to object detection, segmentation, BIM integration, point cloud processing, logistics intelligence and geospatial mapping.", tags: ["AI OCR", "Document Extraction", "Vision AI", "Supply Chain"], featured: false },
+      { label: "AI Data Annotation", title: "Datasets ready to train your models", desc: "Large-scale text, image, audio and video annotation with integrated quality control. Your AI models learn from precise, consistent data that meets your business standards.", tags: ["Classification", "NLP", "Vision AI", "Quality Control"], featured: false },
+      { label: "Data Engineering & Big Data", title: "Your data, finally under control", desc: "ETL/ELT pipelines, big data processing with Spark and Airflow, Lakehouse architectures, real-time CDC and queryable data warehouses. From raw source to dashboard in seconds.", tags: ["ETL/ELT", "Apache Spark", "Lakehouse", "Real-time"], featured: false },
+      { label: "Cloud Migration & Infrastructure", title: "Move to the cloud with zero risk and zero downtime", desc: "Audit of your current infrastructure, migration plan to AWS, GCP or Azure, cloud-native architecture setup, security hardening, monitoring and cost optimization. From on-premise to cloud in weeks.", tags: ["AWS", "GCP", "Azure", "Cloud-native"], featured: false },
+      { label: "SEO & Web/Mobile Redesign", title: "Your digital presence as a growth driver", desc: "Technical and semantic SEO audit, web and mobile app redesign, systematic debugging, performance and UX optimization. From analysis to production deployment.", tags: ["SEO Audit", "UX Redesign", "Performance", "Debugging"], featured: false },
+      { label: "Fullstack Development", title: "Applications that deliver on their promises", desc: "Custom web and mobile apps, RESTful and GraphQL APIs, user interfaces, microservices and third-party integrations. React, Next.js, FastAPI, NestJS — developed, tested and deployed to production.", tags: ["React / Next.js", "FastAPI / NestJS", "API & Microservices", "Production"], featured: false },
     ],
     offersTag: "Our agents & solutions",
     offersTitle: "20+ concrete, deployable offers",
@@ -306,6 +323,9 @@ export default function Services({ locale }: { locale: string }) {
                         <div className={styles.offerTechs}>
                           {techs.map((tech, ti) => <TechBadge key={ti} tech={tech} />)}
                         </div>
+                        <Link href={`/${locale}/services/${catSlug}`} className={styles.offerCardLink}>
+                          {lang === "fr" ? "En savoir plus →" : "Learn more →"}
+                        </Link>
                       </div>
                     );
                   })}

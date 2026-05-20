@@ -622,6 +622,27 @@
   border-left: 3px solid var(--wk-accent);
 }
 
+.problemCardIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+
+.problemCardIconBad {
+  background: rgba(255, 59, 48, 0.1);
+  color: #ff3b30;
+}
+
+.problemCardIconGood {
+  background: var(--gold-dim);
+  color: var(--gold);
+}
+
 .problemCardTitle {
   font-weight: 700;
   font-size: 1rem;

@@ -108,6 +108,26 @@ const DEFAULTS_FR: SiteContent = {
       title: "Vos clients attendent, votre SAV déborde",
       text: "Statut de commande, demandes de retour, questions répétitives — votre équipe s'épuise sur des réponses que votre site peut automatiser.",
     },
+    {
+      title: "Vous pilotez à l'aveugle, sans reporting fiable",
+      text: "Vos KPIs sont éparpillés dans des fichiers Excel et des outils déconnectés. Prendre des décisions stratégiques en temps réel est impossible — vous réagissez, vous ne pilotez pas.",
+    },
+    {
+      title: "Vos processus internes sont fragmentés et coûteux",
+      text: "Chaque département travaille en silo, avec ses propres outils et ses propres formats. La coordination prend du temps, les erreurs s'accumulent et les coûts opérationnels explosent.",
+    },
+    {
+      title: "Vos talents perdent du temps sur des tâches répétitives",
+      text: "Saisie de données, rédaction de rapports, traitement de documents — vos collaborateurs qualifiés s'épuisent sur des tâches à faible valeur que l'IA devrait gérer.",
+    },
+    {
+      title: "Vos clients méritent une expérience plus personnalisée",
+      text: "Recommandations génériques, communications identiques pour tous — la personnalisation à grande échelle semble hors de portée alors qu'elle est accessible avec les bons outils.",
+    },
+    {
+      title: "L'IA vous semble complexe, risquée ou coûteuse",
+      text: "Par où commencer ? Quels outils choisir ? Comment sécuriser vos données ? La complexité perçue freine votre transformation pendant que vos concurrents prennent de l'avance.",
+    },
   ],
   client_solutions: [
     {
@@ -121,6 +141,26 @@ const DEFAULTS_FR: SiteContent = {
     {
       title: "Un cycle commercial entièrement orchestré",
       text: "De la génération de leads à la signature du contrat, en passant par la qualification BANT et la prise de rendez-vous — chaque étape automatisée, chaque contact personnalisé.",
+    },
+    {
+      title: "Un tableau de bord IA en temps réel, en langage naturel",
+      text: "Revenus, marges, conversions, anomalies — toutes vos métriques accessibles via une interface conversationnelle. Posez une question, obtenez une réponse actionnable instantanément.",
+    },
+    {
+      title: "Des workflows intégrés qui éliminent les silos",
+      text: "Pipelines ETL automatisés, entrepôt de données centralisé, intégrations API clé en main — vos systèmes communiquent, vos équipes collaborent, vos coûts baissent.",
+    },
+    {
+      title: "L'IA prend en charge la routine, vos équipes font le reste",
+      text: "Classification documentaire, extraction de données, synthèses automatiques — l'IA gère l'opérationnel pour que vos collaborateurs se concentrent sur la création de valeur.",
+    },
+    {
+      title: "Personnalisation à grande échelle, sans effort supplémentaire",
+      text: "Recommandations produit adaptatives, emails dynamiques, parcours d'achat sur mesure — chaque client reçoit l'expérience faite pour lui, automatiquement.",
+    },
+    {
+      title: "Une transformation IA guidée, progressive et sans risque",
+      text: "Audit de vos besoins, choix des outils adaptés, déploiement progressif, conformité RGPD, formation de vos équipes — nous gérons la complexité pour que vous récoltez les bénéfices.",
     },
   ],
   roles: [
@@ -307,6 +347,26 @@ const DEFAULTS_EN: SiteContent = {
       title: "Your customers wait, your support team is overwhelmed",
       text: "Order status, return requests, repeat questions — your team burns out on answers your platform can automate.",
     },
+    {
+      title: "You're flying blind without reliable reporting",
+      text: "Your KPIs are scattered across Excel files and disconnected tools. Making strategic decisions in real time is impossible — you're reacting, not leading.",
+    },
+    {
+      title: "Your internal processes are fragmented and costly",
+      text: "Each department works in its own silo, with its own tools and formats. Coordination takes time, errors pile up, and operational costs spiral.",
+    },
+    {
+      title: "Your best people are wasting time on repetitive tasks",
+      text: "Data entry, report generation, document processing — your skilled staff burn out on low-value tasks that AI should handle instead.",
+    },
+    {
+      title: "Your customers deserve a more personalized experience",
+      text: "Generic recommendations, identical messages for everyone — large-scale personalization seems out of reach when it's actually accessible with the right tools.",
+    },
+    {
+      title: "AI seems complex, risky, or too expensive",
+      text: "Where to start? Which tools? How to keep data secure? The perceived complexity stalls your transformation while competitors pull ahead.",
+    },
   ],
   client_solutions: [
     {
@@ -320,6 +380,26 @@ const DEFAULTS_EN: SiteContent = {
     {
       title: "A fully orchestrated sales cycle",
       text: "From lead generation to signed contract, through BANT qualification and appointment setting — every step automated, every contact personalized.",
+    },
+    {
+      title: "A real-time AI dashboard, in plain language",
+      text: "Revenue, margins, conversions, anomalies — all your metrics accessible through a conversational interface. Ask a question, get an actionable answer instantly.",
+    },
+    {
+      title: "Integrated workflows that eliminate silos",
+      text: "Automated ETL pipelines, centralized data warehouse, plug-and-play API integrations — your systems talk to each other, your teams collaborate, your costs drop.",
+    },
+    {
+      title: "AI handles the routine, your team handles the rest",
+      text: "Document classification, data extraction, automated summaries — AI manages operations so your staff can focus on what creates real value.",
+    },
+    {
+      title: "Personalization at scale, with zero extra effort",
+      text: "Adaptive product recommendations, dynamic emails, tailored user journeys — every customer gets the experience made for them, automatically.",
+    },
+    {
+      title: "A guided, progressive, risk-free AI transformation",
+      text: "Needs audit, right-tool selection, phased rollout, GDPR compliance, team training — we manage the complexity so you reap the benefits.",
     },
   ],
   roles: [

@@ -23,6 +23,26 @@ const slugTitles: Record<string, { fr: string; en: string }> = {
     fr: "Données Non Structurées & Vision — Wikolabs",
     en: "Unstructured Data & Vision — Wikolabs",
   },
+  "data-annotation": {
+    fr: "Annotation de Données — Wikolabs",
+    en: "Data Annotation — Wikolabs",
+  },
+  "data-engineering": {
+    fr: "Data Engineering & Big Data — Wikolabs",
+    en: "Data Engineering & Big Data — Wikolabs",
+  },
+  "cloud-infrastructure": {
+    fr: "Migration Cloud & Infrastructure — Wikolabs",
+    en: "Cloud Migration & Infrastructure — Wikolabs",
+  },
+  "seo-refonte": {
+    fr: "SEO, Refonte & Développement Web/Mobile — Wikolabs",
+    en: "SEO, Redesign & Web/Mobile Development — Wikolabs",
+  },
+  "fullstack": {
+    fr: "Développement Fullstack — Wikolabs",
+    en: "Fullstack Development — Wikolabs",
+  },
 };
 
 const validSlugs = Object.keys(slugTitles);

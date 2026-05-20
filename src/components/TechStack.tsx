@@ -37,6 +37,13 @@ const ROW1: TechItem[] = [
   { abbr: "AG", abbrColor: "#A78BFA",                      name: "AutoGen",   color: "#A78BFA" },
   { imgSrc: "https://cdn.simpleicons.org/pydantic/E92063", name: "Pydantic",  color: "#E92063" },
   { Icon: SiTensorflow,     name: "TensorFlow",   color: "#FF6F00" },
+  { imgSrc: "https://cdn.simpleicons.org/awslambda/FF9900",       name: "AWS Lambda",   color: "#FF9900" },
+  { imgSrc: "https://cdn.simpleicons.org/amazons3/569A31",        name: "Amazon S3",    color: "#569A31" },
+  { imgSrc: "https://cdn.simpleicons.org/amazonsagemaker/FF9900", name: "SageMaker",    color: "#FF9900" },
+  { imgSrc: "https://cdn.simpleicons.org/amazonec2/FF9900",       name: "Amazon EC2",   color: "#FF9900" },
+  { abbr: "BDR", abbrColor: "#FF9900",                            name: "AWS Bedrock",  color: "#FF9900" },
+  { imgSrc: "https://cdn.simpleicons.org/openai/412991",          name: "OpenAI",       color: "#412991" },
+  { imgSrc: "https://cdn.simpleicons.org/anthropic/D97757",       name: "Anthropic",    color: "#D97757" },
 ];
 
 const ROW2: TechItem[] = [
@@ -55,6 +62,17 @@ const ROW2: TechItem[] = [
   { Icon: SiPostgresql,     name: "PostgreSQL",   color: "#4169E1" },
   { Icon: SiMongodb,        name: "MongoDB",      color: "#47A248" },
   { Icon: SiRedis,          name: "Redis",        color: "#FF4438" },
+  { abbr: "AML", abbrColor: "#0078D4",                              name: "Azure ML",          color: "#0078D4" },
+  { abbr: "AOI", abbrColor: "#0078D4",                              name: "Azure OpenAI",       color: "#0078D4" },
+  { abbr: "ADF", abbrColor: "#0078D4",                              name: "Azure Data Factory", color: "#0078D4" },
+  { imgSrc: "https://cdn.simpleicons.org/twilio/F22F46",            name: "Twilio",             color: "#F22F46" },
+  { abbr: "AST", abbrColor: "#F67400",                              name: "Asterisk",           color: "#F67400" },
+  { imgSrc: "https://cdn.simpleicons.org/apachespark/E25A1C",       name: "Apache Spark",       color: "#E25A1C" },
+  { imgSrc: "https://cdn.simpleicons.org/apacheairflow/017CEE",     name: "Airflow",            color: "#017CEE" },
+  { imgSrc: "https://cdn.simpleicons.org/dbt/FF694B",               name: "dbt",                color: "#FF694B" },
+  { imgSrc: "https://cdn.simpleicons.org/elasticsearch/005571",     name: "Elasticsearch",      color: "#005571" },
+  { abbr: "PCN", abbrColor: "#000000",                              name: "Pinecone",           color: "#3BB273" },
+  { imgSrc: "https://cdn.simpleicons.org/weaviate/5C4EE5",          name: "Weaviate",           color: "#5C4EE5" },
 ];
 
 interface Category { Icon: IconType; name: string; techs: string; color: string }
