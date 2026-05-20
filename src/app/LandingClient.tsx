@@ -13,6 +13,8 @@ import TechStack from "@/components/TechStack";
 import ChatBot from "@/components/ChatBot";
 import HeroSlider from "@/components/HeroSlider";
 import Values from "@/components/Values";
+import UseCases from "@/components/UseCases";
+import Industries from "@/components/Industries";
 import type { IconType } from "react-icons";
 import { HiGlobeAlt, HiBolt, HiShieldCheck, HiCpuChip } from "react-icons/hi2";
 import {
@@ -295,6 +297,9 @@ export default function LandingClient({
       {/* ── SERVICES ── */}
       <Services locale={locale} />
 
+      {/* ── USE CASES ── */}
+      <UseCases locale={locale} />
+
       {/* ── CLIENT PROBLEM / SOLUTION ── */}
       <section id="pourquoi" className={`${s.section} ${s.problemSection}`}>
         <div className={`reveal ${s.sectionTag}`}>
@@ -341,6 +346,9 @@ export default function LandingClient({
           </div>
         </div>
       </section>
+
+      {/* ── INDUSTRIES ── */}
+      <Industries locale={locale} />
 
       {/* ── DEMO APPS ── */}
       <DemoApps locale={locale} />
