@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import styles from "./Services.module.css";
 import type { IconType } from "react-icons";
 import {
@@ -32,6 +33,14 @@ const PT: Tech = { Icon: SiPytorch,      color: "#EE4C2C", n: "PyTorch"     };
 const ES: Tech = { abbr: "ES",           color: "#005571", n: "Elastic"     };
 const DF: Tech = { abbr: "DF",           color: "#4285F4", n: "Dataflow"    };
 const GC: Tech = { Icon: SiGooglecloud,  color: "#4285F4", n: "GCP"         };
+
+const SERVICE_SLUGS = [
+  "search-recommendation",
+  "production-ai",
+  "decision-intelligence",
+  "commercial-automation",
+  "data-vision",
+];
 
 /* ── Icon per service card (5 main) ── */
 const SERVICE_ICONS: IconType[] = [
@@ -211,6 +220,7 @@ function TechBadge({ tech }: { tech: Tech }) {
 export default function Services({ locale }: { locale: string }) {
   const lang = locale === "en" ? "en" : "fr";
   const t = i18n[lang];
+  const learnMore = lang === "fr" ? "Découvrir →" : "Learn more →";
 
   return (
     <section id="services" className={styles.services}>
@@ -226,6 +236,7 @@ export default function Services({ locale }: { locale: string }) {
       <div className={styles.grid}>
         {t.services.map((s, i) => {
           const Icon = SERVICE_ICONS[i];
+          const slug = SERVICE_SLUGS[i];
           return (
             <div key={i} className={`reveal d${Math.min(i + 1, 5)} ${styles.card} ${s.featured ? styles.cardFeatured : ""}`}>
               <div className={styles.iconWrap}>
@@ -239,6 +250,9 @@ export default function Services({ locale }: { locale: string }) {
                   <span key={j} className={`${styles.tag} ${j === 0 ? styles.tagGold : styles.tagBlue}`}>{tag}</span>
                 ))}
               </div>
+              <Link href={`/${locale}/services/${slug}`} className={styles.cardLink}>
+                {learnMore}
+              </Link>
             </div>
           );
         })}

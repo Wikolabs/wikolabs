@@ -107,6 +107,75 @@ export async function generateMetadata({
   };
 }
 
+const ORG_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Wikolabs",
+  url: "https://www.wikolabs.com",
+  logo: "https://www.wikolabs.com/wikolabs-logo.png",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+261-38-66-261-00",
+    contactType: "customer service",
+    email: "contact@wikolabs.com",
+    availableLanguage: ["French", "English"],
+  },
+  sameAs: ["https://www.linkedin.com/company/112261574"],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Antananarivo",
+    addressCountry: "MG",
+  },
+};
+
+const SERVICE_SCHEMAS = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Automatisation Commerciale",
+    description: "Agents IA pour l'automatisation du cycle commercial : sourcing de leads, outreach multicanal, qualification BANT, prise de rendez-vous, propositions commerciales et rétention.",
+    provider: { "@type": "Organization", name: "Wikolabs" },
+    serviceType: "AI Sales Automation",
+    url: "https://www.wikolabs.com/fr/services/commercial-automation",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Support & Service Client IA",
+    description: "Agents IA pour le support client : SAV e-commerce RAG, triage et escalade, onboarding automatisé, transcription et notes discovery.",
+    provider: { "@type": "Organization", name: "Wikolabs" },
+    serviceType: "AI Customer Support",
+    url: "https://www.wikolabs.com/fr/services/production-ai",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Intelligence Décisionnelle",
+    description: "BI en langage naturel, reporting automatique PPT/PDF, forecasting et détection d'anomalies, CRM multi-agent piloté par l'IA.",
+    provider: { "@type": "Organization", name: "Wikolabs" },
+    serviceType: "AI Decision Intelligence",
+    url: "https://www.wikolabs.com/fr/services/decision-intelligence",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Recherche & Recommandation",
+    description: "Moteur de recherche sémantique, recommandation personnalisée, pipeline de données intelligent, fine-tuning et MLOps.",
+    provider: { "@type": "Organization", name: "Wikolabs" },
+    serviceType: "AI Search & Recommendation",
+    url: "https://www.wikolabs.com/fr/services/search-recommendation",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Documents, Vision & Industrie",
+    description: "OCR et extraction documentaire, vision IA et détection d'objets, traitement BIM et point cloud, cartographie et géolocalisation.",
+    provider: { "@type": "Organization", name: "Wikolabs" },
+    serviceType: "AI Document & Vision Processing",
+    url: "https://www.wikolabs.com/fr/services/data-vision",
+  },
+];
+
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
 
@@ -117,8 +186,21 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      {children}
-    </NextIntlClientProvider>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_SCHEMA) }}
+      />
+      {SERVICE_SCHEMAS.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        {children}
+      </NextIntlClientProvider>
+    </>
   );
 }

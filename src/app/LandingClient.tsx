@@ -12,6 +12,8 @@ import DemoApps from "@/components/DemoApps";
 import TechStack from "@/components/TechStack";
 import ChatBot from "@/components/ChatBot";
 import HeroSlider from "@/components/HeroSlider";
+import Testimonials from "@/components/Testimonials";
+import Values from "@/components/Values";
 import type { IconType } from "react-icons";
 import { HiGlobeAlt, HiBolt, HiShieldCheck, HiCpuChip } from "react-icons/hi2";
 import { LuTarget, LuHandshake, LuLanguages, LuDatabase, LuBrain, LuRefreshCw, LuCloud, LuCode } from "react-icons/lu";
@@ -410,6 +412,12 @@ export default function LandingClient({
       </section>
 
 
+      {/* ── VALUES ── */}
+      <Values locale={locale} />
+
+      {/* ── TESTIMONIALS ── */}
+      <Testimonials locale={locale} testimonials={content.testimonials} />
+
       {/* ── CHATBOT / FAQ ── */}
       <ChatBot locale={locale} />
 
@@ -461,20 +469,20 @@ export default function LandingClient({
             </div>
             <div className={s.footerCol}>
               <h4>{t("footer.services_title")}</h4>
-              <a href="#services">
-                {locale === "fr" ? "Agents IA" : "AI Agents"}
+              <a href={`/${locale}/services/production-ai`}>
+                {locale === "fr" ? "Agents IA & Support" : "AI Agents & Support"}
               </a>
-              <a href="#services">
-                {locale === "fr" ? "Data Engineering" : "Data Engineering"}
+              <a href={`/${locale}/services/search-recommendation`}>
+                {locale === "fr" ? "Recherche & Recommandation" : "Search & Recommendation"}
               </a>
-              <a href="#services">
-                {locale === "fr" ? "Automatisation" : "Automation"}
+              <a href={`/${locale}/services/commercial-automation`}>
+                {locale === "fr" ? "Automatisation Commerciale" : "Sales Automation"}
               </a>
-              <a href="#services">
-                {locale === "fr" ? "Business Intelligence" : "Business Intelligence"}
+              <a href={`/${locale}/services/decision-intelligence`}>
+                {locale === "fr" ? "Business Intelligence" : "Decision Intelligence"}
               </a>
-              <a href="#services">
-                {locale === "fr" ? "Développement" : "Development"}
+              <a href={`/${locale}/services/data-vision`}>
+                {locale === "fr" ? "Documents & Vision IA" : "Documents & Vision AI"}
               </a>
             </div>
             <div className={s.footerCol}>
