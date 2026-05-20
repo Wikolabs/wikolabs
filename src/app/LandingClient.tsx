@@ -15,6 +15,7 @@ import HeroSlider from "@/components/HeroSlider";
 import Values from "@/components/Values";
 import UseCases from "@/components/UseCases";
 import Industries from "@/components/Industries";
+import OrbitalDiagram from "@/components/OrbitalDiagram";
 import type { IconType } from "react-icons";
 import { HiGlobeAlt, HiBolt, HiShieldCheck, HiCpuChip } from "react-icons/hi2";
 import {
@@ -296,6 +297,9 @@ export default function LandingClient({
 
       {/* ── SERVICES ── */}
       <Services locale={locale} />
+
+      {/* ── ORBITAL DIAGRAM ── */}
+      <OrbitalDiagram locale={locale} onBooking={() => openBooking()} />
 
       {/* ── USE CASES ── */}
       <UseCases locale={locale} />

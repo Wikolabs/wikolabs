@@ -32,11 +32,11 @@
 
 .slideHeadline {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 3.8vw, 3.2rem);
-  font-weight: 500;
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  font-weight: 700;
   color: var(--txt1);
-  line-height: 1.2;
-  margin-bottom: 20px;
+  line-height: 1.15;
+  margin-bottom: 24px;
 }
 
 .slideHeadline em {
@@ -44,11 +44,12 @@
 }
 
 .slideSub {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: var(--txt2);
-  line-height: 1.7;
-  max-width: 480px;
-  margin-bottom: 32px;
+  line-height: 1.75;
+  max-width: 500px;
+  margin-bottom: 36px;
+  font-weight: 500;
 }
 
 .slideActions {
@@ -286,7 +287,7 @@
   }
 
   .slideHeadline {
-    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-size: clamp(1.8rem, 5.5vw, 2.6rem);
   }
 }
 

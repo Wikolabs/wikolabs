@@ -1,9 +1,23 @@
-import styles from "./Values.module.css";
+"use client";
 
-const VALUES = [
+import styles from "./Values.module.css";
+import { LuEye, LuTarget, LuLock, LuScale } from "react-icons/lu";
+
+import type { IconType } from "react-icons";
+
+interface Value {
+  num: string;
+  accent: string;
+  Icon: IconType;
+  fr: { name: string; desc: string };
+  en: { name: string; desc: string };
+}
+
+const VALUES: Value[] = [
   {
     num: "01",
     accent: "#D4AF37",
+    Icon: LuEye,
     fr: {
       name: "Transparence",
       desc: "Nous communiquons ouvertement sur ce que nous faisons, ce qui fonctionne et ce qui ne fonctionne pas. Aucune boîte noire, aucun jargon pour masquer la réalité.",
@@ -16,6 +30,7 @@ const VALUES = [
   {
     num: "02",
     accent: "#5B9CF6",
+    Icon: LuTarget,
     fr: {
       name: "Responsabilité",
       desc: "Nous sommes propriétaires de nos résultats. Si quelque chose ne tient pas nos engagements, nous le corrigeons — sans discussion, sans facturation supplémentaire.",
@@ -28,6 +43,7 @@ const VALUES = [
   {
     num: "03",
     accent: "#34D399",
+    Icon: LuLock,
     fr: {
       name: "Autonomie",
       desc: "Vous gardez le contrôle total sur votre produit et vos données. Nous travaillons de manière indépendante et vous livrons un système que vous comprenez et que vous pouvez piloter.",
@@ -40,6 +56,7 @@ const VALUES = [
   {
     num: "04",
     accent: "#C084FC",
+    Icon: LuScale,
     fr: {
       name: "Équité",
       desc: "Un tarif juste pour un travail de qualité. Pas de surfacturation à l'urgence, pas de contrats inutiles imposés. Chaque euro investi doit produire une valeur mesurable.",
@@ -87,10 +104,12 @@ export default function Values({ locale }: { locale: string }) {
             className={`reveal d${i + 1} ${styles.card}`}
             style={{ "--accent": v.accent } as React.CSSProperties}
           >
+            <div className={styles.cardIcon} style={{ background: `${v.accent}18`, color: v.accent }}>
+              <v.Icon size={28} />
+            </div>
             <div className={styles.cardNum}>{v.num}</div>
             <div className={styles.cardName}>{v[lang].name}</div>
             <p className={styles.cardDesc}>{v[lang].desc}</p>
-            <div className={styles.cardAccent} />
           </div>
         ))}
       </div>

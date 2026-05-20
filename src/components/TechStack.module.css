@@ -86,8 +86,8 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 14px 28px;
-  margin: 0 8px;
+  padding: 18px 34px;
+  margin: 0 10px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 100px;
@@ -102,9 +102,9 @@
 }
 
 .techIcon {
-  font-size: 1.8rem;
-  width: 34px;
-  height: 34px;
+  font-size: 2.2rem;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,7 +113,7 @@
 
 .techName {
   font-family: var(--font-mono);
-  font-size: 0.88rem;
+  font-size: 1rem;
   letter-spacing: 0.5px;
   color: var(--txt2);
   font-weight: 500;
