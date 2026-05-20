@@ -194,16 +194,16 @@ const slidesEn: Slide[] = [
   },
 ];
 
-const DOT_POSITIONS = [
-  { top: "8%", left: "60%" },
-  { top: "30%", left: "95%" },
-  { top: "75%", left: "85%" },
-  { top: "88%", left: "25%" },
-  { top: "40%", left: "2%" },
-  { top: "10%", left: "20%" },
+// Orbital node icons for each slide (5 nodes at different positions)
+const ORBITAL_NODES = [
+  { Icon: LuDatabase, angle: 270 },
+  { Icon: LuSearch,   angle: 342 },
+  { Icon: LuCloud,    angle: 54  },
+  { Icon: LuBrain,    angle: 126 },
+  { Icon: LuNetwork,  angle: 198 },
 ];
 
-const DOT_DELAYS = ["0s", "0.5s", "1s", "1.5s", "2s", "2.5s"];
+const NODE_R = 130; // orbit radius in px from center of 380px wrap
 
 function SlideIllust({ slide, slideKey }: { slide: Slide; slideKey: number }) {
   if (slide.imgSrc) {
@@ -216,33 +216,73 @@ function SlideIllust({ slide, slideKey }: { slide: Slide; slideKey: number }) {
 
   return (
     <div className={styles.illustWrap} key={slideKey}>
+      {/* Radial glow blob */}
       <div
         className={styles.illustOrb}
+        style={{ background: `radial-gradient(circle, ${slide.color}22 0%, transparent 65%)` }}
+      />
+
+      {/* Ring 3 — outer dashed, spins slowly */}
+      <div className={styles.illustRing3} style={{ borderColor: `${slide.color}12` }} />
+      {/* Ring 2 — middle dashed */}
+      <div className={styles.illustRing2} style={{ borderColor: `${slide.color}18` }} />
+      {/* Ring 1 — inner solid */}
+      <div className={styles.illustRing} style={{ borderColor: `${slide.color}28` }} />
+
+      {/* Central icon circle */}
+      <div
+        className={styles.illustIconBox}
         style={{
-          background: `radial-gradient(circle, ${slide.color}20 0%, transparent 65%)`,
+          boxShadow: `0 0 0 1px ${slide.color}30, 0 0 32px ${slide.color}25, inset 0 0 20px ${slide.color}08`,
+          background: `rgba(255,255,255,0.03)`,
         }}
-      />
-      <div
-        className={styles.illustRing}
-        style={{ borderColor: `${slide.color}20` }}
-      />
-      <div
-        className={styles.illustRing2}
-        style={{ borderColor: `${slide.color}10` }}
-      />
-      <div className={styles.illustIconBox}>
-        <slide.Icon size={72} color={slide.color} />
+      >
+        <slide.Icon size={56} color={slide.color} />
       </div>
-      {DOT_POSITIONS.map((pos, i) => (
+
+      {/* Orbital nodes */}
+      {ORBITAL_NODES.map((node, i) => {
+        const rad = (node.angle * Math.PI) / 180;
+        const x = Math.cos(rad) * NODE_R;
+        const y = Math.sin(rad) * NODE_R;
+        return (
+          <div
+            key={i}
+            className={styles.illustNode}
+            style={{
+              transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
+              animationDelay: `${i * 0.4}s`,
+            }}
+          >
+            <div
+              className={styles.illustNodeInner}
+              style={{
+                background: `${slide.color}12`,
+                boxShadow: `0 0 0 1px ${slide.color}30, 0 6px 20px rgba(0,0,0,0.25)`,
+              }}
+            >
+              <node.Icon size={18} color={slide.color} />
+            </div>
+          </div>
+        );
+      })}
+
+      {/* Floating micro dots */}
+      {[
+        { top: "8%",  left: "58%", delay: "0s"   },
+        { top: "28%", left: "94%", delay: "0.7s"  },
+        { top: "70%", left: "88%", delay: "1.4s"  },
+        { top: "86%", left: "32%", delay: "0.3s"  },
+        { top: "18%", left: "6%",  delay: "1.1s"  },
+      ].map((pos, i) => (
         <div
           key={i}
           className={styles.illustDot}
           style={{
-            top: pos.top,
-            left: pos.left,
-            animationDelay: DOT_DELAYS[i],
-            background: `${slide.color}30`,
-            border: `1px solid ${slide.color}50`,
+            top: pos.top, left: pos.left,
+            animationDelay: pos.delay,
+            background: `${slide.color}35`,
+            border: `1px solid ${slide.color}55`,
           }}
         />
       ))}

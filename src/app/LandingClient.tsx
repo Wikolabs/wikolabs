@@ -16,6 +16,7 @@ import Values from "@/components/Values";
 import UseCases from "@/components/UseCases";
 import Industries from "@/components/Industries";
 import OrbitalDiagram from "@/components/OrbitalDiagram";
+import CommercialCycle from "@/components/CommercialCycle";
 import type { IconType } from "react-icons";
 import { HiGlobeAlt, HiBolt, HiShieldCheck, HiCpuChip } from "react-icons/hi2";
 import {
@@ -300,6 +301,9 @@ export default function LandingClient({
 
       {/* ── ORBITAL DIAGRAM ── */}
       <OrbitalDiagram locale={locale} onBooking={() => openBooking()} />
+
+      {/* ── COMMERCIAL CYCLE (integration stepper) ── */}
+      <CommercialCycle locale={locale} />
 
       {/* ── USE CASES ── */}
       <UseCases locale={locale} />

@@ -108,40 +108,91 @@
 
 .illustOrb {
   position: absolute;
-  width: 220px;
-  height: 220px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
-  filter: blur(50px);
+  filter: blur(60px);
 }
 
+/* 3 concentric rings */
 .illustRing {
   position: absolute;
-  width: 280px;
-  height: 280px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   border: 1px solid;
 }
 
 .illustRing2 {
   position: absolute;
-  width: 340px;
-  height: 340px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   border: 1px dashed;
+  animation: spinRingSlide 25s linear infinite;
 }
 
+.illustRing3 {
+  position: absolute;
+  width: 370px;
+  height: 370px;
+  border-radius: 50%;
+  border: 1px dotted;
+  animation: spinRingSlide 40s linear infinite reverse;
+}
+
+@keyframes spinRingSlide {
+  to { transform: rotate(360deg); }
+}
+
+/* Central icon */
 .illustIconBox {
   position: relative;
-  z-index: 2;
-  width: 110px;
-  height: 110px;
-  border-radius: 20px;
+  z-index: 3;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: illustPulse 3s ease-in-out infinite;
+}
+
+@keyframes illustPulse {
+  0%, 100% { box-shadow: inherit; transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
+
+/* Orbital node bubbles */
+.illustNode {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  animation: illustNodeFloat 4s ease-in-out infinite;
+}
+
+.illustNodeInner {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+}
+
+.illustNode:hover .illustNodeInner {
+  transform: scale(1.2);
+}
+
+@keyframes illustNodeFloat {
+  0%, 100% { transform: translate(calc(-50% + var(--nx, 0px)), calc(-50% + var(--ny, 0px))); }
+  50%       { transform: translate(calc(-50% + var(--nx, 0px)), calc(-50% + var(--ny, 0px) - 6px)); }
 }
 
 .illustImg {
@@ -152,8 +203,8 @@
 
 .illustDot {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   animation: illustFloat 3s ease-in-out infinite;
 }

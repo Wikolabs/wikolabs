@@ -600,26 +600,30 @@
 }
 
 .problemCard {
-  padding: 28px 32px;
-  border-radius: var(--wk-radius);
-  margin-bottom: 16px;
-  transition: transform 0.3s ease;
+  padding: 24px 28px;
+  border-radius: 18px;
+  margin-bottom: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.35s cubic-bezier(0.34,1.2,0.64,1), box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.18), 0 1px 0 rgba(255,255,255,0.04) inset;
 }
 
 .problemCard:hover {
-  transform: translateX(-4px);
+  transform: translateX(-6px) scale(1.01);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.28), 0 1px 0 rgba(255,255,255,0.06) inset;
 }
 
 .problemCardBad {
-  background: rgba(255, 59, 48, 0.04);
-  border: 1px solid rgba(255, 59, 48, 0.1);
-  border-left: 3px solid #ff3b30;
+  background: rgba(255, 59, 48, 0.05);
+  border: 1px solid rgba(255, 59, 48, 0.12);
+  border-left: 3px solid rgba(255,59,48,0.45);
 }
 
 .problemCardGood {
-  background: rgba(212, 175, 55, 0.03);
-  border: 1px solid var(--gold-dim);
-  border-left: 3px solid var(--wk-accent);
+  background: rgba(212, 175, 55, 0.04);
+  border: 1px solid rgba(212,175,55,0.12);
+  border-left: 3px solid rgba(212,175,55,0.4);
 }
 
 .problemCardIcon {
@@ -811,9 +815,11 @@
 
 .roleCard {
   padding: 36px 32px;
-  background: var(--wk-gray-900);
-  border: 1px solid var(--wk-gray-800);
-  border-radius: var(--wk-radius);
+  background: rgba(255,255,255,0.025);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
   transition: all 0.35s ease;
   position: relative;
   overflow: hidden;
@@ -833,8 +839,9 @@
 }
 
 .roleCard:hover {
-  border-color: var(--wk-gray-700);
-  transform: translateY(-4px);
+  border-color: var(--gold-border);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.3), 0 0 0 1px rgba(212,175,55,0.12);
 }
 
 .roleCard:hover::before {
@@ -898,15 +905,20 @@
 
 .valueCard {
   padding: 36px 32px;
-  border-radius: var(--wk-radius);
-  border: 1px solid var(--wk-gray-800);
-  background: var(--wk-black);
-  transition: all 0.35s ease;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.025);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: transform 0.4s cubic-bezier(0.34,1.2,0.64,1), box-shadow 0.4s ease, border-color 0.3s;
   position: relative;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2), 0 1px 0 rgba(255,255,255,0.05) inset;
 }
 
 .valueCard:hover {
   border-color: var(--gold-border);
+  transform: translateY(-8px) rotate(-0.4deg) scale(1.02);
+  box-shadow: 0 24px 56px rgba(0,0,0,0.35), 0 0 0 1px rgba(212,175,55,0.15), 0 1px 0 rgba(255,255,255,0.08) inset;
 }
 
 .valueIcon {
