@@ -84,6 +84,7 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
   const offerLabel = prefill?.offerLabel?.[lang];
   const offerPrice = prefill?.offerPrice?.[lang];
   const offerDuration = prefill?.offerDuration?.[lang];
+  const cartServices = prefill?.cartServices;
   const [step, setStep] = useState(1);
   const [selectedType, setSelectedType] = useState("mvp-saas");
   const [selectedScale, setSelectedScale] = useState("mvp");
@@ -113,6 +114,12 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
       if (prefill?.type) setSelectedType(prefill.type);
       if (prefill?.scale) setSelectedScale(prefill.scale);
       setStep(prefill?.startStep || 1);
+      if (prefill?.cartServices?.length) {
+        const list = prefill.cartServices.map((s) => s.title).join(", ");
+        setDescription(lang === "fr" ? `Services souhaités : ${list}` : `Requested services: ${list}`);
+      } else {
+        setDescription("");
+      }
     }
   }, [open, prefill]);
 
@@ -145,13 +152,20 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
         description ? `Description: ${description}` : "",
       ].filter(Boolean).join("\n");
     }
+    if (cartServices?.length) {
+      const list = cartServices.map((s) => `• ${s.title} (${s.category})`).join("\n");
+      return [
+        lang === "fr" ? `Services sélectionnés:\n${list}` : `Selected services:\n${list}`,
+        description ? `\n${lang === "fr" ? "Détails" : "Details"}: ${description}` : "",
+      ].filter(Boolean).join("\n");
+    }
     return [
       `${t.projectType}: ${typeLabel} — ${scaleLabel}`,
       `${t.estimate}: ${formatPrice(result.min, lang)} – ${formatPrice(result.max, lang)} €`,
       `${t.duration}: ${result.durationLabel}`,
       description ? `Description: ${description}` : "",
     ].filter(Boolean).join("\n");
-  }, [prefill, typeLabel, scaleLabel, result, description, lang]);
+  }, [prefill, typeLabel, scaleLabel, result, description, lang, cartServices]);
 
   const goTo = useCallback((s: number) => setStep(s), []);
 
@@ -242,6 +256,12 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
                   <span className={styles.recapAccent}>{offerPrice}</span>
                   <span className={styles.recapDot}>·</span>
                   <span>{offerDuration}</span>
+                </>
+              ) : cartServices?.length ? (
+                <>
+                  <span className={styles.recapAccent}>🛒 {cartServices.length} {lang === "fr" ? `service${cartServices.length > 1 ? "s" : ""} sélectionné${cartServices.length > 1 ? "s" : ""}` : `service${cartServices.length > 1 ? "s" : ""} selected`}</span>
+                  <span className={styles.recapDot}>·</span>
+                  <span>{cartServices.slice(0, 2).map((s) => s.title).join(", ")}{cartServices.length > 2 ? ` +${cartServices.length - 2}` : ""}</span>
                 </>
               ) : (
                 <>

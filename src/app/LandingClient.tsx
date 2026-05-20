@@ -8,6 +8,8 @@ import type { SiteContent } from "@/lib/content";
 import PackagedOffers from "@/components/PackagedOffers";
 import BookingModal from "@/components/BookingModal";
 import Services from "@/components/Services";
+import ServiceCartPanel from "@/components/ServiceCartPanel";
+import type { CartItem } from "@/components/ServiceCartPanel";
 import DemoApps from "@/components/DemoApps";
 import TechStack from "@/components/TechStack";
 import ChatBot from "@/components/ChatBot";
@@ -24,7 +26,7 @@ import {
   LuTarget, LuHandshake, LuLanguages, LuDatabase, LuBrain, LuRefreshCw, LuCloud, LuCode,
   LuMessageSquare, LuChartBar, LuLayers, LuClock, LuUsers, LuShield,
   LuTrendingUp, LuMail, LuMonitor, LuLink, LuZap, LuStar, LuCheck,
-  LuArrowUp, LuArrowDown,
+  LuArrowUp, LuArrowDown, LuShoppingCart,
 } from "react-icons/lu";
 
 export interface BookingPrefill {
@@ -34,6 +36,7 @@ export interface BookingPrefill {
   offerLabel?: { fr: string; en: string };
   offerPrice?: { fr: string; en: string };
   offerDuration?: { fr: string; en: string };
+  cartServices?: { title: string; category: string }[];
 }
 
 const VALUE_ICONS: IconType[] = [LuTarget, HiGlobeAlt, HiBolt, HiShieldCheck, LuHandshake, LuLanguages];
@@ -179,6 +182,30 @@ export default function LandingClient({
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  // Service cart
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartOpen, setCartOpen] = useState(false);
+  const cartItemIds = new Set(cartItems.map((i) => i.id));
+
+  const handleAddToCart = useCallback((item: CartItem) => {
+    setCartItems((prev) => {
+      const exists = prev.some((i) => i.id === item.id);
+      return exists ? prev.filter((i) => i.id !== item.id) : [...prev, item];
+    });
+  }, []);
+
+  const handleRemoveFromCart = useCallback((id: string) => {
+    setCartItems((prev) => prev.filter((i) => i.id !== id));
+  }, []);
+
+  const handleValidateCart = useCallback(() => {
+    setCartOpen(false);
+    openBooking({
+      startStep: 2,
+      cartServices: cartItems.map((i) => ({ title: i.title, category: i.category })),
+    });
+  }, [cartItems, openBooking]);
+
   // Scroll teleport button — tracks whether user is near the top
   const [atTop, setAtTop] = useState(true);
   const [scrollBtnVisible, setScrollBtnVisible] = useState(false);
@@ -219,6 +246,29 @@ export default function LandingClient({
       <div id="spotlight" />
       <canvas id="particle-canvas" />
       <div className={s.grain} />
+
+      {/* ── CART BUTTON ── */}
+      <button
+        className={`${s.cartBtn} ${scrollBtnVisible ? s.cartBtnVisible : ""}`}
+        onClick={() => setCartOpen((v) => !v)}
+        aria-label={locale === "fr" ? "Panier de services" : "Service cart"}
+        title={locale === "fr" ? "Panier de services" : "Service cart"}
+      >
+        <LuShoppingCart size={20} />
+        {cartItems.length > 0 && (
+          <span className={s.cartBadge} key={cartItems.length}>{cartItems.length}</span>
+        )}
+      </button>
+
+      {/* ── CART PANEL ── */}
+      <ServiceCartPanel
+        locale={locale}
+        items={cartItems}
+        open={cartOpen}
+        onClose={() => setCartOpen(false)}
+        onRemove={handleRemoveFromCart}
+        onValidate={handleValidateCart}
+      />
 
       {/* ── SCROLL TELEPORT BUTTON ── */}
       <button
@@ -334,7 +384,7 @@ export default function LandingClient({
       </div>
 
       {/* ── SERVICES ── */}
-      <Services locale={locale} />
+      <Services locale={locale} onAddToCart={handleAddToCart} cartItemIds={cartItemIds} />
 
       {/* ── ORBITAL DIAGRAM ── */}
       <OrbitalDiagram locale={locale} onBooking={() => openBooking()} />

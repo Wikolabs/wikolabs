@@ -397,10 +397,17 @@
   margin-top: auto;
 }
 
+.offerCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  gap: 8px;
+}
+
 .offerCardLink {
   display: inline-flex;
   align-items: center;
-  margin-top: 14px;
   font-family: var(--font-mono);
   font-size: 0.65rem;
   font-weight: 700;
@@ -409,10 +416,50 @@
   color: var(--gold);
   text-decoration: none;
   transition: opacity 0.2s;
+  white-space: nowrap;
 }
 
 .offerCardLink:hover {
   opacity: 0.7;
+}
+
+.addToCartBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--txt2);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.addToCartBtn:hover {
+  background: var(--gold-dim);
+  border-color: var(--gold-border);
+  color: var(--gold);
+  transform: scale(1.04);
+}
+
+.addToCartBtnActive {
+  background: var(--gold-dim);
+  border-color: var(--gold-border);
+  color: var(--gold);
+}
+
+.addToCartBtnActive:hover {
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.35);
+  color: #f87171;
 }
 
 .offerTech {

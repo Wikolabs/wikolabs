@@ -18,6 +18,8 @@ import {
   SiPython, SiLangchain, SiFastapi, SiN8N,
   SiGooglebigquery, SiScikitlearn, SiTensorflow, SiPytorch, SiGooglecloud,
 } from "react-icons/si";
+import { LuPlus, LuCheck } from "react-icons/lu";
+import type { CartItem } from "@/components/ServiceCartPanel";
 
 /* ── Tech badge type ── */
 interface Tech { Icon?: IconType; abbr?: string; color: string; n: string }
@@ -242,7 +244,15 @@ function TechBadge({ tech }: { tech: Tech }) {
   );
 }
 
-export default function Services({ locale }: { locale: string }) {
+export default function Services({
+  locale,
+  onAddToCart,
+  cartItemIds,
+}: {
+  locale: string;
+  onAddToCart?: (item: CartItem) => void;
+  cartItemIds?: Set<string>;
+}) {
   const lang = locale === "en" ? "en" : "fr";
   const t = i18n[lang];
   const learnMore = lang === "fr" ? "Découvrir →" : "Learn more →";
@@ -323,9 +333,27 @@ export default function Services({ locale }: { locale: string }) {
                         <div className={styles.offerTechs}>
                           {techs.map((tech, ti) => <TechBadge key={ti} tech={tech} />)}
                         </div>
-                        <Link href={`/${locale}/services/${catSlug}`} className={styles.offerCardLink}>
-                          {lang === "fr" ? "En savoir plus →" : "Learn more →"}
-                        </Link>
+                        <div className={styles.offerCardFooter}>
+                          <Link href={`/${locale}/services/${catSlug}`} className={styles.offerCardLink}>
+                            {lang === "fr" ? "En savoir plus →" : "Learn more →"}
+                          </Link>
+                          {onAddToCart && (() => {
+                            const itemId = `${ci}-${oi}`;
+                            const inCart = cartItemIds?.has(itemId);
+                            return (
+                              <button
+                                className={`${styles.addToCartBtn} ${inCart ? styles.addToCartBtnActive : ""}`}
+                                onClick={() => onAddToCart({ id: itemId, title: offer.title, category: cat.label })}
+                                aria-label={inCart ? (lang === "fr" ? "Retirer du panier" : "Remove from cart") : (lang === "fr" ? "Ajouter au panier" : "Add to cart")}
+                              >
+                                {inCart ? <LuCheck size={13} /> : <LuPlus size={13} />}
+                                {inCart
+                                  ? (lang === "fr" ? "Ajouté" : "Added")
+                                  : (lang === "fr" ? "Ajouter" : "Add")}
+                              </button>
+                            );
+                          })()}
+                        </div>
                       </div>
                     );
                   })}
