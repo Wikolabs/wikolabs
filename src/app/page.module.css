@@ -390,7 +390,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 96px 48px 56px;
+  padding: 96px 24px 56px;
   position: relative;
   overflow: hidden;
   background: var(--bg2);
