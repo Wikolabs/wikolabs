@@ -24,6 +24,7 @@ import {
   LuTarget, LuHandshake, LuLanguages, LuDatabase, LuBrain, LuRefreshCw, LuCloud, LuCode,
   LuMessageSquare, LuChartBar, LuLayers, LuClock, LuUsers, LuShield,
   LuTrendingUp, LuMail, LuMonitor, LuLink, LuZap, LuStar, LuCheck,
+  LuArrowUp, LuArrowDown,
 } from "react-icons/lu";
 
 export interface BookingPrefill {
@@ -178,6 +179,27 @@ export default function LandingClient({
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  // Scroll teleport button — tracks whether user is near the top
+  const [atTop, setAtTop] = useState(true);
+  const [scrollBtnVisible, setScrollBtnVisible] = useState(false);
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      setAtTop(y < 120);
+      setScrollBtnVisible(y > 80);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const handleScrollTeleport = () => {
+    if (atTop) {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   // Counter animation for stats
   const statsRef = useRef<HTMLDivElement>(null);
   const [statsVisible, setStatsVisible] = useState(false);
@@ -197,6 +219,18 @@ export default function LandingClient({
       <div id="spotlight" />
       <canvas id="particle-canvas" />
       <div className={s.grain} />
+
+      {/* ── SCROLL TELEPORT BUTTON ── */}
+      <button
+        className={`${s.scrollBtn} ${scrollBtnVisible ? s.scrollBtnVisible : ""}`}
+        onClick={handleScrollTeleport}
+        aria-label={atTop ? "Aller en bas de la page" : "Retourner en haut de la page"}
+        title={atTop ? (locale === "fr" ? "Aller en bas" : "Go to bottom") : (locale === "fr" ? "Retour en haut" : "Back to top")}
+      >
+        <span className={s.scrollBtnIcon}>
+          {atTop ? <LuArrowDown size={20} /> : <LuArrowUp size={20} />}
+        </span>
+      </button>
 
       {/* ── NAV ── */}
       <nav className={s.nav}>
