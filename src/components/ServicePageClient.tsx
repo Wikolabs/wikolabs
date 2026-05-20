@@ -29,6 +29,17 @@ import {
   LuMap,
   LuBox,
   LuCheck,
+  LuTag,
+  LuImage,
+  LuMic,
+  LuCloud,
+  LuShieldCheck,
+  LuGlobe,
+  LuMonitor,
+  LuCode,
+  LuSmartphone,
+  LuGitBranch,
+  LuZap,
 } from "react-icons/lu";
 import {
   SiPython,
@@ -40,6 +51,12 @@ import {
   SiTensorflow,
   SiPytorch,
   SiGooglecloud,
+  SiDocker,
+  SiKubernetes,
+  SiSnowflake,
+  SiNextdotjs,
+  SiReact,
+  SiNestjs,
 } from "react-icons/si";
 import { IconType } from "react-icons";
 import styles from "./ServicePageClient.module.css";
@@ -70,6 +87,19 @@ const WH: Tech = { abbr: "WH", color: "#22C55E", n: "Whisper" };
 const PG: Tech = { abbr: "PG", color: "#4169E1", n: "PostgreSQL" };
 const DS: Tech = { abbr: "DS", color: "#00B0FF", n: "DocuSign" };
 const CL: Tech = { abbr: "CL", color: "#00B0FF", n: "Calendly" };
+const SP: Tech = { abbr: "SP", color: "#E25A1C", n: "Spark" };
+const AF: Tech = { abbr: "AF", color: "#017CEE", n: "Airflow" };
+const SF: Tech = { Icon: SiSnowflake, color: "#29B5E8", n: "Snowflake" };
+const KF: Tech = { abbr: "KF", color: "#231F20", n: "Kafka" };
+const DK: Tech = { Icon: SiDocker, color: "#2496ED", n: "Docker" };
+const K8: Tech = { Icon: SiKubernetes, color: "#326CE5", n: "Kubernetes" };
+const AWS: Tech = { abbr: "AWS", color: "#FF9900", n: "AWS" };
+const AZ: Tech = { abbr: "AZ", color: "#0078D4", n: "Azure" };
+const NX: Tech = { Icon: SiNextdotjs, color: "#F0EDE6", n: "Next.js" };
+const RC: Tech = { Icon: SiReact, color: "#61DAFB", n: "React" };
+const NS: Tech = { Icon: SiNestjs, color: "#E0234E", n: "NestJS" };
+const DBT: Tech = { abbr: "dbt", color: "#FF694B", n: "dbt" };
+const DL: Tech = { abbr: "DL", color: "#00ADD4", n: "Delta Lake" };
 
 interface Agent {
   Icon: IconType;
@@ -724,6 +754,591 @@ const SERVICES: Record<string, ServiceData> = {
         desc: {
           fr: "Tests de précision, validation métier et montée en charge progressive jusqu'aux volumes de production.",
           en: "Accuracy testing, business validation and progressive scale-up to production volumes.",
+        },
+      },
+    ],
+  },
+
+  "data-annotation": {
+    tag: { fr: "Annotation de Données", en: "Data Annotation" },
+    title: { fr: "Des datasets prêts à", en: "Datasets ready to" },
+    titleEm: { fr: "entraîner vos modèles", en: "train your models" },
+    desc: {
+      fr: "Annotation texte, image, audio et vidéo à grande échelle avec contrôle qualité intégré. Vos modèles IA apprennent depuis des données précises, cohérentes et conformes à vos standards métier — livrées dans le format cible de votre choix.",
+      en: "Large-scale text, image, audio and video annotation with integrated quality control. Your AI models learn from precise, consistent data meeting your business standards — delivered in your target format.",
+    },
+    features: [
+      { fr: "Annotation NLP : classification, NER, sentiment", en: "NLP annotation: classification, NER, sentiment" },
+      { fr: "Annotation vision : bounding boxes, segmentation", en: "Vision annotation: bounding boxes, segmentation" },
+      { fr: "Annotation audio & vidéo : transcription, labelling", en: "Audio & video annotation: transcription, labelling" },
+      { fr: "Contrôle qualité automatisé (IAA, revue LLM)", en: "Automated quality control (IAA, LLM review)" },
+      { fr: "Livraison COCO, YOLO, HuggingFace, CSV", en: "Delivery in COCO, YOLO, HuggingFace, CSV format" },
+    ],
+    agentsTag: { fr: "Nos pipelines d'annotation", en: "Our annotation pipelines" },
+    agentsTitle: { fr: "4 pipelines, des données irréprochables", en: "4 pipelines, flawless training data" },
+    agentsDesc: {
+      fr: "Du texte brut au dataset prêt pour l'entraînement — chaque pipeline est conçu pour la précision, la cohérence et la scalabilité.",
+      en: "From raw text to training-ready dataset — each pipeline is built for accuracy, consistency and scale.",
+    },
+    agents: [
+      {
+        Icon: LuTag,
+        color: "#22D3EE",
+        title: { fr: "Annotation Texte & NLP", en: "Text & NLP Annotation" },
+        desc: {
+          fr: "Classification de documents (multi-label, hiérarchique), reconnaissance d'entités nommées (NER), analyse de sentiment, résolution de coréférence et annotation de relations. Outils intégrés : Label Studio, Prodigy ou plateforme custom. Chaque lot est livré avec un rapport d'accord inter-annotateurs (IAA/Kappa de Cohen).",
+          en: "Document classification (multi-label, hierarchical), named entity recognition (NER), sentiment analysis, coreference resolution and relation annotation. Integrated tools: Label Studio, Prodigy or custom platform. Every batch includes an inter-annotator agreement report (IAA/Cohen's Kappa).",
+        },
+        example: {
+          fr: "Résultat : 50k emails clients annotés en 12 catégories avec IAA > 0.92 — modèle de triage déployé en 3 semaines.",
+          en: "Result: 50k customer emails annotated in 12 categories with IAA > 0.92 — triage model deployed in 3 weeks.",
+        },
+        techs: [PY, SK],
+      },
+      {
+        Icon: LuImage,
+        color: "#F7931E",
+        title: { fr: "Annotation Vision & Image", en: "Vision & Image Annotation" },
+        desc: {
+          fr: "Bounding boxes, polygones, masques de segmentation (sémantique & instance), keypoints anatomiques, classification d'images et optical flow pour vos modèles de computer vision. Compatible COCO, YOLO, Pascal VOC. Chaque batch est validé par un modèle automatique de détection d'erreurs avant livraison.",
+          en: "Bounding boxes, polygons, segmentation masks (semantic & instance), anatomical keypoints, image classification and optical flow for computer vision models. Compatible with COCO, YOLO, Pascal VOC. Every batch is validated by an automatic error-detection model before delivery.",
+        },
+        example: {
+          fr: "Résultat : 120k images médicales annotées (segmentation tumorale) — précision pixel > 96%, délai 4 semaines.",
+          en: "Result: 120k medical images annotated (tumour segmentation) — pixel accuracy > 96%, delivered in 4 weeks.",
+        },
+        techs: [PY, PT],
+      },
+      {
+        Icon: LuMic,
+        color: "#9B59B6",
+        title: { fr: "Annotation Audio & Vidéo", en: "Audio & Video Annotation" },
+        desc: {
+          fr: "Transcription manuelle et assistée-IA (Whisper), diarisation des locuteurs, annotation de timestamps, classification d'émotions vocales, détection d'événements sonores. Pour la vidéo : tracking d'objets temporel, annotation frame-by-frame et segmentation d'activités. Qualité vérifiée par double révision humaine.",
+          en: "Manual and AI-assisted transcription (Whisper), speaker diarization, timestamp annotation, vocal emotion classification, sound event detection. For video: temporal object tracking, frame-by-frame annotation and activity segmentation. Quality verified by double human review.",
+        },
+        example: {
+          fr: "Résultat : 800h d'audio de centre d'appels transcrit et annoté (émotions, intentions) — dataset livré en 6 semaines.",
+          en: "Result: 800h of call center audio transcribed and annotated (emotions, intents) — dataset delivered in 6 weeks.",
+        },
+        techs: [WH, PY],
+      },
+      {
+        Icon: LuCheck,
+        color: "#22C55E",
+        title: { fr: "Contrôle Qualité & Curation", en: "Quality Control & Curation" },
+        desc: {
+          fr: "Pipeline de validation multi-couche : accord inter-annotateurs (IAA), revue LLM automatique pour détecter les incohérences, sampling aléatoire audité par experts métier, et curation active pour identifier et corriger les exemples ambigus. Un rapport qualité complet est livré avec chaque batch.",
+          en: "Multi-layer validation pipeline: inter-annotator agreement (IAA), automated LLM review to detect inconsistencies, random sampling audited by domain experts, and active curation to identify and correct ambiguous examples. A full quality report is delivered with every batch.",
+        },
+        example: {
+          fr: "Résultat : taux d'erreur réduit de 8.3% à 0.6% après mise en place du pipeline QA — +4 points de F1 sur le modèle client.",
+          en: "Result: error rate reduced from 8.3% to 0.6% after QA pipeline — client model gained 4 F1 points.",
+        },
+        techs: [PY, SK],
+      },
+    ],
+    processTag: { fr: "Comment on travaille", en: "How we work" },
+    processTitle: { fr: "Notre processus d'annotation", en: "Our annotation process" },
+    processDesc: {
+      fr: "De la définition du schéma au dataset final — un processus rigoureux pour des données de qualité production.",
+      en: "From schema definition to final dataset — a rigorous process for production-quality data.",
+    },
+    steps: [
+      {
+        title: { fr: "Schéma & Guidelines", en: "Schema & Guidelines" },
+        desc: {
+          fr: "Définition du schéma d'annotation, des classes, des règles de désambiguïsation et des guidelines annotateurs.",
+          en: "Definition of annotation schema, classes, disambiguation rules and annotator guidelines.",
+        },
+      },
+      {
+        title: { fr: "Pilote & Calibration", en: "Pilot & Calibration" },
+        desc: {
+          fr: "Annotation d'un échantillon pilote, calcul IAA, ajustement des guidelines et formation des annotateurs.",
+          en: "Pilot sample annotation, IAA calculation, guidelines adjustment and annotator training.",
+        },
+      },
+      {
+        title: { fr: "Production à l'Échelle", en: "Production at Scale" },
+        desc: {
+          fr: "Annotation en production avec contrôle qualité continu, reporting d'avancement et correction en temps réel.",
+          en: "Production annotation with continuous quality control, progress reporting and real-time correction.",
+        },
+      },
+      {
+        title: { fr: "Livraison & Validation Finale", en: "Delivery & Final Validation" },
+        desc: {
+          fr: "Export dans le format cible (COCO, YOLO, HF, CSV), audit final et rapport qualité complet.",
+          en: "Export in target format (COCO, YOLO, HF, CSV), final audit and comprehensive quality report.",
+        },
+      },
+    ],
+  },
+
+  "data-engineering": {
+    tag: { fr: "Data Engineering & Big Data", en: "Data Engineering & Big Data" },
+    title: { fr: "Vos données,", en: "Your data," },
+    titleEm: { fr: "enfin sous contrôle", en: "finally under control" },
+    desc: {
+      fr: "Pipelines ETL/ELT robustes, traitement Big Data avec Spark et Airflow, architectures Lakehouse, CDC temps réel et entrepôts de données interrogeables. De la source brute au dashboard opérationnel en quelques secondes.",
+      en: "Robust ETL/ELT pipelines, Big Data processing with Spark and Airflow, Lakehouse architectures, real-time CDC and queryable data warehouses. From raw source to operational dashboard in seconds.",
+    },
+    features: [
+      { fr: "Pipelines ETL/ELT fiables et maintenables", en: "Reliable and maintainable ETL/ELT pipelines" },
+      { fr: "Big Data processing avec Spark & Airflow", en: "Big Data processing with Spark & Airflow" },
+      { fr: "Architecture Lakehouse (Delta Lake, Iceberg)", en: "Lakehouse architecture (Delta Lake, Iceberg)" },
+      { fr: "Change Data Capture & streaming temps réel", en: "Change Data Capture & real-time streaming" },
+      { fr: "Data Warehouse cloud (BigQuery, Snowflake)", en: "Cloud Data Warehouse (BigQuery, Snowflake)" },
+    ],
+    agentsTag: { fr: "Nos solutions data", en: "Our data solutions" },
+    agentsTitle: { fr: "4 systèmes, une infrastructure data solide", en: "4 systems, a solid data foundation" },
+    agentsDesc: {
+      fr: "De l'ingestion brute à l'intelligence opérationnelle — chaque couche est construite pour la fiabilité, la scalabilité et la maintenabilité.",
+      en: "From raw ingestion to operational intelligence — each layer is built for reliability, scalability and maintainability.",
+    },
+    agents: [
+      {
+        Icon: LuDatabase,
+        color: "#22D3EE",
+        title: { fr: "Pipelines ETL/ELT & Ingestion", en: "ETL/ELT Pipelines & Ingestion" },
+        desc: {
+          fr: "Conception et déploiement de pipelines ETL/ELT robustes depuis vos sources (bases de données, APIs, fichiers, SaaS) vers votre data warehouse ou data lake. Orchestration Airflow, monitoring des erreurs, alertes automatiques et documentation technique. Idempotence garantie et reprise sur erreur intégrée pour une fiabilité maximale.",
+          en: "Design and deployment of robust ETL/ELT pipelines from your sources (databases, APIs, files, SaaS) to your data warehouse or data lake. Airflow orchestration, error monitoring, automatic alerts and technical documentation. Guaranteed idempotence and built-in error recovery for maximum reliability.",
+        },
+        example: {
+          fr: "Résultat : 12 sources hétérogènes centralisées dans BigQuery — latence < 15 min, 99.9% de disponibilité sur 6 mois.",
+          en: "Result: 12 heterogeneous sources centralized in BigQuery — latency < 15 min, 99.9% availability over 6 months.",
+        },
+        techs: [PY, BQ, SF, AF],
+      },
+      {
+        Icon: LuZap,
+        color: "#E25A1C",
+        title: { fr: "Big Data Processing avec Spark", en: "Big Data Processing with Spark" },
+        desc: {
+          fr: "Traitement de volumes massifs de données (TBs à PBs) avec Apache Spark sur cluster managé (Databricks, EMR, Dataproc). Transformations complexes, agrégations, joins distribués et ML at scale. Optimisation des plans d'exécution, gestion du shuffle et monitoring des jobs — temps de traitement divisé par 5 à 15 par rapport aux solutions non optimisées.",
+          en: "Processing of massive data volumes (TBs to PBs) with Apache Spark on managed clusters (Databricks, EMR, Dataproc). Complex transformations, aggregations, distributed joins and ML at scale. Execution plan optimization, shuffle management and job monitoring — processing time divided by 5 to 15 vs. unoptimized solutions.",
+        },
+        example: {
+          fr: "Résultat : traitement quotidien de 2TB de logs — temps réduit de 6h à 22min avec Spark optimisé sur Databricks.",
+          en: "Result: daily processing of 2TB of event logs — time reduced from 6h to 22min with optimized Spark on Databricks.",
+        },
+        techs: [SP, AF, PY],
+      },
+      {
+        Icon: LuLayers,
+        color: "#4285F4",
+        title: { fr: "Architecture Lakehouse", en: "Lakehouse Architecture" },
+        desc: {
+          fr: "Conception et déploiement d'architectures Lakehouse combinant la flexibilité du data lake et les performances du data warehouse. Couche de stockage Delta Lake ou Apache Iceberg pour les mises à jour ACID, le time-travel et l'optimisation des requêtes. Organisation Bronze/Silver/Gold avec transformations dbt — vos données sont propres, documentées et toujours disponibles.",
+          en: "Design and deployment of Lakehouse architectures combining data lake flexibility with data warehouse performance. Delta Lake or Apache Iceberg storage layer for ACID updates, time-travel and query optimization. Bronze/Silver/Gold organization with dbt transformations — your data is clean, documented and always available.",
+        },
+        example: {
+          fr: "Résultat : migration d'un DWH legacy vers Lakehouse Delta — coût divisé par 3, vitesse de requête ×5.",
+          en: "Result: migration from legacy DWH to Delta Lakehouse — cost divided by 3, query speed ×5.",
+        },
+        techs: [DL, DBT, BQ, SF],
+      },
+      {
+        Icon: LuActivity,
+        color: "#22C55E",
+        title: { fr: "CDC & Streaming Temps Réel", en: "CDC & Real-time Streaming" },
+        desc: {
+          fr: "Change Data Capture (Debezium, AWS DMS) pour répliquer les changements de vos bases de données opérationnelles vers votre data warehouse en quasi-temps réel. Streaming Kafka ou Pub/Sub pour les pipelines événementiels. Latence < 30 secondes entre votre source de données et vos dashboards — vos décisions reposent toujours sur des données fraîches.",
+          en: "Change Data Capture (Debezium, AWS DMS) to replicate changes from your operational databases to your data warehouse in near real-time. Kafka or Pub/Sub streaming for event-driven pipelines. Latency < 30 seconds between your data source and dashboards — your decisions always rest on fresh data.",
+        },
+        example: {
+          fr: "Résultat : inventaire e-commerce synchronisé en temps réel entre PostgreSQL, BigQuery et le front client — zéro désynchronisation.",
+          en: "Result: e-commerce inventory synchronized in real-time between PostgreSQL, BigQuery and the customer front — zero desynchronization.",
+        },
+        techs: [KF, PY, BQ, PG],
+      },
+    ],
+    processTag: { fr: "Comment on travaille", en: "How we work" },
+    processTitle: { fr: "Notre processus de livraison", en: "Our delivery process" },
+    processDesc: {
+      fr: "De l'audit data à la mise en production des pipelines — une approche rigoureuse pour une infrastructure fiable.",
+      en: "From the data audit to pipeline production — a rigorous approach for reliable infrastructure.",
+    },
+    steps: [
+      {
+        title: { fr: "Audit Data", en: "Data Audit" },
+        desc: {
+          fr: "Inventaire de vos sources, volumes, qualité des données et architecture existante. Identification des priorités.",
+          en: "Inventory of your sources, volumes, data quality and existing architecture. Priority identification.",
+        },
+      },
+      {
+        title: { fr: "Architecture & Design", en: "Architecture & Design" },
+        desc: {
+          fr: "Conception de l'architecture cible (Lakehouse, DWH cloud, streaming), choix des outils et plan de migration.",
+          en: "Target architecture design (Lakehouse, cloud DWH, streaming), tool selection and migration plan.",
+        },
+      },
+      {
+        title: { fr: "Développement & Tests", en: "Development & Testing" },
+        desc: {
+          fr: "Développement des pipelines, tests unitaires et d'intégration, validation sur données réelles, documentation.",
+          en: "Pipeline development, unit and integration tests, validation on real data, documentation.",
+        },
+      },
+      {
+        title: { fr: "Déploiement & Monitoring", en: "Deployment & Monitoring" },
+        desc: {
+          fr: "Mise en production, monitoring des jobs, alertes sur pannes et optimisation continue des performances.",
+          en: "Production deployment, job monitoring, failure alerts and continuous performance optimization.",
+        },
+      },
+    ],
+  },
+
+  "cloud-infrastructure": {
+    tag: { fr: "Migration Cloud & Infrastructure", en: "Cloud Migration & Infrastructure" },
+    title: { fr: "Passez au cloud,", en: "Move to the cloud," },
+    titleEm: { fr: "sans risque et sans interruption", en: "zero risk, zero downtime" },
+    desc: {
+      fr: "Audit de votre infrastructure existante, plan de migration vers AWS, GCP ou Azure, architecture cloud-native, sécurisation, monitoring et optimisation des coûts. De l'on-premise au cloud en quelques semaines, avec un ROI mesurable.",
+      en: "Audit of your current infrastructure, migration plan to AWS, GCP or Azure, cloud-native architecture, security hardening, monitoring and cost optimization. From on-premise to cloud in weeks, with measurable ROI.",
+    },
+    features: [
+      { fr: "Audit infrastructure & cloud readiness", en: "Infrastructure audit & cloud readiness" },
+      { fr: "Migration AWS, GCP ou Azure", en: "AWS, GCP or Azure migration" },
+      { fr: "Architecture cloud-native (containers, serverless)", en: "Cloud-native architecture (containers, serverless)" },
+      { fr: "Sécurité & conformité RGPD/ISO 27001", en: "Security & GDPR/ISO 27001 compliance" },
+      { fr: "Monitoring, alertes & FinOps", en: "Monitoring, alerts & FinOps" },
+    ],
+    agentsTag: { fr: "Nos services cloud", en: "Our cloud services" },
+    agentsTitle: { fr: "4 phases, une migration maîtrisée", en: "4 phases, a controlled migration" },
+    agentsDesc: {
+      fr: "De l'audit initial à l'optimisation continue — chaque étape est planifiée pour minimiser les risques et maximiser la valeur de votre investissement cloud.",
+      en: "From initial audit to continuous optimization — every step is planned to minimize risk and maximize the value of your cloud investment.",
+    },
+    agents: [
+      {
+        Icon: LuSearch,
+        color: "#22D3EE",
+        title: { fr: "Audit & Plan de Migration", en: "Audit & Migration Plan" },
+        desc: {
+          fr: "Inventaire complet de votre infrastructure (serveurs, bases de données, applications, dépendances), évaluation cloud readiness, scoring TCO (Total Cost of Ownership) et élaboration du plan de migration avec priorités, risques et planning détaillé par workload. Vous recevez un rapport clair avant toute migration.",
+          en: "Complete infrastructure inventory (servers, databases, applications, dependencies), cloud readiness assessment, TCO scoring and migration plan with priorities, risks and detailed per-workload timeline. You receive a clear report before any migration starts.",
+        },
+        example: {
+          fr: "Résultat : audit de 47 serveurs on-premise — plan en 3 phases, économies estimées à €120k/an sur 3 ans.",
+          en: "Result: audit of 47 on-premise servers — 3-phase plan, estimated savings of €120k/year over 3 years.",
+        },
+        techs: [AWS, GC, AZ],
+      },
+      {
+        Icon: LuCloud,
+        color: "#4285F4",
+        title: { fr: "Architecture Cloud-native", en: "Cloud-native Architecture" },
+        desc: {
+          fr: "Containerisation de vos applications (Docker), orchestration Kubernetes (EKS, GKE, AKS), architecture microservices, fonctions serverless (Lambda, Cloud Functions, Azure Functions) et API Gateway. Infrastructure as Code avec Terraform pour une infrastructure reproductible, versionnée et auditée. Déploiements blue/green et canary pour zéro downtime.",
+          en: "Application containerization (Docker), Kubernetes orchestration (EKS, GKE, AKS), microservices architecture, serverless functions (Lambda, Cloud Functions, Azure Functions) and API Gateway. Infrastructure as Code with Terraform for reproducible, versioned, audited infrastructure. Blue/green and canary deployments for zero downtime.",
+        },
+        example: {
+          fr: "Résultat : migration d'un monolithe vers 8 microservices Kubernetes — déploiements de 45 min réduits à 3 min, scaling automatique.",
+          en: "Result: monolith migrated to 8 Kubernetes microservices — deployments reduced from 45 min to 3 min, automatic scaling.",
+        },
+        techs: [DK, K8, AWS, GC],
+      },
+      {
+        Icon: LuShieldCheck,
+        color: "#22C55E",
+        title: { fr: "Sécurité & Conformité", en: "Security & Compliance" },
+        desc: {
+          fr: "Configuration IAM (least privilege), chiffrement des données au repos et en transit, VPC et network policies, audit trails (CloudTrail, Cloud Audit Logs), conformité RGPD et ISO 27001, scan de vulnérabilités automatisé et tests de pénétration. Chaque projet se termine par un rapport de sécurité complet et un plan de remédiation.",
+          en: "IAM configuration (least privilege), data encryption at rest and in transit, VPC and network policies, audit trails (CloudTrail, Cloud Audit Logs), GDPR and ISO 27001 compliance, automated vulnerability scanning and penetration testing. Every project ends with a full security report and remediation plan.",
+        },
+        example: {
+          fr: "Résultat : audit sécurité AWS — 23 vulnérabilités critiques identifiées et corrigées, conformité RGPD obtenue en 3 semaines.",
+          en: "Result: AWS security audit — 23 critical vulnerabilities identified and fixed, GDPR compliance achieved in 3 weeks.",
+        },
+        techs: [AWS, AZ, GC],
+      },
+      {
+        Icon: LuActivity,
+        color: "#D4AF37",
+        title: { fr: "Monitoring & FinOps", en: "Monitoring & FinOps" },
+        desc: {
+          fr: "Observabilité complète (métriques, logs, traces) avec Prometheus, Grafana, Datadog ou le monitoring cloud-native de votre fournisseur. Alertes proactives sur les pannes et anomalies de performance. FinOps : analyse des coûts cloud, rightsizing, réservations et Spot Instances pour réduire votre facture sans sacrifier la performance — économies typiques de 25% à 40%.",
+          en: "Full observability (metrics, logs, traces) with Prometheus, Grafana, Datadog or cloud-native monitoring. Proactive alerts on failures and performance anomalies. FinOps: cloud cost analysis, rightsizing, reservations and Spot Instances to cut your bill without sacrificing performance — typical savings of 25% to 40%.",
+        },
+        example: {
+          fr: "Résultat : FinOps sur un compte AWS — -38% de coût mensuel sans dégradation, MTTR réduit de 4h à 12min.",
+          en: "Result: FinOps on an AWS account — -38% monthly cost without degradation, MTTR reduced from 4h to 12min.",
+        },
+        techs: [AWS, GC, AZ],
+      },
+    ],
+    processTag: { fr: "Comment on travaille", en: "How we work" },
+    processTitle: { fr: "Notre processus de migration", en: "Our migration process" },
+    processDesc: {
+      fr: "Une approche structurée pour migrer votre infrastructure vers le cloud avec un ROI mesurable et zéro surprise.",
+      en: "A structured approach to migrate your infrastructure to the cloud with measurable ROI and zero surprises.",
+    },
+    steps: [
+      {
+        title: { fr: "Découverte & Audit", en: "Discovery & Audit" },
+        desc: {
+          fr: "Inventaire infrastructure, évaluation cloud readiness, scoring TCO et identification des quick wins.",
+          en: "Infrastructure inventory, cloud readiness assessment, TCO scoring and quick win identification.",
+        },
+      },
+      {
+        title: { fr: "Architecture & Pilote", en: "Architecture & Pilot" },
+        desc: {
+          fr: "Conception de l'architecture cible, pilote sur un workload non-critique, validation performance et coûts.",
+          en: "Target architecture design, pilot on a non-critical workload, performance and cost validation.",
+        },
+      },
+      {
+        title: { fr: "Migration par Phases", en: "Phased Migration" },
+        desc: {
+          fr: "Migration progressive par workload avec tests de non-régression, bascule DNS et période de run-in parallèle.",
+          en: "Progressive migration workload by workload with regression tests, DNS cutover and parallel run-in period.",
+        },
+      },
+      {
+        title: { fr: "Optimisation Continue", en: "Continuous Optimization" },
+        desc: {
+          fr: "FinOps mensuel, revue de sécurité trimestrielle et optimisation continue des performances.",
+          en: "Monthly FinOps, quarterly security review and continuous performance optimization.",
+        },
+      },
+    ],
+  },
+
+  "seo-refonte": {
+    tag: { fr: "SEO, Refonte & Développement Web/Mobile", en: "SEO, Redesign & Web/Mobile Development" },
+    title: { fr: "Votre présence digitale,", en: "Your digital presence," },
+    titleEm: { fr: "levier de croissance", en: "as a growth driver" },
+    desc: {
+      fr: "Audit SEO technique et sémantique, refonte web et mobile, débogage systématique, optimisation des performances et de l'UX. De l'analyse à la mise en production — votre site devient un actif commercial qui travaille pour vous.",
+      en: "Technical and semantic SEO audit, web and mobile app redesign, systematic debugging, performance and UX optimization. From analysis to production — your site becomes a commercial asset working for you.",
+    },
+    features: [
+      { fr: "Audit SEO technique & sémantique complet", en: "Full technical & semantic SEO audit" },
+      { fr: "Refonte UI/UX web & mobile", en: "Web & mobile UI/UX redesign" },
+      { fr: "Optimisation Core Web Vitals & LCP", en: "Core Web Vitals & LCP optimization" },
+      { fr: "Débogage cross-browser & responsive", en: "Cross-browser & responsive debugging" },
+      { fr: "Développement et déploiement en production", en: "Development and production deployment" },
+    ],
+    agentsTag: { fr: "Nos services SEO & Web", en: "Our SEO & Web services" },
+    agentsTitle: { fr: "4 axes, une présence digitale optimale", en: "4 axes, optimal digital presence" },
+    agentsDesc: {
+      fr: "De l'analyse initiale à la mise en ligne — chaque action est mesurée, chaque décision data-driven, chaque livrable conçu pour durer.",
+      en: "From initial analysis to going live — every action is measured, every decision data-driven, every deliverable built to last.",
+    },
+    agents: [
+      {
+        Icon: LuGlobe,
+        color: "#22D3EE",
+        title: { fr: "Audit SEO Technique & Sémantique", en: "Technical & Semantic SEO Audit" },
+        desc: {
+          fr: "Analyse complète de votre site : crawlabilité, Core Web Vitals, données structurées (JSON-LD, Open Graph), maillage interne, cannibalisation de mots-clés, analyse de la concurrence sémantique, opportunités de featured snippets. Vous recevez un plan d'action priorisé avec l'impact estimé sur le trafic organique pour chaque optimisation.",
+          en: "Complete site analysis: crawlability, Core Web Vitals, structured data (JSON-LD, Open Graph), internal linking, keyword cannibalization, semantic competitor analysis, featured snippet opportunities. You receive a prioritized action plan with estimated organic traffic impact for each optimization.",
+        },
+        example: {
+          fr: "Résultat : audit d'un site e-commerce — 47 points d'amélioration identifiés, +68% de trafic organique en 4 mois.",
+          en: "Result: e-commerce site audit — 47 improvement points identified, +68% organic traffic in 4 months.",
+        },
+        techs: [NX, RC],
+      },
+      {
+        Icon: LuMonitor,
+        color: "#F7931E",
+        title: { fr: "Refonte UI/UX Web & Mobile", en: "Web & Mobile UI/UX Redesign" },
+        desc: {
+          fr: "Analyse UX de votre interface existante (heatmaps, session recordings), conception d'une nouvelle architecture d'information, wireframes et design system. Développement React/Next.js (web) ou React Native (mobile) avec accessibilité WCAG 2.1 AA, dark mode et internationalisation i18n. Tests E2E automatisés et documentation complète avant livraison.",
+          en: "UX analysis of your existing interface (heatmaps, session recordings), new information architecture design, wireframes and design system. React/Next.js (web) or React Native (mobile) development with WCAG 2.1 AA accessibility, dark mode and i18n. Automated E2E tests and full documentation before delivery.",
+        },
+        example: {
+          fr: "Résultat : refonte d'une application SaaS B2B — taux de conversion +41%, taux de rebond -29%, NPS +18 points.",
+          en: "Result: B2B SaaS app redesign — conversion rate +41%, bounce rate -29%, NPS +18 points.",
+        },
+        techs: [RC, NX, FA],
+      },
+      {
+        Icon: LuZap,
+        color: "#22C55E",
+        title: { fr: "Optimisation Performance & Core Web Vitals", en: "Performance & Core Web Vitals" },
+        desc: {
+          fr: "Optimisation LCP, CLS et INP. Lazy loading, code splitting, compression d'images (WebP, AVIF), configuration CDN, Server-Side Rendering et Static Site Generation. Caching stratégique et réduction du TTFB. Chaque amélioration est mesurée avec Lighthouse et Google Search Console — vous voyez l'impact avant et après.",
+          en: "LCP, CLS and INP optimization. Lazy loading, code splitting, image compression (WebP, AVIF), CDN configuration, Server-Side Rendering and Static Site Generation. Strategic caching and TTFB reduction. Every improvement is measured with Lighthouse and Google Search Console — you see the before and after.",
+        },
+        example: {
+          fr: "Résultat : site Next.js de score Lighthouse 43 à 97 — LCP de 4.8s à 0.9s, +22% sur les conversions.",
+          en: "Result: Next.js site from Lighthouse 43 to 97 — LCP from 4.8s to 0.9s, +22% on conversions.",
+        },
+        techs: [NX, RC],
+      },
+      {
+        Icon: LuCode,
+        color: "#9B59B6",
+        title: { fr: "Débogage Systématique", en: "Systematic Debugging" },
+        desc: {
+          fr: "Audit complet du code existant, identification et correction des bugs cross-browser (Chrome, Firefox, Safari, Edge), problèmes responsive (mobile, tablette), régressions après mise à jour, fuites mémoire et erreurs 4xx/5xx. Chaque correction est accompagnée d'un test de non-régression pour garantir qu'elle ne casse rien d'autre.",
+          en: "Complete code audit, identification and fixing of cross-browser bugs (Chrome, Firefox, Safari, Edge), responsive issues (mobile, tablet), post-update regressions, memory leaks and 4xx/5xx errors. Every fix comes with a regression test to ensure nothing else breaks.",
+        },
+        example: {
+          fr: "Résultat : application React avec 12 bugs critiques Safari/Mobile — 100% résolus en 5 jours, couverture de tests portée à 78%.",
+          en: "Result: React app with 12 critical Safari/Mobile bugs — 100% resolved in 5 days, test coverage raised to 78%.",
+        },
+        techs: [RC, NX, FA],
+      },
+    ],
+    processTag: { fr: "Comment on travaille", en: "How we work" },
+    processTitle: { fr: "Notre processus SEO & Refonte", en: "Our SEO & Redesign process" },
+    processDesc: {
+      fr: "De l'audit initial au déploiement en production — une méthode éprouvée pour des résultats mesurables et durables.",
+      en: "From initial audit to production deployment — a proven method for measurable, lasting results.",
+    },
+    steps: [
+      {
+        title: { fr: "Audit & Analyse", en: "Audit & Analysis" },
+        desc: {
+          fr: "Audit SEO complet, analyse UX, benchmarking concurrentiel et identification des priorités avec impact estimé.",
+          en: "Full SEO audit, UX analysis, competitive benchmarking and priority identification with estimated impact.",
+        },
+      },
+      {
+        title: { fr: "Conception & Prototypage", en: "Design & Prototyping" },
+        desc: {
+          fr: "Wireframes, design system, maquettes interactives et validation avec les parties prenantes avant développement.",
+          en: "Wireframes, design system, interactive mockups and stakeholder validation before development.",
+        },
+      },
+      {
+        title: { fr: "Développement & Tests", en: "Development & Testing" },
+        desc: {
+          fr: "Développement itératif, tests cross-browser, performance, accessibilité et E2E automatisés.",
+          en: "Iterative development, cross-browser, performance, accessibility and automated E2E tests.",
+        },
+      },
+      {
+        title: { fr: "Déploiement & Suivi", en: "Deployment & Tracking" },
+        desc: {
+          fr: "Mise en production, configuration Google Search Console et Analytics, suivi des KPIs et optimisations post-lancement.",
+          en: "Production deployment, Google Search Console and Analytics setup, KPI tracking and post-launch optimizations.",
+        },
+      },
+    ],
+  },
+
+  "fullstack": {
+    tag: { fr: "Développement Fullstack", en: "Fullstack Development" },
+    title: { fr: "Des applications qui tiennent", en: "Applications that deliver" },
+    titleEm: { fr: "leurs promesses", en: "on their promises" },
+    desc: {
+      fr: "Applications web et mobiles sur mesure, APIs RESTful et GraphQL, interfaces utilisateur, microservices et intégrations tierces. React, Next.js, FastAPI, NestJS — développé, testé et déployé en production avec des standards d'ingénierie élevés.",
+      en: "Custom web and mobile apps, RESTful and GraphQL APIs, user interfaces, microservices and third-party integrations. React, Next.js, FastAPI, NestJS — developed, tested and deployed to production with high engineering standards.",
+    },
+    features: [
+      { fr: "Applications web React / Next.js TypeScript", en: "React / Next.js TypeScript web apps" },
+      { fr: "APIs RESTful & GraphQL (FastAPI, NestJS)", en: "RESTful & GraphQL APIs (FastAPI, NestJS)" },
+      { fr: "Applications mobiles React Native", en: "React Native mobile applications" },
+      { fr: "Architecture microservices & API Gateway", en: "Microservices architecture & API Gateway" },
+      { fr: "CI/CD, tests automatisés & déploiement cloud", en: "CI/CD, automated tests & cloud deployment" },
+    ],
+    agentsTag: { fr: "Nos expertises techniques", en: "Our technical expertise" },
+    agentsTitle: { fr: "4 expertises, un produit complet", en: "4 expertise areas, one complete product" },
+    agentsDesc: {
+      fr: "Du frontend au DevOps en passant par le backend et le mobile — nous couvrons l'intégralité du cycle de développement avec des standards de qualité élevés.",
+      en: "From frontend to DevOps, through backend and mobile — we cover the entire development cycle with high quality standards.",
+    },
+    agents: [
+      {
+        Icon: LuMonitor,
+        color: "#61DAFB",
+        title: { fr: "Frontend & Interfaces Utilisateur", en: "Frontend & User Interfaces" },
+        desc: {
+          fr: "Interfaces web modernes avec React, Next.js (App Router, SSR, SSG) et TypeScript. Design systems scalables, accessibilité WCAG 2.1 AA, internationalisation i18n, dark mode et animations fluides. Optimisation Core Web Vitals intégrée dès le développement. Tests unitaires (Jest, Testing Library) et E2E (Playwright) inclus dans chaque livraison.",
+          en: "Modern web interfaces with React, Next.js (App Router, SSR, SSG) and TypeScript. Scalable design systems, WCAG 2.1 AA accessibility, i18n internationalization, dark mode and smooth animations. Core Web Vitals optimization built into development. Unit tests (Jest, Testing Library) and E2E (Playwright) included in every delivery.",
+        },
+        example: {
+          fr: "Résultat : tableau de bord SaaS B2B multi-tenant — 40 composants, score Lighthouse 98, 100% TypeScript, livré en 8 semaines.",
+          en: "Result: multi-tenant B2B SaaS dashboard — 40 components, Lighthouse score 98, 100% TypeScript, delivered in 8 weeks.",
+        },
+        techs: [RC, NX],
+      },
+      {
+        Icon: LuDatabase,
+        color: "#009688",
+        title: { fr: "Backend & APIs", en: "Backend & APIs" },
+        desc: {
+          fr: "APIs RESTful et GraphQL haute performance avec FastAPI (Python) ou NestJS (TypeScript). Architecture microservices, API Gateway, authentification JWT/OAuth2, rate limiting et documentation OpenAPI/Swagger automatique. Bases de données PostgreSQL et NoSQL (MongoDB, Redis). Migrations versionnées, tests d'intégration et monitoring APM inclus.",
+          en: "High-performance RESTful and GraphQL APIs with FastAPI (Python) or NestJS (TypeScript). Microservices architecture, API Gateway, JWT/OAuth2 authentication, rate limiting and automatic OpenAPI/Swagger documentation. PostgreSQL and NoSQL (MongoDB, Redis) databases. Versioned migrations, integration tests and APM monitoring included.",
+        },
+        example: {
+          fr: "Résultat : API FastAPI servant 2M requêtes/jour — p99 < 45ms, 99.98% uptime, 94% de couverture de tests.",
+          en: "Result: FastAPI serving 2M requests/day — p99 < 45ms, 99.98% uptime, 94% test coverage.",
+        },
+        techs: [FA, NS, PG, PY],
+      },
+      {
+        Icon: LuSmartphone,
+        color: "#61DAFB",
+        title: { fr: "Applications Mobiles", en: "Mobile Applications" },
+        desc: {
+          fr: "Développement cross-platform avec React Native pour iOS et Android depuis une base de code unique. Performances natives, navigation fluide (Expo Router), gestion d'état (Zustand, Redux Toolkit), notifications push, accès caméra et capteurs, synchronisation offline-first avec votre API REST. Publication App Store et Google Play incluse.",
+          en: "Cross-platform development with React Native for iOS and Android from a single codebase. Native performance, smooth navigation (Expo Router), state management (Zustand, Redux Toolkit), push notifications, camera and sensor access, offline-first sync with your REST API. App Store and Google Play publishing included.",
+        },
+        example: {
+          fr: "Résultat : app mobile terrain pour 200 techniciens — offline-first, synchronisation auto, 4.8 étoiles sur les deux stores.",
+          en: "Result: field mobile app for 200 technicians — offline-first, auto-sync, 4.8 stars on both stores.",
+        },
+        techs: [RC, FA],
+      },
+      {
+        Icon: LuGitBranch,
+        color: "#22C55E",
+        title: { fr: "DevOps & CI/CD", en: "DevOps & CI/CD" },
+        desc: {
+          fr: "Pipelines CI/CD avec GitHub Actions ou GitLab CI : tests automatisés, build, lint, type-check et déploiement automatique sur staging et production. Containerisation Docker, orchestration Kubernetes, Infrastructure as Code (Terraform). Monitoring Grafana/Prometheus et alertes Slack. Revues de code systématiques et runbooks opérationnels pour assurer la continuité de service.",
+          en: "CI/CD pipelines with GitHub Actions or GitLab CI: automated tests, build, lint, type-check and automatic deployment to staging and production. Docker containerization, Kubernetes orchestration, Infrastructure as Code (Terraform). Grafana/Prometheus monitoring and Slack alerts. Systematic code reviews and operational runbooks to ensure service continuity.",
+        },
+        example: {
+          fr: "Résultat : pipeline CI/CD pour une stack Next.js + FastAPI — déploiement en 4 min, rollback en 30 secondes, zéro downtime.",
+          en: "Result: CI/CD pipeline for Next.js + FastAPI stack — deployment in 4 min, rollback in 30 seconds, zero downtime.",
+        },
+        techs: [DK, K8, RC, NX],
+      },
+    ],
+    processTag: { fr: "Comment on travaille", en: "How we work" },
+    processTitle: { fr: "Notre processus de développement", en: "Our development process" },
+    processDesc: {
+      fr: "De la spécification à la mise en production — une méthodologie Agile rigoureuse pour livrer des produits qui fonctionnent.",
+      en: "From specification to production — a rigorous Agile methodology to deliver products that work.",
+    },
+    steps: [
+      {
+        title: { fr: "Spécification Technique", en: "Technical Specification" },
+        desc: {
+          fr: "Définition des user stories, architecture technique, choix des technologies et setup de l'environnement.",
+          en: "User stories definition, technical architecture, technology choices and environment setup.",
+        },
+      },
+      {
+        title: { fr: "Sprints de Développement", en: "Development Sprints" },
+        desc: {
+          fr: "Sprints de 1-2 semaines avec daily standup, démos de fin de sprint et validation à chaque étape.",
+          en: "1-2 week sprints with daily standup, end-of-sprint demos and validation at each step.",
+        },
+      },
+      {
+        title: { fr: "Tests & Qualité", en: "Tests & Quality" },
+        desc: {
+          fr: "Tests unitaires, d'intégration, E2E, de performance et de sécurité. Code review systématique.",
+          en: "Unit, integration, E2E, performance and security tests. Systematic code review.",
+        },
+      },
+      {
+        title: { fr: "Déploiement & Support", en: "Deployment & Support" },
+        desc: {
+          fr: "Mise en production, monitoring post-lancement, correction des bugs et roadmap d'évolutions.",
+          en: "Production deployment, post-launch monitoring, bug fixes and evolution roadmap.",
         },
       },
     ],
