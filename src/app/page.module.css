@@ -4,7 +4,7 @@
 .scrollBtn {
   position: fixed;
   bottom: 32px;
-  right: 32px;
+  left: 32px;
   z-index: 999;
   width: 48px;
   height: 48px;
@@ -64,7 +64,7 @@
 @media (max-width: 640px) {
   .scrollBtn {
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     width: 42px;
     height: 42px;
   }
