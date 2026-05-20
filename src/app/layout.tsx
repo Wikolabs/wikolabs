@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.wikolabs.com"),
   icons: {
     icon: [{ url: "/favicon.png", type: "image/png" }],
     apple: "/favicon.png",
