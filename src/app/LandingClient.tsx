@@ -17,6 +17,7 @@ import UseCases from "@/components/UseCases";
 import Industries from "@/components/Industries";
 import OrbitalDiagram from "@/components/OrbitalDiagram";
 import CommercialCycle from "@/components/CommercialCycle";
+import BlogPreview from "@/components/BlogPreview";
 import type { IconType } from "react-icons";
 import { HiGlobeAlt, HiBolt, HiShieldCheck, HiCpuChip } from "react-icons/hi2";
 import {
@@ -209,6 +210,7 @@ export default function LandingClient({
           <a href="#processus" className={s.navLink}>{t("nav.process")}</a>
           <a href="#expertise" className={s.navLink}>{t("nav.team")}</a>
           <a href="#faq" className={s.navLink}>{t("nav.faq")}</a>
+          <a href={`/${locale === "fr" ? "" : locale + "/"}blog`} className={s.navLink}>{t("nav.blog")}</a>
           <LocaleSwitcher />
           <button
             className={s.themeToggle}
@@ -251,6 +253,7 @@ export default function LandingClient({
           <a href="#processus" className={s.mobileLink} onClick={closeMenu}>{t("nav.process")}</a>
           <a href="#expertise" className={s.mobileLink} onClick={closeMenu}>{t("nav.team")}</a>
           <a href="#faq" className={s.mobileLink} onClick={closeMenu}>{t("nav.faq")}</a>
+          <a href={`/${locale === "fr" ? "" : locale + "/"}blog`} className={s.mobileLink} onClick={closeMenu}>{t("nav.blog")}</a>
           <div style={{ padding: "12px 0" }}>
             <LocaleSwitcher />
           </div>
@@ -447,6 +450,9 @@ export default function LandingClient({
       {/* ── CHATBOT / FAQ ── */}
       <ChatBot locale={locale} />
 
+      {/* ── BLOG PREVIEW ── */}
+      <BlogPreview locale={locale} />
+
       {/* ── CTA ── */}
       <section className={s.ctaSection}>
         <div className={s.ctaGlow} />
@@ -492,6 +498,7 @@ export default function LandingClient({
               <a href="#processus">{t("nav.process")}</a>
               <a href="#expertise">{t("nav.team")}</a>
               <a href="#faq">{t("nav.faq")}</a>
+              <a href={`/${locale === "fr" ? "" : locale + "/"}blog`}>{t("nav.blog")}</a>
             </div>
             <div className={s.footerCol}>
               <h4>{t("footer.services_title")}</h4>
