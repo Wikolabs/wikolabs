@@ -128,20 +128,20 @@ const nodes7: OrbitalNode[] = [
 ];
 
 const nodes8: OrbitalNode[] = [
-  { Icon: LuDatabase,  ring: 0, startAngle: 40,  period: 15, appearDelay: 0.30, size: 60 },
-  { Icon: LuCode,      ring: 2, startAngle: 120, period: 27, appearDelay: 0.65, size: 50 },
-  { Icon: LuShield,    ring: 1, startAngle: 200, period: 22, appearDelay: 1.00, size: 46 },
-  { Icon: LuRefreshCw, ring: 2, startAngle: 295, period: 27, appearDelay: 1.35, size: 58 },
-  { Icon: LuNetwork,   ring: 1, startAngle: 15,  period: 22, appearDelay: 1.70, size: 42 },
+  { Icon: LuDatabase,  ring: 0, orbitR: 110, startAngle: 40,  period: 15, appearDelay: 0.30, size: 80 },
+  { Icon: LuCode,      ring: 2, orbitR: 230, startAngle: 120, period: 27, appearDelay: 0.65, size: 28 },
+  { Icon: LuShield,    ring: 1, orbitR: 165, startAngle: 200, period: 22, appearDelay: 1.00, size: 62 },
+  { Icon: LuRefreshCw, ring: 2, orbitR: 248, startAngle: 295, period: 27, appearDelay: 1.35, size: 30 },
+  { Icon: LuNetwork,   ring: 1, orbitR: 145, startAngle: 15,  period: 22, appearDelay: 1.70, size: 76 },
 ];
 
 const nodes9: OrbitalNode[] = [
-  { Icon: LuCloud,     ring: 0, startAngle: 0,   period: 12, appearDelay: 0.30, size: 64 },
-  { Icon: LuRefreshCw, ring: 1, startAngle: 75,  period: 20, appearDelay: 0.60, size: 50 },
-  { Icon: LuNetwork,   ring: 2, startAngle: 150, period: 29, appearDelay: 0.90, size: 56 },
-  { Icon: LuSearch,    ring: 0, startAngle: 225, period: 12, appearDelay: 1.20, size: 44 },
-  { Icon: LuBrain,     ring: 2, startAngle: 300, period: 29, appearDelay: 1.50, size: 46 },
-  { Icon: LuLayers,    ring: 1, startAngle: 355, period: 20, appearDelay: 1.80, size: 60 },
+  { Icon: LuCloud,     ring: 0, orbitR: 122, startAngle: 0,   period: 12, appearDelay: 0.30, size: 34 },
+  { Icon: LuRefreshCw, ring: 1, orbitR: 178, startAngle: 75,  period: 20, appearDelay: 0.60, size: 78 },
+  { Icon: LuNetwork,   ring: 2, orbitR: 242, startAngle: 150, period: 29, appearDelay: 0.90, size: 28 },
+  { Icon: LuSearch,    ring: 0, orbitR: 105, startAngle: 225, period: 12, appearDelay: 1.20, size: 66 },
+  { Icon: LuBrain,     ring: 2, orbitR: 215, startAngle: 300, period: 29, appearDelay: 1.50, size: 30 },
+  { Icon: LuLayers,    ring: 1, orbitR: 158, startAngle: 355, period: 20, appearDelay: 1.80, size: 80 },
 ];
 
 // ─── Slide data ────────────────────────────────────────────────────────────
