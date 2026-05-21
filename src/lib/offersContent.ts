@@ -1200,4 +1200,252 @@ export const OFFERS_CONTENT: OfferPageContent[] = [
       ],
     },
   },
+
+  /* ─────────────────────────────────────────────────
+     4-0  OCR & Extraction Documentaire
+  ───────────────────────────────────────────────── */
+  {
+    slug: "ocr-extraction-documentaire",
+    catSlug: "data-vision",
+    fr: {
+      metaTitle: "OCR & Extraction Documentaire IA — Wikolabs",
+      metaDesc: "Extraction intelligente de données dans contrats, formulaires, factures et emails. Structurées en base automatiquement. Google Document AI, Azure Form Recognizer.",
+      tag: "Documents, Vision & Industrie",
+      title: "OCR & Extraction Documentaire",
+      subtitle: "Transformez vos documents non structurés en données exploitables automatiquement",
+      intro: "Chaque entreprise traite des volumes massifs de documents : contrats, factures, bons de commande, formulaires, relevés bancaires. Les saisir manuellement coûte cher, introduit des erreurs et ralentit les processus. L'Agent OCR & Extraction Documentaire extrait automatiquement les données clés de vos documents, quelle que soit leur format (PDF, scan, image), et les structure en base de données exploitable.",
+      problem: "La saisie manuelle de documents coûte en moyenne 8 à 15 € par document traité (salaire + erreurs + reprises). Les retards de traitement ralentissent la facturation, la conformité et la prise de décision. Et les archives papier ou PDF non indexées constituent une mine d'informations inaccessibles.",
+      solution: "Les documents sont envoyés automatiquement via email, SFTP ou API. Le pipeline applique OCR haute précision (Google Document AI ou Azure Form Recognizer), extrait les champs clés selon vos règles métier, valide les données extraites et les pousse dans votre ERP, CRM ou base de données via API. Un tableau de bord de contrôle permet de gérer les exceptions.",
+      steps: [
+        { n: 1, title: "Audit des types de documents", desc: "Identification des formats traités (factures, contrats, formulaires), des champs à extraire et des règles de validation par type." },
+        { n: 2, title: "Entraînement du modèle d'extraction", desc: "Annotation de 50 à 200 exemples par type de document pour calibrer l'extraction aux variantes de vos fournisseurs ou clients." },
+        { n: 3, title: "Pipeline d'ingestion automatique", desc: "Mise en place de l'ingestion (email, SFTP, SharePoint, Google Drive) et du workflow de traitement avec gestion des exceptions." },
+        { n: 4, title: "Intégration ERP/CRM & dashboard", desc: "Push automatique dans votre système cible. Dashboard de suivi : documents traités, taux d'extraction, exceptions en attente." },
+      ],
+      benefits: [
+        { title: "Coût par document divisé par 10", desc: "L'automatisation réduit le coût de traitement de 8-15€ à moins d'1€ par document, tout en éliminant les erreurs de saisie." },
+        { title: "Traitement en temps réel", desc: "Chaque document reçu est traité en moins de 30 secondes. Votre pipeline de facturation ou de conformité n'attend plus." },
+        { title: "Archives 100% indexées", desc: "Vos archives historiques peuvent être rétro-traitées. Chaque document devient interrogeable et les données sont exploitables instantanément." },
+      ],
+      faq: [
+        { q: "Quels types de documents sont supportés ?", a: "Factures, contrats, bons de commande, formulaires, relevés bancaires, cartes d'identité, kbis, bulletins de paie et tout document structuré ou semi-structuré." },
+        { q: "L'extraction fonctionne sur des scans de mauvaise qualité ?", a: "Oui. Des techniques de pré-traitement (deskewing, débruitage, amélioration du contraste) améliorent la qualité avant l'OCR." },
+        { q: "Comment gérer les documents avec formats variés (factures de 50 fournisseurs différents) ?", a: "Le modèle apprend à gérer les variantes par fournisseur. Après calibration sur 50 à 100 exemples par variante, le taux d'extraction atteint 95%+." },
+        { q: "Les données extraites peuvent-elles déclencher des workflows ?", a: "Oui. Par exemple : une facture validée peut déclencher automatiquement un bon à payer dans votre ERP, réduisant le cycle de paiement." },
+      ],
+    },
+    en: {
+      metaTitle: "AI OCR & Document Extraction — Wikolabs",
+      metaDesc: "Intelligent data extraction from contracts, forms, invoices and emails. Auto-structured into your database. Google Document AI, Azure Form Recognizer.",
+      tag: "Documents, Vision & Industry",
+      title: "OCR & Document Extraction",
+      subtitle: "Turn your unstructured documents into exploitable data automatically",
+      intro: "Every company processes massive document volumes: contracts, invoices, purchase orders, forms, bank statements. Manual data entry is expensive, error-prone and slows processes. The OCR & Document Extraction Agent automatically extracts key data from your documents, regardless of format (PDF, scan, image), and structures it into exploitable databases.",
+      problem: "Manual document processing costs an average of €8–15 per document (salary + errors + corrections). Processing delays slow billing, compliance and decision-making. And unindexed paper or PDF archives are a mine of inaccessible information.",
+      solution: "Documents are automatically submitted via email, SFTP or API. The pipeline applies high-accuracy OCR (Google Document AI or Azure Form Recognizer), extracts key fields according to your business rules, validates extracted data and pushes it to your ERP, CRM or database via API. A control dashboard manages exceptions.",
+      steps: [
+        { n: 1, title: "Document type audit", desc: "Identification of processed formats (invoices, contracts, forms), fields to extract and validation rules per type." },
+        { n: 2, title: "Extraction model training", desc: "Annotation of 50–200 examples per document type to calibrate extraction to your supplier or client variants." },
+        { n: 3, title: "Automatic ingestion pipeline", desc: "Ingestion setup (email, SFTP, SharePoint, Google Drive) and processing workflow with exception management." },
+        { n: 4, title: "ERP/CRM integration & dashboard", desc: "Automatic push to your target system. Tracking dashboard: processed documents, extraction rate, pending exceptions." },
+      ],
+      benefits: [
+        { title: "Processing cost divided by 10", desc: "Automation reduces processing cost from €8–15 to under €1 per document, while eliminating data entry errors." },
+        { title: "Real-time processing", desc: "Every received document is processed in under 30 seconds. Your billing or compliance pipeline no longer waits." },
+        { title: "100% indexed archives", desc: "Historical archives can be retroactively processed. Every document becomes searchable and data is instantly exploitable." },
+      ],
+      faq: [
+        { q: "Which document types are supported?", a: "Invoices, contracts, purchase orders, forms, bank statements, ID cards, business registrations, payslips and any structured or semi-structured document." },
+        { q: "Does extraction work on poor-quality scans?", a: "Yes. Pre-processing techniques (deskewing, denoising, contrast enhancement) improve quality before OCR." },
+        { q: "How to handle documents with varying formats (invoices from 50 different suppliers)?", a: "The model learns to handle per-supplier variants. After calibration on 50–100 examples per variant, the extraction rate reaches 95%+." },
+        { q: "Can extracted data trigger workflows?", a: "Yes. For example: a validated invoice can automatically trigger a payment order in your ERP, reducing the payment cycle." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     4-1  Vision IA & Détection d'Objets
+  ───────────────────────────────────────────────── */
+  {
+    slug: "vision-ia-detection-objets",
+    catSlug: "data-vision",
+    fr: {
+      metaTitle: "Vision IA & Détection d'Objets — Wikolabs",
+      metaDesc: "Détection, segmentation et classification visuelle pour inventaire, contrôle qualité industriel, logistique et retail. PyTorch, YOLO, AWS Rekognition.",
+      tag: "Documents, Vision & Industrie",
+      title: "Vision IA & Détection d'Objets",
+      subtitle: "Des yeux intelligents sur vos lignes de production, entrepôts et points de vente",
+      intro: "Le contrôle qualité visuel manuel est lent, subjectif et coûteux. Un opérateur fatigué manque des défauts. Les variations de luminosité perturbent la perception humaine. Et pour des cadences industrielles de 100+ pièces/minute, le contrôle humain est physiquement impossible. La Vision IA détecte, classe et alerte sur les anomalies visuelles en temps réel, à des vitesses et précisions impossibles pour l'œil humain.",
+      problem: "Le taux de défauts non détectés en contrôle qualité manuel est de 5 à 15 %. Les rappels produits coûtent des millions. L'inventaire manuel des entrepôts est inexact à 3-8 %. Et sans vision automatisée, les données visuelles de vos opérations restent inexploitées.",
+      solution: "Des caméras industrielles ou IP transmettent les images en temps réel à notre pipeline de vision. Des modèles YOLO ou Faster R-CNN détectent et classent les objets, défauts ou anomalies. Les résultats sont envoyés en temps réel (< 100ms) au système de contrôle ou au tableau de bord. Les faux positifs sont filtrés par un modèle de validation secondaire.",
+      steps: [
+        { n: 1, title: "Audit de l'environnement visuel", desc: "Analyse de vos contraintes (éclairage, vitesse de ligne, types de défauts, résolution requise). Sélection du matériel si nécessaire." },
+        { n: 2, title: "Constitution du dataset", desc: "Collecte et annotation d'images (défauts, objets, SKUs). Minimum 500 à 2000 images annotées selon la complexité de la tâche." },
+        { n: 3, title: "Entraînement & validation", desc: "Entraînement du modèle de détection sur vos données. Validation en conditions réelles sur votre ligne ou environnement de test." },
+        { n: 4, title: "Déploiement & intégration", desc: "Déploiement edge ou cloud. Intégration avec votre SCADA, ERP ou système d'alerte. Monitoring de la performance en continu." },
+      ],
+      benefits: [
+        { title: "Taux de détection > 99 %", desc: "Les modèles de vision IA détectent les défauts à des précisions impossibles pour l'œil humain, même à grande vitesse." },
+        { title: "Coût qualité réduit de 70 %", desc: "Moins de contrôleurs qualité humains, moins de défauts qui passent en production, moins de rappels produits coûteux." },
+        { title: "Données visuelles exploitables", desc: "Chaque inspection produit des données structurées : taux de défauts par ligne, par heure, par SKU. Outil d'amélioration continue." },
+      ],
+      faq: [
+        { q: "La solution fonctionne-t-elle en temps réel sur une ligne de production rapide ?", a: "Oui. Avec du matériel edge adapté (GPU embarqué), la détection est réalisée en moins de 50ms, compatible avec des cadences de 200+ pièces/minute." },
+        { q: "Quels types de défauts peuvent être détectés ?", a: "Rayures, fissures, déformations, corps étrangers, manques, couleurs incorrectes, codes-barres illisibles, étiquettes mal posées, etc." },
+        { q: "Faut-il remplacer nos caméras existantes ?", a: "Pas nécessairement. Nous analysons la compatibilité de vos caméras IP ou industrielles existantes avant de recommander du matériel complémentaire." },
+        { q: "Le modèle peut-il s'améliorer avec le temps ?", a: "Oui. Un pipeline d'apprentissage actif permet d'alimenter le modèle avec les nouveaux cas détectés. La précision augmente en continu." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Vision & Object Detection — Wikolabs",
+      metaDesc: "Detection, segmentation and visual classification for inventory, industrial quality control, logistics and retail. PyTorch, YOLO, AWS Rekognition.",
+      tag: "Documents, Vision & Industry",
+      title: "Vision AI & Object Detection",
+      subtitle: "Intelligent eyes on your production lines, warehouses and stores",
+      intro: "Manual visual quality control is slow, subjective and expensive. A tired operator misses defects. Lighting variations confuse human perception. And at industrial rates of 100+ parts/minute, human control is physically impossible. Vision AI detects, classifies and alerts on visual anomalies in real time, at speeds and precisions impossible for the human eye.",
+      problem: "The undetected defect rate in manual quality control is 5–15%. Product recalls cost millions. Manual warehouse inventory is 3–8% inaccurate. And without automated vision, the visual data from your operations stays unexploited.",
+      solution: "Industrial or IP cameras transmit images in real time to our vision pipeline. YOLO or Faster R-CNN models detect and classify objects, defects or anomalies. Results are sent in real time (<100ms) to the control system or dashboard. False positives are filtered by a secondary validation model.",
+      steps: [
+        { n: 1, title: "Visual environment audit", desc: "Analysis of your constraints (lighting, line speed, defect types, required resolution). Hardware selection if needed." },
+        { n: 2, title: "Dataset assembly", desc: "Image collection and annotation (defects, objects, SKUs). Minimum 500–2000 annotated images depending on task complexity." },
+        { n: 3, title: "Training & validation", desc: "Detection model training on your data. Real-world validation on your line or test environment." },
+        { n: 4, title: "Deployment & integration", desc: "Edge or cloud deployment. Integration with your SCADA, ERP or alert system. Continuous performance monitoring." },
+      ],
+      benefits: [
+        { title: "Detection rate > 99%", desc: "Vision AI models detect defects at precisions impossible for the human eye, even at high speed." },
+        { title: "Quality cost reduced by 70%", desc: "Fewer human quality inspectors, fewer defects reaching production, fewer costly product recalls." },
+        { title: "Exploitable visual data", desc: "Every inspection produces structured data: defect rates by line, by hour, by SKU. A continuous improvement tool." },
+      ],
+      faq: [
+        { q: "Does the solution work in real time on a fast production line?", a: "Yes. With appropriate edge hardware (embedded GPU), detection is performed in under 50ms, compatible with 200+ parts/minute rates." },
+        { q: "What types of defects can be detected?", a: "Scratches, cracks, deformations, foreign bodies, missing parts, incorrect colors, unreadable barcodes, misapplied labels, etc." },
+        { q: "Do we need to replace our existing cameras?", a: "Not necessarily. We analyze compatibility of your existing IP or industrial cameras before recommending additional hardware." },
+        { q: "Can the model improve over time?", a: "Yes. An active learning pipeline feeds the model with newly detected cases. Precision increases continuously." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     4-2  BIM & Point Cloud
+  ───────────────────────────────────────────────── */
+  {
+    slug: "bim-point-cloud",
+    catSlug: "data-vision",
+    fr: {
+      metaTitle: "BIM & Point Cloud IA — Wikolabs",
+      metaDesc: "Traitement de maquettes numériques BIM et données 3D point cloud pour le bâtiment, la construction et l'industrie. PyTorch 3D, Open3D.",
+      tag: "Documents, Vision & Industrie",
+      title: "BIM & Point Cloud",
+      subtitle: "Exploitez la donnée 3D de vos chantiers et installations industrielles",
+      intro: "Les chantiers de construction et les sites industriels génèrent des volumes massifs de données 3D : scans laser, nuages de points, maquettes BIM. Ces données restent souvent inexploitées faute d'outils adaptés. Wikolabs traite ces données avec des modèles IA spécialisés pour extraire des insights, détecter les écarts entre plans et réalité, et automatiser la documentation de chantier.",
+      problem: "La comparaison manuelle entre maquette BIM et réalité terrain prend des jours et est sujette aux erreurs. Les nuages de points bruts ne sont pas directement exploitables. Les écarts de construction ne sont détectés que lors des réceptions, souvent trop tard. Et la documentation 3D reste inutilisée dans des fichiers lourds non indexés.",
+      solution: "Nos pipelines traitent les nuages de points (LiDAR, photogrammétrie) pour extraire des maillages, segmenter les composants (murs, poutres, équipements) et les comparer automatiquement au modèle BIM de référence. Les écarts sont quantifiés, localisés et présentés dans une interface web 3D interactive pour les équipes de construction ou de maintenance.",
+      steps: [
+        { n: 1, title: "Collecte & prétraitement 3D", desc: "Réception des scans LiDAR ou photogrammétriques, nettoyage des nuages de points, enregistrement et alignement." },
+        { n: 2, title: "Segmentation & classification IA", desc: "Identification automatique des composants architecturaux ou industriels dans le nuage de points via deep learning 3D." },
+        { n: 3, title: "Comparaison BIM vs terrain", desc: "Superposition du modèle BIM de référence avec le scan terrain. Détection et quantification des écarts au centimètre près." },
+        { n: 4, title: "Rapport & interface web 3D", desc: "Génération de rapports de conformité et accès via interface web 3D légère. Partage avec les équipes de projet et de maintenance." },
+      ],
+      benefits: [
+        { title: "Détection des écarts en 2h vs 2 semaines", desc: "L'IA compare le scan terrain au BIM en quelques heures. Les équipes interviennent avant que les écarts ne deviennent des litiges." },
+        { title: "Documentation automatique", desc: "Chaque scan génère une documentation 3D complète et indexable. Fini les plans papier et les notes de chantier perdues." },
+        { title: "Réduction des reprises", desc: "La détection précoce des non-conformités réduit les coûts de reprise de 30 à 50 % sur les projets de construction complexes." },
+      ],
+      faq: [
+        { q: "Quels formats de nuages de points sont supportés ?", a: "LAS, LAZ, PLY, PCD, E57 et les exports des principaux scanners (Leica, FARO, Trimble). Les fichiers IFC pour les maquettes BIM." },
+        { q: "Quelle précision de comparaison BIM/terrain ?", a: "La précision dépend de la qualité du scan. Avec un scanner LiDAR de qualité, nous atteignons des comparaisons au centimètre près." },
+        { q: "La solution est-elle compatible avec Revit ou ArchiCAD ?", a: "Oui. Les fichiers IFC (export standard de Revit, ArchiCAD, Archicad, Bentley) sont directement importables dans notre pipeline." },
+        { q: "Peut-on traiter des sites industriels (usines, raffineries) en plus des bâtiments ?", a: "Oui. La segmentation peut être entraînée sur des équipements industriels (tuyauteries, réservoirs, structures métalliques) pour des applications de maintenance." },
+      ],
+    },
+    en: {
+      metaTitle: "AI BIM & Point Cloud — Wikolabs",
+      metaDesc: "BIM digital model and 3D point cloud processing for construction, architecture and industrial environments. PyTorch 3D, Open3D.",
+      tag: "Documents, Vision & Industry",
+      title: "BIM & Point Cloud",
+      subtitle: "Exploit 3D data from your construction sites and industrial facilities",
+      intro: "Construction sites and industrial facilities generate massive volumes of 3D data: laser scans, point clouds, BIM models. This data often goes unexploited for lack of suitable tools. Wikolabs processes this data with specialized AI models to extract insights, detect deviations between plans and reality, and automate site documentation.",
+      problem: "Manual comparison between BIM model and field reality takes days and is error-prone. Raw point clouds aren't directly exploitable. Construction deviations are only detected during handover, often too late. And 3D documentation sits unused in heavy, unindexed files.",
+      solution: "Our pipelines process point clouds (LiDAR, photogrammetry) to extract meshes, segment components (walls, beams, equipment) and automatically compare them to the reference BIM model. Deviations are quantified, located and presented in an interactive 3D web interface for construction or maintenance teams.",
+      steps: [
+        { n: 1, title: "3D data collection & preprocessing", desc: "LiDAR or photogrammetric scan receipt, point cloud cleaning, registration and alignment." },
+        { n: 2, title: "AI segmentation & classification", desc: "Automatic identification of architectural or industrial components in the point cloud via 3D deep learning." },
+        { n: 3, title: "BIM vs. field comparison", desc: "Reference BIM model overlay with field scan. Deviation detection and quantification to the centimeter." },
+        { n: 4, title: "Report & 3D web interface", desc: "Compliance report generation and access via lightweight 3D web interface. Sharing with project and maintenance teams." },
+      ],
+      benefits: [
+        { title: "Deviation detection in 2h vs. 2 weeks", desc: "AI compares the field scan to the BIM in a few hours. Teams intervene before deviations become disputes." },
+        { title: "Automatic documentation", desc: "Every scan generates complete, indexable 3D documentation. No more paper plans and lost site notes." },
+        { title: "Rework reduction", desc: "Early non-conformity detection reduces rework costs by 30–50% on complex construction projects." },
+      ],
+      faq: [
+        { q: "Which point cloud formats are supported?", a: "LAS, LAZ, PLY, PCD, E57 and exports from major scanners (Leica, FARO, Trimble). IFC files for BIM models." },
+        { q: "What BIM/field comparison accuracy?", a: "Accuracy depends on scan quality. With a quality LiDAR scanner, we achieve centimeter-level comparisons." },
+        { q: "Is the solution compatible with Revit or ArchiCAD?", a: "Yes. IFC files (standard export from Revit, ArchiCAD, Bentley) are directly importable into our pipeline." },
+        { q: "Can industrial sites (factories, refineries) be processed as well as buildings?", a: "Yes. Segmentation can be trained on industrial equipment (piping, tanks, steel structures) for maintenance applications." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     4-3  Cartographie & Géolocalisation
+  ───────────────────────────────────────────────── */
+  {
+    slug: "cartographie-geolocalisation",
+    catSlug: "data-vision",
+    fr: {
+      metaTitle: "Cartographie & Géolocalisation IA — Wikolabs",
+      metaDesc: "Analyse spatiale, routage logistique intelligent et cartographie automatisée depuis vos données terrain. BigQuery, Google Maps API, GCP.",
+      tag: "Documents, Vision & Industrie",
+      title: "Cartographie & Géolocalisation",
+      subtitle: "Transformez vos données terrain en cartes intelligentes et décisions logistiques optimales",
+      intro: "La géolocalisation est une dimension de données souvent négligée — pourtant, savoir où se passent les choses est aussi important que de savoir quand. Zones de chalandise, tournées de livraison, couverture terrain des commerciaux, densité de clients : ces analyses spatiales transforment des feuilles de calcul en avantages opérationnels concrets.",
+      problem: "Les analyses spatiales sont réservées aux entreprises qui ont des équipes GIS dédiées. Les outils grand public (Google Maps, Excel) ne permettent pas d'analyses croisées avec vos données métier. Le routage manuel des tournées de livraison est sous-optimal. Et les décisions d'implantation ou de couverture commerciale reposent sur l'intuition plutôt que sur les données.",
+      solution: "Nous construisons des pipelines qui enrichissent vos données avec des coordonnées géographiques, les visualisent sur des cartes interactives et appliquent des algorithmes d'optimisation (routage TSP, analyse de clustering, zones de chalandise Voronoï). Les cartes sont accessibles via une interface web légère ou intégrées dans vos dashboards existants.",
+      steps: [
+        { n: 1, title: "Géocodage & enrichissement", desc: "Transformation de vos adresses ou données terrain en coordonnées GPS. Enrichissement avec données externes (démographie, POI, zonage)." },
+        { n: 2, title: "Modèles d'analyse spatiale", desc: "Clustering géographique, zones de chalandise, heatmaps de densité, détection de zones sous-couvertes, analyse de proximité." },
+        { n: 3, title: "Optimisation des tournées", desc: "Algorithmes TSP/VRP pour optimiser les tournées de livraison ou de prospection. Réduction des kilomètres parcourus de 20 à 35 %." },
+        { n: 4, title: "Dashboard cartographique interactif", desc: "Interface de visualisation web avec filtres dynamiques, export PDF des cartes et rafraîchissement automatique depuis vos sources." },
+      ],
+      benefits: [
+        { title: "Tournées optimisées -25 % de km", desc: "Les algorithmes d'optimisation de routes réduisent la distance parcourue et le carburant consommé dès le premier mois." },
+        { title: "Décisions d'implantation data-driven", desc: "Zones blanches, densité client, couverture concurrents : chaque décision d'ouverture ou de couverture est basée sur les données." },
+        { title: "Visualisation temps réel", desc: "Suivez vos équipes terrain, livraisons et interventions en temps réel sur une carte. Réactivité maximale en cas d'incident." },
+      ],
+      faq: [
+        { q: "Quelles sources de données géographiques utilisez-vous ?", a: "Google Maps, OpenStreetMap, INSEE (données démographiques France), Sirene, et tout fournisseur de données géographiques sectorielles." },
+        { q: "L'optimisation de tournées fonctionne pour combien de points ?", a: "De 10 à 10 000+ points de livraison selon l'algorithme. Des solutions heuristiques efficaces existent pour les très grands volumes." },
+        { q: "Peut-on intégrer des contraintes métier dans l'optimisation ?", a: "Oui : créneaux horaires, capacité des véhicules, compétences requises, zones géographiques assignées, priorités client." },
+        { q: "Les cartes sont-elles accessibles sur mobile ?", a: "Oui. L'interface web est responsive et optimisée mobile. Une application native peut être développée si nécessaire." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Geolocation & Mapping — Wikolabs",
+      metaDesc: "Spatial analysis, intelligent logistics routing and automated mapping from your field data. BigQuery, Google Maps API, GCP.",
+      tag: "Documents, Vision & Industry",
+      title: "Geolocation & Mapping",
+      subtitle: "Turn your field data into smart maps and optimal logistics decisions",
+      intro: "Geolocation is an often-overlooked data dimension — yet knowing where things happen is as important as knowing when. Trade areas, delivery rounds, sales rep field coverage, customer density: these spatial analyses transform spreadsheets into concrete operational advantages.",
+      problem: "Spatial analyses are reserved for companies with dedicated GIS teams. Consumer tools (Google Maps, Excel) don't allow cross-analysis with your business data. Manual delivery routing is suboptimal. And location or coverage decisions rely on intuition rather than data.",
+      solution: "We build pipelines that enrich your data with geographic coordinates, visualize them on interactive maps and apply optimization algorithms (TSP routing, cluster analysis, Voronoi trade areas). Maps are accessible via a lightweight web interface or integrated into your existing dashboards.",
+      steps: [
+        { n: 1, title: "Geocoding & enrichment", desc: "Converting your addresses or field data into GPS coordinates. Enrichment with external data (demographics, POI, zoning)." },
+        { n: 2, title: "Spatial analysis models", desc: "Geographic clustering, trade areas, density heatmaps, under-coverage detection, proximity analysis." },
+        { n: 3, title: "Route optimization", desc: "TSP/VRP algorithms to optimize delivery or prospecting routes. 20–35% reduction in kilometers traveled." },
+        { n: 4, title: "Interactive map dashboard", desc: "Web visualization interface with dynamic filters, PDF map export and automatic refresh from your sources." },
+      ],
+      benefits: [
+        { title: "Routes optimized -25% km", desc: "Route optimization algorithms reduce distance traveled and fuel consumed from the first month." },
+        { title: "Data-driven location decisions", desc: "White spots, customer density, competitor coverage: every opening or coverage decision is data-based." },
+        { title: "Real-time visualization", desc: "Track your field teams, deliveries and interventions in real time on a map. Maximum reactivity in case of incident." },
+      ],
+      faq: [
+        { q: "What geographic data sources do you use?", a: "Google Maps, OpenStreetMap, census data, business registries, and any sector-specific geographic data provider." },
+        { q: "How many points does route optimization handle?", a: "From 10 to 10,000+ delivery points depending on the algorithm. Efficient heuristic solutions exist for very large volumes." },
+        { q: "Can business constraints be integrated into optimization?", a: "Yes: time windows, vehicle capacity, required skills, assigned geographic zones, customer priorities." },
+        { q: "Are maps accessible on mobile?", a: "Yes. The web interface is responsive and mobile-optimized. A native app can be developed if needed." },
+      ],
+    },
+  },
 ];
