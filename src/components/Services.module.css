@@ -325,7 +325,7 @@
 }
 
 .offerCard {
-  background: var(--bg3);
+  background: var(--card-cat, var(--bg3));
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 20px 20px;
