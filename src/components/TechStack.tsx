@@ -61,7 +61,7 @@ const ROW2: TechItem[] = [
   { Icon: SiN8N,                                   name: "n8n",             color: "#EA4B71" },
   { Icon: SiZapier,                                name: "Zapier",          color: "#FF4A00" },
   { imgSrc: "/logos/make.svg",                     name: "Make",            color: "#6D00CC" },
-  { imgSrc: "/logos/gohighlevel.svg",              name: "GoHighLevel",     color: "#2896FB" },
+  { imgSrc: "/logos/gohighlevel.webp",             name: "GoHighLevel",     color: "#2896FB" },
   { Icon: SiZoho,                                  name: "Zoho CRM",        color: "#E42527" },
   { Icon: SiPostgresql,                            name: "PostgreSQL",      color: "#4169E1" },
   { Icon: SiMongodb,                               name: "MongoDB",         color: "#47A248" },
