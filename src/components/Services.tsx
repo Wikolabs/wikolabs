@@ -22,20 +22,20 @@ import { LuPlus, LuCheck } from "react-icons/lu";
 import type { CartItem } from "@/components/ServiceCartPanel";
 
 /* ── Tech badge type ── */
-interface Tech { Icon?: IconType; abbr?: string; color: string; n: string }
+interface Tech { Icon?: IconType; logo?: string; abbr?: string; color: string; n: string }
 
-const PY: Tech = { Icon: SiPython,       color: "#3776AB", n: "Python"      };
-const LG: Tech = { abbr: "LG",           color: "#22D3EE", n: "LangGraph"   };
-const LC: Tech = { Icon: SiLangchain,    color: "#1C3C3C", n: "LangChain"   };
-const FA: Tech = { Icon: SiFastapi,      color: "#009688", n: "FastAPI"     };
-const N8: Tech = { Icon: SiN8N,          color: "#EA4B71", n: "n8n"         };
-const BQ: Tech = { Icon: SiGooglebigquery, color: "#4285F4", n: "BigQuery"  };
-const SK: Tech = { Icon: SiScikitlearn,  color: "#F7931E", n: "Scikit-learn"};
-const TF: Tech = { Icon: SiTensorflow,   color: "#FF6F00", n: "TensorFlow"  };
-const PT: Tech = { Icon: SiPytorch,      color: "#EE4C2C", n: "PyTorch"     };
-const ES: Tech = { abbr: "ES",           color: "#005571", n: "Elastic"     };
-const DF: Tech = { abbr: "DF",           color: "#4285F4", n: "Dataflow"    };
-const GC: Tech = { Icon: SiGooglecloud,  color: "#4285F4", n: "GCP"         };
+const PY: Tech = { Icon: SiPython,         color: "#3776AB", n: "Python"       };
+const LG: Tech = { logo: "/logos/langgraph.svg", color: "#22D3EE", n: "LangGraph" };
+const LC: Tech = { Icon: SiLangchain,      color: "#1C3C3C", n: "LangChain"    };
+const FA: Tech = { Icon: SiFastapi,        color: "#009688", n: "FastAPI"      };
+const N8: Tech = { Icon: SiN8N,            color: "#EA4B71", n: "n8n"          };
+const BQ: Tech = { Icon: SiGooglebigquery, color: "#4285F4", n: "BigQuery"     };
+const SK: Tech = { Icon: SiScikitlearn,    color: "#F7931E", n: "Scikit-learn" };
+const TF: Tech = { Icon: SiTensorflow,     color: "#FF6F00", n: "TensorFlow"   };
+const PT: Tech = { Icon: SiPytorch,        color: "#EE4C2C", n: "PyTorch"      };
+const ES: Tech = { logo: "/logos/elasticsearch.svg", color: "#005571", n: "Elastic" };
+const DF: Tech = { logo: "/logos/dataflow.svg",      color: "#4285F4", n: "Dataflow" };
+const GC: Tech = { Icon: SiGooglecloud,    color: "#4285F4", n: "GCP"          };
 
 const SERVICE_SLUGS = [
   "search-recommendation",
@@ -233,9 +233,12 @@ const i18n = {
 
 function TechBadge({ tech }: { tech: Tech }) {
   return (
-    <span className={styles.offerTech} style={{ background: `${tech.color}22`, borderColor: `${tech.color}55`, color: tech.color }}>
-      {tech.Icon ? (
-        <tech.Icon size={10} style={{ flexShrink: 0 }} />
+    <span className={styles.offerTech} style={{ background: `${tech.color}18`, borderColor: `${tech.color}50`, color: tech.color }}>
+      {tech.logo ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={tech.logo} alt={tech.n} width={16} height={16} style={{ flexShrink: 0, objectFit: "contain" }} />
+      ) : tech.Icon ? (
+        <tech.Icon size={14} style={{ flexShrink: 0 }} />
       ) : (
         <span className={styles.techAbbrBadge} style={{ background: `${tech.color}33`, color: tech.color }}>{tech.abbr}</span>
       )}

@@ -2,9 +2,14 @@
 
 import { useRef } from "react";
 import styles from "./UseCases.module.css";
+import type { IconType } from "react-icons";
+import {
+  LuShoppingCart, LuChartBar, LuTarget, LuFactory,
+  LuShoppingBag, LuFileText, LuCloud, LuZap,
+} from "react-icons/lu";
 
 interface UseCase {
-  icon: string;
+  Icon: IconType;
   tag: string;
   color: string;
   metric: string;
@@ -16,7 +21,7 @@ interface UseCase {
 
 const CASES: UseCase[] = [
   {
-    icon: "🛒",
+    Icon: LuShoppingCart,
     tag: "E-commerce",
     color: "#22D3EE",
     metric: "80%",
@@ -32,7 +37,7 @@ const CASES: UseCase[] = [
     },
   },
   {
-    icon: "📊",
+    Icon: LuChartBar,
     tag: "Business Analytics",
     color: "#D4AF37",
     metric: "0h",
@@ -48,7 +53,7 @@ const CASES: UseCase[] = [
     },
   },
   {
-    icon: "🎯",
+    Icon: LuTarget,
     tag: "Commercial",
     color: "#22C55E",
     metric: "×3.4",
@@ -64,7 +69,7 @@ const CASES: UseCase[] = [
     },
   },
   {
-    icon: "🏭",
+    Icon: LuFactory,
     tag: "Industrie",
     color: "#F7931E",
     metric: "97%",
@@ -80,7 +85,7 @@ const CASES: UseCase[] = [
     },
   },
   {
-    icon: "🛍️",
+    Icon: LuShoppingBag,
     tag: "Retail",
     color: "#9B59B6",
     metric: "+41%",
@@ -96,7 +101,7 @@ const CASES: UseCase[] = [
     },
   },
   {
-    icon: "📄",
+    Icon: LuFileText,
     tag: "Finance",
     color: "#4285F4",
     metric: "×8",
@@ -112,7 +117,7 @@ const CASES: UseCase[] = [
     },
   },
   {
-    icon: "☁️",
+    Icon: LuCloud,
     tag: "Infrastructure",
     color: "#E25A1C",
     metric: "-38%",
@@ -128,7 +133,7 @@ const CASES: UseCase[] = [
     },
   },
   {
-    icon: "⚡",
+    Icon: LuZap,
     tag: "Data Engineering",
     color: "#EA4B71",
     metric: "15min",
@@ -231,7 +236,7 @@ export default function UseCases({ locale }: { locale: string }) {
             >
               <div className={styles.cardAccentBar} style={{ background: c.color }} />
               <div className={styles.cardTop}>
-                <span className={styles.cardIcon}>{c.icon}</span>
+                <span className={styles.cardIcon}><c.Icon size={22} /></span>
                 <div>
                   <div className={styles.cardMetric} style={{ color: c.color }}>{c.metric}</div>
                   <div className={styles.cardMetricSub}>{c.metricSub[lang]}</div>

@@ -266,20 +266,7 @@ const DEFAULTS_FR: SiteContent = {
       text: "Suivi post-livraison, monitoring des performances, nouvelles fonctionnalités et scaling. Point hebdomadaire pour piloter la roadmap ensemble.",
     },
   ],
-  testimonials: [
-    {
-      quote: "L'équipe Wikolabs a livré un système de recommandations multimodal en production en 6 semaines. Compétents, réactifs, et surtout — ils comprennent les enjeux business, pas seulement la technique.",
-      name: "Jean-Pierre K.",
-      role: "CEO, Mediwyz",
-      initials: "JK",
-    },
-    {
-      quote: "Notre agent SAV gère maintenant 80% des questions clients automatiquement. L'impact sur notre équipe support a été immédiat et mesurable.",
-      name: "Sophie M.",
-      role: "Directrice E-commerce",
-      initials: "SM",
-    },
-  ],
+  testimonials: [],
   faq: [
     {
       q: "À qui s'adressent vos services ?",
@@ -505,20 +492,7 @@ const DEFAULTS_EN: SiteContent = {
       text: "Post-delivery monitoring, performance tracking, new features, and scaling. Weekly review to steer the roadmap together.",
     },
   ],
-  testimonials: [
-    {
-      quote: "The Wikolabs team delivered a multimodal recommendation system in production in 6 weeks. Skilled, responsive, and above all — they understand business challenges, not just the technology.",
-      name: "Jean-Pierre K.",
-      role: "CEO, Mediwyz",
-      initials: "JK",
-    },
-    {
-      quote: "Our customer service agent now handles 80% of customer inquiries automatically. The impact on our support team was immediate and measurable.",
-      name: "Sophie M.",
-      role: "E-commerce Director",
-      initials: "SM",
-    },
-  ],
+  testimonials: [],
   faq: [
     {
       q: "Who are your services for?",
