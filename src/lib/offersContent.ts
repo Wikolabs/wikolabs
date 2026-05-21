@@ -1448,4 +1448,252 @@ export const OFFERS_CONTENT: OfferPageContent[] = [
       ],
     },
   },
+
+  /* ─────────────────────────────────────────────────
+     5-0  Refonte UX/UI Web
+  ───────────────────────────────────────────────── */
+  {
+    slug: "refonte-ux-ui-web",
+    catSlug: "fullstack",
+    fr: {
+      metaTitle: "Refonte UX/UI Web — Wikolabs",
+      metaDesc: "Audit UX, refonte visuelle et technique de votre site ou app web. Core Web Vitals, accessibilité et expérience utilisateur optimisés. Next.js, React.",
+      tag: "Développement Web & Mobile",
+      title: "Refonte UX/UI Web",
+      subtitle: "Un site qui convertit, qui performe et qui reflète votre valeur",
+      intro: "Votre site web est souvent le premier contact avec un client potentiel. Un design daté, des temps de chargement lents ou une navigation confuse font fuir 40 % des visiteurs en moins de 3 secondes. La refonte UX/UI n'est pas un lifting cosmétique : c'est une refonte orientée performance, conversion et SEO, construite sur une stack moderne (Next.js 14, React, TypeScript) qui tient la route sur 5 ans.",
+      problem: "Un site lent perd 1 % de conversion par seconde de chargement supplémentaire. Un design non responsive perd 60 % du trafic mobile. Une architecture technique obsolète freine les mises à jour et coûte cher à maintenir. Et un site mal structuré pour le SEO est invisible sur Google.",
+      solution: "Nous réalisons un audit UX complet (heatmaps, parcours utilisateur, Core Web Vitals), redesignons les interfaces avec un système de design cohérent, reconstruisons le frontend sur Next.js 14 (SSR/SSG pour le SEO) et optimisons chaque page pour atteindre les scores Lighthouse > 90. La migration est progressive pour zéro downtime.",
+      steps: [
+        { n: 1, title: "Audit UX & technique", desc: "Analyse des heatmaps, sessions utilisateur, Core Web Vitals, SEO technique, accessibilité et architecture de l'information." },
+        { n: 2, title: "Design system & maquettes", desc: "Création d'un design system cohérent (tokens, composants) et maquettes Figma interactives validées avant développement." },
+        { n: 3, title: "Développement Next.js", desc: "Développement frontend sur Next.js 14 + TypeScript + Tailwind. SSR/SSG pour le SEO, animations fluides, performances optimisées." },
+        { n: 4, title: "Migration & tests", desc: "Migration progressive sans downtime, tests cross-browser, mobile, accessibilité et performance. Go-live avec monitoring Vercel." },
+      ],
+      benefits: [
+        { title: "Score Lighthouse > 90", desc: "Performance, accessibilité, SEO et bonnes pratiques au-dessus de 90/100. Votre site charge en moins de 1 seconde." },
+        { title: "Taux de conversion +35 %", desc: "Un design orienté conversion avec des CTAs bien placés, un parcours simplifié et des temps de chargement minimaux augmente significativement vos leads." },
+        { title: "Maintenance simplifiée", desc: "Une stack moderne (Next.js, TypeScript, CMS headless) est plus facile à maintenir et à faire évoluer qu'un WordPress mal configuré." },
+      ],
+      faq: [
+        { q: "Travaillez-vous avec un CMS existant ?", a: "Oui. Nous supportons Sanity, Contentful, Strapi, Directus comme CMS headless, ou WordPress en headless via REST API ou GraphQL." },
+        { q: "La migration préserve-t-elle le SEO existant ?", a: "Oui. Nous réalisons un audit SEO avant migration, mettons en place les redirections 301, conservons les URLs et surveillons les positions après lancement." },
+        { q: "Quel est le délai type pour une refonte complète ?", a: "Entre 6 et 12 semaines selon la taille du site. Les petits sites (< 20 pages) peuvent être refondu en 4 semaines." },
+        { q: "Peut-on intégrer un chatbot ou un agent IA dans le site ?", a: "Oui. L'intégration d'un widget de chatbot IA ou d'un agent de support est une option disponible lors de la refonte." },
+      ],
+    },
+    en: {
+      metaTitle: "UX/UI Web Redesign — Wikolabs",
+      metaDesc: "UX audit, visual and technical redesign of your website or web app. Core Web Vitals, accessibility and user experience optimized. Next.js, React.",
+      tag: "Web & Mobile Development",
+      title: "UX/UI Web Redesign",
+      subtitle: "A website that converts, performs and reflects your value",
+      intro: "Your website is often the first contact with a potential client. An outdated design, slow load times or confusing navigation drive away 40% of visitors in under 3 seconds. UX/UI redesign is not a cosmetic makeover: it's a performance-, conversion- and SEO-driven rebuild on a modern stack (Next.js 14, React, TypeScript) that holds up for 5 years.",
+      problem: "A slow site loses 1% conversion per extra second of loading. A non-responsive design loses 60% of mobile traffic. An obsolete tech stack slows updates and is expensive to maintain. And a poorly SEO-structured site is invisible on Google.",
+      solution: "We conduct a full UX audit (heatmaps, user journeys, Core Web Vitals), redesign interfaces with a coherent design system, rebuild the frontend on Next.js 14 (SSR/SSG for SEO) and optimize every page to achieve Lighthouse scores > 90. Migration is progressive for zero downtime.",
+      steps: [
+        { n: 1, title: "UX & technical audit", desc: "Analysis of heatmaps, user sessions, Core Web Vitals, technical SEO, accessibility and information architecture." },
+        { n: 2, title: "Design system & mockups", desc: "Creation of a coherent design system (tokens, components) and interactive Figma mockups validated before development." },
+        { n: 3, title: "Next.js development", desc: "Frontend development on Next.js 14 + TypeScript + Tailwind. SSR/SSG for SEO, smooth animations, optimized performance." },
+        { n: 4, title: "Migration & testing", desc: "Progressive migration with zero downtime, cross-browser, mobile, accessibility and performance testing. Go-live with Vercel monitoring." },
+      ],
+      benefits: [
+        { title: "Lighthouse score > 90", desc: "Performance, accessibility, SEO and best practices above 90/100. Your site loads in under 1 second." },
+        { title: "Conversion rate +35%", desc: "A conversion-oriented design with well-placed CTAs, simplified journeys and minimal load times significantly increases your leads." },
+        { title: "Simplified maintenance", desc: "A modern stack (Next.js, TypeScript, headless CMS) is easier to maintain and evolve than a misconfigured WordPress." },
+      ],
+      faq: [
+        { q: "Do you work with an existing CMS?", a: "Yes. We support Sanity, Contentful, Strapi, Directus as headless CMS, or WordPress in headless mode via REST API or GraphQL." },
+        { q: "Does migration preserve existing SEO?", a: "Yes. We conduct an SEO audit before migration, set up 301 redirects, preserve URLs and monitor rankings after launch." },
+        { q: "What is the typical timeline for a full redesign?", a: "6–12 weeks depending on site size. Small sites (< 20 pages) can be redesigned in 4 weeks." },
+        { q: "Can we integrate a chatbot or AI agent in the site?", a: "Yes. Integrating an AI chatbot widget or support agent is an available option during the redesign." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     5-1  Application Mobile React Native
+  ───────────────────────────────────────────────── */
+  {
+    slug: "application-mobile-react-native",
+    catSlug: "fullstack",
+    fr: {
+      metaTitle: "Application Mobile React Native — Wikolabs",
+      metaDesc: "Développement iOS et Android avec React Native. API REST, mode offline et publication sur App Store et Play Store. Livraison en 8 à 12 semaines.",
+      tag: "Développement Web & Mobile",
+      title: "Application Mobile (React Native)",
+      subtitle: "Une application iOS et Android native, livrée en 8 semaines",
+      intro: "Développer une application mobile native séparément pour iOS et Android double les coûts et les délais. React Native permet de partager 90 % du code entre les deux plateformes tout en offrant des performances proches du natif. Wikolabs conçoit et développe votre application mobile, de l'architecture API à la publication sur les stores, avec une expérience utilisateur irréprochable sur les deux plateformes.",
+      problem: "Développer en natif (Swift + Kotlin) coûte 2 à 3 fois plus cher et prend 2 fois plus de temps que React Native. Les solutions cross-platform bas de gamme (Ionic, Cordova) offrent une mauvaise expérience utilisateur. Et sans architecture robuste dès le départ, la maintenance de l'application devient rapidement coûteuse.",
+      solution: "Nous construisons votre application avec React Native + Expo, une API REST sécurisée avec FastAPI (Python) ou Next.js API routes, une gestion d'état avec Zustand ou Redux, le mode offline avec React Query + SQLite, et les notifications push via Expo Notifications. La publication sur App Store et Play Store est incluse.",
+      steps: [
+        { n: 1, title: "Conception UX & architecture", desc: "Wireframes, parcours utilisateur, architecture technique (API, auth, état, offline). Validation avant développement." },
+        { n: 2, title: "Développement core", desc: "Développement des fonctionnalités principales : auth, navigation, data fetching, UI components, mode offline." },
+        { n: 3, title: "Intégrations & APIs", desc: "Connexion à vos APIs existantes ou développement d'une nouvelle API. Intégrations tierces (paiement, cartes, notifications)." },
+        { n: 4, title: "Tests & publication stores", desc: "Tests sur appareils réels iOS et Android, correction des bugs critiques, soumission App Store et Play Store." },
+      ],
+      benefits: [
+        { title: "iOS + Android en une seule codebase", desc: "90 % du code est partagé entre les deux plateformes. Moins de coûts de développement, une seule équipe pour maintenir." },
+        { title: "Livraison en 8 à 12 semaines", desc: "Une app fonctionnelle en production en 2 à 3 mois, pas en 12. Timeline tenue grâce à l'expérience et aux composants réutilisables." },
+        { title: "Architecture évolutive", desc: "Dès le départ, l'architecture est conçue pour scaler : modularité, tests automatisés, CI/CD, pas de dette technique cachée." },
+      ],
+      faq: [
+        { q: "React Native est-il adapté à toutes les applications ?", a: "Oui pour 95 % des cas d'usage business. Pour des applications très intensives en GPU (jeux 3D) ou avec des besoins hardware très spécifiques, du natif pur peut être préférable." },
+        { q: "L'application peut-elle fonctionner sans internet ?", a: "Oui. Nous mettons en place une stratégie offline-first avec synchronisation différée : les données critiques sont disponibles sans réseau." },
+        { q: "Les mises à jour de l'app nécessitent-elles une resoumission aux stores ?", a: "Pour les mises à jour de logique métier sans changement de binaire, Expo OTA updates permet des déploiements instantanés sans passer par les stores." },
+        { q: "Fournissez-vous la maintenance post-lancement ?", a: "Oui. Des contrats de maintenance mensuelle sont disponibles incluant les mises à jour de dépendances, corrections de bugs et évolutions mineures." },
+      ],
+    },
+    en: {
+      metaTitle: "React Native Mobile App — Wikolabs",
+      metaDesc: "iOS and Android app development with React Native. REST API, offline mode and App Store / Play Store publishing. Delivered in 8–12 weeks.",
+      tag: "Web & Mobile Development",
+      title: "Mobile App (React Native)",
+      subtitle: "A native iOS and Android app, delivered in 8 weeks",
+      intro: "Developing a native mobile app separately for iOS and Android doubles costs and timelines. React Native allows sharing 90% of code between both platforms while delivering near-native performance. Wikolabs designs and builds your mobile app, from API architecture to store publishing, with flawless user experience on both platforms.",
+      problem: "Native development (Swift + Kotlin) costs 2–3× more and takes twice as long as React Native. Low-end cross-platform solutions (Ionic, Cordova) offer poor user experience. And without a robust architecture from the start, app maintenance quickly becomes expensive.",
+      solution: "We build your app with React Native + Expo, a secure REST API with FastAPI (Python) or Next.js API routes, state management with Zustand or Redux, offline mode with React Query + SQLite, and push notifications via Expo Notifications. App Store and Play Store publishing is included.",
+      steps: [
+        { n: 1, title: "UX design & architecture", desc: "Wireframes, user journeys, technical architecture (API, auth, state, offline). Validation before development." },
+        { n: 2, title: "Core development", desc: "Development of core features: auth, navigation, data fetching, UI components, offline mode." },
+        { n: 3, title: "Integrations & APIs", desc: "Connection to your existing APIs or development of a new API. Third-party integrations (payment, maps, notifications)." },
+        { n: 4, title: "Testing & store publishing", desc: "Testing on real iOS and Android devices, critical bug fixes, App Store and Play Store submission." },
+      ],
+      benefits: [
+        { title: "iOS + Android in one codebase", desc: "90% of code is shared between both platforms. Lower development costs, one team to maintain." },
+        { title: "Delivered in 8–12 weeks", desc: "A working app in production in 2–3 months, not 12. Timeline met thanks to experience and reusable components." },
+        { title: "Scalable architecture", desc: "From day one, the architecture is designed to scale: modularity, automated tests, CI/CD, no hidden technical debt." },
+      ],
+      faq: [
+        { q: "Is React Native suitable for all applications?", a: "Yes for 95% of business use cases. For very GPU-intensive apps (3D games) or very specific hardware needs, pure native may be preferable." },
+        { q: "Can the app work without internet?", a: "Yes. We implement an offline-first strategy with deferred synchronization: critical data is available without network." },
+        { q: "Do app updates require store resubmission?", a: "For business logic updates without binary changes, Expo OTA updates enables instant deployments without going through the stores." },
+        { q: "Do you provide post-launch maintenance?", a: "Yes. Monthly maintenance contracts are available including dependency updates, bug fixes and minor evolutions." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     5-2  Débogage & Optimisation Performance
+  ───────────────────────────────────────────────── */
+  {
+    slug: "debogage-optimisation-performance",
+    catSlug: "fullstack",
+    fr: {
+      metaTitle: "Débogage & Optimisation Performance Web — Wikolabs",
+      metaDesc: "Chasse systématique aux bugs, memory leaks et régressions. Profiling, correction et tests de non-régression. Score Lighthouse amélioré de 40 pts en moyenne.",
+      tag: "Développement Web & Mobile",
+      title: "Débogage & Optimisation Performance",
+      subtitle: "Votre application fiabilisée, optimisée et testée en profondeur",
+      intro: "Une application lente ou buggée coûte des clients. 53 % des utilisateurs abandonnent un site mobile qui met plus de 3 secondes à charger. Les bugs récurrents détruisent la confiance. Et la dette technique accumulée ralentit chaque nouvelle feature. Wikolabs intervient comme équipe de pompiers high-level : nous diagnostiquons, corrigeons et testons en profondeur, puis livrons une base de code fiabilisée avec des tests de non-régression.",
+      problem: "Les bugs difficiles à reproduire mobilisent des équipes pendant des jours. Les memory leaks dégradent progressivement les performances en production. Les Core Web Vitals au rouge pénalisent le SEO. Et sans tests automatisés, chaque déploiement est une prise de risque.",
+      solution: "Nous réalisons un audit technique complet (profiling frontend avec Lighthouse + React DevTools, profiling backend avec py-spy ou APM, analyse des memory leaks). Chaque problème est documenté, priorisé et corrigé. Des tests automatisés (Playwright, Vitest, pytest) sont ajoutés pour chaque correction afin de garantir la non-régression.",
+      steps: [
+        { n: 1, title: "Audit & profiling complet", desc: "Lighthouse audit, React DevTools profiling, analyse des network requests, identification des memory leaks et des requêtes N+1." },
+        { n: 2, title: "Priorisation des correctifs", desc: "Classement des problèmes par impact business (crash > performance > UX > esthétique). Roadmap de correction en 2 sprints." },
+        { n: 3, title: "Corrections & refactoring ciblé", desc: "Correction des bugs, optimisation des composants lents, lazy loading, code splitting, mise en cache, requêtes SQL optimisées." },
+        { n: 4, title: "Tests automatisés & documentation", desc: "Ajout de tests unitaires, d'intégration et E2E pour chaque correction. Documentation des patterns à éviter pour votre équipe." },
+      ],
+      benefits: [
+        { title: "+40 pts Lighthouse en moyenne", desc: "Nos interventions améliorent les scores de performance de 40 points en moyenne sur les sites que nous optimisons." },
+        { title: "Zéro régression post-correction", desc: "Chaque correction est couverte par des tests automatisés. Les bugs corrigés ne reviennent pas à la prochaine release." },
+        { title: "Équipe interne montée en compétences", desc: "Nous documentons les causes racines et les patterns à éviter. Votre équipe sait pourquoi et comment éviter les mêmes erreurs." },
+      ],
+      faq: [
+        { q: "Sur quels langages et frameworks intervenez-vous ?", a: "React, Next.js, Vue, Angular côté frontend. Python (FastAPI, Django, Flask), Node.js côté backend. PostgreSQL, MongoDB, Redis pour les bases de données." },
+        { q: "Pouvez-vous intervenir en urgence sur un bug de production ?", a: "Oui. Nous proposons un SLA d'intervention sous 4h pour les bugs critiques bloquant la production dans le cadre d'un contrat de support." },
+        { q: "L'audit peut-il être réalisé sans accès au code source ?", a: "L'audit Lighthouse et réseau peut être réalisé sans code source. L'audit complet avec profiling nécessite l'accès au repository." },
+        { q: "La correction de performance inclut-elle le backend ?", a: "Oui. Les gains de performance les plus importants sont souvent côté backend (requêtes SQL lentes, endpoints non mis en cache, I/O bloquants)." },
+      ],
+    },
+    en: {
+      metaTitle: "Debugging & Performance Optimization — Wikolabs",
+      metaDesc: "Systematic bug hunting, memory leaks and regression fixes. Profiling, correction and non-regression tests. Lighthouse score improved by 40 pts on average.",
+      tag: "Web & Mobile Development",
+      title: "Debugging & Performance Optimization",
+      subtitle: "Your application stabilized, optimized and thoroughly tested",
+      intro: "A slow or buggy application costs customers. 53% of users abandon a mobile site that takes more than 3 seconds to load. Recurring bugs destroy trust. And accumulated technical debt slows every new feature. Wikolabs intervenes as a high-level firefighting team: we diagnose, fix and thoroughly test, then deliver a stabilized codebase with non-regression tests.",
+      problem: "Hard-to-reproduce bugs mobilize teams for days. Memory leaks gradually degrade production performance. Red Core Web Vitals penalize SEO. And without automated tests, every deployment is a risk.",
+      solution: "We conduct a complete technical audit (frontend profiling with Lighthouse + React DevTools, backend profiling with py-spy or APM, memory leak analysis). Each issue is documented, prioritized and fixed. Automated tests (Playwright, Vitest, pytest) are added for each fix to guarantee non-regression.",
+      steps: [
+        { n: 1, title: "Complete audit & profiling", desc: "Lighthouse audit, React DevTools profiling, network request analysis, memory leak identification and N+1 query detection." },
+        { n: 2, title: "Fix prioritization", desc: "Issue ranking by business impact (crash > performance > UX > aesthetics). Correction roadmap in 2 sprints." },
+        { n: 3, title: "Targeted fixes & refactoring", desc: "Bug fixing, slow component optimization, lazy loading, code splitting, caching, optimized SQL queries." },
+        { n: 4, title: "Automated tests & documentation", desc: "Addition of unit, integration and E2E tests for each fix. Documentation of patterns to avoid for your team." },
+      ],
+      benefits: [
+        { title: "+40 Lighthouse points on average", desc: "Our interventions improve performance scores by 40 points on average on the sites we optimize." },
+        { title: "Zero post-fix regressions", desc: "Each fix is covered by automated tests. Fixed bugs don't come back at the next release." },
+        { title: "Upskilled internal team", desc: "We document root causes and patterns to avoid. Your team knows why and how to prevent the same mistakes." },
+      ],
+      faq: [
+        { q: "Which languages and frameworks do you work on?", a: "React, Next.js, Vue, Angular on the frontend. Python (FastAPI, Django, Flask), Node.js on the backend. PostgreSQL, MongoDB, Redis for databases." },
+        { q: "Can you intervene urgently on a production bug?", a: "Yes. We offer a 4-hour response SLA for critical production-blocking bugs under a support contract." },
+        { q: "Can the audit be done without source code access?", a: "The Lighthouse and network audit can be done without source code. Full profiling audit requires repository access." },
+        { q: "Does performance optimization include the backend?", a: "Yes. The biggest performance gains are often backend-side (slow SQL queries, uncached endpoints, blocking I/O)." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     5-3  SEO Technique & Visibilité Organique
+  ───────────────────────────────────────────────── */
+  {
+    slug: "seo-technique-visibilite",
+    catSlug: "fullstack",
+    fr: {
+      metaTitle: "SEO Technique & Visibilité Organique — Wikolabs",
+      metaDesc: "Audit SEO technique complet, structured data, Core Web Vitals et stratégie de mots-clés. De l'analyse à l'implémentation sur votre stack technique.",
+      tag: "Développement Web & Mobile",
+      title: "SEO Technique & Visibilité Organique",
+      subtitle: "Passer de la page 3 à la page 1 de Google grâce à un SEO technique irréprochable",
+      intro: "90 % du trafic organique va aux 3 premiers résultats de la première page Google. Pourtant, la plupart des sites souffrent de problèmes techniques qui les empêchent de ranker : crawl errors, balises manquantes, Core Web Vitals insuffisants, duplicate content, schémas de données absents. Wikolabs réalise un audit SEO technique approfondi et implémente directement les corrections dans votre codebase.",
+      problem: "Un site techniquement mauvais ranke mal, même avec du bon contenu. Les problèmes de crawlabilité empêchent Google d'indexer correctement. Les Core Web Vitals insuffisants sont un facteur de ranking négatif depuis 2021. Et sans structured data, vous n'apparaissez pas dans les rich snippets qui capturent les clics.",
+      solution: "Nous réalisons un audit SEO technique avec Screaming Frog + Search Console + Lighthouse, identifions tous les problèmes bloquants (crawl errors, redirections, canonical, sitemaps, performance), et les corrigeons directement dans le code. Nous mettons en place les schémas JSON-LD (Organisation, Product, FAQ, Article), optimisons les Core Web Vitals et définissons une stratégie de mots-clés sur 6 mois.",
+      steps: [
+        { n: 1, title: "Audit SEO technique complet", desc: "Crawl complet via Screaming Frog, analyse Search Console, audit Lighthouse, vérification des balises meta, canonical, sitemap, robots.txt." },
+        { n: 2, title: "Recherche de mots-clés", desc: "Analyse sémantique de votre secteur, identification des mots-clés à fort potentiel et faible concurrence, clustering thématique." },
+        { n: 3, title: "Implémentation technique", desc: "Correction des problèmes bloquants dans le code, mise en place des schémas JSON-LD, optimisation des balises title/meta/h1, amélioration des Core Web Vitals." },
+        { n: 4, title: "Monitoring & suivi de positions", desc: "Mise en place du suivi de positions (SEMrush ou Ahrefs), tableau de bord mensuel et ajustements selon les évolutions de Google." },
+      ],
+      benefits: [
+        { title: "Trafic organique +150 % en 6 mois", desc: "Un SEO technique propre combiné à une stratégie de contenu ciblée multiplie le trafic organique. Résultats visibles dès 90 jours." },
+        { title: "Rich snippets sur les SERP", desc: "Les schémas JSON-LD bien implémentés (FAQ, étoiles, prix) font ressortir vos résultats dans les pages Google et augmentent le CTR." },
+        { title: "Investissement durable", desc: "Contrairement aux ads, le SEO s'accumule. Chaque amélioration technique est un actif permanent qui génère du trafic sans coût variable." },
+      ],
+      faq: [
+        { q: "Le SEO technique suffit-il sans contenu ?", a: "Non. Le SEO technique est la fondation — il permet à Google de vous trouver et de vous indexer. Mais le contenu pertinent est ce qui vous fait ranker." },
+        { q: "Combien de temps pour voir les premiers résultats ?", a: "3 à 6 mois pour des améliorations significatives sur les positions. Les corrections techniques sont visibles plus rapidement dans Search Console (crawl, indexation)." },
+        { q: "Intervenez-vous sur WordPress, Webflow ou d'autres CMS ?", a: "Oui pour WordPress et Webflow. Pour les stacks custom (Next.js, Nuxt), les corrections sont implémentées directement dans le code." },
+        { q: "L'audit inclut-il les backlinks ?", a: "L'audit couvre le SEO on-page et technique. Une analyse de profil de liens peut être ajoutée en option pour une stratégie de netlinking." },
+      ],
+    },
+    en: {
+      metaTitle: "Technical SEO & Organic Growth — Wikolabs",
+      metaDesc: "Complete technical SEO audit, structured data, Core Web Vitals and keyword strategy. From analysis to implementation on your tech stack.",
+      tag: "Web & Mobile Development",
+      title: "Technical SEO & Organic Growth",
+      subtitle: "From page 3 to page 1 of Google through flawless technical SEO",
+      intro: "90% of organic traffic goes to the top 3 results on Google's first page. Yet most sites suffer from technical problems preventing them from ranking: crawl errors, missing tags, insufficient Core Web Vitals, duplicate content, absent data schemas. Wikolabs conducts an in-depth technical SEO audit and directly implements fixes in your codebase.",
+      problem: "A technically poor site ranks badly even with great content. Crawlability issues prevent Google from properly indexing. Insufficient Core Web Vitals have been a negative ranking factor since 2021. And without structured data, you don't appear in rich snippets that capture clicks.",
+      solution: "We conduct a technical SEO audit with Screaming Frog + Search Console + Lighthouse, identify all blocking issues (crawl errors, redirects, canonical, sitemaps, performance) and fix them directly in the code. We implement JSON-LD schemas (Organization, Product, FAQ, Article), optimize Core Web Vitals and define a 6-month keyword strategy.",
+      steps: [
+        { n: 1, title: "Complete technical SEO audit", desc: "Full crawl via Screaming Frog, Search Console analysis, Lighthouse audit, meta tag verification, canonical, sitemap, robots.txt." },
+        { n: 2, title: "Keyword research", desc: "Semantic analysis of your sector, identification of high-potential low-competition keywords, thematic clustering." },
+        { n: 3, title: "Technical implementation", desc: "Blocking issue fixes in code, JSON-LD schema setup, title/meta/h1 tag optimization, Core Web Vitals improvement." },
+        { n: 4, title: "Monitoring & ranking tracking", desc: "Position tracking setup (SEMrush or Ahrefs), monthly dashboard and adjustments following Google updates." },
+      ],
+      benefits: [
+        { title: "Organic traffic +150% in 6 months", desc: "Clean technical SEO combined with a targeted content strategy multiplies organic traffic. Results visible from 90 days." },
+        { title: "Rich snippets in SERPs", desc: "Well-implemented JSON-LD schemas (FAQ, stars, price) make your results stand out in Google pages and increase CTR." },
+        { title: "Sustainable investment", desc: "Unlike ads, SEO accumulates. Every technical improvement is a permanent asset generating traffic with no variable cost." },
+      ],
+      faq: [
+        { q: "Is technical SEO enough without content?", a: "No. Technical SEO is the foundation — it enables Google to find and index you. But relevant content is what makes you rank." },
+        { q: "How long to see the first results?", a: "3–6 months for significant position improvements. Technical fixes are visible faster in Search Console (crawl, indexation)." },
+        { q: "Do you work on WordPress, Webflow or other CMS?", a: "Yes for WordPress and Webflow. For custom stacks (Next.js, Nuxt), fixes are implemented directly in the code." },
+        { q: "Does the audit include backlinks?", a: "The audit covers on-page and technical SEO. A link profile analysis can be added as an option for a link building strategy." },
+      ],
+    },
+  },
 ];
