@@ -69,7 +69,7 @@ export async function generateMetadata({
           "AI agents, automated sales cycle, intelligent BI, document processing. Measurable results for your business.",
         images: [`${BASE_URL}/og-image.png`],
       },
-      icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
+      icons: { icon: "/wikolabs-logo.png", apple: "/wikolabs-logo.png" },
     };
   }
 
@@ -129,7 +129,7 @@ export async function generateMetadata({
         "Agents IA, cycle commercial automatisé, BI intelligente, traitement documentaire. Des résultats mesurables pour votre entreprise.",
       images: [`${BASE_URL}/og-image.png`],
     },
-    icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
+    icons: { icon: "/wikolabs-logo.png", apple: "/wikolabs-logo.png" },
   };
 }
 

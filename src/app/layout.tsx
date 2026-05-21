@@ -4,9 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.wikolabs.com"),
   icons: {
-    icon: [{ url: "/favicon.png", type: "image/png" }],
-    apple: "/favicon.png",
-    shortcut: "/favicon.png",
+    icon: [{ url: "/wikolabs-logo.png", type: "image/png" }],
+    apple: "/wikolabs-logo.png",
+    shortcut: "/wikolabs-logo.png",
   },
   title: "Wikolabs — Services IA, Data & Automatisation pour Entreprises",
   description:
@@ -72,8 +72,8 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <head>
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
+        <link rel="icon" type="image/png" href="/wikolabs-logo.png" />
+        <link rel="apple-touch-icon" href="/wikolabs-logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
