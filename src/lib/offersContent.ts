@@ -1696,4 +1696,252 @@ export const OFFERS_CONTENT: OfferPageContent[] = [
       ],
     },
   },
+
+  /* ─────────────────────────────────────────────────
+     6-0  IA Embarquée sur Edge Device
+  ───────────────────────────────────────────────── */
+  {
+    slug: "ia-embarquee-edge-device",
+    catSlug: "production-ai",
+    fr: {
+      metaTitle: "IA Embarquée sur Edge Device — Wikolabs",
+      metaDesc: "Déploiement de modèles IA légers (TFLite, ONNX) sur Raspberry Pi, Jetson Nano et microcontrôleurs. Inférence locale, latence < 50ms, zéro cloud.",
+      tag: "IoT & IA Embarquée",
+      title: "IA Embarquée sur Edge Device",
+      subtitle: "L'intelligence artificielle directement sur vos équipements, sans cloud",
+      intro: "L'IA ne doit pas vivre uniquement dans le cloud. Pour les applications industrielles qui exigent une latence ultra-faible, une confidentialité des données ou une connectivité intermittente, l'inférence doit se faire localement, sur le device. Wikolabs déploie des modèles IA optimisés pour tourner directement sur Raspberry Pi, NVIDIA Jetson, STM32 ou vos équipements propriétaires — sans aucune dépendance au réseau.",
+      problem: "L'inférence cloud implique une latence de 100 à 500ms incompatible avec les applications temps réel. Les coûts d'infrastructure cloud s'accumulent avec l'échelle. Les données sensibles (images de production, données santé) ne peuvent pas transiter par le cloud. Et sans connectivité réseau permanente, les applications cloud sont fragiles.",
+      solution: "Nous optimisons vos modèles IA (quantization INT8, pruning, distillation) pour les rendre compatibles avec les contraintes mémoire et CPU des edge devices. Le modèle est ensuite converti en TFLite, ONNX ou TensorRT, intégré dans un firmware C++/Python adapté et déployé sur vos équipements. Les performances sont validées sur matériel réel avant livraison.",
+      steps: [
+        { n: 1, title: "Sélection du hardware cible", desc: "Analyse de vos contraintes (puissance, consommation, coût, forme) et sélection du hardware optimal : Raspberry Pi, Jetson Nano, Coral TPU, STM32." },
+        { n: 2, title: "Optimisation du modèle", desc: "Quantization (INT8/FP16), pruning, knowledge distillation pour réduire la taille et accélérer l'inférence tout en maintenant la précision." },
+        { n: 3, title: "Intégration firmware", desc: "Développement du pipeline d'inférence en C++ ou Python. Intégration avec les entrées (caméra, capteurs) et sorties (GPIO, display, réseau)." },
+        { n: 4, title: "Validation & déploiement", desc: "Tests de performance sur matériel réel (latence, consommation, précision). Déploiement over-the-air (OTA) pour les mises à jour." },
+      ],
+      benefits: [
+        { title: "Latence < 50ms", desc: "L'inférence locale élimine la latence réseau. Les décisions sont prises en temps réel, essentielles pour les applications de contrôle et de sécurité." },
+        { title: "Zéro coût d'inférence cloud", desc: "Une fois déployé sur le device, chaque inférence est gratuite. Pour des millions d'inférences par jour, l'économie est considérable." },
+        { title: "Données 100% locales", desc: "Aucune donnée ne quitte l'équipement. Conformité RGPD simplifiée pour les applications traitant des données sensibles (santé, industrie, défense)." },
+      ],
+      faq: [
+        { q: "Quels modèles peuvent être embarqués ?", a: "Modèles de classification, détection d'objets (YOLO nano), NLP léger, détection d'anomalies. La taille du modèle dépend de la mémoire disponible sur le device." },
+        { q: "La quantization dégrade-t-elle la précision ?", a: "En général moins de 2 % de perte de précision avec une quantization INT8 bien réalisée. Nous validons systématiquement sur vos données réelles." },
+        { q: "Comment mettre à jour le modèle sur les devices déployés ?", a: "Nous mettons en place un pipeline OTA (Over-The-Air) pour déployer de nouveaux modèles sans intervention physique sur les équipements." },
+        { q: "Est-ce compatible avec des microcontrôleurs très contraints (Arduino, STM32) ?", a: "Oui pour des modèles très simples via TensorFlow Lite Micro. Pour des modèles plus complexes, Raspberry Pi Zero ou Coral USB Accelerator sont utilisés." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Edge Device Deployment — Wikolabs",
+      metaDesc: "Lightweight AI model deployment (TFLite, ONNX) on Raspberry Pi, Jetson Nano and microcontrollers. Local inference, < 50ms latency, zero cloud.",
+      tag: "IoT & Edge AI",
+      title: "Edge AI on Embedded Devices",
+      subtitle: "Artificial intelligence directly on your equipment, without cloud",
+      intro: "AI doesn't have to live only in the cloud. For industrial applications requiring ultra-low latency, data privacy or intermittent connectivity, inference must happen locally, on the device. Wikolabs deploys AI models optimized to run directly on Raspberry Pi, NVIDIA Jetson, STM32 or your proprietary equipment — with zero network dependency.",
+      problem: "Cloud inference involves 100–500ms latency incompatible with real-time applications. Cloud infrastructure costs accumulate at scale. Sensitive data (production images, health data) can't transit through the cloud. And without permanent network connectivity, cloud applications are fragile.",
+      solution: "We optimize your AI models (INT8 quantization, pruning, distillation) to fit the memory and CPU constraints of edge devices. The model is then converted to TFLite, ONNX or TensorRT, integrated into a C++/Python firmware and deployed on your equipment. Performance is validated on real hardware before delivery.",
+      steps: [
+        { n: 1, title: "Target hardware selection", desc: "Analysis of your constraints (power, consumption, cost, form factor) and optimal hardware selection: Raspberry Pi, Jetson Nano, Coral TPU, STM32." },
+        { n: 2, title: "Model optimization", desc: "Quantization (INT8/FP16), pruning, knowledge distillation to reduce size and accelerate inference while maintaining accuracy." },
+        { n: 3, title: "Firmware integration", desc: "Inference pipeline development in C++ or Python. Integration with inputs (camera, sensors) and outputs (GPIO, display, network)." },
+        { n: 4, title: "Validation & deployment", desc: "Performance testing on real hardware (latency, consumption, accuracy). Over-the-air (OTA) deployment for updates." },
+      ],
+      benefits: [
+        { title: "Latency < 50ms", desc: "Local inference eliminates network latency. Decisions are made in real time — essential for control and safety applications." },
+        { title: "Zero cloud inference cost", desc: "Once deployed on the device, each inference is free. For millions of inferences per day, the savings are considerable." },
+        { title: "100% local data", desc: "No data leaves the device. Simplified GDPR compliance for applications processing sensitive data (health, industry, defense)." },
+      ],
+      faq: [
+        { q: "Which models can be embedded?", a: "Classification models, object detection (YOLO nano), lightweight NLP, anomaly detection. Model size depends on available device memory." },
+        { q: "Does quantization degrade accuracy?", a: "Generally less than 2% accuracy loss with well-executed INT8 quantization. We systematically validate on your real data." },
+        { q: "How to update the model on deployed devices?", a: "We set up an OTA (Over-The-Air) pipeline to deploy new models without physical intervention on equipment." },
+        { q: "Is it compatible with very constrained microcontrollers (Arduino, STM32)?", a: "Yes for very simple models via TensorFlow Lite Micro. For more complex models, Raspberry Pi Zero or Coral USB Accelerator are used." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     6-1  Monitoring IoT Temps Réel
+  ───────────────────────────────────────────────── */
+  {
+    slug: "monitoring-iot-temps-reel",
+    catSlug: "production-ai",
+    fr: {
+      metaTitle: "Monitoring IoT Temps Réel IA — Wikolabs",
+      metaDesc: "Collecte et agrégation de données capteurs, détection d'anomalies en temps réel et tableaux de bord de supervision. Kafka, Grafana, BigQuery.",
+      tag: "IoT & IA Embarquée",
+      title: "Monitoring IoT Temps Réel",
+      subtitle: "Supervisez vos équipements connectés avec une visibilité totale en temps réel",
+      intro: "Des milliers de capteurs dans une usine, une ferme intelligente ou un réseau d'énergie génèrent des flux de données continus. Sans infrastructure adaptée, ces données sont perdues ou consultées en retard. Le système de Monitoring IoT Temps Réel ingère, traite et visualise vos flux de données capteurs en temps réel, détecte les anomalies automatiquement et envoie des alertes aux bonnes personnes avant que les problèmes ne s'aggravent.",
+      problem: "Les systèmes SCADA traditionnels ont des latences de plusieurs secondes à plusieurs minutes. Les alertes arrivent après l'incident. La gestion des pannes est réactive. Et sans corrélation entre capteurs, les causes racines des problèmes restent difficiles à identifier.",
+      solution: "Un pipeline Kafka ingère les données de vos capteurs (MQTT, HTTP, Modbus) en temps réel. Les données sont traitées par des modèles de détection d'anomalies et visualisées dans Grafana avec des dashboards personnalisés par ligne, zone ou équipement. Les alertes sont envoyées via Slack, SMS ou email avec contexte et suggestion d'action.",
+      steps: [
+        { n: 1, title: "Cartographie des capteurs", desc: "Inventaire de tous vos capteurs, protocoles (MQTT, HTTP, Modbus, OPC-UA), fréquences de mesure et valeurs nominales." },
+        { n: 2, title: "Pipeline d'ingestion", desc: "Mise en place d'un broker MQTT + Apache Kafka pour l'ingestion haute fréquence. Stockage dans InfluxDB ou BigQuery selon le volume." },
+        { n: 3, title: "Modèles de détection d'anomalies", desc: "Entraînement de modèles sur vos données historiques pour distinguer comportement normal et anomalies significatives." },
+        { n: 4, title: "Dashboard Grafana & alertes", desc: "Dashboards par équipement, ligne et zone. Alertes configurables avec logique métier et escalade par niveau de gravité." },
+      ],
+      benefits: [
+        { title: "Anomalies détectées en < 30 secondes", desc: "Le pipeline temps réel détecte les dérives avant qu'elles deviennent des pannes. Intervention avant impact sur la production." },
+        { title: "Visibilité totale du parc", desc: "Tous vos équipements sur un seul dashboard. Températures, vibrations, pressions, débits — tout est visible en un coup d'œil." },
+        { title: "Coûts de maintenance réduits", desc: "La maintenance conditionnelle (intervenir quand nécessaire) remplace la maintenance préventive planifiée. Économie de 20 à 40 % sur les coûts de maintenance." },
+      ],
+      faq: [
+        { q: "Quels protocoles IoT supportez-vous ?", a: "MQTT, HTTP/REST, Modbus TCP/RTU, OPC-UA, LoRaWAN, AMQP et les APIs propriétaires de la plupart des équipementiers industriels." },
+        { q: "La solution fonctionne-t-elle sur des réseaux industriels isolés (air gap) ?", a: "Oui. Tout le pipeline peut être déployé on-premise sur votre réseau industriel sans connexion internet. Déploiement en DMZ possible." },
+        { q: "Quelle fréquence de données peut être ingérée ?", a: "Jusqu'à 100 000 mesures par seconde avec Apache Kafka. Les données haute fréquence (vibrations) peuvent être sous-échantillonnées avant stockage." },
+        { q: "Peut-on intégrer des données existantes de notre SCADA ?", a: "Oui. Un connecteur SCADA peut être ajouté pour intégrer les données historiques et les compléter avec les nouvelles sources." },
+      ],
+    },
+    en: {
+      metaTitle: "Real-time IoT Monitoring AI — Wikolabs",
+      metaDesc: "Sensor data collection and aggregation, real-time anomaly detection and supervision dashboards for connected equipment. Kafka, Grafana, BigQuery.",
+      tag: "IoT & Edge AI",
+      title: "Real-time IoT Monitoring",
+      subtitle: "Supervise your connected equipment with full real-time visibility",
+      intro: "Thousands of sensors in a factory, smart farm or energy network generate continuous data streams. Without the right infrastructure, this data is lost or consulted too late. The Real-time IoT Monitoring system ingests, processes and visualizes your sensor data streams in real time, automatically detects anomalies and sends alerts to the right people before problems escalate.",
+      problem: "Traditional SCADA systems have latencies from several seconds to several minutes. Alerts arrive after the incident. Failure management is reactive. And without cross-sensor correlation, root causes of problems remain hard to identify.",
+      solution: "A Kafka pipeline ingests your sensor data (MQTT, HTTP, Modbus) in real time. Data is processed by anomaly detection models and visualized in Grafana with custom dashboards per line, zone or equipment. Alerts are sent via Slack, SMS or email with context and action suggestions.",
+      steps: [
+        { n: 1, title: "Sensor mapping", desc: "Inventory of all your sensors, protocols (MQTT, HTTP, Modbus, OPC-UA), measurement frequencies and nominal values." },
+        { n: 2, title: "Ingestion pipeline", desc: "MQTT broker + Apache Kafka setup for high-frequency ingestion. Storage in InfluxDB or BigQuery depending on volume." },
+        { n: 3, title: "Anomaly detection models", desc: "Model training on your historical data to distinguish normal behavior from significant anomalies." },
+        { n: 4, title: "Grafana dashboard & alerts", desc: "Dashboards by equipment, line and zone. Configurable alerts with business logic and escalation by severity level." },
+      ],
+      benefits: [
+        { title: "Anomalies detected in < 30 seconds", desc: "The real-time pipeline detects drifts before they become failures. Intervention before production impact." },
+        { title: "Full fleet visibility", desc: "All your equipment on one dashboard. Temperatures, vibrations, pressures, flows — everything visible at a glance." },
+        { title: "Maintenance costs reduced", desc: "Condition-based maintenance (intervene when needed) replaces scheduled preventive maintenance. 20–40% savings on maintenance costs." },
+      ],
+      faq: [
+        { q: "Which IoT protocols do you support?", a: "MQTT, HTTP/REST, Modbus TCP/RTU, OPC-UA, LoRaWAN, AMQP and proprietary APIs from most industrial equipment manufacturers." },
+        { q: "Does the solution work on isolated industrial networks (air gap)?", a: "Yes. The entire pipeline can be deployed on-premise on your industrial network without internet connection. DMZ deployment possible." },
+        { q: "What data ingestion frequency is supported?", a: "Up to 100,000 measurements per second with Apache Kafka. High-frequency data (vibrations) can be downsampled before storage." },
+        { q: "Can existing SCADA data be integrated?", a: "Yes. A SCADA connector can be added to integrate historical data and complement it with new sources." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     6-2  Vision Machine sur Caméra IP
+  ───────────────────────────────────────────────── */
+  {
+    slug: "vision-machine-camera-ip",
+    catSlug: "production-ai",
+    fr: {
+      metaTitle: "Vision Machine sur Caméra IP — Wikolabs",
+      metaDesc: "Détection, classification et contrôle qualité directement sur caméra IP ou device edge. Traitement local, alerte instantanée, audit visuel automatisé.",
+      tag: "IoT & IA Embarquée",
+      title: "Vision Machine sur Caméra IP",
+      subtitle: "Transformez vos caméras de surveillance en systèmes de contrôle intelligents",
+      intro: "Vos caméras IP génèrent des heures de vidéo que personne ne regarde. Un opérateur humain ne peut surveiller plus de 4 flux simultanément avec efficacité. Et les incidents sont détectés après coup, pas en temps réel. La Vision Machine sur Caméra IP analyse chaque frame en temps réel, détecte les événements pertinents (intrusion, non-conformité, comptage, anomalie) et déclenche des alertes instantanées — directement depuis la caméra ou sur un device edge.",
+      problem: "La surveillance humaine est coûteuse, partielle et réactive. Les systèmes de détection de mouvement basiques génèrent trop de faux positifs. Les caméras intelligentes commerciales sont peu personnalisables et coûteuses. Et le traitement cloud de la vidéo en temps réel est latent et coûteux en bande passante.",
+      solution: "Nous déployons des modèles de vision (YOLO, Faster R-CNN) directement sur un NVIDIA Jetson ou Raspberry Pi connecté à vos caméras IP via RTSP. Le modèle analyse les flux en temps réel, détecte les événements configurés (personne, véhicule, défaut produit, EPI manquant) et envoie une alerte avec capture annotée en moins de 500ms. Le traitement reste local.",
+      steps: [
+        { n: 1, title: "Définition des événements à détecter", desc: "Atelier pour définir précisément les objets, comportements ou non-conformités à détecter. Collecte d'exemples vidéo si disponibles." },
+        { n: 2, title: "Sélection & configuration hardware", desc: "Choix du device edge selon la charge de traitement. Installation et configuration de la connexion aux flux RTSP des caméras IP." },
+        { n: 3, title: "Entraînement & optimisation modèle", desc: "Fine-tuning du modèle de détection sur vos scénarios spécifiques. Optimisation pour le hardware cible (TensorRT, TFLite)." },
+        { n: 4, title: "Déploiement & système d'alerte", desc: "Déploiement du pipeline, configuration des alertes (webhook, Slack, email, SMS) avec captures annotées et horodatage." },
+      ],
+      benefits: [
+        { title: "Surveillance 24h/24 sans opérateur", desc: "Chaque caméra surveille en permanence, sans fatigue, sans distraction. Les événements importants ne passent plus inaperçus." },
+        { title: "Alertes en < 500ms", desc: "La détection et l'alerte sont instantanées. Une intrusion, un défaut produit ou un incident de sécurité est signalé avant toute aggravation." },
+        { title: "Données d'audit automatiques", desc: "Chaque événement détecté est archivé avec capture annotée et horodatage. Audit visuel automatique pour la conformité et la traçabilité." },
+      ],
+      faq: [
+        { q: "Fonctionne avec quelles marques de caméras IP ?", a: "Toute caméra IP compatible RTSP (Hikvision, Dahua, Axis, Bosch, et la grande majorité des marques). Nous testons la compatibilité en amont." },
+        { q: "Peut-on détecter des comportements (chute, bagarre, EPI) ?", a: "Oui. La détection de pose (pose estimation) permet de détecter des comportements comme les chutes, l'absence d'EPI ou les intrusions dans des zones restreintes." },
+        { q: "Le traitement local peut-il gérer plusieurs caméras simultanément ?", a: "Un NVIDIA Jetson AGX peut traiter 8 à 16 flux simultanément selon la résolution et la complexité des modèles. Un Jetson Nano gère 2 à 4 flux." },
+        { q: "Les données vidéo sont-elles stockées ?", a: "Par défaut, seuls les événements détectés sont archivés (captures + métadonnées). Le stockage vidéo continu est optionnel et configurable." },
+      ],
+    },
+    en: {
+      metaTitle: "Machine Vision on IP Camera — Wikolabs",
+      metaDesc: "Detection, classification and quality control directly on IP cameras or edge devices. Local processing, instant alerts, automated visual audit.",
+      tag: "IoT & Edge AI",
+      title: "Machine Vision on IP Camera",
+      subtitle: "Turn your surveillance cameras into intelligent control systems",
+      intro: "Your IP cameras generate hours of video that nobody watches. A human operator can't effectively monitor more than 4 streams simultaneously. And incidents are detected after the fact, not in real time. Machine Vision on IP Cameras analyzes every frame in real time, detects relevant events (intrusion, non-conformity, counting, anomaly) and triggers instant alerts — directly from the camera or on an edge device.",
+      problem: "Human surveillance is expensive, partial and reactive. Basic motion detection systems generate too many false positives. Commercial smart cameras are poorly customizable and expensive. And cloud processing of real-time video is latent and bandwidth-heavy.",
+      solution: "We deploy vision models (YOLO, Faster R-CNN) directly on an NVIDIA Jetson or Raspberry Pi connected to your IP cameras via RTSP. The model analyzes streams in real time, detects configured events (person, vehicle, product defect, missing PPE) and sends an alert with annotated capture in under 500ms. Processing stays local.",
+      steps: [
+        { n: 1, title: "Detection event definition", desc: "Workshop to precisely define objects, behaviors or non-conformities to detect. Collection of video examples if available." },
+        { n: 2, title: "Hardware selection & configuration", desc: "Edge device selection based on processing load. Installation and configuration of RTSP stream connection from IP cameras." },
+        { n: 3, title: "Model training & optimization", desc: "Detection model fine-tuning on your specific scenarios. Optimization for target hardware (TensorRT, TFLite)." },
+        { n: 4, title: "Deployment & alert system", desc: "Pipeline deployment, alert configuration (webhook, Slack, email, SMS) with annotated captures and timestamps." },
+      ],
+      benefits: [
+        { title: "24/7 surveillance without an operator", desc: "Every camera monitors permanently, without fatigue, without distraction. Important events no longer go unnoticed." },
+        { title: "Alerts in < 500ms", desc: "Detection and alert are instant. An intrusion, product defect or safety incident is flagged before any escalation." },
+        { title: "Automatic audit data", desc: "Every detected event is archived with annotated capture and timestamp. Automatic visual audit for compliance and traceability." },
+      ],
+      faq: [
+        { q: "Which IP camera brands are supported?", a: "Any RTSP-compatible IP camera (Hikvision, Dahua, Axis, Bosch, and the vast majority of brands). We test compatibility upfront." },
+        { q: "Can behaviors be detected (fall, fight, PPE)?", a: "Yes. Pose estimation enables detection of behaviors like falls, missing PPE or intrusions into restricted areas." },
+        { q: "Can local processing handle multiple cameras simultaneously?", a: "An NVIDIA Jetson AGX can process 8–16 simultaneous streams depending on resolution and model complexity. A Jetson Nano handles 2–4 streams." },
+        { q: "Is video data stored?", a: "By default, only detected events are archived (captures + metadata). Continuous video storage is optional and configurable." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     6-3  Maintenance Prédictive IA
+  ───────────────────────────────────────────────── */
+  {
+    slug: "maintenance-predictive-ia",
+    catSlug: "production-ai",
+    fr: {
+      metaTitle: "Maintenance Prédictive IA — Wikolabs",
+      metaDesc: "Modèles de prédiction de pannes sur données capteurs vibratoires, thermiques et électriques. Alertes anticipées 7 à 30 jours avant la défaillance.",
+      tag: "IoT & IA Embarquée",
+      title: "Maintenance Prédictive IA",
+      subtitle: "Anticipez les pannes 7 à 30 jours à l'avance et éliminez les arrêts non planifiés",
+      intro: "Une panne non planifiée dans une ligne de production coûte en moyenne 260 000 € de l'heure en pertes de production, réparations d'urgence et pénalités client. La maintenance préventive planifiée gaspille des ressources sur des équipements qui n'en ont pas besoin. La maintenance prédictive par IA analyse en continu les signatures de vibration, température et consommation électrique de vos équipements pour détecter les prémices de défaillance avant qu'elles se produisent.",
+      problem: "La maintenance corrective coûte 3 à 5 fois plus cher que la maintenance préventive. La maintenance préventive remplace des pièces encore saines. Sans prédiction, les arrêts non planifiés perturbent la production, les délais client et la sécurité des équipes. Et les techniciens passent du temps sur des inspections manuelles répétitives.",
+      solution: "Des capteurs de vibration, température et courant sont connectés aux équipements critiques. Les données sont collectées en continu via le pipeline IoT et analysées par des modèles ML (isolation forest, LSTM, XGBoost) entraînés à reconnaître les signatures précurseurs de pannes spécifiques à vos machines. Une alerte est générée 7 à 30 jours avant la défaillance prédite, avec le type de défaut probable et l'urgence recommandée.",
+      steps: [
+        { n: 1, title: "Identification des équipements critiques", desc: "Analyse du criticité de chaque équipement (impact production, coût de remplacement, MTBF historique). Priorisation des capteurs à déployer." },
+        { n: 2, title: "Déploiement capteurs & pipeline IoT", desc: "Installation de capteurs vibratoires, thermiques et électriques. Connexion au pipeline IoT temps réel via MQTT ou protocole propriétaire." },
+        { n: 3, title: "Entraînement des modèles prédictifs", desc: "Utilisation des données historiques de pannes pour entraîner des modèles de détection d'anomalies et de prédiction de RUL (Remaining Useful Life)." },
+        { n: 4, title: "Alertes & intégration GMAO", desc: "Génération d'alertes prédictives avec type de défaut, urgence et intervention recommandée. Intégration avec votre GMAO (SAP PM, Maximo, Fiix)." },
+      ],
+      benefits: [
+        { title: "Pannes anticipées 7 à 30 jours avant", desc: "Les modèles détectent les signatures précurseurs bien avant la défaillance. Votre équipe maintenance planifie en avance." },
+        { title: "Arrêts non planifiés réduits de 70 %", desc: "Avec des alertes anticipées, les arrêts d'urgence deviennent des arrêts planifiés. La production n'est plus perturbée." },
+        { title: "Coûts de maintenance -35 %", desc: "Moins de remplacement de pièces saines, moins d'urgences coûteuses, optimisation des stocks de pièces détachées." },
+      ],
+      faq: [
+        { q: "Sur quels types d'équipements la maintenance prédictive est-elle efficace ?", a: "Moteurs électriques, pompes, compresseurs, roulements, turbines, convoyeurs, équipements rotatifs en général. Aussi applicable aux équipements thermiques et électroniques." },
+        { q: "Combien de données historiques de pannes sont nécessaires ?", a: "Idéalement 12 à 24 mois avec quelques événements de pannes enregistrés. Des techniques de transfer learning permettent de démarrer avec moins de données." },
+        { q: "La solution s'intègre-t-elle avec notre GMAO ?", a: "Oui. Nous avons des connecteurs pour SAP PM, IBM Maximo, Fiix, UpKeep et les principales GMAO. L'intégration peut créer automatiquement des ordres de travail." },
+        { q: "La précision de prédiction est-elle garantie ?", a: "Nous visons un taux de détection > 85 % avec un taux de faux positifs < 10 %. Les performances réelles sont mesurées et communiquées lors de la validation." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Predictive Maintenance — Wikolabs",
+      metaDesc: "Failure prediction models on vibration, thermal and electrical sensor data. Early warnings 7–30 days before equipment failure.",
+      tag: "IoT & Edge AI",
+      title: "AI Predictive Maintenance",
+      subtitle: "Anticipate failures 7–30 days ahead and eliminate unplanned downtime",
+      intro: "An unplanned failure on a production line costs an average of €260,000 per hour in production losses, emergency repairs and client penalties. Scheduled preventive maintenance wastes resources on equipment that doesn't need it. AI predictive maintenance continuously analyzes vibration, temperature and electrical consumption signatures of your equipment to detect failure precursors before they occur.",
+      problem: "Corrective maintenance costs 3–5× more than preventive maintenance. Preventive maintenance replaces still-healthy parts. Without prediction, unplanned downtime disrupts production, client deadlines and team safety. And technicians spend time on repetitive manual inspections.",
+      solution: "Vibration, temperature and current sensors are connected to critical equipment. Data is continuously collected via the IoT pipeline and analyzed by ML models (isolation forest, LSTM, XGBoost) trained to recognize precursor signatures of failures specific to your machines. An alert is generated 7–30 days before the predicted failure, with the probable defect type and recommended urgency.",
+      steps: [
+        { n: 1, title: "Critical equipment identification", desc: "Criticality analysis of each piece of equipment (production impact, replacement cost, historical MTBF). Sensor deployment prioritization." },
+        { n: 2, title: "Sensor & IoT pipeline deployment", desc: "Vibration, thermal and electrical sensor installation. Real-time IoT pipeline connection via MQTT or proprietary protocol." },
+        { n: 3, title: "Predictive model training", desc: "Using historical failure data to train anomaly detection and RUL (Remaining Useful Life) prediction models." },
+        { n: 4, title: "Alerts & CMMS integration", desc: "Predictive alert generation with defect type, urgency and recommended intervention. Integration with your CMMS (SAP PM, Maximo, Fiix)." },
+      ],
+      benefits: [
+        { title: "Failures anticipated 7–30 days ahead", desc: "Models detect precursor signatures well before failure. Your maintenance team plans ahead." },
+        { title: "Unplanned downtime reduced by 70%", desc: "With early alerts, emergency shutdowns become planned stops. Production is no longer disrupted." },
+        { title: "Maintenance costs -35%", desc: "Less replacement of healthy parts, fewer costly emergencies, optimized spare parts inventory." },
+      ],
+      faq: [
+        { q: "Which equipment types benefit from predictive maintenance?", a: "Electric motors, pumps, compressors, bearings, turbines, conveyors, rotating equipment in general. Also applicable to thermal and electronic equipment." },
+        { q: "How much historical failure data is needed?", a: "Ideally 12–24 months with some recorded failure events. Transfer learning techniques enable starting with less data." },
+        { q: "Does the solution integrate with our CMMS?", a: "Yes. We have connectors for SAP PM, IBM Maximo, Fiix, UpKeep and major CMMS systems. Integration can automatically create work orders." },
+        { q: "Is prediction accuracy guaranteed?", a: "We target a detection rate > 85% with a false positive rate < 10%. Real performance is measured and communicated during validation." },
+      ],
+    },
+  },
 ];
