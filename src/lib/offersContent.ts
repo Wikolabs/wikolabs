@@ -704,4 +704,252 @@ export const OFFERS_CONTENT: OfferPageContent[] = [
       ],
     },
   },
+
+  /* ─────────────────────────────────────────────────
+     2-0  Agent BI Langage Naturel
+  ───────────────────────────────────────────────── */
+  {
+    slug: "agent-bi-langage-naturel",
+    catSlug: "decision-intelligence",
+    fr: {
+      metaTitle: "Agent BI Langage Naturel IA — Wikolabs",
+      metaDesc: "Questions en français vers SQL généré vers dashboard automatique. Vos équipes lisent leurs KPIs sans analyste. Connecté à BigQuery, PostgreSQL, Metabase.",
+      tag: "BI & Intelligence Décisionnelle",
+      title: "Agent BI Langage Naturel",
+      subtitle: "Posez vos questions en français, obtenez vos données en secondes",
+      intro: "La business intelligence traditionnelle crée une dépendance aux analystes data : chaque nouvelle question nécessite une demande, une attente et une réponse partielle. L'Agent BI Langage Naturel supprime cet intermédiaire. Posez votre question en français ou en anglais, l'agent génère le SQL correspondant, l'exécute sur votre entrepôt de données et vous retourne un tableau ou un graphique en quelques secondes.",
+      problem: "Les équipes métier dépendent des équipes data pour chaque requête. Les analysts data sont surchargés de demandes ad hoc. Les dashboards statiques ne répondent pas aux questions qui émergent en réunion. Et les décisions sont prises sans données — ou avec des données obsolètes.",
+      solution: "L'agent est connecté à votre entrepôt de données (BigQuery, PostgreSQL, Snowflake, Redshift). Il traduit vos questions en SQL valide, l'exécute en temps réel et retourne le résultat sous forme de tableau, graphique ou résumé textuel. Un historique des questions est conservé pour alimenter un dashboard auto-apprenant.",
+      steps: [
+        { n: 1, title: "Connexion à votre entrepôt de données", desc: "Intégration BigQuery, PostgreSQL, Snowflake, Redshift ou MySQL. Documentation automatique du schéma pour l'agent." },
+        { n: 2, title: "Calibration du vocabulaire métier", desc: "Enrichissement du contexte LLM avec votre vocabulaire spécifique : noms de tables, métriques, KPIs, règles de calcul." },
+        { n: 3, title: "Interface de requête", desc: "Interface chat simple (Slack bot, web app ou widget) où les équipes posent leurs questions en langage naturel." },
+        { n: 4, title: "Dashboard auto-apprenant", desc: "Les questions fréquentes alimentent un dashboard Metabase ou Power BI mis à jour automatiquement. Apprentissage continu." },
+      ],
+      benefits: [
+        { title: "Autonomie data pour tous", desc: "N'importe quel membre de l'équipe peut interroger les données sans écrire une ligne de SQL ni attendre un analyste." },
+        { title: "Décisions basées sur les faits", desc: "Les KPIs sont accessibles en temps réel en réunion, sans délai. Les décisions reposent sur les vraies données." },
+        { title: "Analysts data libérés", desc: "Vos data analysts arrêtent de passer 60 % de leur temps sur des requêtes ad hoc. Ils se concentrent sur l'analyse stratégique." },
+      ],
+      faq: [
+        { q: "Quel entrepôt de données est supporté ?", a: "BigQuery, PostgreSQL, MySQL, Snowflake, Redshift, SQLite. D'autres sources peuvent être ajoutées via connecteurs." },
+        { q: "L'agent peut-il gérer des schémas complexes avec des dizaines de tables ?", a: "Oui. L'agent documente automatiquement votre schéma et apprend les relations entre tables via des exemples de requêtes." },
+        { q: "Les résultats peuvent-ils être exportés ?", a: "Oui. Chaque résultat peut être exporté en CSV, intégré dans Notion ou pushé dans Slack automatiquement." },
+        { q: "Comment garantir la sécurité des données ?", a: "L'agent fonctionne dans votre infrastructure (VPC ou on-premise). Les données ne quittent jamais votre environnement." },
+      ],
+    },
+    en: {
+      metaTitle: "Natural Language BI Agent — Wikolabs",
+      metaDesc: "Questions in plain English to generated SQL to automatic dashboard. Your teams read their KPIs without an analyst. Connected to BigQuery, PostgreSQL, Metabase.",
+      tag: "BI & Decision Intelligence",
+      title: "Natural Language BI Agent",
+      subtitle: "Ask your questions in plain English, get your data in seconds",
+      intro: "Traditional business intelligence creates analyst dependency: every new question requires a request, a wait and a partial answer. The Natural Language BI Agent removes this intermediary. Ask your question in English or French, the agent generates the corresponding SQL, executes it on your data warehouse and returns a table or chart in seconds.",
+      problem: "Business teams depend on data teams for every query. Data analysts are overloaded with ad hoc requests. Static dashboards don't answer questions that arise in meetings. And decisions are made without data — or with outdated data.",
+      solution: "The agent is connected to your data warehouse (BigQuery, PostgreSQL, Snowflake, Redshift). It translates your questions into valid SQL, executes it in real time and returns results as a table, chart or text summary. A question history is maintained to feed a self-learning dashboard.",
+      steps: [
+        { n: 1, title: "Data warehouse connection", desc: "BigQuery, PostgreSQL, Snowflake, Redshift or MySQL integration. Automatic schema documentation for the agent." },
+        { n: 2, title: "Business vocabulary calibration", desc: "LLM context enrichment with your specific vocabulary: table names, metrics, KPIs, calculation rules." },
+        { n: 3, title: "Query interface", desc: "Simple chat interface (Slack bot, web app or widget) where teams ask questions in natural language." },
+        { n: 4, title: "Self-learning dashboard", desc: "Frequent questions feed a Metabase or Power BI dashboard updated automatically. Continuous learning." },
+      ],
+      benefits: [
+        { title: "Data autonomy for everyone", desc: "Any team member can query data without writing a line of SQL or waiting for an analyst." },
+        { title: "Fact-based decisions", desc: "KPIs are accessible in real time during meetings, with no delay. Decisions are based on real data." },
+        { title: "Data analysts freed up", desc: "Your analysts stop spending 60% of their time on ad hoc requests. They focus on strategic analysis." },
+      ],
+      faq: [
+        { q: "Which data warehouses are supported?", a: "BigQuery, PostgreSQL, MySQL, Snowflake, Redshift, SQLite. Other sources can be added via connectors." },
+        { q: "Can the agent handle complex schemas with dozens of tables?", a: "Yes. The agent automatically documents your schema and learns table relationships through example queries." },
+        { q: "Can results be exported?", a: "Yes. Each result can be exported as CSV, integrated into Notion or pushed to Slack automatically." },
+        { q: "How is data security ensured?", a: "The agent runs in your infrastructure (VPC or on-premise). Data never leaves your environment." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     2-1  Reporting Automatique (PPT/PDF)
+  ───────────────────────────────────────────────── */
+  {
+    slug: "reporting-automatique",
+    catSlug: "decision-intelligence",
+    fr: {
+      metaTitle: "Reporting Automatique PPT PDF IA — Wikolabs",
+      metaDesc: "Dashboard PowerPoint ou PDF généré automatiquement depuis WooCommerce, Shopify ou toute source de données. Enrichi de données externes pour le pilotage.",
+      tag: "BI & Intelligence Décisionnelle",
+      title: "Reporting Automatique (PPT/PDF)",
+      subtitle: "Vos rapports de pilotage générés automatiquement chaque semaine",
+      intro: "La préparation d'un rapport hebdomadaire ou mensuel prend en moyenne 4 à 8 heures : extraction des données, mise en forme, rédaction des commentaires, mise à jour des graphiques. L'Agent Reporting Automatique connecte vos sources de données, génère le rapport complet au format PowerPoint ou PDF et l'envoie par email aux bonnes personnes, chaque semaine ou chaque mois, sans intervention humaine.",
+      problem: "Les rapports manuels sont chronophages, souvent en retard et pas toujours fiables. Chaque membre de l'équipe produit son propre rapport avec ses propres métriques. Le management reçoit des informations contradictoires. Et le temps passé sur le reporting est du temps volé à l'analyse et à la décision.",
+      solution: "L'agent se connecte à vos sources (WooCommerce, Shopify, BigQuery, Google Analytics, Facebook Ads, CRM) et génère automatiquement un rapport structuré selon votre template. Chaque graphique est commenté par LLM (interprétation des tendances, alertes sur les anomalies, recommandations). Le PDF ou PowerPoint est envoyé par email aux parties prenantes selon votre calendrier.",
+      steps: [
+        { n: 1, title: "Audit des sources de données", desc: "Identification de toutes vos sources : e-commerce, CRM, ads, analytics. Connexion via API ou export automatique." },
+        { n: 2, title: "Définition du template de rapport", desc: "Conception ou intégration de votre template existant. Définition des métriques, graphiques et sections par rapport." },
+        { n: 3, title: "Calibration du commentaire LLM", desc: "Paramétrage des règles de commentaire automatique : seuils d'alerte, formulations, ton adapté à votre audience." },
+        { n: 4, title: "Planification & distribution", desc: "Configuration du calendrier d'envoi (quotidien, hebdomadaire, mensuel) et de la liste de destinataires par rapport." },
+      ],
+      benefits: [
+        { title: "8h récupérées par rapport", desc: "La génération complète du rapport prend moins de 5 minutes. Vos équipes récupèrent plusieurs jours de travail par mois." },
+        { title: "Données toujours fraîches", desc: "Le rapport utilise les données en temps réel de vos sources. Plus de risque d'analyser des chiffres obsolètes." },
+        { title: "Commentaires intelligents", desc: "Chaque graphique est accompagné d'une interprétation LLM : tendance, anomalie détectée, contexte et recommandation." },
+      ],
+      faq: [
+        { q: "Quelles sources de données sont supportées ?", a: "WooCommerce, Shopify, BigQuery, Google Analytics 4, Facebook Ads, Google Ads, HubSpot, Salesforce, et toute source avec une API ou export CSV." },
+        { q: "Le template peut-il inclure notre logo et charte graphique ?", a: "Oui. Votre charte graphique (couleurs, polices, logo) est intégrée dans le template. Les rapports sont à votre image." },
+        { q: "Peut-on avoir plusieurs rapports avec des audiences différentes ?", a: "Oui. Vous pouvez configurer autant de rapports que nécessaire : rapport CEO, rapport ops, rapport marketing, etc." },
+        { q: "Est-il possible d'ajouter des données externes (benchmarks sectoriels) ?", a: "Oui. Des données de benchmarks sectoriels ou des flux économiques externes peuvent être intégrés pour contextualiser vos résultats." },
+      ],
+    },
+    en: {
+      metaTitle: "Automatic Reporting PPT PDF AI — Wikolabs",
+      metaDesc: "PowerPoint or PDF dashboard auto-generated from WooCommerce, Shopify or any data source. Enriched with external data for executive reporting.",
+      tag: "BI & Decision Intelligence",
+      title: "Automatic Reporting (PPT/PDF)",
+      subtitle: "Your management reports generated automatically every week",
+      intro: "Preparing a weekly or monthly report takes an average of 4–8 hours: data extraction, formatting, writing commentary, updating charts. The Automatic Reporting Agent connects your data sources, generates the complete report in PowerPoint or PDF format and sends it by email to the right people, every week or month, with zero human intervention.",
+      problem: "Manual reports are time-consuming, often late and not always reliable. Each team member produces their own report with their own metrics. Management receives conflicting information. And time spent on reporting is time stolen from analysis and decision-making.",
+      solution: "The agent connects to your sources (WooCommerce, Shopify, BigQuery, Google Analytics, Facebook Ads, CRM) and automatically generates a structured report based on your template. Each chart is LLM-commented (trend interpretation, anomaly alerts, recommendations). The PDF or PowerPoint is emailed to stakeholders on your schedule.",
+      steps: [
+        { n: 1, title: "Data source audit", desc: "Identification of all your sources: e-commerce, CRM, ads, analytics. Connection via API or automatic export." },
+        { n: 2, title: "Report template definition", desc: "Design or integration of your existing template. Definition of metrics, charts and sections per report." },
+        { n: 3, title: "LLM commentary calibration", desc: "Configuration of automatic commentary rules: alert thresholds, phrasing, tone adapted to your audience." },
+        { n: 4, title: "Scheduling & distribution", desc: "Send schedule configuration (daily, weekly, monthly) and recipient list per report." },
+      ],
+      benefits: [
+        { title: "8h recovered per report", desc: "Complete report generation takes under 5 minutes. Your teams recover several work days per month." },
+        { title: "Always fresh data", desc: "The report uses real-time data from your sources. No risk of analyzing stale figures." },
+        { title: "Intelligent commentary", desc: "Every chart comes with an LLM interpretation: trend, detected anomaly, context and recommendation." },
+      ],
+      faq: [
+        { q: "Which data sources are supported?", a: "WooCommerce, Shopify, BigQuery, Google Analytics 4, Facebook Ads, Google Ads, HubSpot, Salesforce, and any source with an API or CSV export." },
+        { q: "Can the template include our logo and brand?", a: "Yes. Your brand guidelines (colors, fonts, logo) are integrated into the template. Reports reflect your identity." },
+        { q: "Can we have multiple reports with different audiences?", a: "Yes. You can configure as many reports as needed: CEO report, ops report, marketing report, etc." },
+        { q: "Can external data (sector benchmarks) be added?", a: "Yes. Sector benchmark data or external economic feeds can be integrated to contextualize your results." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     2-2  Forecasting & Anomalies
+  ───────────────────────────────────────────────── */
+  {
+    slug: "forecasting-anomalies",
+    catSlug: "decision-intelligence",
+    fr: {
+      metaTitle: "Forecasting & Détection d'Anomalies IA — Wikolabs",
+      metaDesc: "Prévisions de revenus 3/6/12 mois, détection d'anomalies en temps réel, alertes churn risk. Modèles ML déployés sur vos données historiques.",
+      tag: "BI & Intelligence Décisionnelle",
+      title: "Forecasting & Anomalies",
+      subtitle: "Anticipez les tendances et détectez les dérives avant qu'elles impactent votre business",
+      intro: "Piloter un business sans prévisions fiables, c'est conduire avec un rétroviseur. Les tableaux de bord vous montrent ce qui s'est passé — pas ce qui va se passer. L'agent Forecasting & Anomalies entraîne des modèles de prévision sur vos données historiques, génère des projections à 3, 6 et 12 mois et détecte en temps réel les anomalies qui signalent un problème avant qu'il ne soit visible dans vos KPIs.",
+      problem: "Les prévisions manuelles reposent sur l'intuition et les tendances passées. Les anomalies sont détectées tardivement — quand les chiffres du mois sont déjà dans le rouge. Sans alertes proactives, les problèmes opérationnels (churn, baisse de conversion, dérive des coûts) restent invisibles jusqu'à ce qu'ils soient critiques.",
+      solution: "Des modèles de machine learning (Prophet, ARIMA, XGBoost) sont entraînés sur vos données historiques (ventes, trafic, coûts, rétention). Les prévisions sont mises à jour hebdomadairement et présentées avec des intervalles de confiance. Chaque anomalie détectée (pic ou creux anormal par rapport au forecast) déclenche une alerte Slack ou email avec une explication en langage naturel.",
+      steps: [
+        { n: 1, title: "Collecte & nettoyage des données historiques", desc: "Extraction de 12 à 36 mois de données depuis vos sources (CRM, e-commerce, analytics). Nettoyage et normalisation." },
+        { n: 2, title: "Entraînement des modèles", desc: "Sélection et entraînement des meilleurs algorithmes pour vos séries temporelles. Validation sur données holdout." },
+        { n: 3, title: "Déploiement des alertes temps réel", desc: "Connexion aux flux de données en temps réel. Seuils d'anomalie configurés selon vos métriques critiques." },
+        { n: 4, title: "Dashboard de prévisions & monitoring", desc: "Interface de visualisation des forecasts, historique des alertes et score de précision du modèle en continu." },
+      ],
+      benefits: [
+        { title: "Prévisions à ±8 % de précision", desc: "Nos modèles atteignent en moyenne 92 % de précision sur les 30 premiers jours de prévision, selon la qualité des données historiques." },
+        { title: "Anomalies détectées 48h avant", desc: "Les dérives sont signalées avant d'être visibles dans les KPIs mensuels. Vous intervenez quand il est encore temps." },
+        { title: "Budget maîtrisé", desc: "Les prévisions de coûts et de revenus permettent d'ajuster les ressources en amont. Plus de surprises en fin de mois." },
+      ],
+      faq: [
+        { q: "Quelle quantité de données historiques est nécessaire ?", a: "Minimum 12 mois de données pour des prévisions fiables. 24 à 36 mois permettent de capturer la saisonnalité et les tendances longues." },
+        { q: "Les modèles sont-ils ré-entraînés automatiquement ?", a: "Oui. Un pipeline de ré-entraînement mensuel est mis en place pour intégrer les nouvelles données et maintenir la précision." },
+        { q: "Peut-on prévoir plusieurs métriques simultanément ?", a: "Oui. Revenus, trafic, coûts d'acquisition, taux de rétention — chaque métrique a son modèle dédié." },
+        { q: "Les alertes sont-elles personnalisables ?", a: "Oui. Seuils, canaux (Slack, email, SMS), fréquence et format des alertes sont tous configurables selon vos préférences." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Forecasting & Anomaly Detection — Wikolabs",
+      metaDesc: "3/6/12-month revenue forecasts, real-time anomaly detection, churn risk alerts. ML models trained on your historical data.",
+      tag: "BI & Decision Intelligence",
+      title: "Forecasting & Anomaly Detection",
+      subtitle: "Anticipate trends and catch drifts before they impact your business",
+      intro: "Running a business without reliable forecasts is like driving with only a rearview mirror. Dashboards show you what happened — not what will happen. The Forecasting & Anomaly Detection agent trains prediction models on your historical data, generates 3, 6 and 12-month projections and detects anomalies in real time that signal a problem before it shows up in your KPIs.",
+      problem: "Manual forecasts rely on intuition and past trends. Anomalies are detected late — when monthly numbers are already in the red. Without proactive alerts, operational problems (churn, conversion drop, cost drift) stay invisible until they become critical.",
+      solution: "Machine learning models (Prophet, ARIMA, XGBoost) are trained on your historical data (sales, traffic, costs, retention). Forecasts are updated weekly with confidence intervals. Each detected anomaly (abnormal peak or trough vs. forecast) triggers a Slack or email alert with a natural-language explanation.",
+      steps: [
+        { n: 1, title: "Historical data collection & cleaning", desc: "Extraction of 12–36 months of data from your sources (CRM, e-commerce, analytics). Cleaning and normalization." },
+        { n: 2, title: "Model training", desc: "Selection and training of the best algorithms for your time series. Validation on holdout data." },
+        { n: 3, title: "Real-time alert deployment", desc: "Connection to real-time data feeds. Anomaly thresholds configured to your critical metrics." },
+        { n: 4, title: "Forecast dashboard & monitoring", desc: "Forecast visualization interface, alert history and continuous model accuracy score." },
+      ],
+      benefits: [
+        { title: "Forecasts within ±8% accuracy", desc: "Our models average 92% accuracy on the first 30 days of forecast, depending on historical data quality." },
+        { title: "Anomalies detected 48h early", desc: "Drifts are flagged before they appear in monthly KPIs. You intervene while there's still time." },
+        { title: "Budget under control", desc: "Cost and revenue forecasts let you adjust resources in advance. No more end-of-month surprises." },
+      ],
+      faq: [
+        { q: "How much historical data is needed?", a: "Minimum 12 months for reliable forecasts. 24–36 months allow capturing seasonality and long-term trends." },
+        { q: "Are models retrained automatically?", a: "Yes. A monthly retraining pipeline is set up to incorporate new data and maintain accuracy." },
+        { q: "Can multiple metrics be forecasted simultaneously?", a: "Yes. Revenue, traffic, acquisition costs, retention rate — each metric gets its own dedicated model." },
+        { q: "Are alerts customizable?", a: "Yes. Thresholds, channels (Slack, email, SMS), frequency and alert format are all configurable." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     2-3  CRM Multi-agent & Pipeline
+  ───────────────────────────────────────────────── */
+  {
+    slug: "crm-multi-agent",
+    catSlug: "decision-intelligence",
+    fr: {
+      metaTitle: "CRM Multi-agent & Pipeline IA — Wikolabs",
+      metaDesc: "Scoring LTV, pipeline orchestration, alertes renouvellement et réactivation automatiques. CRM piloté par l'IA, pas par vos commerciaux.",
+      tag: "BI & Intelligence Décisionnelle",
+      title: "CRM Multi-agent & Pipeline",
+      subtitle: "Votre CRM se met à jour seul et pilote vos commerciaux",
+      intro: "Un CRM mal renseigné est un investissement gâché. Quand les commerciaux renseignent leurs CRM à la main — quand ils le font — les données sont souvent incomplètes, en retard ou incorrectes. Le système CRM Multi-agent orchestre plusieurs agents spécialisés qui maintiennent votre CRM à jour en temps réel, scorent vos deals, alertent sur les renouvellements et pilotent le pipeline sans intervention manuelle.",
+      problem: "Les commerciaux passent 30 % de leur temps sur des tâches d'administration CRM. Les données sont obsolètes : étapes de pipeline incorrectes, contacts non mis à jour, deals stagnants non détectés. Sans vue fiable du pipeline, les prévisions commerciales sont inexactes et les décisions de recrutement ou d'investissement sont risquées.",
+      solution: "Un ensemble d'agents spécialisés maintiennent votre CRM : un agent de scoring LTV met à jour la valeur prospect en temps réel, un agent de pipeline détecte les deals bloqués et alerte le manager, un agent de renouvellement envoie des séquences automatiques 60 jours avant l'échéance, et un agent de réactivation relance les deals dormants depuis plus de 30 jours.",
+      steps: [
+        { n: 1, title: "Audit du CRM existant", desc: "Analyse de la qualité des données actuelles, identification des champs clés et des workflows à automatiser." },
+        { n: 2, title: "Déploiement des agents spécialisés", desc: "Configuration des 4 agents (scoring, pipeline, renouvellement, réactivation) avec vos règles métier spécifiques." },
+        { n: 3, title: "Intégration des flux de données", desc: "Connexion de toutes vos sources (email, appels, interactions web, usage produit) pour alimenter le scoring en temps réel." },
+        { n: 4, title: "Dashboard pipeline & alertes", desc: "Vue unifiée du pipeline par commercial et par équipe, alertes automatiques et rapport hebdomadaire pour le management." },
+      ],
+      benefits: [
+        { title: "CRM fiable à 95 %", desc: "Les agents maintiennent les données à jour en temps réel. Fini les deals fantômes et les étapes de pipeline incorrectes." },
+        { title: "30 % de deals supplémentaires closés", desc: "Les deals bloqués sont détectés et débloqués avant d'être perdus. Les renouvellements ne sont plus oubliés." },
+        { title: "Prévisions fiables", desc: "Avec un pipeline propre et des scores LTV à jour, vos prévisions commerciales atteignent ±10 % de précision." },
+      ],
+      faq: [
+        { q: "Compatible avec quel CRM ?", a: "HubSpot, Salesforce, Pipedrive et GoHighLevel nativement. Tout CRM avec une API REST peut être intégré." },
+        { q: "Le scoring LTV utilise quelles variables ?", a: "Historique d'achat, fréquence, montant moyen, secteur, ancienneté client, NPS, usage produit et signaux comportementaux." },
+        { q: "Les agents peuvent-ils modifier directement le CRM ?", a: "Oui, avec des permissions définies. Chaque modification est loggée avec l'agent qui l'a effectuée, pour une traçabilité complète." },
+        { q: "Faut-il importer toutes les données historiques ?", a: "Idéalement oui. Un import initial de 12 à 24 mois de données permet de calibrer correctement les modèles de scoring." },
+      ],
+    },
+    en: {
+      metaTitle: "Multi-agent CRM & Pipeline AI — Wikolabs",
+      metaDesc: "LTV scoring, pipeline orchestration, automatic renewal and reactivation alerts. CRM driven by AI, not by your reps.",
+      tag: "BI & Decision Intelligence",
+      title: "Multi-agent CRM & Pipeline",
+      subtitle: "Your CRM updates itself and guides your sales team",
+      intro: "A poorly maintained CRM is a wasted investment. When reps update their CRM manually — when they do — data is often incomplete, late or incorrect. The Multi-agent CRM system orchestrates specialized agents that keep your CRM up to date in real time, score your deals, alert on renewals and manage the pipeline without manual intervention.",
+      problem: "Sales reps spend 30% of their time on CRM admin tasks. Data is stale: incorrect pipeline stages, unupdated contacts, undetected stagnant deals. Without a reliable pipeline view, revenue forecasts are inaccurate and hiring or investment decisions are risky.",
+      solution: "A set of specialized agents maintain your CRM: an LTV scoring agent updates prospect value in real time, a pipeline agent detects blocked deals and alerts the manager, a renewal agent sends automatic sequences 60 days before expiry, and a reactivation agent re-engages deals dormant for more than 30 days.",
+      steps: [
+        { n: 1, title: "Existing CRM audit", desc: "Analysis of current data quality, identification of key fields and workflows to automate." },
+        { n: 2, title: "Specialized agent deployment", desc: "Configuration of the 4 agents (scoring, pipeline, renewal, reactivation) with your specific business rules." },
+        { n: 3, title: "Data feed integration", desc: "Connection of all your sources (email, calls, web interactions, product usage) to feed real-time scoring." },
+        { n: 4, title: "Pipeline dashboard & alerts", desc: "Unified pipeline view by rep and team, automatic alerts and weekly management report." },
+      ],
+      benefits: [
+        { title: "95% reliable CRM", desc: "Agents keep data up to date in real time. No more ghost deals and incorrect pipeline stages." },
+        { title: "30% more deals closed", desc: "Blocked deals are detected and unblocked before they're lost. Renewals are never forgotten." },
+        { title: "Reliable forecasts", desc: "With a clean pipeline and up-to-date LTV scores, your sales forecasts reach ±10% accuracy." },
+      ],
+      faq: [
+        { q: "Which CRMs are compatible?", a: "HubSpot, Salesforce, Pipedrive and GoHighLevel natively. Any CRM with a REST API can be integrated." },
+        { q: "What variables does LTV scoring use?", a: "Purchase history, frequency, average value, sector, client tenure, NPS, product usage and behavioral signals." },
+        { q: "Can agents directly modify the CRM?", a: "Yes, with defined permissions. Every modification is logged with the responsible agent for full traceability." },
+        { q: "Is it necessary to import all historical data?", a: "Ideally yes. An initial import of 12–24 months of data correctly calibrates the scoring models." },
+      ],
+    },
+  },
 ];
