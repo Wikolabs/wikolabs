@@ -140,6 +140,64 @@ const ROW4: TechItem[] = [
   { imgSrc: "/logos/aws-cloudformation.svg",       name: "CloudFormation",  color: "#FF9900" },
 ];
 
+/* ─── ROW 5 — GCP AI/ML + Compute ─── */
+const ROW5: TechItem[] = [
+  { imgSrc: "/logos/gcp-vertex-ai.svg",             name: "Vertex AI",           color: "#4285F4" },
+  { imgSrc: "/logos/gcp-vertex-ai-search.svg",      name: "Vertex AI Search",    color: "#4285F4" },
+  { imgSrc: "/logos/gcp-vertex-ai-vision.svg",      name: "Vertex AI Vision",    color: "#4285F4" },
+  { imgSrc: "/logos/gcp-document-ai.svg",           name: "Document AI",         color: "#4285F4" },
+  { imgSrc: "/logos/gcp-vision-ai.svg",             name: "Vision AI",           color: "#34A853" },
+  { imgSrc: "/logos/gcp-natural-language-ai.svg",   name: "Natural Language AI", color: "#4285F4" },
+  { imgSrc: "/logos/gcp-speech-to-text.svg",        name: "Speech-to-Text",      color: "#4285F4" },
+  { imgSrc: "/logos/gcp-text-to-speech.svg",        name: "Text-to-Speech",      color: "#4285F4" },
+  { imgSrc: "/logos/gcp-translation-ai.svg",        name: "Translation AI",      color: "#4285F4" },
+  { imgSrc: "/logos/gcp-automl.svg",                name: "AutoML",              color: "#4285F4" },
+  { imgSrc: "/logos/gcp-dialogflow.svg",            name: "Dialogflow",          color: "#FF9800" },
+  { imgSrc: "/logos/gcp-dialogflow-cx.svg",         name: "Dialogflow CX",       color: "#FF9800" },
+  { imgSrc: "/logos/gcp-contact-center-ai.svg",     name: "Contact Center AI",   color: "#4285F4" },
+  { imgSrc: "/logos/gcp-cloud-run.svg",             name: "Cloud Run",           color: "#4285F4" },
+  { imgSrc: "/logos/gcp-gke.svg",                   name: "GKE",                 color: "#326CE5" },
+  { imgSrc: "/logos/gcp-app-engine.svg",            name: "App Engine",          color: "#4285F4" },
+  { imgSrc: "/logos/gcp-cloud-functions.svg",       name: "Cloud Functions",     color: "#4285F4" },
+  { imgSrc: "/logos/gcp-compute-engine.svg",        name: "Compute Engine",      color: "#4285F4" },
+  { imgSrc: "/logos/gcp-bare-metal.svg",            name: "Bare Metal",          color: "#4285F4" },
+];
+
+/* ─── ROW 6 — GCP Data, DB & DevOps ─── */
+const ROW6: TechItem[] = [
+  { imgSrc: "/logos/gcp-bigquery.svg",              name: "BigQuery",            color: "#4285F4" },
+  { imgSrc: "/logos/gcp-bigquery-ml.svg",           name: "BigQuery ML",         color: "#4285F4" },
+  { imgSrc: "/logos/gcp-pubsub.svg",                name: "Pub/Sub",             color: "#4285F4" },
+  { imgSrc: "/logos/gcp-dataproc.svg",              name: "Dataproc",            color: "#4285F4" },
+  { imgSrc: "/logos/gcp-cloud-composer.svg",        name: "Cloud Composer",      color: "#4285F4" },
+  { imgSrc: "/logos/gcp-data-catalog.svg",          name: "Data Catalog",        color: "#4285F4" },
+  { imgSrc: "/logos/gcp-analytics-hub.svg",         name: "Analytics Hub",       color: "#4285F4" },
+  { imgSrc: "/logos/gcp-dataplex.svg",              name: "Dataplex",            color: "#4285F4" },
+  { imgSrc: "/logos/gcp-datastream.svg",            name: "Datastream",          color: "#4285F4" },
+  { imgSrc: "/logos/gcp-spanner.svg",               name: "Spanner",             color: "#4285F4" },
+  { imgSrc: "/logos/gcp-firestore.svg",             name: "Firestore",           color: "#FFCA28" },
+  { imgSrc: "/logos/gcp-bigtable.svg",              name: "Bigtable",            color: "#4285F4" },
+  { imgSrc: "/logos/gcp-alloydb.svg",               name: "AlloyDB",             color: "#4285F4" },
+  { imgSrc: "/logos/gcp-cloud-sql.svg",             name: "Cloud SQL",           color: "#4285F4" },
+  { imgSrc: "/logos/gcp-memorystore.svg",           name: "Memorystore",         color: "#4285F4" },
+  { imgSrc: "/logos/gcp-datastore.svg",             name: "Datastore",           color: "#4285F4" },
+  { imgSrc: "/logos/gcp-cloud-storage.svg",         name: "Cloud Storage",       color: "#4285F4" },
+  { imgSrc: "/logos/gcp-cloud-build.svg",           name: "Cloud Build",         color: "#4285F4" },
+  { imgSrc: "/logos/gcp-artifact-registry.svg",     name: "Artifact Registry",   color: "#4285F4" },
+  { imgSrc: "/logos/gcp-firebase.svg",              name: "Firebase",            color: "#FFCA28" },
+  { imgSrc: "/logos/gcp-cloud-logging.svg",         name: "Cloud Logging",       color: "#4285F4" },
+  { imgSrc: "/logos/gcp-cloud-monitoring.svg",      name: "Cloud Monitoring",    color: "#4285F4" },
+  { imgSrc: "/logos/gcp-eventarc.svg",              name: "Eventarc",            color: "#4285F4" },
+  { imgSrc: "/logos/gcp-workflows.svg",             name: "Workflows",           color: "#4285F4" },
+  { imgSrc: "/logos/gcp-cloud-deploy.svg",          name: "Cloud Deploy",        color: "#4285F4" },
+  { imgSrc: "/logos/gcp-secret-manager.svg",        name: "Secret Manager",      color: "#4285F4" },
+  { imgSrc: "/logos/gcp-cloud-kms.svg",             name: "Cloud KMS",           color: "#4285F4" },
+  { imgSrc: "/logos/gcp-cloud-cdn.svg",             name: "Cloud CDN",           color: "#4285F4" },
+  { imgSrc: "/logos/gcp-load-balancing.svg",        name: "Load Balancing",      color: "#4285F4" },
+  { imgSrc: "/logos/gcp-cloud-dns.svg",             name: "Cloud DNS",           color: "#4285F4" },
+  { imgSrc: "/logos/gcp-looker.svg",                name: "Looker (GCP)",        color: "#4285F4" },
+];
+
 interface Category { Icon: IconType; name: string; techs: string; color: string }
 const CATEGORIES: Category[] = [
   { Icon: LuCloud,     name: "Cloud",      techs: "GCP · AWS · Azure",                        color: "#4285F4" },
@@ -222,6 +280,18 @@ export default function TechStack({ locale }: { locale: string }) {
       <div className={styles.marqueeRow}>
         <Marquee speed={35} direction="right" pauseOnHover gradient={false} autoFill>
           {ROW4.map((tech, i) => <TechChip key={i} item={tech} />)}
+        </Marquee>
+      </div>
+
+      <div className={styles.marqueeRow}>
+        <Marquee speed={42} pauseOnHover gradient={false} autoFill>
+          {ROW5.map((tech, i) => <TechChip key={i} item={tech} />)}
+        </Marquee>
+      </div>
+
+      <div className={styles.marqueeRow}>
+        <Marquee speed={38} direction="right" pauseOnHover gradient={false} autoFill>
+          {ROW6.map((tech, i) => <TechChip key={i} item={tech} />)}
         </Marquee>
       </div>
 
