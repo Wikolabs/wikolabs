@@ -952,4 +952,252 @@ export const OFFERS_CONTENT: OfferPageContent[] = [
       ],
     },
   },
+
+  /* ─────────────────────────────────────────────────
+     3-0  Moteur de Recherche Sémantique
+  ───────────────────────────────────────────────── */
+  {
+    slug: "moteur-recherche-semantique",
+    catSlug: "search-recommendation",
+    fr: {
+      metaTitle: "Moteur de Recherche Sémantique IA — Wikolabs",
+      metaDesc: "Recherche vectorielle sur vos catalogues, bases de connaissance et contenus. Résultats pertinents dès le premier mot. Elasticsearch + Pinecone.",
+      tag: "Recherche & Données Structurées",
+      title: "Moteur de Recherche Sémantique",
+      subtitle: "Trouvez ce que vos utilisateurs cherchent — même s'ils ne savent pas l'éprimer exactement",
+      intro: "La recherche par mots-clés exacts est morte. Vos utilisateurs tapent des intentions, pas des mots-clés. Un catalogue de 10 000 produits avec une recherche exacte retourne zéro résultat pour \"chaussure confort longue marche\" si le produit s'appelle \"semelle orthopédique premium\". Le moteur de recherche sémantique comprend l'intention derrière la requête et retourne les résultats les plus pertinents, même avec des termes différents.",
+      problem: "Les moteurs de recherche basés sur des mots-clés exacts ont un taux de zéro-résultat de 20 à 40 % sur les catalogues e-commerce. Les utilisateurs abandonnent après deux tentatives infructueuses. La recherche interne de mauvaise qualité coûte des ventes perdues et une mauvaise expérience utilisateur.",
+      solution: "Vos contenus (produits, articles, documents) sont encodés en vecteurs sémantiques et stockés dans Pinecone, Weaviate ou Elasticsearch. À chaque recherche, la requête est encodée de la même façon et les résultats les plus proches sémantiquement sont retournés — indépendamment des mots exacts utilisés. Un re-ranking hybride (sémantique + popularité + filtres métier) affine la pertinence.",
+      steps: [
+        { n: 1, title: "Indexation de votre contenu", desc: "Import et encodage vectoriel de votre catalogue, base de connaissances ou corpus documentaire. Support PDF, HTML, JSON, CSV." },
+        { n: 2, title: "Configuration du moteur", desc: "Choix du modèle d'embedding (OpenAI, Cohere, sentence-transformers), configuration de la base vectorielle et des filtres métier." },
+        { n: 3, title: "Intégration à votre interface", desc: "API REST ou SDK JavaScript pour intégrer le moteur dans votre site, app mobile ou outil interne. Temps de réponse < 200ms." },
+        { n: 4, title: "Optimisation continue", desc: "Analyse des requêtes sans résultat, ajustement des embeddings, A/B testing des stratégies de re-ranking." },
+      ],
+      benefits: [
+        { title: "Taux de zéro-résultat < 2 %", desc: "La recherche sémantique comprend l'intention et retourne toujours des résultats pertinents, même pour des requêtes imprécises." },
+        { title: "Conversion +25 %", desc: "Les utilisateurs qui trouvent ce qu'ils cherchent achètent. Une recherche pertinente est l'un des meilleurs leviers de conversion e-commerce." },
+        { title: "Mise à jour en temps réel", desc: "Chaque nouveau produit ou document est indexé en quelques secondes. Le moteur reflète toujours l'état actuel de votre catalogue." },
+      ],
+      faq: [
+        { q: "Quelle différence avec Elasticsearch classique ?", a: "Elasticsearch classique fait de la correspondance exacte de termes. La recherche sémantique comprend l'intention. Les deux peuvent être combinés (hybrid search)." },
+        { q: "Combien de documents peuvent être indexés ?", a: "De quelques milliers à plusieurs millions de documents selon la configuration. Les bases vectorielles modernes scalent horizontalement." },
+        { q: "Le moteur supporte-t-il plusieurs langues ?", a: "Oui. Les modèles d'embedding multilingues (comme multilingual-e5) permettent une recherche cross-langue cohérente." },
+        { q: "Quelle est la latence de recherche ?", a: "En dessous de 200ms pour la plupart des configurations. Des optimisations supplémentaires peuvent descendre sous 50ms si nécessaire." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Semantic Search Engine — Wikolabs",
+      metaDesc: "Vector search across your catalogues, knowledge bases and content. Relevant results from the first word. Elasticsearch + Pinecone.",
+      tag: "Search & Structured Data",
+      title: "Semantic Search Engine",
+      subtitle: "Find what your users are looking for — even if they can't express it exactly",
+      intro: "Exact keyword search is dead. Your users type intentions, not keywords. A catalogue of 10,000 products with exact search returns zero results for \"comfort long-walk shoe\" if the product is called \"premium orthopedic insole\". The semantic search engine understands the intent behind the query and returns the most relevant results, even with different terms.",
+      problem: "Keyword-based search engines have a zero-result rate of 20–40% on e-commerce catalogues. Users abandon after two failed attempts. Poor internal search costs lost sales and a bad user experience.",
+      solution: "Your content (products, articles, documents) is encoded as semantic vectors and stored in Pinecone, Weaviate or Elasticsearch. With each search, the query is encoded the same way and the semantically closest results are returned — regardless of the exact words used. Hybrid re-ranking (semantic + popularity + business filters) refines relevance.",
+      steps: [
+        { n: 1, title: "Content indexing", desc: "Import and vector encoding of your catalogue, knowledge base or document corpus. PDF, HTML, JSON, CSV supported." },
+        { n: 2, title: "Engine configuration", desc: "Embedding model selection (OpenAI, Cohere, sentence-transformers), vector database setup and business filters." },
+        { n: 3, title: "Interface integration", desc: "REST API or JavaScript SDK to integrate the engine into your site, mobile app or internal tool. Response time < 200ms." },
+        { n: 4, title: "Continuous optimization", desc: "Analysis of zero-result queries, embedding adjustment, A/B testing of re-ranking strategies." },
+      ],
+      benefits: [
+        { title: "Zero-result rate < 2%", desc: "Semantic search understands intent and always returns relevant results, even for imprecise queries." },
+        { title: "Conversion +25%", desc: "Users who find what they're looking for buy. Relevant search is one of the best e-commerce conversion levers." },
+        { title: "Real-time updates", desc: "Every new product or document is indexed in seconds. The engine always reflects your current catalogue state." },
+      ],
+      faq: [
+        { q: "What's the difference from classic Elasticsearch?", a: "Classic Elasticsearch does exact term matching. Semantic search understands intent. Both can be combined (hybrid search)." },
+        { q: "How many documents can be indexed?", a: "From a few thousand to several million documents depending on configuration. Modern vector databases scale horizontally." },
+        { q: "Does the engine support multiple languages?", a: "Yes. Multilingual embedding models (like multilingual-e5) enable consistent cross-language search." },
+        { q: "What is the search latency?", a: "Under 200ms for most configurations. Additional optimizations can bring this below 50ms if needed." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     3-1  Recommandation Personnalisée
+  ───────────────────────────────────────────────── */
+  {
+    slug: "recommandation-personnalisee",
+    catSlug: "search-recommendation",
+    fr: {
+      metaTitle: "Système de Recommandation Personnalisée IA — Wikolabs",
+      metaDesc: "Collaborative filtering et matching hybride pour surface le bon produit ou service au bon utilisateur. Panier moyen +30%. Déployé en 3 semaines.",
+      tag: "Recherche & Données Structurées",
+      title: "Recommandation Personnalisée",
+      subtitle: "Le bon produit, à la bonne personne, au bon moment",
+      intro: "Amazon réalise 35 % de son chiffre d'affaires grâce aux recommandations. Netflix retient ses abonnés avec des suggestions personnalisées. Cette capacité n'est plus réservée aux géants technologiques. Le système de recommandation personnalisée de Wikolabs s'adapte à votre catalogue et à votre audience, quel que soit votre taille, pour augmenter le panier moyen, la rétention et l'engagement.",
+      problem: "Les carousels \"Produits populaires\" ou \"Vous pourriez aimer\" basés sur des règles manuelles sont génériques et peu efficaces. Ils affichent les mêmes produits à tout le monde, ignorent le contexte et manquent les moments où un utilisateur est prêt à acheter. Résultat : taux de clic bas, panier moyen stagnant, opportunités cross-sell ratées.",
+      solution: "Le système combine plusieurs approches : collaborative filtering (ce qu'ont acheté les utilisateurs similaires), content-based filtering (produits similaires au profil de l'utilisateur) et matching contextuel (heure, device, localisation, historique récent). Les recommandations sont calculées en temps réel et personnalisées pour chaque session.",
+      steps: [
+        { n: 1, title: "Collecte des données comportementales", desc: "Intégration du tracking : vues produits, ajouts panier, achats, temps passé, recherches. Historique des interactions." },
+        { n: 2, title: "Entraînement des modèles", desc: "Collaborative filtering (matrix factorization), content-based et modèles hybrides entraînés sur vos données." },
+        { n: 3, title: "API de recommandation temps réel", desc: "API REST haute disponibilité (<50ms) pour intégration dans votre frontend : pages produit, panier, emails, push." },
+        { n: 4, title: "A/B testing & optimisation", desc: "Tests continus des stratégies de recommandation. Optimisation du CTR, du taux de conversion et du panier moyen." },
+      ],
+      benefits: [
+        { title: "Panier moyen +30 %", desc: "Les recommandations contextuelles et personnalisées augmentent la valeur de chaque commande en surfaçant les compléments pertinents." },
+        { title: "Rétention +20 %", desc: "Les utilisateurs qui trouvent du contenu ou des produits pertinents reviennent. La personnalisation crée une expérience mémorable." },
+        { title: "Zéro maintenance manuelle", desc: "Le modèle s'améliore automatiquement au fil des interactions. Plus vous avez de données, plus les recommandations sont précises." },
+      ],
+      faq: [
+        { q: "Quelle quantité de données est nécessaire pour démarrer ?", a: "Un minimum de 10 000 interactions (vues, achats, clics) permet de produire des recommandations utiles. Les modèles s'améliorent avec plus de données." },
+        { q: "Le système gère-t-il le cold start (nouveaux utilisateurs) ?", a: "Oui. Pour les nouveaux utilisateurs, des recommandations basées sur la popularité et le contexte de session sont utilisées jusqu'à l'accumulation de données." },
+        { q: "Peut-on intégrer des règles métier (exclure certains produits) ?", a: "Oui. Des règles de filtrage métier peuvent être appliquées : exclusion de produits en rupture, promotion de certaines catégories, etc." },
+        { q: "Le système est-il compatible avec les règles RGPD ?", a: "Oui. Aucune donnée personnelle identifiable n'est requise. Le système fonctionne sur des identifiants anonymes de session ou de cookie." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Personalized Recommendation System — Wikolabs",
+      metaDesc: "Collaborative filtering and hybrid matching to surface the right product to the right user. Average basket +30%. Deployed in 3 weeks.",
+      tag: "Search & Structured Data",
+      title: "Personalized Recommendation",
+      subtitle: "The right product, to the right person, at the right time",
+      intro: "Amazon generates 35% of its revenue from recommendations. Netflix retains subscribers with personalized suggestions. This capability is no longer reserved for tech giants. Wikolabs' personalized recommendation system adapts to your catalogue and audience, regardless of your size, to increase average basket, retention and engagement.",
+      problem: "\"Popular products\" or \"You might like\" carousels based on manual rules are generic and ineffective. They show the same products to everyone, ignore context and miss moments when a user is ready to buy. Result: low click rates, stagnant average basket, missed cross-sell opportunities.",
+      solution: "The system combines multiple approaches: collaborative filtering (what similar users purchased), content-based filtering (products similar to the user's profile) and contextual matching (time, device, location, recent history). Recommendations are calculated in real time and personalized for each session.",
+      steps: [
+        { n: 1, title: "Behavioral data collection", desc: "Tracking integration: product views, add-to-cart, purchases, time spent, searches. Interaction history." },
+        { n: 2, title: "Model training", desc: "Collaborative filtering (matrix factorization), content-based and hybrid models trained on your data." },
+        { n: 3, title: "Real-time recommendation API", desc: "High-availability REST API (<50ms) for frontend integration: product pages, cart, emails, push notifications." },
+        { n: 4, title: "A/B testing & optimization", desc: "Continuous testing of recommendation strategies. CTR, conversion rate and average basket optimization." },
+      ],
+      benefits: [
+        { title: "Average basket +30%", desc: "Contextual, personalized recommendations increase the value of each order by surfacing relevant add-ons." },
+        { title: "Retention +20%", desc: "Users who find relevant content or products come back. Personalization creates a memorable experience." },
+        { title: "Zero manual maintenance", desc: "The model improves automatically with interactions. The more data you have, the more accurate the recommendations." },
+      ],
+      faq: [
+        { q: "How much data is needed to start?", a: "A minimum of 10,000 interactions (views, purchases, clicks) produces useful recommendations. Models improve with more data." },
+        { q: "Does the system handle cold start (new users)?", a: "Yes. For new users, popularity-based and session-context recommendations are used until data accumulates." },
+        { q: "Can business rules be integrated (exclude certain products)?", a: "Yes. Business filtering rules can be applied: exclude out-of-stock products, promote certain categories, etc." },
+        { q: "Is the system GDPR compliant?", a: "Yes. No identifiable personal data is required. The system works on anonymous session or cookie identifiers." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     3-2  Pipeline de Données Intelligent
+  ───────────────────────────────────────────────── */
+  {
+    slug: "pipeline-donnees-intelligent",
+    catSlug: "search-recommendation",
+    fr: {
+      metaTitle: "Pipeline de Données Intelligent IA — Wikolabs",
+      metaDesc: "ETL, CDC, synchronisation temps réel et data warehouse interrogeable en langage naturel via MCP. Apache Kafka, Airflow, BigQuery.",
+      tag: "Recherche & Données Structurées",
+      title: "Pipeline de Données Intelligent",
+      subtitle: "Vos données toujours synchronisées, propres et interrogeables en temps réel",
+      intro: "Les données d'une entreprise modernes sont éparpillées sur des dizaines de sources : CRM, e-commerce, ads, ERP, SaaS. Sans pipeline robuste, ces données sont en silos, en retard et inutilisables pour la prise de décision. Le Pipeline de Données Intelligent orchestre l'extraction, la transformation et le chargement de toutes vos sources dans un entrepôt de données unifié, interrogeable en temps réel.",
+      problem: "Les données en silos empêchent une vue unifiée du business. Les exports manuels sont en retard de 24 à 48h. Les transformations ad hoc introduisent des erreurs. Sans CDC (Change Data Capture), les mises à jour manquées créent des incohérences entre systèmes. Et sans observabilité, les pannes de pipeline restent invisibles.",
+      solution: "Un pipeline automatisé ingère vos données via des connecteurs natifs (Fivetran, Airbyte, CDC) et les charge dans BigQuery ou Snowflake après transformation. Apache Airflow orchestre les dépendances et les reprises en cas d'erreur. Un agent LLM (via MCP) permet d'interroger le data warehouse en langage naturel. Un tableau de bord d'observabilité surveille la fraîcheur et la qualité des données.",
+      steps: [
+        { n: 1, title: "Cartographie des sources", desc: "Audit de toutes vos sources de données : API, bases de données, fichiers, SaaS. Priorisation par valeur business." },
+        { n: 2, title: "Construction des connecteurs", desc: "Développement ou configuration des connecteurs ETL/ELT, CDC pour les sources critiques (MySQL, PostgreSQL, Salesforce, Shopify)." },
+        { n: 3, title: "Modélisation du data warehouse", desc: "Conception du schéma en étoile ou Medallion (Bronze/Silver/Gold) dans BigQuery ou Snowflake. Couche dbt pour les transformations." },
+        { n: 4, title: "Orchestration & observabilité", desc: "Déploiement Airflow ou Prefect pour l'orchestration, alertes en cas de retard ou d'erreur, dashboard de qualité des données." },
+      ],
+      benefits: [
+        { title: "Données fraîches en < 5 minutes", desc: "Le pipeline CDC capture chaque changement dans vos sources et propage les mises à jour en temps quasi-réel dans votre entrepôt." },
+        { title: "Vue unifiée du business", desc: "Toutes vos sources dans un seul entrepôt. CRM, ventes, ads, produit — tout est cohérent et comparable." },
+        { title: "Zéro panne silencieuse", desc: "Le système de monitoring détecte et alerte sur chaque anomalie de pipeline (retard, erreur, données manquantes) avant impact business." },
+      ],
+      faq: [
+        { q: "Quelles sources de données pouvez-vous connecter ?", a: "CRM (HubSpot, Salesforce), e-commerce (Shopify, WooCommerce), ads (Google, Meta), ERP, bases SQL, APIs REST, fichiers S3 et GCS." },
+        { q: "Quelle est la fréquence de rafraîchissement minimale ?", a: "Avec CDC, les mises à jour sont propagées en moins d'une minute. Sans CDC, les pipelines batch tournent toutes les 5 à 15 minutes." },
+        { q: "Faut-il une expertise data engineering en interne ?", a: "Non. Nous gérons la mise en place et la maintenance. Vos équipes accèdent aux données via des dashboards et l'interface de requête naturelle." },
+        { q: "Les transformations dbt sont-elles maintenables par nos équipes ?", a: "Oui. dbt est conçu pour être documenté et géré par des data analysts avec des compétences SQL standards. Nous formons vos équipes." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Intelligent Data Pipeline — Wikolabs",
+      metaDesc: "ETL, CDC, real-time sync and data warehouse queryable in plain language via MCP. Apache Kafka, Airflow, BigQuery.",
+      tag: "Search & Structured Data",
+      title: "Intelligent Data Pipeline",
+      subtitle: "Your data always synchronized, clean and queryable in real time",
+      intro: "Modern company data is scattered across dozens of sources: CRM, e-commerce, ads, ERP, SaaS. Without a robust pipeline, this data lives in silos, arrives late and is unusable for decision-making. The Intelligent Data Pipeline orchestrates extraction, transformation and loading of all your sources into a unified data warehouse, queryable in real time.",
+      problem: "Siloed data prevents a unified business view. Manual exports lag 24–48 hours. Ad hoc transformations introduce errors. Without CDC (Change Data Capture), missed updates create inconsistencies between systems. And without observability, pipeline failures stay invisible.",
+      solution: "An automated pipeline ingests your data via native connectors (Fivetran, Airbyte, CDC) and loads it into BigQuery or Snowflake after transformation. Apache Airflow orchestrates dependencies and retries on error. An LLM agent (via MCP) enables natural language data warehouse queries. An observability dashboard monitors data freshness and quality.",
+      steps: [
+        { n: 1, title: "Source mapping", desc: "Audit of all your data sources: APIs, databases, files, SaaS. Prioritization by business value." },
+        { n: 2, title: "Connector construction", desc: "Development or configuration of ETL/ELT connectors, CDC for critical sources (MySQL, PostgreSQL, Salesforce, Shopify)." },
+        { n: 3, title: "Data warehouse modeling", desc: "Star schema or Medallion (Bronze/Silver/Gold) design in BigQuery or Snowflake. dbt layer for transformations." },
+        { n: 4, title: "Orchestration & observability", desc: "Airflow or Prefect deployment for orchestration, alerts on delay or error, data quality dashboard." },
+      ],
+      benefits: [
+        { title: "Fresh data in < 5 minutes", desc: "The CDC pipeline captures every change in your sources and propagates updates in near real time to your warehouse." },
+        { title: "Unified business view", desc: "All your sources in one warehouse. CRM, sales, ads, product — everything is consistent and comparable." },
+        { title: "Zero silent failures", desc: "The monitoring system detects and alerts on every pipeline anomaly (delay, error, missing data) before business impact." },
+      ],
+      faq: [
+        { q: "Which data sources can you connect?", a: "CRM (HubSpot, Salesforce), e-commerce (Shopify, WooCommerce), ads (Google, Meta), ERP, SQL databases, REST APIs, S3 and GCS files." },
+        { q: "What is the minimum refresh frequency?", a: "With CDC, updates propagate in under one minute. Without CDC, batch pipelines run every 5–15 minutes." },
+        { q: "Do we need in-house data engineering expertise?", a: "No. We handle setup and maintenance. Your teams access data via dashboards and the natural language query interface." },
+        { q: "Are dbt transformations maintainable by our teams?", a: "Yes. dbt is designed to be documented and managed by data analysts with standard SQL skills. We train your teams." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     3-3  Fine-tuning & MLOps
+  ───────────────────────────────────────────────── */
+  {
+    slug: "fine-tuning-mlops",
+    catSlug: "search-recommendation",
+    fr: {
+      metaTitle: "Fine-tuning & MLOps IA — Wikolabs",
+      metaDesc: "Entraînement, RLHF, déploiement et monitoring de modèles IA sur GCP, AWS ou Azure. Pipeline MLOps complet de la donnée au modèle en production.",
+      tag: "Recherche & Données Structurées",
+      title: "Fine-tuning & MLOps",
+      subtitle: "Des modèles IA entraînés sur vos données, déployés et monitorés en production",
+      intro: "Les modèles de fondation (GPT, Claude, Llama) sont puissants mais génériques. Pour des performances optimales sur votre domaine spécifique — classification de tickets, extraction d'entités, génération de contenu métier — il faut un modèle fine-tuné sur vos données. Wikolabs prend en charge l'intégralité du cycle : préparation des données, fine-tuning, évaluation, déploiement et monitoring.",
+      problem: "Les modèles génériques font des erreurs sur le vocabulaire et les nuances propres à votre secteur. Sans pipeline MLOps, les modèles se dégradent en production sans qu'on le détecte. L'inférence sur des modèles non optimisés coûte cher. Et sans infrastructure de déploiement, les modèles restent des POC qui n'arrivent jamais en production.",
+      solution: "Nous construisons un pipeline MLOps complet : préparation et annotation des données, fine-tuning sur votre infrastructure cloud (GCP Vertex AI, AWS SageMaker ou Azure ML), évaluation comparative contre le modèle de base, déploiement en endpoint API et monitoring continu (drift, performance, coût d'inférence). Le modèle est ré-entraîné automatiquement quand ses performances se dégradent.",
+      steps: [
+        { n: 1, title: "Préparation & annotation des données", desc: "Constitution du dataset d'entraînement, annotation (manuelle ou semi-automatique), validation de la qualité et split train/eval/test." },
+        { n: 2, title: "Fine-tuning & évaluation", desc: "Entraînement sur Vertex AI, SageMaker ou Azure ML. Évaluation sur métriques métier. Comparaison modèle base vs fine-tuné." },
+        { n: 3, title: "Déploiement en production", desc: "Déploiement sur endpoint API scalable. Optimisation inférence (quantization, batching). Intégration dans vos systèmes existants." },
+        { n: 4, title: "Monitoring & ré-entraînement", desc: "Surveillance des métriques de performance, détection du concept drift et déclenchement automatique du ré-entraînement si nécessaire." },
+      ],
+      benefits: [
+        { title: "Performance +40 % vs modèle générique", desc: "Un modèle fine-tuné sur votre domaine obtient en moyenne 40 % de meilleures performances sur vos tâches spécifiques." },
+        { title: "Coût d'inférence réduit de 60 %", desc: "Un petit modèle spécialisé coûte beaucoup moins cher à faire tourner qu'un grand modèle générique pour la même tâche." },
+        { title: "Modèle propriétaire", desc: "Le modèle entraîné sur vos données vous appartient. C'est un actif stratégique qui prend de la valeur avec le temps." },
+      ],
+      faq: [
+        { q: "Quel volume de données est nécessaire pour le fine-tuning ?", a: "Entre 500 et 5 000 exemples annotés pour un fine-tuning supervisé. Des techniques comme LoRA permettent de fine-tuner avec moins de données." },
+        { q: "Quels modèles de base peuvent être fine-tunés ?", a: "GPT-4o, Claude, Llama 3, Mistral, Phi-3 et tout modèle open source. Le choix dépend de vos contraintes de coût, latence et confidentialité." },
+        { q: "Le modèle fine-tuné peut-il tourner on-premise ?", a: "Oui, pour les modèles open source (Llama, Mistral). Nous gérons le déploiement sur vos serveurs ou votre cloud privé." },
+        { q: "Comment mesure-t-on les performances du modèle ?", a: "Nous définissons des métriques métier spécifiques à votre cas d'usage (précision, rappel, F1, BLEU selon la tâche) et les suivons en continu." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Fine-tuning & MLOps — Wikolabs",
+      metaDesc: "Model training, RLHF, deployment and monitoring on GCP, AWS or Azure. Complete MLOps pipeline from data to model in production.",
+      tag: "Search & Structured Data",
+      title: "Fine-tuning & MLOps",
+      subtitle: "AI models trained on your data, deployed and monitored in production",
+      intro: "Foundation models (GPT, Claude, Llama) are powerful but generic. For optimal performance on your specific domain — ticket classification, entity extraction, business content generation — you need a model fine-tuned on your data. Wikolabs handles the full cycle: data preparation, fine-tuning, evaluation, deployment and monitoring.",
+      problem: "Generic models make errors on vocabulary and nuances specific to your sector. Without an MLOps pipeline, models degrade in production undetected. Inference on unoptimized models is expensive. And without deployment infrastructure, models remain POCs that never reach production.",
+      solution: "We build a complete MLOps pipeline: data preparation and annotation, fine-tuning on your cloud infrastructure (GCP Vertex AI, AWS SageMaker or Azure ML), comparative evaluation against the base model, API endpoint deployment and continuous monitoring (drift, performance, inference cost). The model is automatically retrained when performance degrades.",
+      steps: [
+        { n: 1, title: "Data preparation & annotation", desc: "Training dataset assembly, annotation (manual or semi-automatic), quality validation and train/eval/test split." },
+        { n: 2, title: "Fine-tuning & evaluation", desc: "Training on Vertex AI, SageMaker or Azure ML. Business metric evaluation. Base model vs. fine-tuned comparison." },
+        { n: 3, title: "Production deployment", desc: "Deployment on scalable API endpoint. Inference optimization (quantization, batching). Integration into your existing systems." },
+        { n: 4, title: "Monitoring & retraining", desc: "Performance metric monitoring, concept drift detection and automatic retraining trigger when needed." },
+      ],
+      benefits: [
+        { title: "Performance +40% vs generic model", desc: "A fine-tuned domain model averages 40% better performance on your specific tasks." },
+        { title: "Inference cost reduced by 60%", desc: "A small specialized model costs much less to run than a large generic model for the same task." },
+        { title: "Proprietary model", desc: "The model trained on your data belongs to you. It's a strategic asset that grows in value over time." },
+      ],
+      faq: [
+        { q: "How much data is needed for fine-tuning?", a: "Between 500 and 5,000 annotated examples for supervised fine-tuning. Techniques like LoRA enable fine-tuning with less data." },
+        { q: "Which base models can be fine-tuned?", a: "GPT-4o, Claude, Llama 3, Mistral, Phi-3 and any open-source model. Choice depends on your cost, latency and confidentiality constraints." },
+        { q: "Can the fine-tuned model run on-premise?", a: "Yes, for open-source models (Llama, Mistral). We manage deployment on your servers or private cloud." },
+        { q: "How are model performance measured?", a: "We define business-specific metrics for your use case (precision, recall, F1, BLEU depending on task) and monitor them continuously." },
+      ],
+    },
+  },
 ];
