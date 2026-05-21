@@ -88,16 +88,21 @@ const CAT_SLUGS = [
   "production-ai",
 ];
 
-/* Subtle per-category card background tints */
-const CAT_BG_TINTS = [
-  "rgba(212,175,55,0.06)",    // Commercial — warm gold
-  "rgba(34,211,238,0.05)",    // Support — cyan
-  "rgba(66,133,244,0.06)",    // BI — blue
-  "rgba(34,197,94,0.05)",     // Search — green
-  "rgba(155,89,182,0.06)",    // Vision — purple
-  "rgba(97,218,251,0.05)",    // Web — React blue
-  "rgba(247,147,30,0.06)",    // IoT — orange
+/* Per-offer slug for individual detail pages */
+const OFFER_SLUGS: string[][] = [
+  ["agent-veille-marche","agent-sourcing-leads","agent-outreach-multicanal","agent-qualification-bant","agent-setter-rdv","agent-proposition-commerciale","agent-retention-upsell"],
+  ["agent-sav-ecommerce-rag","agent-triage-escalade","agent-onboarding-client","agent-notes-discovery"],
+  ["agent-bi-langage-naturel","reporting-automatique","forecasting-anomalies","crm-multi-agent"],
+  ["moteur-recherche-semantique","recommandation-personnalisee","pipeline-donnees-intelligent","fine-tuning-mlops"],
+  ["ocr-extraction-documentaire","vision-ia-detection-objets","bim-point-cloud","cartographie-geolocalisation"],
+  ["refonte-ux-ui-web","application-mobile-react-native","debogage-optimisation-performance","seo-technique-visibilite"],
+  ["ia-embarquee-edge-device","monitoring-iot-temps-reel","vision-machine-camera-ip","maintenance-predictive-ia"],
 ];
+
+/* Per-card hue-shifted background — unique tint for every card */
+const CAT_BASE_HUES = [43, 185, 217, 142, 270, 195, 35];
+const getCardBg = (ci: number, oi: number) =>
+  `hsla(${CAT_BASE_HUES[ci] + oi * 8}, 65%, 58%, 0.07)`;
 
 /* ── Tech badges per offer [category][offer] ── */
 const CATEGORY_TECHS: Tech[][][] = [
@@ -341,7 +346,7 @@ export default function Services({
                     <div
                       key={oi}
                       className={styles.offerCard}
-                      style={{ "--card-cat": CAT_BG_TINTS[ci] } as React.CSSProperties}
+                      style={{ "--card-cat": getCardBg(ci, oi) } as React.CSSProperties}
                     >
                       {OfferIcon && (
                         <div className={styles.offerIllust}>
@@ -354,7 +359,7 @@ export default function Services({
                         {techs.map((tech, ti) => <TechBadge key={ti} tech={tech} />)}
                       </div>
                       <div className={styles.offerCardFooter}>
-                        <Link href={`/${locale}/services/${catSlug}`} className={styles.offerCardLink}>
+                        <Link href={`/${locale}/services/offer/${OFFER_SLUGS[ci]?.[oi] ?? catSlug}`} className={styles.offerCardLink}>
                           {lang === "fr" ? "En savoir plus →" : "Learn more →"}
                         </Link>
                         {onAddToCart && (() => {
