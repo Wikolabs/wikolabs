@@ -208,4 +208,252 @@ export const OFFERS_CONTENT: OfferPageContent[] = [
       ],
     },
   },
+
+  /* ─────────────────────────────────────────────────
+     0-3  Agent Qualification BANT
+  ───────────────────────────────────────────────── */
+  {
+    slug: "agent-qualification-bant",
+    catSlug: "commercial-automation",
+    fr: {
+      metaTitle: "Agent Qualification BANT IA — Wikolabs",
+      metaDesc: "Analyse automatique des réponses prospects, score BANT mis à jour, routage HOT vers setter et COLD vers nurturing. Déployez en 1 semaine.",
+      tag: "Cycle Commercial & Marketing",
+      title: "Agent Qualification BANT",
+      subtitle: "Triez vos leads automatiquement et focalisez l'effort commercial sur les bons",
+      intro: "Dans un pipeline B2B, 80 % des leads ne sont pas prêts à acheter immédiatement. Sans qualification rigoureuse, vos commerciaux perdent du temps sur des prospects froids pendant que les chauds refroidissent. L'Agent Qualification BANT analyse chaque interaction (email, formulaire, appel transcrit), met à jour le score BANT en temps réel et route automatiquement le lead vers la bonne séquence.",
+      problem: "La qualification manuelle est subjective et chronophage. Les commerciaux surfacturent les leads qu'ils ont eux-mêmes sourcés. Sans score objectif, les leads chauds et froids cohabitent dans le même pipeline — et les froids noient les chauds.",
+      solution: "À chaque interaction prospect (réponse email, remplissage de formulaire, transcription d'appel), l'agent extrait les signaux BANT (Budget confirmé ? Autorité identifiée ? Need explicite ? Timing précisé ?), met à jour le score dans le CRM et déclenche le workflow approprié : HOT → notification setter, COLD → séquence nurturing, DISQUALIFIED → archivage.",
+      steps: [
+        { n: 1, title: "Définition des critères BANT", desc: "Atelier pour définir vos seuils de qualification : quel budget minimal, quels signaux d'autorité, quels indicateurs de besoin et timing acceptables." },
+        { n: 2, title: "Connexion aux sources d'interaction", desc: "Intégration des emails entrants, formulaires, transcriptions d'appels (Whisper) et réponses LinkedIn dans le pipeline de qualification." },
+        { n: 3, title: "Scoring & mise à jour CRM", desc: "Pour chaque interaction, extraction automatique des signaux BANT et mise à jour du score dans votre CRM (HubSpot, Salesforce, GoHighLevel)." },
+        { n: 4, title: "Routage & déclenchement", desc: "Notification au setter si score HOT, entrée en nurturing si COLD, archivage si DISQUALIFIED. Chaque action est loggée et traçable." },
+      ],
+      benefits: [
+        { title: "Pipeline propre & priorisé", desc: "Votre CRM ne contient que des leads avec un statut objectif. Fini les deals dormants qui faussent vos prévisions." },
+        { title: "Commerciaux focalisés sur les HOT", desc: "Zéro temps perdu sur des prospects non qualifiés. Le setter reçoit uniquement les leads qui ont confirmé budget et besoin." },
+        { title: "Nurturing automatique des COLD", desc: "Les leads pas encore prêts entrent en séquence d'éducation automatique. Ils reviennent qualifiés — sans effort humain." },
+      ],
+      faq: [
+        { q: "Le scoring BANT est-il personnalisable ?", a: "Oui. Vous définissez les poids de chaque critère et les seuils de passage HOT/COLD/DISQUALIFIED selon votre cycle de vente." },
+        { q: "L'agent peut-il analyser des transcriptions d'appels ?", a: "Oui. Les appels sont transcrits via Whisper puis analysés par LLM pour extraire les signaux BANT implicites et explicites." },
+        { q: "Que se passe-t-il si un lead COLD se réchauffe ?", a: "Le score est mis à jour à chaque nouvelle interaction. Un lead COLD peut passer HOT automatiquement si ses signaux évoluent." },
+        { q: "Faut-il remplacer notre CRM ?", a: "Non. L'agent se greffe sur votre CRM existant via API et enrichit les champs de qualification sans modifier votre workflow actuel." },
+      ],
+    },
+    en: {
+      metaTitle: "AI BANT Qualification Agent — Wikolabs",
+      metaDesc: "Automatic prospect response analysis, real-time BANT scoring, HOT routing to setter and COLD to nurturing. Deploy in 1 week.",
+      tag: "Commercial Cycle & Marketing",
+      title: "BANT Qualification Agent",
+      subtitle: "Auto-sort your leads and focus sales effort on the right ones",
+      intro: "In a B2B pipeline, 80% of leads aren't ready to buy immediately. Without rigorous qualification, your reps waste time on cold prospects while hot ones go cold. The BANT Qualification Agent analyzes every interaction (email, form, transcribed call), updates the BANT score in real time and automatically routes the lead to the right sequence.",
+      problem: "Manual qualification is subjective and time-consuming. Reps over-rate leads they sourced themselves. Without an objective score, hot and cold leads coexist in the same pipeline — and cold ones bury the hot ones.",
+      solution: "At each prospect interaction (email reply, form fill, call transcript), the agent extracts BANT signals (Budget confirmed? Authority identified? Need explicit? Timing specified?), updates the score in the CRM and triggers the appropriate workflow: HOT → setter notification, COLD → nurturing sequence, DISQUALIFIED → archive.",
+      steps: [
+        { n: 1, title: "BANT criteria definition", desc: "Workshop to define your qualification thresholds: minimum budget, authority signals, need indicators and acceptable timing." },
+        { n: 2, title: "Interaction source connection", desc: "Integration of inbound emails, forms, call transcripts (Whisper) and LinkedIn replies into the qualification pipeline." },
+        { n: 3, title: "Scoring & CRM update", desc: "For each interaction, automatic BANT signal extraction and score update in your CRM (HubSpot, Salesforce, GoHighLevel)." },
+        { n: 4, title: "Routing & triggering", desc: "Setter notification if HOT, nurturing entry if COLD, archive if DISQUALIFIED. Every action is logged and traceable." },
+      ],
+      benefits: [
+        { title: "Clean & prioritized pipeline", desc: "Your CRM only contains leads with an objective status. No more dormant deals skewing your forecasts." },
+        { title: "Sales focused on HOT leads", desc: "Zero time wasted on unqualified prospects. The setter only receives leads that have confirmed budget and need." },
+        { title: "Automatic COLD nurturing", desc: "Leads not yet ready enter an automatic education sequence. They return qualified — with no human effort." },
+      ],
+      faq: [
+        { q: "Is the BANT scoring customizable?", a: "Yes. You define the weight of each criterion and HOT/COLD/DISQUALIFIED thresholds based on your sales cycle." },
+        { q: "Can the agent analyze call transcripts?", a: "Yes. Calls are transcribed via Whisper then analyzed by LLM to extract implicit and explicit BANT signals." },
+        { q: "What if a COLD lead warms up?", a: "The score is updated at every new interaction. A COLD lead can automatically become HOT if their signals evolve." },
+        { q: "Do we need to replace our CRM?", a: "No. The agent plugs into your existing CRM via API and enriches qualification fields without altering your current workflow." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     0-4  Agent Setter (Prise de RDV)
+  ───────────────────────────────────────────────── */
+  {
+    slug: "agent-setter-rdv",
+    catSlug: "commercial-automation",
+    fr: {
+      metaTitle: "Agent Setter Prise de RDV IA — Wikolabs",
+      metaDesc: "Proposition automatique de créneaux Calendly, confirmations, rappels J-1 et brief pré-call LLM. Taux de no-show réduit de 60%. Déployé en 1 semaine.",
+      tag: "Cycle Commercial & Marketing",
+      title: "Agent Setter (Prise de RDV)",
+      subtitle: "Remplissez votre agenda commercial sans intervention humaine",
+      intro: "La prise de rendez-vous est l'une des tâches les plus chronophages — et les moins valorisantes — du cycle commercial. Entre les échanges d'emails pour trouver un créneau, les confirmations manuelles et les rappels oubliés, un commercial perd jusqu'à 5h par semaine. L'Agent Setter automatise l'intégralité du processus, de la proposition de créneaux au brief pré-call généré par LLM.",
+      problem: "Les échanges de disponibilités prennent en moyenne 4 à 6 emails. Le taux de no-show sans rappel atteint 30 %. Sans brief pré-call structuré, vos commerciaux arrivent mal préparés. Et chaque RDV raté représente une opportunité perdue.",
+      solution: "Dès qu'un lead est classé HOT, l'agent envoie un email de prise de contact avec un lien Calendly personnalisé. À la confirmation, il envoie un email de confirmation, programme un rappel SMS/email J-1 et génère un brief pré-call LLM (résumé du prospect, enjeux détectés, questions suggérées) envoyé au commercial 30 minutes avant le call.",
+      steps: [
+        { n: 1, title: "Connexion Calendly & CRM", desc: "Intégration de votre Calendly (ou cal.com), de votre CRM et de vos outils d'envoi (email + SMS via Twilio ou autre)." },
+        { n: 2, title: "Séquence de prise de RDV", desc: "Rédaction des emails de contact, de confirmation et de rappel. Personnalisation par segment (PME, grand compte, startup)." },
+        { n: 3, title: "Génération du brief pré-call", desc: "30 minutes avant chaque call, l'agent compile les infos du prospect (CRM + LinkedIn + site web) et génère un brief LLM structuré." },
+        { n: 4, title: "Suivi & relance post-no-show", desc: "Si le prospect ne se présente pas, l'agent envoie automatiquement une relance polie avec proposition de nouveau créneau." },
+      ],
+      benefits: [
+        { title: "No-show réduit de 60 %", desc: "Les rappels SMS et email J-1 automatiques réduisent drastiquement les rendez-vous manqués." },
+        { title: "5h/semaine récupérées par commercial", desc: "Plus d'échanges d'emails pour caler un créneau. L'agent gère tout depuis la proposition jusqu'à la confirmation." },
+        { title: "Commerciaux mieux préparés", desc: "Le brief pré-call LLM garantit que chaque commercial arrive avec le contexte, les enjeux et les questions pertinentes." },
+      ],
+      faq: [
+        { q: "Fonctionne avec Calendly Team ?", a: "Oui, ainsi qu'avec cal.com, HubSpot Meetings et tout outil de prise de RDV disposant d'une API ou d'un webhook." },
+        { q: "Le brief peut-il intégrer des données CRM spécifiques ?", a: "Oui. Vous définissez quels champs CRM inclure dans le brief : valeur du deal, historique d'interactions, notes de qualification." },
+        { q: "L'agent gère-t-il les fuseaux horaires ?", a: "Oui. Calendly gère nativement les fuseaux horaires. Les rappels sont envoyés au bon moment local du prospect." },
+        { q: "Peut-on intégrer un questionnaire de qualification pré-call ?", a: "Oui. Un formulaire court peut être envoyé à la confirmation du RDV pour enrichir le brief et préparer le commercial." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Setter Agent — Meeting Booking — Wikolabs",
+      metaDesc: "Automatic Calendly slot proposals, confirmations, D-1 reminders and LLM pre-call brief. No-show rate reduced by 60%. Deployed in 1 week.",
+      tag: "Commercial Cycle & Marketing",
+      title: "Setter Agent (Meeting Booking)",
+      subtitle: "Fill your sales calendar without any human intervention",
+      intro: "Booking meetings is one of the most time-consuming — and least valuable — tasks in the sales cycle. Between email chains to find a time slot, manual confirmations and forgotten reminders, a sales rep loses up to 5 hours per week. The Setter Agent automates the entire process, from slot proposal to LLM-generated pre-call brief.",
+      problem: "Scheduling back-and-forth averages 4–6 emails. No-show rates without reminders reach 30%. Without a structured pre-call brief, your reps arrive unprepared. And every missed meeting is a lost opportunity.",
+      solution: "As soon as a lead is classified HOT, the agent sends a contact email with a personalized Calendly link. On confirmation, it sends a confirmation email, schedules a D-1 SMS/email reminder and generates an LLM pre-call brief (prospect summary, detected issues, suggested questions) sent to the rep 30 minutes before the call.",
+      steps: [
+        { n: 1, title: "Calendly & CRM connection", desc: "Integration with your Calendly (or cal.com), CRM and sending tools (email + SMS via Twilio or equivalent)." },
+        { n: 2, title: "Booking sequence setup", desc: "Drafting of contact, confirmation and reminder emails. Customization by segment (SMB, enterprise, startup)." },
+        { n: 3, title: "Pre-call brief generation", desc: "30 minutes before each call, the agent compiles prospect info (CRM + LinkedIn + website) and generates a structured LLM brief." },
+        { n: 4, title: "Follow-up & no-show recovery", desc: "If the prospect doesn't show, the agent automatically sends a polite follow-up with a new slot proposal." },
+      ],
+      benefits: [
+        { title: "No-show reduced by 60%", desc: "Automated D-1 SMS and email reminders drastically reduce missed appointments." },
+        { title: "5h/week recovered per rep", desc: "No more scheduling email chains. The agent handles everything from slot proposal to confirmation." },
+        { title: "Better prepared reps", desc: "The LLM pre-call brief ensures every rep arrives with the context, issues and relevant questions ready." },
+      ],
+      faq: [
+        { q: "Does it work with Calendly Team?", a: "Yes, as well as cal.com, HubSpot Meetings and any booking tool with an API or webhook." },
+        { q: "Can the brief include specific CRM data?", a: "Yes. You define which CRM fields to include: deal value, interaction history, qualification notes." },
+        { q: "Does the agent handle time zones?", a: "Yes. Calendly natively manages time zones. Reminders are sent at the prospect's correct local time." },
+        { q: "Can we add a pre-call qualification questionnaire?", a: "Yes. A short form can be sent on meeting confirmation to enrich the brief and prepare the rep." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     0-5  Agent Proposition Commerciale
+  ───────────────────────────────────────────────── */
+  {
+    slug: "agent-proposition-commerciale",
+    catSlug: "commercial-automation",
+    fr: {
+      metaTitle: "Agent Proposition Commerciale IA — Wikolabs",
+      metaDesc: "Draft de proposition commerciale généré depuis les notes du discovery call. PDF envoyé via DocuSign automatiquement. Délai réduit de 48h à 2h.",
+      tag: "Cycle Commercial & Marketing",
+      title: "Agent Proposition Commerciale",
+      subtitle: "De la note de discovery à la proposition signée en moins de 2 heures",
+      intro: "Chaque heure entre la fin d'un discovery call et l'envoi de la proposition est une heure pendant laquelle le prospect refroidit. Pourtant, rédiger une proposition personnalisée, la mettre en forme et l'envoyer prend en moyenne 4 à 8 heures. L'Agent Proposition Commerciale génère un draft complet depuis vos notes de call, le formate en PDF professionnel et l'envoie via DocuSign — en moins de 2 heures.",
+      problem: "Les délais de rédaction laissent le temps au prospect de solliciter un concurrent. La qualité varie selon le commercial qui rédige. Les propositions génériques sont moins convaincantes que les personnalisées. Et chaque heure de rédaction est une heure de moins en prospection.",
+      solution: "À la fin d'un discovery call, le commercial remplit un formulaire rapide (ou colle sa transcription). L'agent génère un document structuré : résumé du besoin, solution proposée, ROI estimé, investissement, étapes suivantes. Le PDF est formaté à votre charte graphique et envoyé via l'API DocuSign pour signature électronique.",
+      steps: [
+        { n: 1, title: "Template & charte graphique", desc: "Intégration de votre template de proposition (Word, Google Docs ou HTML). Mise en conformité avec votre charte graphique." },
+        { n: 2, title: "Formulaire de capture post-call", desc: "Formulaire structuré (ou transcription libre) que le commercial remplit en 5 minutes après chaque discovery call." },
+        { n: 3, title: "Génération LLM & mise en forme", desc: "L'agent génère le contenu de la proposition, l'insère dans le template, ajoute les visuels et exporte en PDF professionnel." },
+        { n: 4, title: "Envoi DocuSign & tracking", desc: "Envoi automatique via DocuSign ou PandaDoc. Notification dès que le prospect ouvre ou signe. Relance automatique à J+3 si non ouvert." },
+      ],
+      benefits: [
+        { title: "De 8h à 2h", desc: "Le temps de rédaction passe de plusieurs heures à moins de 2h — dont 5 minutes pour le commercial. Le reste est automatique." },
+        { title: "Propositions 100% personnalisées", desc: "Chaque proposition reprend les mots exacts du prospect, ses enjeux spécifiques et les chiffres de son secteur. Plus de templates génériques." },
+        { title: "Taux de closing amélioré", desc: "Envoyer une proposition soignée et personnalisée dans les 2 heures suivant le call est l'un des meilleurs signaux de professionnalisme." },
+      ],
+      faq: [
+        { q: "Quel format de sortie est supporté ?", a: "PDF principalement, mais aussi Word (.docx) ou Google Slides selon votre template. Toujours à votre charte graphique." },
+        { q: "L'agent peut-il calculer le ROI automatiquement ?", a: "Oui, si vous lui fournissez les données de base (effectif, volume, temps actuel sur la tâche). Il estime le gain et le positionne dans la proposition." },
+        { q: "Faut-il avoir DocuSign ?", a: "Non. L'agent fonctionne aussi avec PandaDoc, HelloSign, ou simplement un envoi email avec PDF en pièce jointe." },
+        { q: "La proposition peut-elle inclure des témoignages clients ?", a: "Oui. Vous fournissez une base de cas clients et l'agent sélectionne les plus pertinents selon le secteur et le besoin du prospect." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Commercial Proposal Agent — Wikolabs",
+      metaDesc: "Proposal draft generated from discovery call notes. PDF sent via DocuSign automatically. Turnaround reduced from 48h to 2h.",
+      tag: "Commercial Cycle & Marketing",
+      title: "Commercial Proposal Agent",
+      subtitle: "From discovery notes to signed proposal in under 2 hours",
+      intro: "Every hour between the end of a discovery call and sending the proposal is an hour the prospect is cooling down. Yet writing a personalized proposal, formatting it and sending it takes an average of 4–8 hours. The Commercial Proposal Agent generates a complete draft from your call notes, formats it as a professional PDF and sends it via DocuSign — in under 2 hours.",
+      problem: "Long turnaround times give prospects time to contact competitors. Quality varies by rep. Generic proposals are less convincing than personalized ones. And every hour spent writing is an hour less spent prospecting.",
+      solution: "After a discovery call, the rep fills a quick form (or pastes their transcript). The agent generates a structured document: need summary, proposed solution, estimated ROI, investment, next steps. The PDF is formatted to your brand guidelines and sent via DocuSign API for electronic signature.",
+      steps: [
+        { n: 1, title: "Template & branding setup", desc: "Integration of your proposal template (Word, Google Docs or HTML). Alignment with your brand guidelines." },
+        { n: 2, title: "Post-call capture form", desc: "Structured form (or free transcript) the rep fills in 5 minutes after each discovery call." },
+        { n: 3, title: "LLM generation & formatting", desc: "The agent generates the proposal content, inserts it into the template, adds visuals and exports as a professional PDF." },
+        { n: 4, title: "DocuSign send & tracking", desc: "Automatic send via DocuSign or PandaDoc. Notification when the prospect opens or signs. Auto-follow-up at D+3 if unopened." },
+      ],
+      benefits: [
+        { title: "From 8h to 2h", desc: "Drafting time drops from several hours to under 2h — with only 5 minutes from the rep. The rest is automatic." },
+        { title: "100% personalized proposals", desc: "Each proposal uses the prospect's exact words, their specific issues and sector benchmarks. No more generic templates." },
+        { title: "Improved closing rate", desc: "Sending a polished personalized proposal within 2 hours of the call is one of the strongest professionalism signals." },
+      ],
+      faq: [
+        { q: "What output format is supported?", a: "PDF primarily, but also Word (.docx) or Google Slides depending on your template. Always in your brand style." },
+        { q: "Can the agent calculate ROI automatically?", a: "Yes, if you provide base data (headcount, volume, current time on task). It estimates the gain and positions it in the proposal." },
+        { q: "Do we need DocuSign?", a: "No. The agent also works with PandaDoc, HelloSign, or simply an email send with PDF attachment." },
+        { q: "Can the proposal include client testimonials?", a: "Yes. You provide a client case library and the agent selects the most relevant ones by sector and prospect need." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     0-6  Agent Rétention & Upsell
+  ───────────────────────────────────────────────── */
+  {
+    slug: "agent-retention-upsell",
+    catSlug: "commercial-automation",
+    fr: {
+      metaTitle: "Agent Rétention & Upsell IA — Wikolabs",
+      metaDesc: "Détection de churn risk, email de réengagement personnalisé et séquences upsell déclenchées automatiquement. Réduisez le churn de 35%.",
+      tag: "Cycle Commercial & Marketing",
+      title: "Agent Rétention & Upsell",
+      subtitle: "Gardez vos clients et augmentez leur valeur sans effort manuel",
+      intro: "Acquérir un nouveau client coûte 5 à 7 fois plus cher que d'en garder un existant. Pourtant, la rétention et l'upsell sont souvent réactifs : on intervient quand le client se plaint, pas avant. L'Agent Rétention & Upsell analyse en permanence les signaux comportementaux de vos clients, détecte les risques de churn avant qu'ils se matérialisent et déclenche automatiquement les bons messages au bon moment.",
+      problem: "Le churn est détecté trop tard — quand le client a déjà décidé de partir. Les opportunités d'upsell sont manquées faute de timing. Les account managers gèrent trop de comptes pour surveiller chacun individuellement. Et sans automatisation, la rétention reste réactive plutôt que proactive.",
+      solution: "L'agent monitore les signaux de churn (baisse d'usage, tickets support répétés, NPS en chute, absence aux renouvellements) et déclenche des campagnes de réengagement personnalisées par LLM. Quand un client atteint un milestone de succès, l'agent déclenche une séquence upsell adaptée à son profil et son usage.",
+      steps: [
+        { n: 1, title: "Définition des signaux de churn", desc: "Identification des indicateurs prédictifs spécifiques à votre produit : fréquence d'usage, tickets ouverts, NPS, activité de connexion." },
+        { n: 2, title: "Scoring de rétention en temps réel", desc: "L'agent calcule un score de santé client quotidien et alerte l'account manager quand un compte passe en zone rouge." },
+        { n: 3, title: "Campagnes de réengagement LLM", desc: "Pour chaque client à risque : email personnalisé reprenant son usage réel, ses succès passés et une offre de valeur ajoutée ciblée." },
+        { n: 4, title: "Séquences upsell post-succès", desc: "Quand un client atteint un KPI positif (adoption, ROI, milestone), l'agent déclenche une séquence upsell naturelle et non intrusive." },
+      ],
+      benefits: [
+        { title: "Churn réduit de 35 %", desc: "L'intervention préventive avant que le client ne décide de partir multiplie les chances de rétention par rapport à une intervention réactive." },
+        { title: "LTV augmentée de 40 %", desc: "Les séquences upsell déclenchées au bon moment (après un succès client) convertissent 3 fois mieux que les upsells aléatoires." },
+        { title: "Account managers libérés", desc: "Vos AM ne surveillent plus 200 comptes manuellement. Ils interviennent uniquement quand l'agent signale un compte critique." },
+      ],
+      faq: [
+        { q: "Comment l'agent accède-t-il aux données d'usage ?", a: "Via l'API de votre plateforme produit, votre CRM ou un export automatique quotidien vers notre pipeline. L'intégration est sur-mesure." },
+        { q: "L'agent peut-il gérer les renouvellements ?", a: "Oui. Un workflow de renouvellement peut être ajouté : rappel J-60, J-30 et J-7 avec proposition de renouvellement personnalisée." },
+        { q: "Le score de santé client est-il visible dans le CRM ?", a: "Oui. Le score est synchronisé dans votre CRM sous forme de champ personnalisé, visible par vos AM en temps réel." },
+        { q: "Peut-on exclure certains clients des campagnes automatiques ?", a: "Oui. Un système de liste d'exclusion permet de protéger vos comptes stratégiques gérés manuellement." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Retention & Upsell Agent — Wikolabs",
+      metaDesc: "Churn risk detection, personalized re-engagement emails and upsell sequences triggered automatically. Reduce churn by 35%.",
+      tag: "Commercial Cycle & Marketing",
+      title: "Retention & Upsell Agent",
+      subtitle: "Keep your clients and grow their value without manual effort",
+      intro: "Acquiring a new client costs 5–7× more than retaining an existing one. Yet retention and upsell are often reactive: you intervene when the client complains, not before. The Retention & Upsell Agent continuously analyzes your clients' behavioral signals, detects churn risks before they materialize and automatically triggers the right messages at the right time.",
+      problem: "Churn is detected too late — when the client has already decided to leave. Upsell opportunities are missed for lack of timing. Account managers handle too many accounts to monitor each one individually. And without automation, retention stays reactive rather than proactive.",
+      solution: "The agent monitors churn signals (usage drop, repeated support tickets, falling NPS, renewal absences) and triggers LLM-personalized re-engagement campaigns. When a client reaches a success milestone, the agent triggers an upsell sequence adapted to their profile and usage.",
+      steps: [
+        { n: 1, title: "Churn signal definition", desc: "Identification of predictive indicators specific to your product: usage frequency, open tickets, NPS, login activity." },
+        { n: 2, title: "Real-time retention scoring", desc: "The agent calculates a daily client health score and alerts the account manager when an account enters the red zone." },
+        { n: 3, title: "LLM re-engagement campaigns", desc: "For each at-risk client: personalized email drawing on their actual usage, past successes and a targeted value-add offer." },
+        { n: 4, title: "Post-success upsell sequences", desc: "When a client hits a positive KPI (adoption, ROI, milestone), the agent triggers a natural, non-intrusive upsell sequence." },
+      ],
+      benefits: [
+        { title: "Churn reduced by 35%", desc: "Preventive intervention before the client decides to leave multiplies retention chances vs. reactive intervention." },
+        { title: "LTV increased by 40%", desc: "Upsell sequences triggered at the right moment (after a client success) convert 3× better than random upsells." },
+        { title: "Account managers freed up", desc: "Your AMs no longer monitor 200 accounts manually. They only intervene when the agent flags a critical account." },
+      ],
+      faq: [
+        { q: "How does the agent access usage data?", a: "Via your product platform API, CRM or an automatic daily export to our pipeline. Integration is custom-built." },
+        { q: "Can the agent handle renewals?", a: "Yes. A renewal workflow can be added: D-60, D-30 and D-7 reminders with personalized renewal proposals." },
+        { q: "Is the client health score visible in the CRM?", a: "Yes. The score is synced to your CRM as a custom field, visible to your AMs in real time." },
+        { q: "Can we exclude certain clients from automated campaigns?", a: "Yes. An exclusion list system lets you protect strategic accounts that are managed manually." },
+      ],
+    },
+  },
 ];
