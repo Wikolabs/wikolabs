@@ -99,10 +99,50 @@ const OFFER_SLUGS: string[][] = [
   ["ia-embarquee-edge-device","monitoring-iot-temps-reel","vision-machine-camera-ip","maintenance-predictive-ia"],
 ];
 
-/* Per-card hue-shifted background — unique tint for every card */
-const CAT_BASE_HUES = [43, 185, 217, 142, 270, 195, 35];
+/* 31 distinct per-card backgrounds — diverse hues, low opacity */
+const OFFER_CARD_BG = [
+  /* 0 — Commercial (7) */
+  "hsla( 43, 90%, 55%, 0.07)",  // gold
+  "hsla(186, 85%, 50%, 0.06)",  // cyan
+  "hsla(217, 85%, 60%, 0.07)",  // blue
+  "hsla(142, 72%, 46%, 0.06)",  // green
+  "hsla(270, 72%, 60%, 0.07)",  // purple
+  "hsla(330, 80%, 60%, 0.06)",  // pink
+  "hsla( 32, 90%, 55%, 0.07)",  // orange
+  /* 1 — Support (4) */
+  "hsla(174, 80%, 46%, 0.06)",  // teal
+  "hsla(239, 80%, 65%, 0.07)",  // indigo
+  "hsla( 83, 76%, 46%, 0.06)",  // lime
+  "hsla(200, 85%, 55%, 0.06)",  // sky
+  /* 2 — BI (4) */
+  "hsla(  0, 80%, 60%, 0.06)",  // red
+  "hsla( 52, 88%, 54%, 0.07)",  // yellow
+  "hsla(155, 75%, 46%, 0.06)",  // emerald
+  "hsla(290, 70%, 60%, 0.07)",  // violet
+  /* 3 — Search (4) */
+  "hsla( 16, 88%, 56%, 0.07)",  // red-orange
+  "hsla(100, 70%, 46%, 0.06)",  // olive
+  "hsla(222, 82%, 62%, 0.07)",  // cornflower
+  "hsla(310, 70%, 58%, 0.06)",  // fuchsia
+  /* 4 — Vision (4) */
+  "hsla(165, 76%, 46%, 0.06)",  // aqua-green
+  "hsla(255, 76%, 63%, 0.07)",  // slate-purple
+  "hsla( 35, 88%, 58%, 0.07)",  // amber
+  "hsla(195, 82%, 52%, 0.06)",  // cerulean
+  /* 5 — Web (4) */
+  "hsla(340, 78%, 58%, 0.06)",  // rose
+  "hsla(120, 66%, 46%, 0.06)",  // medium green
+  "hsla(230, 82%, 63%, 0.07)",  // periwinkle
+  "hsla( 56, 82%, 52%, 0.07)",  // golden-yellow
+  /* 6 — IoT (4) */
+  "hsla( 22, 88%, 55%, 0.07)",  // burnt orange
+  "hsla(180, 78%, 48%, 0.06)",  // aqua
+  "hsla(285, 68%, 58%, 0.07)",  // medium purple
+  "hsla(145, 70%, 44%, 0.06)",  // forest green
+];
+const CAT_OFFSETS = [0, 7, 11, 15, 19, 23, 27];
 const getCardBg = (ci: number, oi: number) =>
-  `hsla(${CAT_BASE_HUES[ci] + oi * 8}, 65%, 58%, 0.07)`;
+  OFFER_CARD_BG[CAT_OFFSETS[ci] + oi] ?? OFFER_CARD_BG[0];
 
 /* ── Tech badges per offer [category][offer] ── */
 const CATEGORY_TECHS: Tech[][][] = [
