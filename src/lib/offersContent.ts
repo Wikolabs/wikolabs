@@ -456,4 +456,252 @@ export const OFFERS_CONTENT: OfferPageContent[] = [
       ],
     },
   },
+
+  /* ─────────────────────────────────────────────────
+     1-0  Agent SAV E-commerce (RAG)
+  ───────────────────────────────────────────────── */
+  {
+    slug: "agent-sav-ecommerce-rag",
+    catSlug: "production-ai",
+    fr: {
+      metaTitle: "Agent SAV E-commerce RAG IA — Wikolabs",
+      metaDesc: "Agent IA SAV e-commerce répondant par email et WhatsApp sur commandes, livraisons et retours. Compatible WooCommerce et Shopify. Déployé en 2 semaines.",
+      tag: "Support & Service Client",
+      title: "Agent SAV E-commerce (RAG)",
+      subtitle: "Un service client 24h/24 qui connaît vos règles métier par cœur",
+      intro: "Le service client e-commerce est un gouffre de temps et de coûts : statuts de commande, délais de livraison, procédures de retour, questions sur les produits. Des centaines de tickets répétitifs auxquels vos agents humains répondent chaque jour. L'Agent SAV RAG aspire vos règles métier (base Notion, FAQ, politique de retour), les garde dans un index vectoriel et répond à chaque client par email ou WhatsApp en moins de 30 secondes.",
+      problem: "Un agent humain gère 40 à 80 tickets par jour. Les réponses sont incohérentes selon l'agent. Le coût d'un service client de qualité est prohibitif pour les PME e-commerce. Et les temps de réponse longs dégradent la satisfaction client et augmentent les avis négatifs.",
+      solution: "L'agent est connecté à votre base de connaissances (Notion, Confluence ou simple PDF), à votre CMS e-commerce (Shopify ou WooCommerce) pour le statut des commandes en temps réel, et à vos canaux de contact (email via FastAPI, WhatsApp Business). Il répond en moins de 30 secondes, escalade automatiquement les cas complexes vers un humain et documente chaque interaction.",
+      steps: [
+        { n: 1, title: "Ingestion de la base de connaissances", desc: "Import de vos FAQ, politique de retour, fiches produit et règles métier dans un index vectoriel (Pinecone ou Weaviate)." },
+        { n: 2, title: "Connexion e-commerce", desc: "Intégration Shopify ou WooCommerce pour accès en temps réel aux statuts de commandes, livraisons et stocks." },
+        { n: 3, title: "Déploiement sur vos canaux", desc: "Configuration email (IMAP/SMTP), WhatsApp Business API et/ou chat widget sur votre site. Tests sur 200+ scénarios." },
+        { n: 4, title: "Monitoring & amélioration continue", desc: "Dashboard des tickets traités, taux de résolution, questions sans réponse. Mise à jour hebdomadaire de la base de connaissances." },
+      ],
+      benefits: [
+        { title: "80 % des tickets résolus sans humain", desc: "Les questions fréquentes (statut commande, délai livraison, procédure retour) sont traitées automatiquement 24h/24, 7j/7." },
+        { title: "Temps de réponse < 30 secondes", desc: "Chaque client reçoit une réponse précise et cohérente en quelques secondes, même la nuit et le week-end." },
+        { title: "Coût SAV divisé par 5", desc: "Vos agents humains traitent uniquement les cas complexes et les escalades. Le coût par ticket traité chute drastiquement." },
+      ],
+      faq: [
+        { q: "L'agent peut-il traiter plusieurs langues ?", a: "Oui. L'agent détecte la langue du client et répond dans la même langue, à condition que votre base de connaissances soit multilingue ou que vous activiez la traduction automatique." },
+        { q: "Comment gérer la mise à jour des règles métier ?", a: "Vous modifiez votre Notion ou votre FAQ, et l'agent re-indexe automatiquement la nuit. Les nouvelles règles sont actives le lendemain matin." },
+        { q: "Que se passe-t-il quand l'agent ne sait pas répondre ?", a: "Il escalade automatiquement vers un agent humain avec le contexte complet de la conversation et une suggestion de réponse." },
+        { q: "Compatible avec quel CMS e-commerce ?", a: "Shopify et WooCommerce nativement. PrestaShop, Magento et tout CMS avec une API REST sur demande." },
+      ],
+    },
+    en: {
+      metaTitle: "AI E-commerce SAV Agent (RAG) — Wikolabs",
+      metaDesc: "AI customer service agent answering via email and WhatsApp on orders, shipping and returns. WooCommerce and Shopify ready. Deployed in 2 weeks.",
+      tag: "Support & Customer Service",
+      title: "E-commerce SAV Agent (RAG)",
+      subtitle: "24/7 customer service that knows your business rules by heart",
+      intro: "E-commerce customer service is a sink of time and costs: order status, delivery times, return procedures, product questions. Hundreds of repetitive tickets your human agents answer every day. The RAG SAV Agent ingests your business rules (Notion base, FAQ, return policy), keeps them in a vector index and replies to every customer via email or WhatsApp in under 30 seconds.",
+      problem: "A human agent handles 40–80 tickets per day. Replies are inconsistent across agents. The cost of quality customer service is prohibitive for SMB e-commerce. And long response times degrade satisfaction and increase negative reviews.",
+      solution: "The agent is connected to your knowledge base (Notion, Confluence or simple PDF), your e-commerce CMS (Shopify or WooCommerce) for real-time order status, and your contact channels (email via FastAPI, WhatsApp Business). It responds in under 30 seconds, automatically escalates complex cases to a human and documents every interaction.",
+      steps: [
+        { n: 1, title: "Knowledge base ingestion", desc: "Import of your FAQ, return policy, product sheets and business rules into a vector index (Pinecone or Weaviate)." },
+        { n: 2, title: "E-commerce connection", desc: "Shopify or WooCommerce integration for real-time access to order status, deliveries and stock." },
+        { n: 3, title: "Channel deployment", desc: "Email configuration (IMAP/SMTP), WhatsApp Business API and/or chat widget on your site. Testing on 200+ scenarios." },
+        { n: 4, title: "Monitoring & continuous improvement", desc: "Dashboard of processed tickets, resolution rate, unanswered questions. Weekly knowledge base updates." },
+      ],
+      benefits: [
+        { title: "80% of tickets resolved without humans", desc: "Frequent questions (order status, delivery time, return procedure) are handled automatically 24/7." },
+        { title: "Response time < 30 seconds", desc: "Every customer receives a precise and consistent response in seconds, even at night and on weekends." },
+        { title: "Customer service cost divided by 5", desc: "Your human agents only handle complex cases and escalations. Cost per processed ticket drops dramatically." },
+      ],
+      faq: [
+        { q: "Can the agent handle multiple languages?", a: "Yes. The agent detects the client's language and replies in the same language, provided your knowledge base is multilingual or auto-translation is enabled." },
+        { q: "How are business rule updates managed?", a: "You update your Notion or FAQ, and the agent automatically re-indexes overnight. New rules are active the next morning." },
+        { q: "What happens when the agent doesn't know the answer?", a: "It automatically escalates to a human agent with the full conversation context and a suggested response." },
+        { q: "Which e-commerce CMS is compatible?", a: "Shopify and WooCommerce natively. PrestaShop, Magento and any CMS with a REST API on request." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     1-1  Agent Triage & Escalade
+  ───────────────────────────────────────────────── */
+  {
+    slug: "agent-triage-escalade",
+    catSlug: "production-ai",
+    fr: {
+      metaTitle: "Agent Triage & Escalade IA — Wikolabs",
+      metaDesc: "Priorisation automatique des tickets par urgence et catégorie, réponse aux FAQ, escalade intelligente vers l'humain. Déployé en 1 semaine.",
+      tag: "Support & Service Client",
+      title: "Agent Triage & Escalade",
+      subtitle: "Chaque ticket au bon niveau de priorité, automatiquement",
+      intro: "Dans un helpdesk non trié, les tickets urgents se noient dans les demandes banales. Un bug critique reçoit la même priorité qu'une question de facturation. L'Agent Triage & Escalade classifie chaque ticket entrant par urgence, catégorie et sentiment, répond automatiquement aux questions fréquentes et route les cas complexes vers le bon agent humain avec un résumé LLM.",
+      problem: "Sans triage automatique, les agents humains lisent tous les tickets dans l'ordre d'arrivée. Les cas urgents attendent. Les questions basiques mobilisent des experts. Et le coût de traitement par ticket reste trop élevé pour scaler le support.",
+      solution: "Chaque ticket entrant (email, Zendesk, Intercom, Freshdesk) est analysé par LLM : urgence (P1 à P4), catégorie (facturation, bug, onboarding, etc.), sentiment et complexité estimée. L'agent répond immédiatement aux P3/P4 courants, escalade les P1/P2 vers l'agent humain le plus disponible avec un résumé contextuel.",
+      steps: [
+        { n: 1, title: "Connexion helpdesk", desc: "Intégration Zendesk, Freshdesk, Intercom, Linear ou tout outil ticketing via API. Configuration des webhooks entrants." },
+        { n: 2, title: "Définition des règles de triage", desc: "Atelier pour définir vos catégories, niveaux de priorité et règles de routage par équipe ou par agent." },
+        { n: 3, title: "Base de réponses automatiques", desc: "Import de vos réponses types pour les questions fréquentes. L'agent les personnalise à chaque ticket avant envoi." },
+        { n: 4, title: "Dashboard & SLA monitoring", desc: "Vue temps réel des SLA, tickets en attente par priorité et taux de résolution automatique vs humain." },
+      ],
+      benefits: [
+        { title: "SLA P1 respecté à 99 %", desc: "Les incidents critiques sont détectés et escaladés en moins de 2 minutes, quelle que soit l'heure de réception." },
+        { title: "50 % des tickets traités sans agent", desc: "Les questions fréquentes (réinitialisation de mot de passe, statut de commande, FAQ) sont résolues automatiquement." },
+        { title: "Agents plus efficaces", desc: "Chaque agent ne traite que les tickets correspondant à sa spécialité, avec un résumé contextualisé. Moins de lecture, plus de résolution." },
+      ],
+      faq: [
+        { q: "Quel helpdesk est supporté ?", a: "Zendesk, Freshdesk, Intercom, HubSpot Service Hub, Linear, Jira Service Desk et tout outil avec une API webhook ou REST." },
+        { q: "L'agent peut-il escalader à des équipes différentes ?", a: "Oui. Vous définissez des règles de routage par catégorie : bugs → équipe tech, facturation → équipe finance, etc." },
+        { q: "Comment éviter les réponses automatiques incorrectes ?", a: "Un seuil de confiance minimum est défini. En dessous, l'agent draft une réponse pour validation humaine plutôt que de l'envoyer directement." },
+        { q: "Le triage fonctionne-t-il en plusieurs langues ?", a: "Oui. L'agent classifie et répond dans la langue du ticket. Le routage multilingue est supporté nativement." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Triage & Escalation Agent — Wikolabs",
+      metaDesc: "Automatic ticket prioritization by urgency and category, FAQ auto-response, intelligent escalation to humans. Deployed in 1 week.",
+      tag: "Support & Customer Service",
+      title: "Triage & Escalation Agent",
+      subtitle: "Every ticket at the right priority level, automatically",
+      intro: "In an unsorted helpdesk, urgent tickets drown in mundane requests. A critical bug gets the same priority as a billing question. The Triage & Escalation Agent classifies every incoming ticket by urgency, category and sentiment, automatically answers frequent questions and routes complex cases to the right human agent with an LLM summary.",
+      problem: "Without automatic triage, human agents read all tickets in order of arrival. Urgent cases wait. Basic questions mobilize experts. And the cost per ticket stays too high to scale support.",
+      solution: "Each incoming ticket (email, Zendesk, Intercom, Freshdesk) is analyzed by LLM: urgency (P1–P4), category (billing, bug, onboarding, etc.), sentiment and estimated complexity. The agent immediately answers common P3/P4 tickets, escalates P1/P2 to the most available human agent with a contextual summary.",
+      steps: [
+        { n: 1, title: "Helpdesk connection", desc: "Integration with Zendesk, Freshdesk, Intercom, Linear or any ticketing tool via API. Incoming webhook setup." },
+        { n: 2, title: "Triage rules definition", desc: "Workshop to define your categories, priority levels and routing rules by team or agent." },
+        { n: 3, title: "Auto-response library", desc: "Import your standard responses for frequent questions. The agent personalizes them per ticket before sending." },
+        { n: 4, title: "Dashboard & SLA monitoring", desc: "Real-time view of SLAs, queued tickets by priority and automatic vs. human resolution rate." },
+      ],
+      benefits: [
+        { title: "P1 SLA met 99% of the time", desc: "Critical incidents are detected and escalated in under 2 minutes, regardless of when they arrive." },
+        { title: "50% of tickets handled without an agent", desc: "Frequent questions (password reset, order status, FAQ) are resolved automatically." },
+        { title: "More effective agents", desc: "Each agent only handles tickets matching their specialty, with a contextualized summary. Less reading, more resolving." },
+      ],
+      faq: [
+        { q: "Which helpdesks are supported?", a: "Zendesk, Freshdesk, Intercom, HubSpot Service Hub, Linear, Jira Service Desk and any tool with a webhook or REST API." },
+        { q: "Can the agent escalate to different teams?", a: "Yes. You define routing rules by category: bugs → tech team, billing → finance team, etc." },
+        { q: "How do you prevent incorrect automatic responses?", a: "A minimum confidence threshold is set. Below it, the agent drafts a response for human review rather than sending directly." },
+        { q: "Does triage work in multiple languages?", a: "Yes. The agent classifies and responds in the ticket's language. Multilingual routing is natively supported." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     1-2  Agent Onboarding Client
+  ───────────────────────────────────────────────── */
+  {
+    slug: "agent-onboarding-client",
+    catSlug: "production-ai",
+    fr: {
+      metaTitle: "Agent Onboarding Client IA — Wikolabs",
+      metaDesc: "Email de bienvenue automatique, checklist d'onboarding suivie dans Notion ou Jira, rappels si étapes non complétées. Réduit le time-to-value de 50%.",
+      tag: "Support & Service Client",
+      title: "Agent Onboarding Client",
+      subtitle: "Un onboarding structuré et automatique pour chaque nouveau client",
+      intro: "Le premier mois détermine si un client devient fidèle ou part avant sa première facture. Un onboarding mal orchestré — emails oubliés, étapes manquées, pas de suivi — est la première cause de churn précoce. L'Agent Onboarding automatise l'intégralité du parcours : email de bienvenue personnalisé, checklist d'activation, rappels automatiques et alerte CSM si un client reste bloqué.",
+      problem: "L'onboarding manuel est incohérent d'un client à l'autre. Les Customer Success Managers gèrent trop de comptes pour suivre chaque étape. Les clients qui se perdent dans la configuration partent silencieusement. Et chaque jour de retard sur l'activation réduit les chances de rétention à long terme.",
+      solution: "Dès la création du compte client, l'agent envoie un email de bienvenue personnalisé, crée une checklist d'onboarding dans Notion ou Jira (adaptée au profil du client), envoie des rappels automatiques pour les étapes non complétées et alerte le CSM si un client n'a pas progressé depuis 48h. Chaque étape est tracée et visible par l'équipe.",
+      steps: [
+        { n: 1, title: "Définition du parcours d'onboarding", desc: "Atelier pour définir les étapes critiques d'activation, les délais cibles et les profils client (taille, secteur, produit acheté)." },
+        { n: 2, title: "Création des templates de communication", desc: "Rédaction des emails de bienvenue, rappels J+3, J+7 et J+14, et messages de félicitations à chaque étape franchie." },
+        { n: 3, title: "Intégration Notion / Jira / CRM", desc: "Création automatique des checklists à la signature du contrat, synchronisation des statuts et mise à jour temps réel." },
+        { n: 4, title: "Alertes CSM & tableau de bord", desc: "Dashboard de suivi de l'avancement d'onboarding par client, alertes sur les comptes bloqués et rapport hebdomadaire." },
+      ],
+      benefits: [
+        { title: "Time-to-value réduit de 50 %", desc: "Les clients activent plus vite grâce à un parcours guidé, des rappels ciblés et une aide proactive à chaque blocage." },
+        { title: "Churn précoce éliminé", desc: "Les clients qui se perdent dans la configuration sont détectés en 48h et recontactés avant qu'ils ne décident de partir." },
+        { title: "CSM plus efficaces", desc: "Vos Customer Success Managers ne gèrent plus les emails de rappel manuels. Ils interviennent uniquement sur les cas qui nécessitent une attention humaine." },
+      ],
+      faq: [
+        { q: "L'onboarding peut-il varier selon le type de client ?", a: "Oui. Vous définissez plusieurs parcours (PME, grand compte, secteur spécifique) avec des étapes et des délais différents." },
+        { q: "Faut-il un outil de ticketing existant ?", a: "Non. L'agent peut fonctionner avec Notion seul. L'intégration Jira ou autre outil de projet est optionnelle." },
+        { q: "Les clients peuvent-ils voir leur progression ?", a: "Oui. Un portail client simple peut être ajouté avec une vue de leur checklist d'onboarding en temps réel." },
+        { q: "L'agent peut-il envoyer des vidéos ou tutoriels ?", a: "Oui. Chaque étape de l'onboarding peut inclure des liens vers vos ressources (Loom, YouTube, documentation) selon le contexte." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Client Onboarding Agent — Wikolabs",
+      metaDesc: "Automatic welcome email, onboarding checklist tracked in Notion or Jira, reminders for incomplete steps. Reduces time-to-value by 50%.",
+      tag: "Support & Customer Service",
+      title: "Client Onboarding Agent",
+      subtitle: "A structured, automatic onboarding for every new client",
+      intro: "The first month determines whether a client becomes loyal or leaves before their first invoice. Poorly orchestrated onboarding — forgotten emails, missed steps, no follow-up — is the leading cause of early churn. The Onboarding Agent automates the entire journey: personalized welcome email, activation checklist, automatic reminders and CSM alert if a client gets stuck.",
+      problem: "Manual onboarding is inconsistent across clients. Customer Success Managers handle too many accounts to track every step. Clients who get lost during setup leave silently. And every day of activation delay reduces long-term retention chances.",
+      solution: "Upon client account creation, the agent sends a personalized welcome email, creates an onboarding checklist in Notion or Jira (adapted to the client profile), sends automatic reminders for incomplete steps and alerts the CSM if a client hasn't progressed in 48h. Every step is tracked and visible to the team.",
+      steps: [
+        { n: 1, title: "Onboarding journey definition", desc: "Workshop to define critical activation steps, target timelines and client profiles (size, sector, product purchased)." },
+        { n: 2, title: "Communication template creation", desc: "Drafting of welcome emails, D+3, D+7 and D+14 reminders, and congratulations messages at each completed step." },
+        { n: 3, title: "Notion / Jira / CRM integration", desc: "Automatic checklist creation at contract signing, status synchronization and real-time updates." },
+        { n: 4, title: "CSM alerts & dashboard", desc: "Onboarding progress dashboard per client, alerts on blocked accounts and weekly report." },
+      ],
+      benefits: [
+        { title: "Time-to-value reduced by 50%", desc: "Clients activate faster with a guided journey, targeted reminders and proactive help at every blocker." },
+        { title: "Early churn eliminated", desc: "Clients who get lost during setup are detected within 48h and re-contacted before they decide to leave." },
+        { title: "More effective CSMs", desc: "Your CSMs no longer manage manual reminder emails. They only intervene on cases requiring human attention." },
+      ],
+      faq: [
+        { q: "Can onboarding vary by client type?", a: "Yes. You define multiple journeys (SMB, enterprise, specific sector) with different steps and timelines." },
+        { q: "Is an existing ticketing tool required?", a: "No. The agent can work with Notion alone. Jira or other project tool integration is optional." },
+        { q: "Can clients see their own progress?", a: "Yes. A simple client portal can be added with a real-time view of their onboarding checklist." },
+        { q: "Can the agent send videos or tutorials?", a: "Yes. Each onboarding step can include links to your resources (Loom, YouTube, documentation) based on context." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
+     1-3  Agent Notes Discovery
+  ───────────────────────────────────────────────── */
+  {
+    slug: "agent-notes-discovery",
+    catSlug: "production-ai",
+    fr: {
+      metaTitle: "Agent Notes Discovery IA — Wikolabs",
+      metaDesc: "Transcription automatique des appels (Whisper) et résumé LLM structuré. Fiche créée automatiquement dans le CRM. Zéro prise de notes manuelle.",
+      tag: "Support & Service Client",
+      title: "Agent Notes Discovery",
+      subtitle: "Chaque discovery call transcrit, résumé et intégré au CRM en moins de 5 minutes",
+      intro: "Pendant un discovery call, un commercial doit écouter, questionner et prendre des notes en même temps — un exercice de multitâche qui dégrade la qualité des échanges. Et même avec les meilleures intentions, les notes d'après-call sont incomplètes ou inconsistantes. L'Agent Notes Discovery transcrit automatiquement vos appels, génère un résumé LLM structuré et crée la fiche prospect dans votre CRM en moins de 5 minutes après le raccroché.",
+      problem: "Les notes manuelles sont incomplètes, subjectives et chronophages. Les informations critiques (budget évoqué, objections, prochaines étapes) se perdent. Les fiches CRM restent vides ou mal renseignées. Et sans notes structurées, le suivi commercial devient approximatif.",
+      solution: "L'enregistrement du call (Zoom, Meet, Teams) est envoyé automatiquement à l'agent après la fin de la réunion. Whisper transcrit l'audio en texte. Le LLM génère un résumé structuré : enjeux identifiés, budget évoqué, objections, prochaines étapes, score BANT. La fiche est créée dans le CRM avec tous les champs pré-remplis.",
+      steps: [
+        { n: 1, title: "Connexion outil de visioconférence", desc: "Intégration Zoom, Google Meet ou Microsoft Teams pour récupération automatique des enregistrements après chaque call." },
+        { n: 2, title: "Transcription Whisper", desc: "Transcription audio-texte haute précision via Whisper (OpenAI), avec identification des locuteurs et timecodes." },
+        { n: 3, title: "Résumé LLM structuré", desc: "Extraction automatique des informations clés : enjeux, budget, objections, prochaines étapes, score BANT et to-do list." },
+        { n: 4, title: "Push CRM & notification", desc: "Création ou mise à jour automatique de la fiche CRM. Notification email au commercial avec le résumé en 5 points." },
+      ],
+      benefits: [
+        { title: "Zéro prise de notes", desc: "Le commercial est 100% concentré sur l'échange. Pas de stylo, pas de laptop — juste la conversation." },
+        { title: "CRM toujours à jour", desc: "Chaque call alimente automatiquement le CRM avec des données structurées et fiables, sans intervention manuelle." },
+        { title: "Continuité commerciale parfaite", desc: "Si un commercial change de poste, son remplaçant accède à des notes complètes pour chaque prospect. Zéro perte d'information." },
+      ],
+      faq: [
+        { q: "L'enregistrement nécessite-t-il le consentement des participants ?", a: "Oui, conformément au RGPD. Un message automatique d'information est envoyé en début de call. Le consentement est documenté." },
+        { q: "Quelle est la précision de la transcription Whisper ?", a: "Supérieure à 95 % en français et en anglais pour des appels téléphoniques standard. La précision varie selon la qualité audio." },
+        { q: "L'agent fonctionne avec quel CRM ?", a: "HubSpot, Salesforce, GoHighLevel, Pipedrive et tout CRM avec une API. La création de la fiche est configurable champ par champ." },
+        { q: "Peut-on exclure certaines parties du call du résumé ?", a: "Oui. Des règles d'exclusion peuvent être configurées (ex : exclure les segments hors-sujet ou les parties confidentielles identifiées)." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Discovery Notes Agent — Wikolabs",
+      metaDesc: "Automatic call transcription (Whisper) and structured LLM summary. Record auto-created in CRM. Zero manual note-taking.",
+      tag: "Support & Customer Service",
+      title: "Discovery Notes Agent",
+      subtitle: "Every discovery call transcribed, summarized and in the CRM in under 5 minutes",
+      intro: "During a discovery call, a sales rep must listen, question and take notes simultaneously — a multitasking exercise that degrades conversation quality. And even with the best intentions, post-call notes are incomplete or inconsistent. The Discovery Notes Agent automatically transcribes your calls, generates a structured LLM summary and creates the prospect record in your CRM in under 5 minutes after hanging up.",
+      problem: "Manual notes are incomplete, subjective and time-consuming. Critical information (budget mentioned, objections, next steps) gets lost. CRM records stay empty or poorly filled. And without structured notes, sales follow-up becomes approximate.",
+      solution: "The call recording (Zoom, Meet, Teams) is automatically sent to the agent after the meeting ends. Whisper transcribes audio to text. The LLM generates a structured summary: identified issues, budget mentioned, objections, next steps, BANT score. The record is created in the CRM with all fields pre-filled.",
+      steps: [
+        { n: 1, title: "Video conferencing tool connection", desc: "Zoom, Google Meet or Microsoft Teams integration for automatic recording retrieval after each call." },
+        { n: 2, title: "Whisper transcription", desc: "High-accuracy audio-to-text transcription via Whisper (OpenAI), with speaker identification and timecodes." },
+        { n: 3, title: "Structured LLM summary", desc: "Automatic extraction of key information: issues, budget, objections, next steps, BANT score and to-do list." },
+        { n: 4, title: "CRM push & notification", desc: "Automatic creation or update of the CRM record. Email notification to the rep with the 5-point summary." },
+      ],
+      benefits: [
+        { title: "Zero note-taking", desc: "The rep is 100% focused on the conversation. No pen, no laptop — just the exchange." },
+        { title: "CRM always up to date", desc: "Every call automatically feeds the CRM with structured, reliable data — no manual intervention." },
+        { title: "Perfect sales continuity", desc: "If a rep changes roles, their replacement has complete notes for every prospect. Zero information loss." },
+      ],
+      faq: [
+        { q: "Does recording require participant consent?", a: "Yes, per GDPR. An automatic information message is sent at the start of each call. Consent is documented." },
+        { q: "How accurate is Whisper transcription?", a: "Over 95% accuracy in French and English for standard phone calls. Accuracy varies with audio quality." },
+        { q: "Which CRMs does the agent support?", a: "HubSpot, Salesforce, GoHighLevel, Pipedrive and any CRM with an API. Record creation is configurable field by field." },
+        { q: "Can certain call parts be excluded from the summary?", a: "Yes. Exclusion rules can be configured (e.g. exclude off-topic segments or identified confidential portions)." },
+      ],
+    },
+  },
 ];
