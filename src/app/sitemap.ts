@@ -6,23 +6,60 @@ const BASE_URL =
 
 const locales = ["fr", "en"] as const;
 
-const serviceslugs = [
-  "search-recommendation",
+const CATEGORY_SLUGS = [
+  "commercial-automation",
   "production-ai",
   "decision-intelligence",
-  "commercial-automation",
+  "search-recommendation",
   "data-vision",
-  "data-annotation",
-  "data-engineering",
-  "cloud-infrastructure",
-  "seo-refonte",
   "fullstack",
+  "iot-edge-ai",
+];
+
+const OFFER_SLUGS = [
+  // commercial-automation (7)
+  "agent-veille-marche",
+  "agent-sourcing-leads",
+  "agent-outreach-multicanal",
+  "agent-qualification-bant",
+  "agent-setter-rdv",
+  "agent-proposition-commerciale",
+  "agent-retention-upsell",
+  // production-ai (4)
+  "agent-sav-ecommerce-rag",
+  "agent-triage-escalade",
+  "agent-onboarding-client",
+  "agent-notes-discovery",
+  // decision-intelligence (4)
+  "agent-bi-langage-naturel",
+  "reporting-automatique",
+  "forecasting-anomalies",
+  "crm-multi-agent",
+  // search-recommendation (4)
+  "moteur-recherche-semantique",
+  "recommandation-personnalisee",
+  "pipeline-donnees-intelligent",
+  "fine-tuning-mlops",
+  // data-vision (4)
+  "ocr-extraction-documentaire",
+  "vision-ia-detection-objets",
+  "bim-point-cloud",
+  "cartographie-geolocalisation",
+  // fullstack (4)
+  "refonte-ux-ui-web",
+  "application-mobile-react-native",
+  "debogage-optimisation-performance",
+  "seo-technique-visibilite",
+  // iot-edge-ai (4)
+  "ia-embarquee-edge-device",
+  "monitoring-iot-temps-reel",
+  "vision-machine-camera-ip",
+  "maintenance-predictive-ia",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  // Home pages
   const homes: MetadataRoute.Sitemap = locales.map((locale) => ({
     url: `${BASE_URL}/${locale}`,
     lastModified: now,
@@ -30,7 +67,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 1.0,
   }));
 
-  // Blog listing pages
   const blogIndexes: MetadataRoute.Sitemap = locales.map((locale) => ({
     url: `${BASE_URL}/${locale}/blog`,
     lastModified: now,
@@ -38,7 +74,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Individual blog posts (locale-agnostic slugs — same content for now)
   const blogPosts: MetadataRoute.Sitemap = BLOG_POSTS.flatMap((post) =>
     locales.map((locale) => ({
       url: `${BASE_URL}/${locale}/blog/${post.slug}`,
@@ -48,8 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  // Service pages
-  const services: MetadataRoute.Sitemap = serviceslugs.flatMap((slug) =>
+  const categoryPages: MetadataRoute.Sitemap = CATEGORY_SLUGS.flatMap((slug) =>
     locales.map((locale) => ({
       url: `${BASE_URL}/${locale}/services/${slug}`,
       lastModified: now,
@@ -58,5 +92,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  return [...homes, ...blogIndexes, ...blogPosts, ...services];
+  const offerPages: MetadataRoute.Sitemap = OFFER_SLUGS.flatMap((slug) =>
+    locales.map((locale) => ({
+      url: `${BASE_URL}/${locale}/services/offer/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    }))
+  );
+
+  return [...homes, ...blogIndexes, ...blogPosts, ...categoryPages, ...offerPages];
 }
