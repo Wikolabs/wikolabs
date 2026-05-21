@@ -163,6 +163,66 @@ const ROW5: TechItem[] = [
   { imgSrc: "/logos/gcp-bare-metal.svg",            name: "Bare Metal",          color: "#4285F4" },
 ];
 
+/* ─── ROW 7 — Azure AI/ML + Compute ─── */
+const ROW7: TechItem[] = [
+  { imgSrc: "/logos/azure-openai.svg",              name: "Azure OpenAI",          color: "#0078D4" },
+  { imgSrc: "/logos/azure-machine-learning.svg",    name: "Azure ML",              color: "#0078D4" },
+  { imgSrc: "/logos/azure-ai-services.svg",         name: "Azure AI Services",     color: "#0078D4" },
+  { imgSrc: "/logos/azure-cognitive-search.svg",    name: "Cognitive Search",      color: "#0078D4" },
+  { imgSrc: "/logos/azure-bot-service.svg",         name: "Azure Bot Service",     color: "#0078D4" },
+  { imgSrc: "/logos/azure-speech.svg",              name: "Azure Speech",          color: "#0078D4" },
+  { imgSrc: "/logos/azure-computer-vision.svg",     name: "Computer Vision",       color: "#0078D4" },
+  { imgSrc: "/logos/azure-form-recognizer.svg",     name: "Document Intelligence", color: "#0078D4" },
+  { imgSrc: "/logos/azure-language.svg",            name: "Azure Language",        color: "#0078D4" },
+  { imgSrc: "/logos/azure-translator.svg",          name: "Azure Translator",      color: "#0078D4" },
+  { imgSrc: "/logos/azure-anomaly-detector.svg",    name: "Anomaly Detector",      color: "#0078D4" },
+  { imgSrc: "/logos/azure-personalizer.svg",        name: "Azure Personalizer",    color: "#0078D4" },
+  { imgSrc: "/logos/azure-video-indexer.svg",       name: "Video Indexer",         color: "#0078D4" },
+  { imgSrc: "/logos/azure-virtual-machines.svg",    name: "Virtual Machines",      color: "#0078D4" },
+  { imgSrc: "/logos/azure-app-service.svg",         name: "App Service",           color: "#0078D4" },
+  { imgSrc: "/logos/azure-functions.svg",           name: "Azure Functions",       color: "#0078D4" },
+  { imgSrc: "/logos/azure-container-instances.svg", name: "Container Instances",   color: "#0078D4" },
+  { imgSrc: "/logos/azure-container-apps.svg",      name: "Container Apps",        color: "#0078D4" },
+  { imgSrc: "/logos/azure-kubernetes-service.svg",  name: "AKS",                   color: "#326CE5" },
+  { imgSrc: "/logos/azure-batch.svg",               name: "Azure Batch",           color: "#0078D4" },
+  { imgSrc: "/logos/azure-spring-apps.svg",         name: "Azure Spring Apps",     color: "#0078D4" },
+];
+
+/* ─── ROW 8 — Azure Data, DB, Networking & DevOps ─── */
+const ROW8: TechItem[] = [
+  { imgSrc: "/logos/azure-synapse-analytics.svg",   name: "Synapse Analytics",     color: "#0078D4" },
+  { imgSrc: "/logos/azure-data-factory.svg",        name: "Data Factory",          color: "#0078D4" },
+  { imgSrc: "/logos/azure-databricks.svg",          name: "Azure Databricks",      color: "#FF3621" },
+  { imgSrc: "/logos/azure-stream-analytics.svg",    name: "Stream Analytics",      color: "#0078D4" },
+  { imgSrc: "/logos/azure-data-lake-storage.svg",   name: "Data Lake Storage",     color: "#0078D4" },
+  { imgSrc: "/logos/azure-hdinsight.svg",           name: "HDInsight",             color: "#0078D4" },
+  { imgSrc: "/logos/azure-purview.svg",             name: "Microsoft Purview",     color: "#0078D4" },
+  { imgSrc: "/logos/azure-event-hubs.svg",          name: "Event Hubs",            color: "#0078D4" },
+  { imgSrc: "/logos/azure-data-explorer.svg",       name: "Data Explorer",         color: "#0078D4" },
+  { imgSrc: "/logos/azure-sql.svg",                 name: "Azure SQL",             color: "#0078D4" },
+  { imgSrc: "/logos/azure-cosmos-db.svg",           name: "Cosmos DB",             color: "#0078D4" },
+  { imgSrc: "/logos/azure-database-postgresql.svg", name: "Azure PostgreSQL",      color: "#4169E1" },
+  { imgSrc: "/logos/azure-database-mysql.svg",      name: "Azure MySQL",           color: "#4479A1" },
+  { imgSrc: "/logos/azure-cache-redis.svg",         name: "Azure Redis",           color: "#FF4438" },
+  { imgSrc: "/logos/azure-blob-storage.svg",        name: "Blob Storage",          color: "#0078D4" },
+  { imgSrc: "/logos/azure-service-bus.svg",         name: "Service Bus",           color: "#0078D4" },
+  { imgSrc: "/logos/azure-event-grid.svg",          name: "Event Grid",            color: "#0078D4" },
+  { imgSrc: "/logos/azure-virtual-network.svg",     name: "Virtual Network",       color: "#0078D4" },
+  { imgSrc: "/logos/azure-application-gateway.svg", name: "Application Gateway",   color: "#0078D4" },
+  { imgSrc: "/logos/azure-cdn.svg",                 name: "Azure CDN",             color: "#0078D4" },
+  { imgSrc: "/logos/azure-firewall.svg",            name: "Azure Firewall",        color: "#0078D4" },
+  { imgSrc: "/logos/azure-front-door.svg",          name: "Azure Front Door",      color: "#0078D4" },
+  { imgSrc: "/logos/azure-devops.svg",              name: "Azure DevOps",          color: "#0078D4" },
+  { imgSrc: "/logos/azure-pipelines.svg",           name: "Azure Pipelines",       color: "#0078D4" },
+  { imgSrc: "/logos/azure-container-registry.svg",  name: "Container Registry",    color: "#0078D4" },
+  { imgSrc: "/logos/azure-monitor.svg",             name: "Azure Monitor",         color: "#0078D4" },
+  { imgSrc: "/logos/azure-application-insights.svg",name: "App Insights",          color: "#0078D4" },
+  { imgSrc: "/logos/azure-key-vault.svg",           name: "Key Vault",             color: "#0078D4" },
+  { imgSrc: "/logos/azure-active-directory.svg",    name: "Entra ID",              color: "#0078D4" },
+  { imgSrc: "/logos/azure-logic-apps.svg",          name: "Logic Apps",            color: "#0078D4" },
+  { imgSrc: "/logos/azure-api-management.svg",      name: "API Management",        color: "#0078D4" },
+];
+
 /* ─── ROW 6 — GCP Data, DB & DevOps ─── */
 const ROW6: TechItem[] = [
   { imgSrc: "/logos/gcp-bigquery.svg",              name: "BigQuery",            color: "#4285F4" },
@@ -292,6 +352,18 @@ export default function TechStack({ locale }: { locale: string }) {
       <div className={styles.marqueeRow}>
         <Marquee speed={38} direction="right" pauseOnHover gradient={false} autoFill>
           {ROW6.map((tech, i) => <TechChip key={i} item={tech} />)}
+        </Marquee>
+      </div>
+
+      <div className={styles.marqueeRow}>
+        <Marquee speed={44} pauseOnHover gradient={false} autoFill>
+          {ROW7.map((tech, i) => <TechChip key={i} item={tech} />)}
+        </Marquee>
+      </div>
+
+      <div className={styles.marqueeRow}>
+        <Marquee speed={36} direction="right" pauseOnHover gradient={false} autoFill>
+          {ROW8.map((tech, i) => <TechChip key={i} item={tech} />)}
         </Marquee>
       </div>
 
