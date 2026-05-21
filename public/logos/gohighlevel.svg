@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
-  <title>GoHighLevel</title>
-  <rect width="200" height="60" rx="8" fill="#FF6B35"/>
-  <text x="100" y="38" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">HighLevel</text>
+  <title>HighLevel</title>
+  <rect width="200" height="60" rx="6" fill="#07223D"/>
+  <text x="100" y="22" font-family="Poppins, Arial, sans-serif" font-size="10" font-weight="600" fill="#2896FB" text-anchor="middle" letter-spacing="2">HIGHLEVEL</text>
+  <text x="100" y="42" font-family="Poppins, Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">HighLevel</text>
 </svg>
