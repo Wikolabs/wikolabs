@@ -20,12 +20,11 @@ import Industries from "@/components/Industries";
 import OrbitalDiagram from "@/components/OrbitalDiagram";
 import CommercialCycle from "@/components/CommercialCycle";
 import BlogPreview from "@/components/BlogPreview";
+import Constat from "@/components/Constat";
 import type { IconType } from "react-icons";
 import { HiGlobeAlt, HiBolt, HiShieldCheck, HiCpuChip } from "react-icons/hi2";
 import {
   LuTarget, LuHandshake, LuLanguages, LuDatabase, LuBrain, LuRefreshCw, LuCloud, LuCode,
-  LuMessageSquare, LuChartBar, LuLayers, LuClock, LuUsers, LuShield,
-  LuTrendingUp, LuMail, LuMonitor, LuLink, LuZap, LuStar, LuCheck,
   LuArrowUp, LuArrowDown, LuShoppingCart,
 } from "react-icons/lu";
 
@@ -41,8 +40,6 @@ export interface BookingPrefill {
 
 const VALUE_ICONS: IconType[] = [LuTarget, HiGlobeAlt, HiBolt, HiShieldCheck, LuHandshake, LuLanguages];
 const ROLE_ICONS: IconType[] = [HiCpuChip, LuDatabase, LuBrain, LuCode, LuRefreshCw, LuCloud];
-const PROBLEM_ICONS: IconType[] = [LuDatabase, LuRefreshCw, LuMessageSquare, LuChartBar, LuLayers, LuClock, LuUsers, LuShield];
-const SOLUTION_ICONS: IconType[] = [LuBrain, LuTrendingUp, LuMail, LuMonitor, LuLink, LuZap, LuStar, LuCheck];
 
 export default function LandingClient({
   content,
@@ -54,8 +51,6 @@ export default function LandingClient({
   const t = useTranslations();
   const {
     hero,
-    client_problems,
-    client_solutions,
     roles,
     why_clients,
     process,
@@ -396,51 +391,7 @@ export default function LandingClient({
       <UseCases locale={locale} />
 
       {/* ── CLIENT PROBLEM / SOLUTION ── */}
-      <section id="pourquoi" className={`${s.section} ${s.problemSection}`}>
-        <div className={`reveal ${s.sectionTag}`}>
-          <span className={s.sectionTagLine} />
-          {t("problems.tag")}
-        </div>
-        <h2 className={`reveal d1 ${s.sectionTitle}`}>{t("problems.title")}</h2>
-        <p className={`reveal d2 ${s.sectionDesc}`}>{t("problems.desc")}</p>
-
-        <div className={s.problemGrid}>
-          <div className={s.problemCol}>
-            <h3>
-              <span className={`${s.problemBadge} ${s.problemBadgeRed}`}>
-                {t("problems.badge_bad")}
-              </span>
-            </h3>
-            {client_problems.map((p, i) => {
-              const PIcon = PROBLEM_ICONS[i];
-              return (
-                <div className={`reveal d${Math.min(i + 1, 5)} ${s.problemCard} ${s.problemCardBad}`} key={i}>
-                  {PIcon && <div className={`${s.problemCardIcon} ${s.problemCardIconBad}`}><PIcon size={18} /></div>}
-                  <div className={s.problemCardTitle}>{p.title}</div>
-                  <div className={s.problemCardText}>{p.text}</div>
-                </div>
-              );
-            })}
-          </div>
-          <div className={s.problemCol}>
-            <h3>
-              <span className={`${s.problemBadge} ${s.problemBadgeGreen}`}>
-                {t("problems.badge_good")}
-              </span>
-            </h3>
-            {client_solutions.map((p, i) => {
-              const SIcon = SOLUTION_ICONS[i];
-              return (
-                <div className={`reveal d${Math.min(i + 1, 5)} ${s.problemCard} ${s.problemCardGood}`} key={i}>
-                  {SIcon && <div className={`${s.problemCardIcon} ${s.problemCardIconGood}`}><SIcon size={18} /></div>}
-                  <div className={s.problemCardTitle}>{p.title}</div>
-                  <div className={s.problemCardText}>{p.text}</div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <Constat locale={locale} />
 
       {/* ── INDUSTRIES ── */}
       <Industries locale={locale} />

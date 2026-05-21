@@ -10,7 +10,7 @@ import {
   LuBell, LuNetwork, LuScan, LuChartBar, LuDatabase, LuFileSearch,
   LuBrain, LuLayers, LuWorkflow, LuScanLine, LuMap, LuBox,
   LuMonitor, LuSmartphone, LuBug, LuCpu, LuTriangle,
-  LuPlus, LuCheck,
+  LuCheck,
 } from "react-icons/lu";
 import {
   SiPython, SiLangchain, SiFastapi, SiN8N,
@@ -102,43 +102,43 @@ const OFFER_SLUGS: string[][] = [
 /* 31 distinct per-card backgrounds — diverse hues, low opacity */
 const OFFER_CARD_BG = [
   /* 0 — Commercial (7) */
-  "hsla( 43, 90%, 55%, 0.07)",  // gold
-  "hsla(186, 85%, 50%, 0.06)",  // cyan
-  "hsla(217, 85%, 60%, 0.07)",  // blue
-  "hsla(142, 72%, 46%, 0.06)",  // green
-  "hsla(270, 72%, 60%, 0.07)",  // purple
-  "hsla(330, 80%, 60%, 0.06)",  // pink
-  "hsla( 32, 90%, 55%, 0.07)",  // orange
+  "hsla( 43, 90%, 55%, 0.13)",  // gold
+  "hsla(186, 85%, 50%, 0.12)",  // cyan
+  "hsla(217, 85%, 60%, 0.13)",  // blue
+  "hsla(142, 72%, 46%, 0.12)",  // green
+  "hsla(270, 72%, 60%, 0.13)",  // purple
+  "hsla(330, 80%, 60%, 0.12)",  // pink
+  "hsla( 32, 90%, 55%, 0.13)",  // orange
   /* 1 — Support (4) */
-  "hsla(174, 80%, 46%, 0.06)",  // teal
-  "hsla(239, 80%, 65%, 0.07)",  // indigo
-  "hsla( 83, 76%, 46%, 0.06)",  // lime
-  "hsla(200, 85%, 55%, 0.06)",  // sky
+  "hsla(174, 80%, 46%, 0.12)",  // teal
+  "hsla(239, 80%, 65%, 0.13)",  // indigo
+  "hsla( 83, 76%, 46%, 0.12)",  // lime
+  "hsla(200, 85%, 55%, 0.12)",  // sky
   /* 2 — BI (4) */
-  "hsla(  0, 80%, 60%, 0.06)",  // red
-  "hsla( 52, 88%, 54%, 0.07)",  // yellow
-  "hsla(155, 75%, 46%, 0.06)",  // emerald
-  "hsla(290, 70%, 60%, 0.07)",  // violet
+  "hsla(  0, 80%, 60%, 0.12)",  // red
+  "hsla( 52, 88%, 54%, 0.13)",  // yellow
+  "hsla(155, 75%, 46%, 0.12)",  // emerald
+  "hsla(290, 70%, 60%, 0.13)",  // violet
   /* 3 — Search (4) */
-  "hsla( 16, 88%, 56%, 0.07)",  // red-orange
-  "hsla(100, 70%, 46%, 0.06)",  // olive
-  "hsla(222, 82%, 62%, 0.07)",  // cornflower
-  "hsla(310, 70%, 58%, 0.06)",  // fuchsia
+  "hsla( 16, 88%, 56%, 0.13)",  // red-orange
+  "hsla(100, 70%, 46%, 0.12)",  // olive
+  "hsla(222, 82%, 62%, 0.13)",  // cornflower
+  "hsla(310, 70%, 58%, 0.12)",  // fuchsia
   /* 4 — Vision (4) */
-  "hsla(165, 76%, 46%, 0.06)",  // aqua-green
-  "hsla(255, 76%, 63%, 0.07)",  // slate-purple
-  "hsla( 35, 88%, 58%, 0.07)",  // amber
-  "hsla(195, 82%, 52%, 0.06)",  // cerulean
+  "hsla(165, 76%, 46%, 0.12)",  // aqua-green
+  "hsla(255, 76%, 63%, 0.13)",  // slate-purple
+  "hsla( 35, 88%, 58%, 0.13)",  // amber
+  "hsla(195, 82%, 52%, 0.12)",  // cerulean
   /* 5 — Web (4) */
-  "hsla(340, 78%, 58%, 0.06)",  // rose
-  "hsla(120, 66%, 46%, 0.06)",  // medium green
-  "hsla(230, 82%, 63%, 0.07)",  // periwinkle
-  "hsla( 56, 82%, 52%, 0.07)",  // golden-yellow
+  "hsla(340, 78%, 58%, 0.12)",  // rose
+  "hsla(120, 66%, 46%, 0.12)",  // medium green
+  "hsla(230, 82%, 63%, 0.13)",  // periwinkle
+  "hsla( 56, 82%, 52%, 0.13)",  // golden-yellow
   /* 6 — IoT (4) */
-  "hsla( 22, 88%, 55%, 0.07)",  // burnt orange
-  "hsla(180, 78%, 48%, 0.06)",  // aqua
-  "hsla(285, 68%, 58%, 0.07)",  // medium purple
-  "hsla(145, 70%, 44%, 0.06)",  // forest green
+  "hsla( 22, 88%, 55%, 0.13)",  // burnt orange
+  "hsla(180, 78%, 48%, 0.12)",  // aqua
+  "hsla(285, 68%, 58%, 0.13)",  // medium purple
+  "hsla(145, 70%, 44%, 0.12)",  // forest green
 ];
 const CAT_OFFSETS = [0, 7, 11, 15, 19, 23, 27];
 const getCardBg = (ci: number, oi: number) =>
@@ -411,12 +411,12 @@ export default function Services({
                               onClick={() => onAddToCart({ id: itemId, title: offer.title, category: cat.label })}
                               aria-label={inCart
                                 ? (lang === "fr" ? "Retirer du panier" : "Remove from cart")
-                                : (lang === "fr" ? "Ajouter au panier" : "Add to cart")}
+                                : (lang === "fr" ? "Commander ce service" : "Order this service")}
                             >
-                              {inCart ? <LuCheck size={13} /> : <LuPlus size={13} />}
+                              {inCart ? <LuCheck size={13} /> : <LuCalendarCheck size={13} />}
                               {inCart
-                                ? (lang === "fr" ? "Ajouté" : "Added")
-                                : (lang === "fr" ? "Ajouter" : "Add")}
+                                ? (lang === "fr" ? "Commandé" : "Ordered")
+                                : (lang === "fr" ? "Commander" : "Order")}
                             </button>
                           );
                         })()}
