@@ -117,7 +117,7 @@ const ORG_SCHEMA = {
     "@type": "ContactPoint",
     telephone: "+261-38-66-261-00",
     contactType: "customer service",
-    email: "contact@wikolabs.com",
+    email: "team@wikolabs.com",
     availableLanguage: ["French", "English"],
   },
   sameAs: ["https://www.linkedin.com/company/112261574"],

@@ -61,7 +61,7 @@ import {
 import { IconType } from "react-icons";
 import styles from "./ServicePageClient.module.css";
 
-const CONTACT_EMAIL = "contact@wikolabs.com";
+const CONTACT_EMAIL = "team@wikolabs.com";
 const LINKEDIN_URL = "https://www.linkedin.com/company/112261574";
 
 interface Tech {

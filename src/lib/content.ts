@@ -303,7 +303,7 @@ const DEFAULTS_FR: SiteContent = {
     },
     {
       q: "Comment nous contacter ?",
-      a: "Par email à team@wikolabs.com ou contact@wikolabs.com, par téléphone au +261 38 66 261 00, ou en réservant directement un créneau via notre calendrier en ligne.",
+      a: "Par email à team@wikolabs.com ou team@wikolabs.com, par téléphone au +261 38 66 261 00, ou en réservant directement un créneau via notre calendrier en ligne.",
     },
   ],
 };
@@ -542,7 +542,7 @@ const DEFAULTS_EN: SiteContent = {
     },
     {
       q: "How can we get in touch?",
-      a: "By email at team@wikolabs.com or contact@wikolabs.com, by phone at +261 38 66 261 00, or by booking a slot directly via our online calendar.",
+      a: "By email at team@wikolabs.com or team@wikolabs.com, by phone at +261 38 66 261 00, or by booking a slot directly via our online calendar.",
     },
   ],
 };

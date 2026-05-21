@@ -558,8 +558,8 @@ export default function LandingClient({
             📞 +261 38 66 261 00
           </a>
           <span className={s.ctaDivider}>·</span>
-          <a href="mailto:contact@wikolabs.com" className={s.ctaPhone}>
-            contact@wikolabs.com
+          <a href="mailto:team@wikolabs.com" className={s.ctaPhone}>
+            team@wikolabs.com
           </a>
         </div>
       </section>
@@ -606,7 +606,7 @@ export default function LandingClient({
               <h4>{t("footer.contact_title")}</h4>
               <a href="tel:+261386626100">📞 {t("footer.contact_phone")}</a>
               <a href="mailto:team@wikolabs.com">{t("footer.contact_email1")}</a>
-              <a href="mailto:contact@wikolabs.com">{t("footer.contact_email2")}</a>
+              <a href="mailto:team@wikolabs.com">{t("footer.contact_email2")}</a>
               <a href="https://www.linkedin.com/company/112261574" target="_blank" rel="noopener noreferrer">
                 LinkedIn →
               </a>
