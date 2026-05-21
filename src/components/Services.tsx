@@ -3,60 +3,71 @@
 import Link from "next/link";
 import styles from "./Services.module.css";
 import type { IconType } from "react-icons";
-import {
-  HiMagnifyingGlass, HiCpuChip, HiChartBar, HiPhone, HiDocumentText,
-  HiSpeakerWave,
-} from "react-icons/hi2";
+import { HiMagnifyingGlass } from "react-icons/hi2";
 import {
   LuMegaphone, LuMessageSquare, LuTrendingUp, LuFactory,
   LuEye, LuSearch, LuTarget, LuCalendarCheck, LuFileText, LuActivity,
   LuBell, LuNetwork, LuScan, LuChartBar, LuDatabase, LuFileSearch,
-  LuBrain, LuLayers, LuWorkflow, LuScanLine, LuMap, LuBox, LuPackage,
-  LuTag, LuCloud, LuCode,
+  LuBrain, LuLayers, LuWorkflow, LuScanLine, LuMap, LuBox,
+  LuPlus, LuCheck,
 } from "react-icons/lu";
 import {
   SiPython, SiLangchain, SiFastapi, SiN8N,
   SiGooglebigquery, SiScikitlearn, SiTensorflow, SiPytorch, SiGooglecloud,
 } from "react-icons/si";
-import { LuPlus, LuCheck } from "react-icons/lu";
 import type { CartItem } from "@/components/ServiceCartPanel";
 
-/* ── Tech badge type ── */
 interface Tech { Icon?: IconType; logo?: string; abbr?: string; color: string; n: string }
 
-const PY: Tech = { Icon: SiPython,         color: "#3776AB", n: "Python"       };
-const LG: Tech = { logo: "/logos/langgraph.svg", color: "#22D3EE", n: "LangGraph" };
-const LC: Tech = { Icon: SiLangchain,      color: "#1C3C3C", n: "LangChain"    };
-const FA: Tech = { Icon: SiFastapi,        color: "#009688", n: "FastAPI"      };
-const N8: Tech = { Icon: SiN8N,            color: "#EA4B71", n: "n8n"          };
-const BQ: Tech = { Icon: SiGooglebigquery, color: "#4285F4", n: "BigQuery"     };
-const SK: Tech = { Icon: SiScikitlearn,    color: "#F7931E", n: "Scikit-learn" };
-const TF: Tech = { Icon: SiTensorflow,     color: "#FF6F00", n: "TensorFlow"   };
-const PT: Tech = { Icon: SiPytorch,        color: "#EE4C2C", n: "PyTorch"      };
-const ES: Tech = { logo: "/logos/elasticsearch.svg", color: "#005571", n: "Elastic" };
-const DF: Tech = { logo: "/logos/dataflow.svg",      color: "#4285F4", n: "Dataflow" };
-const GC: Tech = { Icon: SiGooglecloud,    color: "#4285F4", n: "GCP"          };
+/* ── Core stack ── */
+const PY: Tech  = { Icon: SiPython,                color: "#3776AB", n: "Python"       };
+const LG: Tech  = { logo: "/logos/langgraph.svg",   color: "#22D3EE", n: "LangGraph"   };
+const LC: Tech  = { Icon: SiLangchain,              color: "#1C3C3C", n: "LangChain"   };
+const FA: Tech  = { Icon: SiFastapi,                color: "#009688", n: "FastAPI"      };
+const N8: Tech  = { Icon: SiN8N,                    color: "#EA4B71", n: "n8n"          };
+const BQ: Tech  = { Icon: SiGooglebigquery,          color: "#4285F4", n: "BigQuery"    };
+const SK: Tech  = { Icon: SiScikitlearn,             color: "#F7931E", n: "Scikit-learn"};
+const TF: Tech  = { Icon: SiTensorflow,              color: "#FF6F00", n: "TensorFlow"  };
+const PT: Tech  = { Icon: SiPytorch,                 color: "#EE4C2C", n: "PyTorch"     };
+const ES: Tech  = { logo: "/logos/elasticsearch.svg", color: "#005571", n: "Elastic"   };
+const DF: Tech  = { logo: "/logos/dataflow.svg",       color: "#4285F4", n: "Dataflow" };
+const GC: Tech  = { Icon: SiGooglecloud,             color: "#4285F4", n: "GCP"         };
 
-const SERVICE_SLUGS = [
-  "search-recommendation",
-  "production-ai",
-  "decision-intelligence",
-  "commercial-automation",
-  "data-vision",
-  "data-annotation",
-  "data-engineering",
-  "cloud-infrastructure",
-  "seo-refonte",
-  "fullstack",
-];
+/* ── AI providers ── */
+const OA: Tech  = { logo: "/logos/openai.svg",       color: "#74AA9C", n: "OpenAI"      };
+const AN: Tech  = { logo: "/logos/anthropic.svg",    color: "#D97757", n: "Anthropic"   };
+const HF: Tech  = { logo: "/logos/huggingface.svg",  color: "#FF9D00", n: "HuggingFace" };
+const VA: Tech  = { logo: "/logos/vertexai.svg",     color: "#4285F4", n: "Vertex AI"   };
+const SM: Tech  = { logo: "/logos/aws-sagemaker.svg", color: "#01A88D", n: "SageMaker"  };
 
-/* ── Icon per service card (10 main) ── */
-const SERVICE_ICONS: IconType[] = [
-  HiMagnifyingGlass, HiCpuChip, HiChartBar, HiPhone, HiDocumentText,
-  LuTag, LuDatabase, LuCloud, LuSearch, LuCode,
-];
+/* ── Integrations & CRM ── */
+const GHL: Tech = { logo: "/logos/gohighlevel.webp", color: "#2896FB", n: "GoHighLevel" };
+const TW: Tech  = { logo: "/logos/twilio.svg",       color: "#F22F46", n: "Twilio"      };
+const SL: Tech  = { logo: "/logos/slack.svg",        color: "#4A154B", n: "Slack"       };
+const NO: Tech  = { logo: "/logos/notion.svg",       color: "#F0EDE6", n: "Notion"      };
+const AT_: Tech = { logo: "/logos/airtable.svg",     color: "#18BFFF", n: "Airtable"    };
 
-/* ── Icon per category header (5 categories) ── */
+/* ── Vector & Search ── */
+const PN: Tech  = { logo: "/logos/pinecone.svg",     color: "#3BB273", n: "Pinecone"    };
+const WV: Tech  = { logo: "/logos/weaviate.svg",     color: "#5C4EE5", n: "Weaviate"    };
+const FI: Tech  = { logo: "/logos/faiss.svg",        color: "#1877F2", n: "FAISS"       };
+
+/* ── Data & Analytics ── */
+const SP: Tech  = { logo: "/logos/apache-spark.svg", color: "#E25A1C", n: "Spark"       };
+const AF: Tech  = { logo: "/logos/airflow.svg",      color: "#017CEE", n: "Airflow"     };
+const KF: Tech  = { logo: "/logos/kafka.svg",        color: "#ADADAD", n: "Kafka"       };
+const MB: Tech  = { logo: "/logos/metabase.svg",     color: "#509EE3", n: "Metabase"    };
+const PBI: Tech = { logo: "/logos/powerbi.svg",      color: "#F2C811", n: "Power BI"    };
+
+/* ── Cloud AI / Vision / Docs ── */
+const TX: Tech  = { logo: "/logos/aws-textract.svg",           color: "#FF9900", n: "Textract"    };
+const RK: Tech  = { logo: "/logos/aws-rekognition.svg",        color: "#FF9900", n: "Rekognition" };
+const AP_: Tech = { logo: "/logos/aws-personalize.svg",        color: "#FF9900", n: "Personalize" };
+const GDA: Tech = { logo: "/logos/gcp-document-ai.svg",        color: "#4285F4", n: "Document AI" };
+const GVI: Tech = { logo: "/logos/gcp-vision-ai.svg",          color: "#34A853", n: "Vision AI"   };
+const AFR: Tech = { logo: "/logos/azure-form-recognizer.svg",  color: "#0078D4", n: "Doc Intel"   };
+
+/* ── Category header icons ── */
 const CAT_ICONS: IconType[] = [
   LuMegaphone, LuMessageSquare, LuTrendingUp, HiMagnifyingGlass, LuFactory,
 ];
@@ -69,40 +80,45 @@ const CAT_SLUGS = [
   "data-vision",
 ];
 
-/* ── Tech badges per offer (category × offer) ── */
+/* ── Tech badges per offer [category][offer] ── */
 const CATEGORY_TECHS: Tech[][][] = [
+  /* 0 — Cycle Commercial & Marketing */
   [
-    [LG, PY, N8],
-    [LG, LC, PY],
-    [LG, N8, PY],
-    [LG, PY],
-    [LG, FA, PY],
-    [LG, FA, PY],
-    [LG, N8, PY],
+    [LG, OA, N8, PY, SL, NO],          // Agent Veille Marché
+    [LG, LC, OA, N8, GHL, PY],         // Agent Sourcing de Leads
+    [LG, OA, TW, N8, GHL, PY],         // Agent Outreach Multicanal
+    [LG, OA, FA, N8, GHL, PY],         // Agent Qualification BANT
+    [LG, FA, OA, TW, N8, PY],          // Agent Setter (Prise de RDV)
+    [LG, FA, OA, AN, N8, PY],          // Agent Proposition Commerciale
+    [LG, SK, OA, N8, GHL, PY],         // Agent Rétention & Upsell
   ],
+  /* 1 — Support & Service Client */
   [
-    [LC, LG, FA],
-    [LG, PY],
-    [N8, PY],
-    [PY, LC],
+    [LC, LG, OA, TW, PN, FA],          // Agent SAV E-commerce (RAG)
+    [LG, OA, FA, N8, PY],              // Agent Triage & Escalade
+    [N8, OA, NO, AT_, FA, PY],         // Agent Onboarding Client
+    [PY, LC, OA, GHL, FA, AN],         // Agent Notes Discovery
   ],
+  /* 2 — BI & Intelligence Décisionnelle */
   [
-    [BQ, LG, PY],
-    [PY, BQ],
-    [SK, TF, PY],
-    [LG, PY],
+    [BQ, LG, OA, MB, PBI, PY],         // Agent BI Langage Naturel
+    [PY, BQ, FA, N8, PBI, MB],         // Reporting Automatique (PPT/PDF)
+    [SK, TF, PT, BQ, PY, MB],          // Forecasting & Anomalies
+    [LG, SK, OA, N8, GHL, PY],         // CRM Multi-agent & Pipeline
   ],
+  /* 3 — Recherche & Données Structurées */
   [
-    [PY, FA, ES],
-    [TF, PY],
-    [PY, BQ, DF],
-    [PT, TF, PY],
+    [ES, OA, PN, WV, FI, FA],          // Moteur de Recherche Sémantique
+    [TF, PT, SK, AP_, FA, PY],         // Recommandation Personnalisée
+    [PY, BQ, DF, SP, AF, KF],          // Pipeline de Données Intelligent
+    [PT, TF, HF, SM, VA, PY],          // Fine-tuning & MLOps
   ],
+  /* 4 — Documents, Vision & Industrie */
   [
-    [PY, LG],
-    [PT, PY],
-    [PY],
-    [PY, GC],
+    [OA, TX, GDA, AFR, LG, PY],        // OCR & Extraction Documentaire
+    [PT, TF, RK, GVI, HF, PY],         // Vision IA & Détection d'Objets
+    [PT, PY, VA, GC],                  // BIM & Point Cloud
+    [PY, BQ, FA, VA, GC],              // Cartographie & Géolocalisation
   ],
 ];
 
@@ -118,114 +134,84 @@ const OFFER_ICONS: IconType[][] = [
 /* ── i18n ── */
 const i18n = {
   fr: {
-    tag: "Ce que nous faisons",
-    title: "Des solutions IA qui créent de la valeur",
-    titleEm: "pour votre entreprise",
-    desc: "Cinq domaines d'excellence, une seule ambition : transformer vos opérations avec l'intelligence artificielle et obtenir des résultats mesurables.",
-    services: [
-      { label: "Recherche & Recommandation", title: "Trouvez le bon client, au bon moment", desc: "Recherche sémantique, lexicale, knowledge graph et multimodale sur vos catalogues, contenus et données structurées. Le bon produit, service ou contenu face à la bonne personne, instantanément.", tags: ["Recherche sémantique", "Recommandation personnalisée", "Vision IA"], featured: false },
-      { label: "Logiciels IA de Production", title: "Des logiciels qui apprennent et s'améliorent", desc: "Plateformes RAG, pipelines de données, agents intelligents avec mémoire et compétences, intelligence support, triage automatisé et déploiement MLOps. Chaque couche de la stack, accélérée par l'IA.", tags: ["RAG Platform", "Agents IA", "MLOps", "Fine-tuning"], featured: true },
-      { label: "Intelligence Décisionnelle", title: "Vos données vous parlent, enfin", desc: "Prévisions, détection d'anomalies et intelligence décisionnelle sur vos données synchronisées, interrogeables en langage naturel. CRM multi-agent avec scoring, pipeline, rétention et réactivation.", tags: ["Forecasting", "BI Naturel", "CRM Multi-agent", "Rétention"], featured: false },
-      { label: "Automatisation Commerciale", title: "Votre cycle commercial, entièrement automatisé", desc: "Du sourcing à l'onboarding : génération de leads, enrichissement BANT, outreach multicanal, qualification, setting, proposition, closing, support et rétention. Routage intelligent à chaque étape.", tags: ["Lead Gen", "Outreach IA", "CRM Auto", "Call Intelligence"], featured: false },
-      { label: "Données Non Structurées & Vision", title: "Exploitez vos documents et environnements visuels", desc: "OCR, extraction contractuelle, parsing de formulaires, automation emails via MCP. Étendu à la détection d'objets, segmentation, BIM, point cloud, inventaire logistique et cartographie géospatiale.", tags: ["OCR IA", "Extraction documentaire", "Vision IA", "Supply Chain"], featured: false },
-      { label: "Annotation de Données IA", title: "Des datasets prêts à entraîner vos modèles", desc: "Annotation texte, image, audio et vidéo à grande échelle avec contrôle qualité intégré. Vos modèles IA apprennent depuis des données précises, cohérentes et conformes à vos standards métier.", tags: ["Classification", "NLP", "Vision IA", "Qualité"], featured: false },
-      { label: "Data Engineering & Big Data", title: "Vos données, enfin sous contrôle", desc: "Pipelines ETL/ELT, traitement big data avec Spark et Airflow, architectures Lakehouse, CDC temps réel et data warehouses interrogeables. De la source brute au dashboard en quelques secondes.", tags: ["ETL/ELT", "Apache Spark", "Lakehouse", "Temps réel"], featured: false },
-      { label: "Migration & Infrastructure Cloud", title: "Passez au cloud sans risque ni temps d'arrêt", desc: "Audit de votre infrastructure actuelle, plan de migration vers AWS, GCP ou Azure, mise en place d'architectures cloud-native, sécurisation, monitoring et optimisation des coûts. Du on-premise au cloud en quelques semaines.", tags: ["AWS", "GCP", "Azure", "Cloud-native"], featured: false },
-      { label: "SEO & Refonte Web/Mobile", title: "Votre présence digitale comme levier de croissance", desc: "Audit SEO technique et sémantique, refonte de sites web et applications mobiles, débogage systématique, optimisation des performances et de l'expérience utilisateur. De l'analyse à la mise en production.", tags: ["Audit SEO", "Refonte UX", "Performance", "Débogage"], featured: false },
-      { label: "Développement Fullstack", title: "Des applications qui tiennent leurs promesses", desc: "Applications web et mobiles sur mesure, APIs RESTful et GraphQL, interfaces utilisateur, microservices et intégrations tierces. React, Next.js, FastAPI, NestJS — développées, testées et déployées en production.", tags: ["React / Next.js", "FastAPI / NestJS", "API & Microservices", "Production"], featured: false },
-    ],
     offersTag: "Nos agents & solutions",
-    offersTitle: "20+ offres concrètes et déployables",
+    offersTitle: "20+ offres concrètes",
+    offersTitleEm: "et déployables",
     offersDesc: "Chaque solution est un agent IA ou un système autonome testé en production, intégrable dans votre stack existante.",
     categories: [
       { label: "Cycle Commercial & Marketing", offers: [
-        { title: "Agent Veille Marché", desc: "Scraping quotidien de vos concurrents, nouveaux entrants et opportunités. Résumé LLM livré dans Notion ou Slack." },
-        { title: "Agent Sourcing de Leads", desc: "Collecte automatisée de contacts B2B qualifiés via Apollo, LinkedIn et annuaires, synchronisés dans votre CRM." },
-        { title: "Agent Outreach Multicanal", desc: "Séquences personnalisées email + LinkedIn + appel générées par LLM, avec tracking et relances automatiques." },
-        { title: "Agent Qualification BANT", desc: "Analyse des réponses prospects, score BANT mis à jour, routage intelligent : HOT vers setter / COLD vers nurturing." },
-        { title: "Agent Setter (Prise de RDV)", desc: "Proposition de créneaux via Calendly, confirmations, rappels J-1 et brief pré-call généré par LLM." },
-        { title: "Agent Proposition Commerciale", desc: "Draft de proposition commerciale généré depuis les notes du discovery call. PDF envoyé via DocuSign automatiquement." },
-        { title: "Agent Rétention & Upsell", desc: "Détection de churn risk par analyse comportementale, email de réengagement personnalisé et séquence upsell déclenchée après succès." },
+        { title: "Agent Veille Marché",          desc: "Scraping quotidien de vos concurrents, nouveaux entrants et opportunités. Résumé LLM livré dans Notion ou Slack." },
+        { title: "Agent Sourcing de Leads",      desc: "Collecte automatisée de contacts B2B qualifiés via Apollo, LinkedIn et annuaires, synchronisés dans votre CRM." },
+        { title: "Agent Outreach Multicanal",    desc: "Séquences personnalisées email + LinkedIn + appel générées par LLM, avec tracking et relances automatiques." },
+        { title: "Agent Qualification BANT",     desc: "Analyse des réponses prospects, score BANT mis à jour, routage intelligent : HOT vers setter / COLD vers nurturing." },
+        { title: "Agent Setter (Prise de RDV)",  desc: "Proposition de créneaux via Calendly, confirmations, rappels J-1 et brief pré-call généré par LLM." },
+        { title: "Agent Proposition Commerciale",desc: "Draft de proposition commerciale généré depuis les notes du discovery call. PDF envoyé via DocuSign automatiquement." },
+        { title: "Agent Rétention & Upsell",     desc: "Détection de churn risk par analyse comportementale, email de réengagement personnalisé et séquence upsell déclenchée après succès." },
       ]},
       { label: "Support & Service Client", offers: [
-        { title: "Agent SAV E-commerce (RAG)", desc: "Répond aux clients par email et WhatsApp sur statut commande, livraison et retours. Règles métier dans Notion. Compatible WooCommerce et Shopify." },
-        { title: "Agent Triage & Escalade", desc: "Priorisation automatique des tickets par urgence et catégorie, réponse aux questions fréquentes, escalade vers humain si complexe." },
-        { title: "Agent Onboarding Client", desc: "Email de bienvenue automatique, checklist d'onboarding suivie dans Notion ou Jira, rappels si étapes non complétées." },
-        { title: "Agent Notes Discovery", desc: "Transcription automatique des calls (Whisper) et résumé LLM structuré. Fiche créée automatiquement dans le CRM." },
+        { title: "Agent SAV E-commerce (RAG)",   desc: "Répond aux clients par email et WhatsApp sur statut commande, livraison et retours. Règles métier dans Notion. Compatible WooCommerce et Shopify." },
+        { title: "Agent Triage & Escalade",      desc: "Priorisation automatique des tickets par urgence et catégorie, réponse aux questions fréquentes, escalade vers humain si complexe." },
+        { title: "Agent Onboarding Client",      desc: "Email de bienvenue automatique, checklist d'onboarding suivie dans Notion ou Jira, rappels si étapes non complétées." },
+        { title: "Agent Notes Discovery",        desc: "Transcription automatique des calls (Whisper) et résumé LLM structuré. Fiche créée automatiquement dans le CRM." },
       ]},
       { label: "BI & Intelligence Décisionnelle", offers: [
-        { title: "Agent BI Langage Naturel", desc: "Questions en français ou anglais vers SQL généré vers dashboard automatique. Vos équipes lisent leurs KPIs sans analyste." },
+        { title: "Agent BI Langage Naturel",     desc: "Questions en français ou anglais vers SQL généré vers dashboard automatique. Vos équipes lisent leurs KPIs sans analyste." },
         { title: "Reporting Automatique (PPT/PDF)", desc: "Dashboard PowerPoint ou PDF généré depuis WooCommerce, Shopify ou toute source, enrichi de données externes pour le pilotage." },
-        { title: "Forecasting & Anomalies", desc: "Prévisions de revenus sur 3/6/12 mois, détection d'anomalies en temps réel, alertes automatiques sur churn risk et dérives." },
-        { title: "CRM Multi-agent & Pipeline", desc: "Scoring LTV, pipeline orchestration, alertes renouvellement et réactivation. CRM piloté par l'IA, pas par vos commerciaux." },
+        { title: "Forecasting & Anomalies",      desc: "Prévisions de revenus sur 3/6/12 mois, détection d'anomalies en temps réel, alertes automatiques sur churn risk et dérives." },
+        { title: "CRM Multi-agent & Pipeline",   desc: "Scoring LTV, pipeline orchestration, alertes renouvellement et réactivation. CRM piloté par l'IA, pas par vos commerciaux." },
       ]},
       { label: "Recherche & Données Structurées", offers: [
         { title: "Moteur de Recherche Sémantique", desc: "Recherche vectorielle sur vos catalogues, bases de connaissance et contenus. Résultats pertinents dès le premier mot." },
         { title: "Recommandation Personnalisée", desc: "Collaborative filtering et matching hybride pour surface le bon produit ou service à la bonne personne au bon moment." },
         { title: "Pipeline de Données Intelligent", desc: "ETL, CDC, synchronisation temps réel et data warehouse interrogeable en langage naturel via MCP." },
-        { title: "Fine-tuning & MLOps", desc: "Entraînement, RLHF, déploiement et monitoring de modèles IA sur votre infrastructure ou la nôtre (GCP, AWS, Azure)." },
+        { title: "Fine-tuning & MLOps",          desc: "Entraînement, RLHF, déploiement et monitoring de modèles IA sur votre infrastructure ou la nôtre (GCP, AWS, Azure)." },
       ]},
       { label: "Documents, Vision & Industrie", offers: [
         { title: "OCR & Extraction Documentaire", desc: "Extraction intelligente de données dans vos contrats, formulaires, factures et emails. Structurées en base automatiquement." },
         { title: "Vision IA & Détection d'Objets", desc: "Détection, segmentation et classification visuelle pour inventaire, qualité industrielle, logistique et retail." },
-        { title: "BIM & Point Cloud", desc: "Traitement de maquettes numériques (BIM) et données 3D point cloud pour le bâtiment, la construction et l'industrie." },
+        { title: "BIM & Point Cloud",            desc: "Traitement de maquettes numériques (BIM) et données 3D point cloud pour le bâtiment, la construction et l'industrie." },
         { title: "Cartographie & Géolocalisation", desc: "Analyse spatiale, routage logistique intelligent et cartographie automatisée depuis vos données terrain." },
       ]},
     ],
   },
   en: {
-    tag: "What we do",
-    title: "AI solutions that create real value",
-    titleEm: "for your business",
-    desc: "Five areas of excellence, one ambition: transform your operations with artificial intelligence and deliver measurable results.",
-    services: [
-      { label: "Search & Recommendation", title: "Find the right customer, at the right moment", desc: "Semantic, lexical, knowledge graph and multimodal search across your catalogues, content and structured data. The right product, service or content to the right person, instantly.", tags: ["Semantic Search", "Personalized Recommendation", "Vision AI"], featured: false },
-      { label: "Production AI Software", title: "Software that learns and improves", desc: "RAG platforms, data pipelines, intelligent agents with memory and skills, support intelligence, automated triage and MLOps deployment. Every layer of the stack, accelerated by AI.", tags: ["RAG Platform", "AI Agents", "MLOps", "Fine-tuning"], featured: true },
-      { label: "Decision Intelligence", title: "Your data finally speaks to you", desc: "Forecasting, anomaly detection and decision intelligence on synchronized data warehouses, queryable in plain language. Multi-agent CRM with scoring, pipeline orchestration, retention and reactivation.", tags: ["Forecasting", "Natural Language BI", "Multi-agent CRM", "Retention"], featured: false },
-      { label: "Sales Automation", title: "Your entire sales cycle, automated", desc: "From sourcing to onboarding: lead generation, BANT enrichment, multichannel outreach, qualification, appointment setting, proposal, closing, support and retention. Intelligent routing at every stage.", tags: ["Lead Gen", "AI Outreach", "CRM Auto", "Call Intelligence"], featured: false },
-      { label: "Unstructured Data & Vision", title: "Unlock your documents and visual environments", desc: "OCR, contract extraction, form parsing, email automation via MCP. Extended to object detection, segmentation, BIM integration, point cloud processing, logistics intelligence and geospatial mapping.", tags: ["AI OCR", "Document Extraction", "Vision AI", "Supply Chain"], featured: false },
-      { label: "AI Data Annotation", title: "Datasets ready to train your models", desc: "Large-scale text, image, audio and video annotation with integrated quality control. Your AI models learn from precise, consistent data that meets your business standards.", tags: ["Classification", "NLP", "Vision AI", "Quality Control"], featured: false },
-      { label: "Data Engineering & Big Data", title: "Your data, finally under control", desc: "ETL/ELT pipelines, big data processing with Spark and Airflow, Lakehouse architectures, real-time CDC and queryable data warehouses. From raw source to dashboard in seconds.", tags: ["ETL/ELT", "Apache Spark", "Lakehouse", "Real-time"], featured: false },
-      { label: "Cloud Migration & Infrastructure", title: "Move to the cloud with zero risk and zero downtime", desc: "Audit of your current infrastructure, migration plan to AWS, GCP or Azure, cloud-native architecture setup, security hardening, monitoring and cost optimization. From on-premise to cloud in weeks.", tags: ["AWS", "GCP", "Azure", "Cloud-native"], featured: false },
-      { label: "SEO & Web/Mobile Redesign", title: "Your digital presence as a growth driver", desc: "Technical and semantic SEO audit, web and mobile app redesign, systematic debugging, performance and UX optimization. From analysis to production deployment.", tags: ["SEO Audit", "UX Redesign", "Performance", "Debugging"], featured: false },
-      { label: "Fullstack Development", title: "Applications that deliver on their promises", desc: "Custom web and mobile apps, RESTful and GraphQL APIs, user interfaces, microservices and third-party integrations. React, Next.js, FastAPI, NestJS — developed, tested and deployed to production.", tags: ["React / Next.js", "FastAPI / NestJS", "API & Microservices", "Production"], featured: false },
-    ],
     offersTag: "Our agents & solutions",
-    offersTitle: "20+ concrete, deployable offers",
+    offersTitle: "20+ concrete,",
+    offersTitleEm: "deployable solutions",
     offersDesc: "Every solution is a production-tested AI agent or autonomous system, integrable into your existing stack.",
     categories: [
       { label: "Commercial Cycle & Marketing", offers: [
-        { title: "Market Intelligence Agent", desc: "Daily scraping of competitors, new entrants and opportunities. LLM summary delivered to Notion or Slack." },
-        { title: "Lead Sourcing Agent", desc: "Automated B2B contact collection via Apollo, LinkedIn and directories, synced directly into your CRM." },
-        { title: "Multichannel Outreach Agent", desc: "LLM-personalized email + LinkedIn + call sequences with open tracking and automated follow-ups." },
-        { title: "BANT Qualification Agent", desc: "Analyzes prospect replies, updates BANT score, routes intelligently: HOT to setter / COLD to nurturing." },
+        { title: "Market Intelligence Agent",    desc: "Daily scraping of competitors, new entrants and opportunities. LLM summary delivered to Notion or Slack." },
+        { title: "Lead Sourcing Agent",          desc: "Automated B2B contact collection via Apollo, LinkedIn and directories, synced directly into your CRM." },
+        { title: "Multichannel Outreach Agent",  desc: "LLM-personalized email + LinkedIn + call sequences with open tracking and automated follow-ups." },
+        { title: "BANT Qualification Agent",     desc: "Analyzes prospect replies, updates BANT score, routes intelligently: HOT to setter / COLD to nurturing." },
         { title: "Setter Agent (Meeting Booking)", desc: "Slot proposals via Calendly, confirmations, J-1 reminders and LLM-generated pre-call brief." },
-        { title: "Commercial Proposal Agent", desc: "Proposal draft generated from discovery call notes. PDF auto-sent via DocuSign API." },
-        { title: "Retention & Upsell Agent", desc: "Behavioral churn risk detection, personalized re-engagement email and upsell sequences triggered after success milestones." },
+        { title: "Commercial Proposal Agent",    desc: "Proposal draft generated from discovery call notes. PDF auto-sent via DocuSign API." },
+        { title: "Retention & Upsell Agent",     desc: "Behavioral churn risk detection, personalized re-engagement email and upsell sequences triggered after success milestones." },
       ]},
       { label: "Support & Customer Service", offers: [
-        { title: "E-commerce SAV Agent (RAG)", desc: "Answers customers via email and WhatsApp on order status, shipping and returns. Business rules in Notion. WooCommerce and Shopify ready." },
-        { title: "Triage & Escalation Agent", desc: "Automatic ticket prioritization by urgency and category, FAQ auto-response, escalation to human if complex." },
-        { title: "Client Onboarding Agent", desc: "Welcome email automation, onboarding checklist tracked in Notion or Jira, reminders for incomplete steps." },
-        { title: "Discovery Notes Agent", desc: "Automatic call transcription (Whisper) and LLM-structured summary. Record auto-created in CRM." },
+        { title: "E-commerce SAV Agent (RAG)",   desc: "Answers customers via email and WhatsApp on order status, shipping and returns. Business rules in Notion. WooCommerce and Shopify ready." },
+        { title: "Triage & Escalation Agent",    desc: "Automatic ticket prioritization by urgency and category, FAQ auto-response, escalation to human if complex." },
+        { title: "Client Onboarding Agent",      desc: "Welcome email automation, onboarding checklist tracked in Notion or Jira, reminders for incomplete steps." },
+        { title: "Discovery Notes Agent",        desc: "Automatic call transcription (Whisper) and LLM-structured summary. Record auto-created in CRM." },
       ]},
       { label: "BI & Decision Intelligence", offers: [
-        { title: "Natural Language BI Agent", desc: "Questions in plain English to generated SQL to automatic dashboard. Your team reads KPIs without an analyst." },
+        { title: "Natural Language BI Agent",    desc: "Questions in plain English to generated SQL to automatic dashboard. Your team reads KPIs without an analyst." },
         { title: "Automatic Reporting (PPT/PDF)", desc: "Dashboard generated from WooCommerce, Shopify or any source, enriched with external data for executive reporting." },
         { title: "Forecasting & Anomaly Detection", desc: "3/6/12-month revenue forecasts, real-time anomaly alerts on churn risk and performance drift." },
-        { title: "Multi-agent CRM & Pipeline", desc: "LTV scoring, pipeline orchestration, renewal alerts and reactivation. CRM driven by AI, not by your team." },
+        { title: "Multi-agent CRM & Pipeline",   desc: "LTV scoring, pipeline orchestration, renewal alerts and reactivation. CRM driven by AI, not by your team." },
       ]},
       { label: "Search & Structured Data", offers: [
-        { title: "Semantic Search Engine", desc: "Vector search across your catalogues, knowledge bases and content. Relevant results from the first word." },
-        { title: "Personalized Recommendation", desc: "Collaborative filtering and hybrid matching to surface the right product or service to the right person." },
-        { title: "Intelligent Data Pipeline", desc: "ETL, CDC, real-time sync and data warehouse queryable in plain language via MCP protocol." },
-        { title: "Fine-tuning & MLOps", desc: "Training, RLHF, deployment and model monitoring on your infrastructure or ours (GCP, AWS, Azure)." },
+        { title: "Semantic Search Engine",       desc: "Vector search across your catalogues, knowledge bases and content. Relevant results from the first word." },
+        { title: "Personalized Recommendation",  desc: "Collaborative filtering and hybrid matching to surface the right product or service to the right person." },
+        { title: "Intelligent Data Pipeline",    desc: "ETL, CDC, real-time sync and data warehouse queryable in plain language via MCP protocol." },
+        { title: "Fine-tuning & MLOps",          desc: "Training, RLHF, deployment and model monitoring on your infrastructure or ours (GCP, AWS, Azure)." },
       ]},
       { label: "Documents, Vision & Industry", offers: [
-        { title: "OCR & Document Extraction", desc: "Intelligent data extraction from contracts, forms, invoices and emails. Auto-structured into your database." },
+        { title: "OCR & Document Extraction",    desc: "Intelligent data extraction from contracts, forms, invoices and emails. Auto-structured into your database." },
         { title: "Vision AI & Object Detection", desc: "Detection, segmentation and visual classification for inventory, industrial quality, logistics and retail." },
-        { title: "BIM & Point Cloud", desc: "Digital model (BIM) and 3D point cloud processing for construction, architecture and industrial environments." },
-        { title: "Geolocation & Mapping", desc: "Spatial analysis, intelligent logistics routing and automated mapping from your field data." },
+        { title: "BIM & Point Cloud",            desc: "Digital model (BIM) and 3D point cloud processing for construction, architecture and industrial environments." },
+        { title: "Geolocation & Mapping",        desc: "Spatial analysis, intelligent logistics routing and automated mapping from your field data." },
       ]},
     ],
   },
@@ -258,113 +244,82 @@ export default function Services({
 }) {
   const lang = locale === "en" ? "en" : "fr";
   const t = i18n[lang];
-  const learnMore = lang === "fr" ? "Découvrir →" : "Learn more →";
 
   return (
     <section id="services" className={styles.services}>
       <div className={`reveal ${styles.sectionTag}`}>
         <span className={styles.sectionTagLine} />
-        {t.tag}
+        {t.offersTag}
       </div>
       <h2 className={`reveal d1 ${styles.sectionTitle}`}>
-        {t.title} <em>{t.titleEm}</em>
+        {t.offersTitle} <em>{t.offersTitleEm}</em>
       </h2>
-      <p className={`reveal d2 ${styles.sectionDesc}`}>{t.desc}</p>
+      <p className={`reveal d2 ${styles.sectionDesc}`} style={{ marginBottom: 48 }}>
+        {t.offersDesc}
+      </p>
 
-      <div className={styles.grid}>
-        {t.services.map((s, i) => {
-          const Icon = SERVICE_ICONS[i];
-          const slug = SERVICE_SLUGS[i];
+      <div className={styles.categories}>
+        {t.categories.map((cat, ci) => {
+          const CatIcon = CAT_ICONS[ci];
+          const catSlug = CAT_SLUGS[ci];
+          const discoverLabel = lang === "fr" ? "Découvrir →" : "Learn more →";
           return (
-            <div key={i} className={`reveal d${Math.min(i + 1, 5)} ${styles.card} ${s.featured ? styles.cardFeatured : ""}`}>
-              <div className={styles.iconWrap}>
-                <Icon size={24} />
+            <div key={ci} className={`reveal d${Math.min(ci + 1, 4)} ${styles.categoryBlock}`}>
+              <div className={styles.categoryHeader}>
+                <div className={styles.categoryIconWrap}>
+                  <CatIcon size={18} />
+                </div>
+                <span className={styles.categoryLabel}>{cat.label}</span>
+                <Link href={`/${locale}/services/${catSlug}`} className={styles.categoryDiscover}>
+                  {discoverLabel}
+                </Link>
               </div>
-              <div className={styles.cardLabel}>{s.label}</div>
-              <h3 className={styles.cardTitle}>{s.title}</h3>
-              <p className={styles.cardDesc}>{s.desc}</p>
-              <div className={styles.tags}>
-                {s.tags.map((tag, j) => (
-                  <span key={j} className={`${styles.tag} ${j === 0 ? styles.tagGold : styles.tagBlue}`}>{tag}</span>
-                ))}
+              <div className={styles.offersGrid}>
+                {cat.offers.map((offer, oi) => {
+                  const OfferIcon = OFFER_ICONS[ci]?.[oi];
+                  const techs = CATEGORY_TECHS[ci]?.[oi] ?? [];
+                  return (
+                    <div key={oi} className={styles.offerCard}>
+                      {OfferIcon && (
+                        <div className={styles.offerIllust}>
+                          <OfferIcon size={36} />
+                        </div>
+                      )}
+                      <div className={styles.offerTitle}>{offer.title}</div>
+                      <div className={styles.offerDesc}>{offer.desc}</div>
+                      <div className={styles.offerTechs}>
+                        {techs.map((tech, ti) => <TechBadge key={ti} tech={tech} />)}
+                      </div>
+                      <div className={styles.offerCardFooter}>
+                        <Link href={`/${locale}/services/${catSlug}`} className={styles.offerCardLink}>
+                          {lang === "fr" ? "En savoir plus →" : "Learn more →"}
+                        </Link>
+                        {onAddToCart && (() => {
+                          const itemId = `${ci}-${oi}`;
+                          const inCart = cartItemIds?.has(itemId);
+                          return (
+                            <button
+                              className={`${styles.addToCartBtn} ${inCart ? styles.addToCartBtnActive : ""}`}
+                              onClick={() => onAddToCart({ id: itemId, title: offer.title, category: cat.label })}
+                              aria-label={inCart
+                                ? (lang === "fr" ? "Retirer du panier" : "Remove from cart")
+                                : (lang === "fr" ? "Ajouter au panier" : "Add to cart")}
+                            >
+                              {inCart ? <LuCheck size={13} /> : <LuPlus size={13} />}
+                              {inCart
+                                ? (lang === "fr" ? "Ajouté" : "Added")
+                                : (lang === "fr" ? "Ajouter" : "Add")}
+                            </button>
+                          );
+                        })()}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-              <Link href={`/${locale}/services/${slug}`} className={styles.cardLink}>
-                {learnMore}
-              </Link>
             </div>
           );
         })}
-      </div>
-
-      <div style={{ marginTop: 96 }}>
-        <div className={`reveal ${styles.sectionTag}`}>
-          <span className={styles.sectionTagLine} />
-          {t.offersTag}
-        </div>
-        <h3 className={`reveal d1 ${styles.offersTitle}`}>{t.offersTitle}</h3>
-        <p className={`reveal d2 ${styles.sectionDesc}`} style={{ marginBottom: 48 }}>{t.offersDesc}</p>
-
-        <div className={styles.categories}>
-          {t.categories.map((cat, ci) => {
-            const CatIcon = CAT_ICONS[ci];
-            const catSlug = CAT_SLUGS[ci];
-            const discoverLabel = lang === "fr" ? "Découvrir →" : "Learn more →";
-            return (
-              <div key={ci} className={`reveal d${Math.min(ci + 1, 4)} ${styles.categoryBlock}`}>
-                <div className={styles.categoryHeader}>
-                  <div className={styles.categoryIconWrap}>
-                    <CatIcon size={18} />
-                  </div>
-                  <span className={styles.categoryLabel}>{cat.label}</span>
-                  <Link href={`/${locale}/services/${catSlug}`} className={styles.categoryDiscover}>
-                    {discoverLabel}
-                  </Link>
-                </div>
-                <div className={styles.offersGrid}>
-                  {cat.offers.map((offer, oi) => {
-                    const OfferIcon = OFFER_ICONS[ci]?.[oi];
-                    const techs = CATEGORY_TECHS[ci]?.[oi] ?? [];
-                    return (
-                      <div key={oi} className={styles.offerCard}>
-                        {OfferIcon && (
-                          <div className={styles.offerIllust}>
-                            <OfferIcon size={36} />
-                          </div>
-                        )}
-                        <div className={styles.offerTitle}>{offer.title}</div>
-                        <div className={styles.offerDesc}>{offer.desc}</div>
-                        <div className={styles.offerTechs}>
-                          {techs.map((tech, ti) => <TechBadge key={ti} tech={tech} />)}
-                        </div>
-                        <div className={styles.offerCardFooter}>
-                          <Link href={`/${locale}/services/${catSlug}`} className={styles.offerCardLink}>
-                            {lang === "fr" ? "En savoir plus →" : "Learn more →"}
-                          </Link>
-                          {onAddToCart && (() => {
-                            const itemId = `${ci}-${oi}`;
-                            const inCart = cartItemIds?.has(itemId);
-                            return (
-                              <button
-                                className={`${styles.addToCartBtn} ${inCart ? styles.addToCartBtnActive : ""}`}
-                                onClick={() => onAddToCart({ id: itemId, title: offer.title, category: cat.label })}
-                                aria-label={inCart ? (lang === "fr" ? "Retirer du panier" : "Remove from cart") : (lang === "fr" ? "Ajouter au panier" : "Add to cart")}
-                              >
-                                {inCart ? <LuCheck size={13} /> : <LuPlus size={13} />}
-                                {inCart
-                                  ? (lang === "fr" ? "Ajouté" : "Added")
-                                  : (lang === "fr" ? "Ajouter" : "Add")}
-                              </button>
-                            );
-                          })()}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
-        </div>
       </div>
     </section>
   );
