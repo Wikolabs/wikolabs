@@ -12,7 +12,7 @@ import {
 } from "@/lib/simulatorData";
 import type { BookingPrefill } from "@/app/LandingClient";
 
-const CAL_LINK = "wikolabs-team/30min";
+const CAL_LINK = "team@wikolabs.com/30min";
 
 const i18n = {
   fr: {
