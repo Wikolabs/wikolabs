@@ -18,7 +18,6 @@ import Values from "@/components/Values";
 import UseCases from "@/components/UseCases";
 import Industries from "@/components/Industries";
 import OrbitalDiagram from "@/components/OrbitalDiagram";
-import CommercialCycle from "@/components/CommercialCycle";
 import BlogPreview from "@/components/BlogPreview";
 import Constat from "@/components/Constat";
 import type { IconType } from "react-icons";
@@ -383,9 +382,6 @@ export default function LandingClient({
 
       {/* ── ORBITAL DIAGRAM ── */}
       <OrbitalDiagram locale={locale} onBooking={() => openBooking()} />
-
-      {/* ── COMMERCIAL CYCLE (integration stepper) ── */}
-      <CommercialCycle locale={locale} />
 
       {/* ── USE CASES ── */}
       <UseCases locale={locale} />
