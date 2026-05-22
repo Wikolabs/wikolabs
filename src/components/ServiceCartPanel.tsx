@@ -7,6 +7,7 @@ export interface CartItem {
   id: string;
   title: string;
   category: string;
+  answers?: string;
 }
 
 interface Props {

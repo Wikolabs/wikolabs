@@ -34,7 +34,7 @@ export interface BookingPrefill {
   offerLabel?: { fr: string; en: string };
   offerPrice?: { fr: string; en: string };
   offerDuration?: { fr: string; en: string };
-  cartServices?: { title: string; category: string }[];
+  cartServices?: { title: string; category: string; answers?: string }[];
 }
 
 const VALUE_ICONS: IconType[] = [LuTarget, HiGlobeAlt, HiBolt, HiShieldCheck, LuHandshake, LuLanguages];
@@ -196,7 +196,7 @@ export default function LandingClient({
     setCartOpen(false);
     openBooking({
       startStep: 2,
-      cartServices: cartItems.map((i) => ({ title: i.title, category: i.category })),
+      cartServices: cartItems.map((i) => ({ title: i.title, category: i.category, answers: i.answers })),
     });
   }, [cartItems, openBooking]);
 

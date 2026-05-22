@@ -116,7 +116,12 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
       setStep(prefill?.startStep || 1);
       if (prefill?.cartServices?.length) {
         const list = prefill.cartServices.map((s) => s.title).join(", ");
-        setDescription(lang === "fr" ? `Services souhaités : ${list}` : `Requested services: ${list}`);
+        const header = lang === "fr" ? `Services souhaités : ${list}` : `Requested services: ${list}`;
+        const answersBlocks = prefill.cartServices
+          .filter((s) => s.answers)
+          .map((s) => s.answers as string);
+        const body = answersBlocks.length > 0 ? "\n\n" + answersBlocks.join("\n\n") : "";
+        setDescription(header + body);
       } else {
         setDescription("");
       }

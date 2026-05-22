@@ -19,6 +19,7 @@ import {
   SiReact, SiNextdotjs,
 } from "react-icons/si";
 import type { CartItem } from "@/components/ServiceCartPanel";
+import OfferChatBot from "@/components/OfferChatBot";
 
 interface Tech { Icon?: IconType; logo?: string; abbr?: string; color: string; n: string }
 
@@ -481,6 +482,12 @@ export default function Services({
 
   const [openQ, setOpenQ] = useState<Set<string>>(new Set());
   const [openMeta, setOpenMeta] = useState<Set<string>>(new Set());
+  const [chatOffer, setChatOffer] = useState<{
+    cardId: string;
+    title: string;
+    category: string;
+    questions: string[];
+  } | null>(null);
 
   const toggleQ = (id: string) => setOpenQ(prev => {
     const next = new Set(prev);
@@ -630,7 +637,15 @@ export default function Services({
                           return (
                             <button
                               className={`${styles.addToCartBtn} ${inCart ? styles.addToCartBtnActive : ""}`}
-                              onClick={() => onAddToCart({ id: itemId, title: offer.title, category: cat.label })}
+                              onClick={() => {
+                              if (inCart) {
+                                onAddToCart({ id: itemId, title: offer.title, category: cat.label });
+                              } else if (questions?.[lang]?.length) {
+                                setChatOffer({ cardId: itemId, title: offer.title, category: cat.label, questions: questions[lang] });
+                              } else {
+                                onAddToCart({ id: itemId, title: offer.title, category: cat.label });
+                              }
+                            }}
                               aria-label={inCart
                                 ? (lang === "fr" ? "Retirer du panier" : "Remove from cart")
                                 : (lang === "fr" ? "Commander ce service" : "Order this service")}
@@ -651,6 +666,23 @@ export default function Services({
           );
         })}
       </div>
+
+        {chatOffer && onAddToCart && (
+          <OfferChatBot
+            locale={locale}
+            offerTitle={chatOffer.title}
+            questions={chatOffer.questions}
+            onComplete={(answersText) => {
+              onAddToCart({ id: chatOffer.cardId, title: chatOffer.title, category: chatOffer.category, answers: answersText });
+              setChatOffer(null);
+            }}
+            onSkip={() => {
+              onAddToCart({ id: chatOffer.cardId, title: chatOffer.title, category: chatOffer.category });
+              setChatOffer(null);
+            }}
+            onClose={() => setChatOffer(null)}
+          />
+        )}
     </section>
   );
 }
