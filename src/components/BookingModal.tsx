@@ -12,7 +12,10 @@ import {
 } from "@/lib/simulatorData";
 import type { BookingPrefill } from "@/app/LandingClient";
 
-const CAL_LINK = "team@wikolabs.com/30min";
+// Cal.com booking slug — format: "username/event" or "team/team-slug/event"
+// Verify your exact URL at: app.cal.com → Availability → copy the booking link path
+const CAL_LINK = "wikolabs/30min";
+const CAL_NS   = "wk30";
 
 const i18n = {
   fr: {
@@ -97,8 +100,9 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
   // Listen for cal.com booking
   useEffect(() => {
     let mounted = true;
-    getCalApi().then((cal) => {
+    getCalApi({ namespace: CAL_NS }).then((cal) => {
       if (!mounted) return;
+      cal("init", CAL_NS, { origin: "https://app.cal.com" });
       cal("on", {
         action: "bookingSuccessful",
         callback: () => setBooked(true),
@@ -326,6 +330,7 @@ export default function BookingModal({ locale, open, onClose, prefill }: Booking
 
             <div className={styles.calWrap}>
               <Cal
+                namespace={CAL_NS}
                 calLink={CAL_LINK}
                 style={{ width: "100%", height: "100%", overflow: "auto" }}
                 config={{

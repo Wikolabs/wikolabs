@@ -104,43 +104,43 @@ const OFFER_SLUGS: string[][] = [
 /* 31 distinct per-card backgrounds — diverse hues */
 const OFFER_CARD_BG = [
   /* 0 — Commercial (7) */
-  "hsla( 43, 90%, 55%, 0.26)",  // gold
-  "hsla(186, 85%, 50%, 0.24)",  // cyan
-  "hsla(217, 85%, 60%, 0.26)",  // blue
-  "hsla(142, 72%, 46%, 0.24)",  // green
-  "hsla(270, 72%, 60%, 0.26)",  // purple
-  "hsla(330, 80%, 60%, 0.24)",  // pink
-  "hsla( 32, 90%, 55%, 0.26)",  // orange
+  "hsla( 43, 90%, 55%, 0.42)",  // gold
+  "hsla(186, 85%, 50%, 0.38)",  // cyan
+  "hsla(217, 85%, 60%, 0.42)",  // blue
+  "hsla(142, 72%, 46%, 0.38)",  // green
+  "hsla(270, 72%, 60%, 0.42)",  // purple
+  "hsla(330, 80%, 60%, 0.38)",  // pink
+  "hsla( 32, 90%, 55%, 0.42)",  // orange
   /* 1 — Support (4) */
-  "hsla(174, 80%, 46%, 0.24)",  // teal
-  "hsla(239, 80%, 65%, 0.26)",  // indigo
-  "hsla( 83, 76%, 46%, 0.24)",  // lime
-  "hsla(200, 85%, 55%, 0.24)",  // sky
+  "hsla(174, 80%, 46%, 0.38)",  // teal
+  "hsla(239, 80%, 65%, 0.42)",  // indigo
+  "hsla( 83, 76%, 46%, 0.38)",  // lime
+  "hsla(200, 85%, 55%, 0.38)",  // sky
   /* 2 — BI (4) */
-  "hsla(  0, 80%, 60%, 0.24)",  // red
-  "hsla( 52, 88%, 54%, 0.26)",  // yellow
-  "hsla(155, 75%, 46%, 0.24)",  // emerald
-  "hsla(290, 70%, 60%, 0.26)",  // violet
+  "hsla(  0, 80%, 60%, 0.38)",  // red
+  "hsla( 52, 88%, 54%, 0.42)",  // yellow
+  "hsla(155, 75%, 46%, 0.38)",  // emerald
+  "hsla(290, 70%, 60%, 0.42)",  // violet
   /* 3 — Search (4) */
-  "hsla( 16, 88%, 56%, 0.26)",  // red-orange
-  "hsla(100, 70%, 46%, 0.24)",  // olive
-  "hsla(222, 82%, 62%, 0.26)",  // cornflower
-  "hsla(310, 70%, 58%, 0.24)",  // fuchsia
+  "hsla( 16, 88%, 56%, 0.42)",  // red-orange
+  "hsla(100, 70%, 46%, 0.38)",  // olive
+  "hsla(222, 82%, 62%, 0.42)",  // cornflower
+  "hsla(310, 70%, 58%, 0.38)",  // fuchsia
   /* 4 — Vision (4) */
-  "hsla(165, 76%, 46%, 0.24)",  // aqua-green
-  "hsla(255, 76%, 63%, 0.26)",  // slate-purple
-  "hsla( 35, 88%, 58%, 0.26)",  // amber
-  "hsla(195, 82%, 52%, 0.24)",  // cerulean
+  "hsla(165, 76%, 46%, 0.38)",  // aqua-green
+  "hsla(255, 76%, 63%, 0.42)",  // slate-purple
+  "hsla( 35, 88%, 58%, 0.42)",  // amber
+  "hsla(195, 82%, 52%, 0.38)",  // cerulean
   /* 5 — Web (4) */
-  "hsla(340, 78%, 58%, 0.24)",  // rose
-  "hsla(120, 66%, 46%, 0.24)",  // medium green
-  "hsla(230, 82%, 63%, 0.26)",  // periwinkle
-  "hsla( 56, 82%, 52%, 0.26)",  // golden-yellow
+  "hsla(340, 78%, 58%, 0.38)",  // rose
+  "hsla(120, 66%, 46%, 0.38)",  // medium green
+  "hsla(230, 82%, 63%, 0.42)",  // periwinkle
+  "hsla( 56, 82%, 52%, 0.42)",  // golden-yellow
   /* 6 — IoT (4) */
-  "hsla( 22, 88%, 55%, 0.26)",  // burnt orange
-  "hsla(180, 78%, 48%, 0.24)",  // aqua
-  "hsla(285, 68%, 58%, 0.26)",  // medium purple
-  "hsla(145, 70%, 44%, 0.24)",  // forest green
+  "hsla( 22, 88%, 55%, 0.42)",  // burnt orange
+  "hsla(180, 78%, 48%, 0.38)",  // aqua
+  "hsla(285, 68%, 58%, 0.42)",  // medium purple
+  "hsla(145, 70%, 44%, 0.38)",  // forest green
 ];
 const CAT_OFFSETS = [0, 7, 11, 15, 19, 23, 27];
 const getCardBg = (ci: number, oi: number) =>
