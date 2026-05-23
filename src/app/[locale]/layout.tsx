@@ -25,33 +25,42 @@ export async function generateMetadata({
         "Wikolabs deploys agentic AI, data engineering, intelligent automation and software development that deliver measurable results. AI agents, BI, automated commercial cycle, multimodal document processing.",
       keywords: [
         "AI agents for business",
-        "B2B AI agent",
+        "B2B AI agent agency",
         "agentic AI services",
         "sales pipeline automation AI",
-        "RAG e-commerce",
-        "LangGraph agent",
+        "LangGraph development agency",
+        "RAG e-commerce agent",
         "business intelligence AI",
         "automated sales cycle",
         "AI customer support chatbot",
-        "semantic search AI",
+        "AI automation agency",
         "MLOps fine-tuning",
-        "LLM automation",
+        "LLM automation company",
         "OCR AI document processing",
         "Wikolabs",
-        "AI agency Madagascar",
+        "nearshore AI development",
         "AI services for executives",
         "AI revenue automation",
         "CRM automation AI",
-        "anomaly detection forecasting",
-        "AI agent deployment",
+        "AI agent development company",
+        "agentic AI company",
       ],
+      alternates: {
+        canonical: `${BASE_URL}/en`,
+        languages: {
+          "en-US": `${BASE_URL}/en`,
+          "en-CA": `${BASE_URL}/en`,
+          "fr-FR": `${BASE_URL}/fr`,
+          "x-default": `${BASE_URL}/en`,
+        },
+      },
       openGraph: {
         title: "Wikolabs — AI Agents, Data & Automation for Businesses",
         description:
           "AI agents, Data Engineering, Intelligent Automation, Vision AI. Concrete solutions that transform your operations — no technical jargon.",
         type: "website",
         locale: "en_US",
-        url: BASE_URL,
+        url: `${BASE_URL}/en`,
         siteName: "Wikolabs",
         images: [
           {
@@ -103,13 +112,22 @@ export async function generateMetadata({
       "automatisation CRM agent",
       "déploiement agent IA",
     ],
+    alternates: {
+      canonical: `${BASE_URL}/fr`,
+      languages: {
+        "fr-FR": `${BASE_URL}/fr`,
+        "en-US": `${BASE_URL}/en`,
+        "en-CA": `${BASE_URL}/en`,
+        "x-default": `${BASE_URL}/en`,
+      },
+    },
     openGraph: {
       title: "Wikolabs — IA & Data pour Dirigeants d'Entreprise",
       description:
         "Agents IA autonomes, Data Engineering, Automatisation intelligente, Vision IA. Des solutions concrètes qui transforment vos opérations — sans jargon technique.",
       type: "website",
       locale: "fr_FR",
-      url: BASE_URL,
+      url: `${BASE_URL}/fr`,
       siteName: "Wikolabs",
       images: [
         {
@@ -137,12 +155,14 @@ const ORG_SCHEMA = {
   name: "Wikolabs",
   url: "https://www.wikolabs.com",
   logo: "https://www.wikolabs.com/wikolabs-logo.png",
+  description: "Wikolabs is an agentic AI and data engineering studio delivering AI agents, sales automation, business intelligence, and document processing solutions to businesses in the US, Canada, and Europe.",
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+261-38-66-261-00",
     contactType: "customer service",
     email: "team@wikolabs.com",
     availableLanguage: ["French", "English"],
+    areaServed: ["US", "CA", "FR", "MG", "CH", "BE"],
   },
   sameAs: ["https://www.linkedin.com/company/112261574"],
   address: {
@@ -150,6 +170,23 @@ const ORG_SCHEMA = {
     addressLocality: "Antananarivo",
     addressCountry: "MG",
   },
+  knowsAbout: [
+    "Agentic AI",
+    "LangGraph",
+    "AI Agents",
+    "Sales Automation",
+    "RAG Systems",
+    "Data Engineering",
+    "Business Intelligence",
+    "LLM Automation",
+    "MLOps",
+  ],
+  areaServed: [
+    { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "Canada" },
+    { "@type": "Country", name: "France" },
+    { "@type": "Country", name: "Madagascar" },
+  ],
 };
 
 const SERVICE_SCHEMAS = [
