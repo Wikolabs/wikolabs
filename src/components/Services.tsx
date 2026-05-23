@@ -101,46 +101,46 @@ const OFFER_SLUGS: string[][] = [
   ["ia-embarquee-edge-device","monitoring-iot-temps-reel","vision-machine-camera-ip","maintenance-predictive-ia"],
 ];
 
-/* 31 distinct per-card backgrounds — diverse hues, low opacity */
+/* 31 distinct per-card backgrounds — diverse hues */
 const OFFER_CARD_BG = [
   /* 0 — Commercial (7) */
-  "hsla( 43, 90%, 55%, 0.13)",  // gold
-  "hsla(186, 85%, 50%, 0.12)",  // cyan
-  "hsla(217, 85%, 60%, 0.13)",  // blue
-  "hsla(142, 72%, 46%, 0.12)",  // green
-  "hsla(270, 72%, 60%, 0.13)",  // purple
-  "hsla(330, 80%, 60%, 0.12)",  // pink
-  "hsla( 32, 90%, 55%, 0.13)",  // orange
+  "hsla( 43, 90%, 55%, 0.26)",  // gold
+  "hsla(186, 85%, 50%, 0.24)",  // cyan
+  "hsla(217, 85%, 60%, 0.26)",  // blue
+  "hsla(142, 72%, 46%, 0.24)",  // green
+  "hsla(270, 72%, 60%, 0.26)",  // purple
+  "hsla(330, 80%, 60%, 0.24)",  // pink
+  "hsla( 32, 90%, 55%, 0.26)",  // orange
   /* 1 — Support (4) */
-  "hsla(174, 80%, 46%, 0.12)",  // teal
-  "hsla(239, 80%, 65%, 0.13)",  // indigo
-  "hsla( 83, 76%, 46%, 0.12)",  // lime
-  "hsla(200, 85%, 55%, 0.12)",  // sky
+  "hsla(174, 80%, 46%, 0.24)",  // teal
+  "hsla(239, 80%, 65%, 0.26)",  // indigo
+  "hsla( 83, 76%, 46%, 0.24)",  // lime
+  "hsla(200, 85%, 55%, 0.24)",  // sky
   /* 2 — BI (4) */
-  "hsla(  0, 80%, 60%, 0.12)",  // red
-  "hsla( 52, 88%, 54%, 0.13)",  // yellow
-  "hsla(155, 75%, 46%, 0.12)",  // emerald
-  "hsla(290, 70%, 60%, 0.13)",  // violet
+  "hsla(  0, 80%, 60%, 0.24)",  // red
+  "hsla( 52, 88%, 54%, 0.26)",  // yellow
+  "hsla(155, 75%, 46%, 0.24)",  // emerald
+  "hsla(290, 70%, 60%, 0.26)",  // violet
   /* 3 — Search (4) */
-  "hsla( 16, 88%, 56%, 0.13)",  // red-orange
-  "hsla(100, 70%, 46%, 0.12)",  // olive
-  "hsla(222, 82%, 62%, 0.13)",  // cornflower
-  "hsla(310, 70%, 58%, 0.12)",  // fuchsia
+  "hsla( 16, 88%, 56%, 0.26)",  // red-orange
+  "hsla(100, 70%, 46%, 0.24)",  // olive
+  "hsla(222, 82%, 62%, 0.26)",  // cornflower
+  "hsla(310, 70%, 58%, 0.24)",  // fuchsia
   /* 4 — Vision (4) */
-  "hsla(165, 76%, 46%, 0.12)",  // aqua-green
-  "hsla(255, 76%, 63%, 0.13)",  // slate-purple
-  "hsla( 35, 88%, 58%, 0.13)",  // amber
-  "hsla(195, 82%, 52%, 0.12)",  // cerulean
+  "hsla(165, 76%, 46%, 0.24)",  // aqua-green
+  "hsla(255, 76%, 63%, 0.26)",  // slate-purple
+  "hsla( 35, 88%, 58%, 0.26)",  // amber
+  "hsla(195, 82%, 52%, 0.24)",  // cerulean
   /* 5 — Web (4) */
-  "hsla(340, 78%, 58%, 0.12)",  // rose
-  "hsla(120, 66%, 46%, 0.12)",  // medium green
-  "hsla(230, 82%, 63%, 0.13)",  // periwinkle
-  "hsla( 56, 82%, 52%, 0.13)",  // golden-yellow
+  "hsla(340, 78%, 58%, 0.24)",  // rose
+  "hsla(120, 66%, 46%, 0.24)",  // medium green
+  "hsla(230, 82%, 63%, 0.26)",  // periwinkle
+  "hsla( 56, 82%, 52%, 0.26)",  // golden-yellow
   /* 6 — IoT (4) */
-  "hsla( 22, 88%, 55%, 0.13)",  // burnt orange
-  "hsla(180, 78%, 48%, 0.12)",  // aqua
-  "hsla(285, 68%, 58%, 0.13)",  // medium purple
-  "hsla(145, 70%, 44%, 0.12)",  // forest green
+  "hsla( 22, 88%, 55%, 0.26)",  // burnt orange
+  "hsla(180, 78%, 48%, 0.24)",  // aqua
+  "hsla(285, 68%, 58%, 0.26)",  // medium purple
+  "hsla(145, 70%, 44%, 0.24)",  // forest green
 ];
 const CAT_OFFSETS = [0, 7, 11, 15, 19, 23, 27];
 const getCardBg = (ci: number, oi: number) =>

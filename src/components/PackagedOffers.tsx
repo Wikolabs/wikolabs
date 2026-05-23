@@ -12,6 +12,7 @@ interface Offer {
   features: { fr: string[]; en: string[] };
   cta: { fr: string; en: string };
   highlighted?: boolean;
+  bg: string;
   prefill: BookingPrefill;
 }
 
@@ -42,6 +43,7 @@ const OFFERS: Offer[] = [
       ],
     },
     cta: { fr: "Demander un audit →", en: "Request an audit →" },
+    bg: "hsla(200, 80%, 55%, 0.25)",
     prefill: {
       type: "ai-integration", scale: "mvp", startStep: 2,
       offerLabel: { fr: "Audit Stratégique IA", en: "Strategic AI Audit" },
@@ -78,6 +80,7 @@ const OFFERS: Offer[] = [
     },
     cta: { fr: "Démarrer un projet →", en: "Start a project →" },
     highlighted: true,
+    bg: "hsla(43, 90%, 55%, 0.28)",
     prefill: {
       type: "mvp-saas", scale: "medium", startStep: 2,
       offerLabel: { fr: "Déploiement Complet", en: "Full Deployment" },
@@ -111,6 +114,7 @@ const OFFERS: Offer[] = [
       ],
     },
     cta: { fr: "Enrichir mon système →", en: "Enrich my system →" },
+    bg: "hsla(142, 72%, 46%, 0.25)",
     prefill: {
       type: "ai-integration", scale: "medium", startStep: 2,
       offerLabel: { fr: "Intégration & Optimisation", en: "Integration & Optimization" },
@@ -153,6 +157,7 @@ export default function PackagedOffers({ locale, onBooking }: { locale: string; 
           <div
             className={`reveal d${i + 1} ${styles.card} ${offer.highlighted ? styles.cardHighlighted : ""}`}
             key={i}
+            style={{ "--card-bg": offer.bg } as React.CSSProperties}
           >
             <div className={`${styles.badge} ${offer.highlighted ? styles.badgeHighlighted : ""}`}>
               {offer.badge[lang]}
