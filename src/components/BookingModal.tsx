@@ -12,9 +12,7 @@ import {
 } from "@/lib/simulatorData";
 import type { BookingPrefill } from "@/app/LandingClient";
 
-// Cal.com booking slug — format: "username/event" or "team/team-slug/event"
-// Verify your exact URL at: app.cal.com → Availability → copy the booking link path
-const CAL_LINK = "wikolabs/30min";
+const CAL_LINK = "wikolabs-team/30min";
 const CAL_NS   = "wk30";
 
 const i18n = {
