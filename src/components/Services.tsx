@@ -653,7 +653,7 @@ export default function Services({
                               {inCart ? <LuCheck size={13} /> : <LuCalendarCheck size={13} />}
                               {inCart
                                 ? (lang === "fr" ? "Commandé" : "Ordered")
-                                : (lang === "fr" ? "Commander" : "Order")}
+                                : (lang === "fr" ? "Commander & échanger" : "Order & discuss")}
                             </button>
                           );
                         })()}

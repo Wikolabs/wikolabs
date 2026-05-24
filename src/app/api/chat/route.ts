@@ -38,12 +38,12 @@ Règles absolues :
 
 export async function POST(req: NextRequest) {
   try {
-    const { messages, model = "llama-3.3-70b-versatile" } = await req.json();
+    const { messages, model = "llama-3.3-70b-versatile", systemPrompt: customSystemPrompt } = await req.json();
 
     const stream = await getGroq().chat.completions.create({
       model,
       messages: [
-        { role: "system", content: SYSTEM_PROMPT },
+        { role: "system", content: customSystemPrompt || SYSTEM_PROMPT },
         ...messages,
       ],
       stream: true,
