@@ -365,9 +365,6 @@ export default function LandingClient({
 
       </section>
 
-      {/* ── TECH STACK ── */}
-      <TechStack locale={locale} />
-
       {/* ── MARQUEE ── */}
       <div className={s.marquee}>
         <div className={s.marqueeTrack}>
@@ -379,6 +376,9 @@ export default function LandingClient({
 
       {/* ── SERVICES ── */}
       <Services locale={locale} onAddToCart={handleAddToCart} cartItemIds={cartItemIds} />
+
+      {/* ── TECH STACK ── */}
+      <TechStack locale={locale} />
 
       {/* ── ORBITAL DIAGRAM ── */}
       <OrbitalDiagram locale={locale} onBooking={() => openBooking()} />

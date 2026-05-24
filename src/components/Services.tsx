@@ -349,6 +349,11 @@ const i18n = {
     offersTitle: "30+ offres concrètes",
     offersTitleEm: "et déployables",
     offersDesc: "Chaque solution est un agent IA ou un système autonome testé en production, intégrable dans votre stack existante.",
+    searchPlaceholder: "Décrivez votre besoin... ex : automatiser ma prospection commerciale",
+    searchBtn: "Analyser",
+    searching: "Analyse en cours...",
+    clearSearch: "← Voir tous nos services",
+    searchError: "Erreur lors de l'analyse. Réessayez.",
     categories: [
       { label: "Cycle Commercial & Marketing", offers: [
         { title: "Agent Veille Marché",           desc: "Vos concurrents scrapés chaque nuit, synthèse déposée dans votre Slack à 8h — sans qu'on lui demande. Un chatbot attend ; lui agit." },
@@ -402,6 +407,11 @@ const i18n = {
     offersTitle: "30+ concrete,",
     offersTitleEm: "deployable solutions",
     offersDesc: "Every solution is a production-tested AI agent or autonomous system, integrable into your existing stack.",
+    searchPlaceholder: "Describe your need... e.g. automate my sales outreach",
+    searchBtn: "Analyze",
+    searching: "Analyzing...",
+    clearSearch: "← View all our services",
+    searchError: "Analysis error. Please try again.",
     categories: [
       { label: "Commercial Cycle & Marketing", offers: [
         { title: "Market Intelligence Agent",     desc: "Competitors scraped every night, LLM summary in your Slack by 8am — no one asked. A chatbot waits; this one acts." },
@@ -452,6 +462,12 @@ const i18n = {
   },
 };
 
+function buildOfferCatalog(lang: "fr" | "en"): string {
+  return i18n[lang].categories
+    .flatMap((cat, ci) => cat.offers.map((offer, oi) => `${ci}-${oi} | ${offer.title} | ${cat.label}`))
+    .join("\n");
+}
+
 function TechBadge({ tech }: { tech: Tech }) {
   return (
     <span className={styles.offerTech} style={{ background: `${tech.color}18`, borderColor: `${tech.color}50`, color: tech.color }}>
@@ -489,6 +505,47 @@ export default function Services({
     questions: string[];
   } | null>(null);
 
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResult, setSearchResult] = useState<{ summary: string; matchIds: string[] } | null>(null);
+  const [searchLoading, setSearchLoading] = useState(false);
+
+  const handleSearch = async () => {
+    if (!searchQuery.trim() || searchLoading) return;
+    setSearchLoading(true);
+    setSearchResult(null);
+    const catalog = buildOfferCatalog(lang);
+    const systemPrompt = lang === "fr"
+      ? `Tu es le moteur de recherche de Wikolabs. L'utilisateur décrit un besoin et tu identifies les services correspondants.\n\nCatalogue (ID | Titre | Catégorie) :\n${catalog}\n\nRéponds UNIQUEMENT avec un objet JSON valide, sans markdown :\n{"summary":"2-3 phrases en français expliquant ce que tu as compris et les services que tu recommandes","matchIds":["0-0","1-2"]}\n\nRègles : 2 à 8 services max ; JSON brut uniquement.`
+      : `You are the Wikolabs search engine. The user describes a need and you identify matching services.\n\nCatalog (ID | Title | Category):\n${catalog}\n\nRespond ONLY with a valid JSON object, no markdown:\n{"summary":"2-3 sentences in English explaining what you understood and the services you recommend","matchIds":["0-0","1-2"]}\n\nRules: 2 to 8 services max; raw JSON only.`;
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: [{ role: "user", content: searchQuery }], systemPrompt }),
+      });
+      if (!res.ok || !res.body) throw new Error();
+      let text = "";
+      const reader = res.body.getReader();
+      const dec = new TextDecoder();
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        text += dec.decode(value, { stream: true });
+      }
+      let parsed: { summary: string; matchIds: string[] } | null = null;
+      try { parsed = JSON.parse(text.trim()); } catch {
+        const m = text.match(/\{[\s\S]*\}/);
+        if (m) parsed = JSON.parse(m[0]);
+      }
+      if (parsed?.summary && Array.isArray(parsed.matchIds)) setSearchResult(parsed);
+      else throw new Error();
+    } catch {
+      setSearchResult({ summary: t.searchError, matchIds: [] });
+    } finally {
+      setSearchLoading(false);
+    }
+  };
+
   const toggleQ = (id: string) => setOpenQ(prev => {
     const next = new Set(prev);
     next.has(id) ? next.delete(id) : next.add(id);
@@ -510,11 +567,96 @@ export default function Services({
       <h2 className={`reveal d1 ${styles.sectionTitle}`}>
         {t.offersTitle} <em>{t.offersTitleEm}</em>
       </h2>
-      <p className={`reveal d2 ${styles.sectionDesc}`} style={{ marginBottom: 48 }}>
+      <p className={`reveal d2 ${styles.sectionDesc}`} style={{ marginBottom: 40 }}>
         {t.offersDesc}
       </p>
 
-      <div className={styles.categories}>
+      {/* ── AI Search ── */}
+      <div className={`reveal d3 ${styles.searchSection}`}>
+        <div className={styles.searchInputRow}>
+          <LuSearch className={styles.searchIconEl} size={18} />
+          <input
+            className={styles.searchInput}
+            type="text"
+            placeholder={searchLoading ? t.searching : t.searchPlaceholder}
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+            onKeyDown={e => { if (e.key === "Enter") handleSearch(); }}
+            disabled={searchLoading}
+          />
+          <button
+            className={styles.searchBtn}
+            onClick={handleSearch}
+            disabled={searchLoading || !searchQuery.trim()}
+          >
+            {searchLoading ? <span className={styles.searchSpinner} /> : t.searchBtn}
+          </button>
+        </div>
+      </div>
+
+      {/* ── Search Results ── */}
+      {searchResult && (
+        <div className={styles.searchResults}>
+          <div className={styles.searchSummaryWrap}>
+            <div className={styles.searchBotAvatar}><LuBot size={14} /></div>
+            <p className={styles.searchSummary}>{searchResult.summary}</p>
+          </div>
+
+          {searchResult.matchIds.length > 0 && (
+            <div className={styles.searchGrid}>
+              {searchResult.matchIds.map(id => {
+                const [ciStr, oiStr] = id.split("-");
+                const ci = parseInt(ciStr, 10), oi = parseInt(oiStr, 10);
+                const cat = t.categories[ci];
+                const offer = cat?.offers[oi];
+                if (!offer) return null;
+                const questions = CLIENT_QUESTIONS[ci]?.[oi];
+                const itemId = `${ci}-${oi}`;
+                const inCart = cartItemIds?.has(itemId);
+                return (
+                  <div
+                    key={id}
+                    className={styles.searchCard}
+                    style={{ "--card-cat": getCardBg(ci, oi) } as React.CSSProperties}
+                  >
+                    <span className={styles.searchCardCat}>{cat.label}</span>
+                    <div className={styles.searchCardTitle}>{offer.title}</div>
+                    <div className={styles.searchCardDesc}>{offer.desc}</div>
+                    {onAddToCart && (
+                      <button
+                        className={`${styles.addToCartBtn} ${inCart ? styles.addToCartBtnActive : ""}`}
+                        onClick={() => {
+                          if (inCart) {
+                            onAddToCart({ id: itemId, title: offer.title, category: cat.label });
+                          } else if (questions?.[lang]?.length) {
+                            setChatOffer({ cardId: itemId, title: offer.title, category: cat.label, questions: questions[lang] });
+                          } else {
+                            onAddToCart({ id: itemId, title: offer.title, category: cat.label });
+                          }
+                        }}
+                      >
+                        {inCart ? <LuCheck size={13} /> : <LuCalendarCheck size={13} />}
+                        {inCart
+                          ? (lang === "fr" ? "Commandé" : "Ordered")
+                          : (lang === "fr" ? "Commander & échanger" : "Order & discuss")}
+                      </button>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          <button
+            className={styles.clearSearchBtn}
+            onClick={() => { setSearchResult(null); setSearchQuery(""); }}
+          >
+            {t.clearSearch}
+          </button>
+        </div>
+      )}
+
+      {!searchResult && <div className={styles.categories}>
         {t.categories.map((cat, ci) => {
           const CatIcon = CAT_ICONS[ci];
           const catSlug = CAT_SLUGS[ci];
@@ -665,7 +807,7 @@ export default function Services({
             </div>
           );
         })}
-      </div>
+      </div>}
 
         {chatOffer && onAddToCart && (
           <OfferChatBot
