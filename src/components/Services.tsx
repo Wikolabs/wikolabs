@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Services.module.css";
 import type { IconType } from "react-icons";
@@ -11,7 +11,7 @@ import {
   LuBell, LuNetwork, LuScan, LuChartBar, LuDatabase, LuFileSearch,
   LuBrain, LuLayers, LuWorkflow, LuScanLine, LuMap, LuBox,
   LuMonitor, LuSmartphone, LuBug, LuCpu, LuTriangle,
-  LuCheck, LuZap, LuClock, LuRocket, LuBot, LuChevronDown, LuCircleHelp,
+  LuCheck, LuZap, LuClock, LuRocket, LuBot, LuChevronDown, LuCircleHelp, LuSend,
 } from "react-icons/lu";
 import {
   SiPython, SiLangchain, SiFastapi, SiN8N,
@@ -505,44 +505,79 @@ export default function Services({
     questions: string[];
   } | null>(null);
 
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchResult, setSearchResult] = useState<{ summary: string; matchIds: string[] } | null>(null);
-  const [searchLoading, setSearchLoading] = useState(false);
+  interface SearchMsg { role: "user" | "assistant"; text: string; matchIds?: string[]; streaming?: boolean; }
+  const [chatMsgs, setChatMsgs] = useState<SearchMsg[]>([]);
+  const [chatInput, setChatInput] = useState("");
+  const [chatLoading, setChatLoading] = useState(false);
+  const [currentMatchIds, setCurrentMatchIds] = useState<string[] | null>(null);
+  const chatEndRef = useRef<HTMLDivElement>(null);
+  const chatInputRef = useRef<HTMLInputElement>(null);
+  const chatInited = useRef(false);
 
-  const handleSearch = async () => {
-    if (!searchQuery.trim() || searchLoading) return;
-    setSearchLoading(true);
-    setSearchResult(null);
+  useEffect(() => {
+    if (chatInited.current) return;
+    chatInited.current = true;
+    const welcome = lang === "fr"
+      ? "Bonjour ! Décrivez votre besoin en quelques mots — je vous recommande les solutions Wikolabs les plus adaptées. Vous pouvez affiner au fil de la conversation."
+      : "Hello! Describe your need in a few words — I'll recommend the most relevant Wikolabs solutions. You can refine as we go.";
+    setChatMsgs([{ role: "assistant", text: welcome }]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const scrollChat = () => setTimeout(() => chatEndRef.current?.scrollIntoView({ behavior: "smooth" }), 50);
+
+  const handleChatSend = async () => {
+    if (!chatInput.trim() || chatLoading) return;
+    const userText = chatInput.trim();
+    setChatInput("");
+    const newMsgs: SearchMsg[] = [...chatMsgs, { role: "user", text: userText }];
+    setChatMsgs([...newMsgs, { role: "assistant", text: "", streaming: true }]);
+    setChatLoading(true);
+    scrollChat();
+
     const catalog = buildOfferCatalog(lang);
     const systemPrompt = lang === "fr"
-      ? `Tu es le moteur de recherche de Wikolabs. L'utilisateur décrit un besoin et tu identifies les services correspondants.\n\nCatalogue (ID | Titre | Catégorie) :\n${catalog}\n\nRéponds UNIQUEMENT avec un objet JSON valide, sans markdown :\n{"summary":"2-3 phrases en français expliquant ce que tu as compris et les services que tu recommandes","matchIds":["0-0","1-2"]}\n\nRègles : 2 à 8 services max ; JSON brut uniquement.`
-      : `You are the Wikolabs search engine. The user describes a need and you identify matching services.\n\nCatalog (ID | Title | Category):\n${catalog}\n\nRespond ONLY with a valid JSON object, no markdown:\n{"summary":"2-3 sentences in English explaining what you understood and the services you recommend","matchIds":["0-0","1-2"]}\n\nRules: 2 to 8 services max; raw JSON only.`;
+      ? `Tu es l'assistant de recherche de Wikolabs. Tu aides les utilisateurs à identifier les bons services IA/data.\n\nCatalogue (ID | Titre | Catégorie) :\n${catalog}\n\nL'utilisateur peut envoyer plusieurs messages pour affiner. Utilise l'historique complet.\nRéponds UNIQUEMENT avec un JSON valide, sans markdown :\n{"summary":"2-3 phrases en français expliquant ta compréhension et les services recommandés","matchIds":["0-0","1-2"]}\nRègles : 2 à 8 services max ; JSON brut uniquement.`
+      : `You are the Wikolabs search assistant. Help users find the right AI/data services.\n\nCatalog (ID | Title | Category):\n${catalog}\n\nThe user may send follow-up messages to refine. Use the full conversation history.\nRespond ONLY with valid JSON, no markdown:\n{"summary":"2-3 sentences in English explaining your understanding and recommended services","matchIds":["0-0","1-2"]}\nRules: 2 to 8 services max; raw JSON only.`;
+
+    // Build API history from previous messages (exclude welcome, convert assistant msgs back to JSON string)
+    const apiMsgs = newMsgs.slice(1).map(m => ({
+      role: m.role as "user" | "assistant",
+      content: m.role === "assistant"
+        ? JSON.stringify({ summary: m.text, matchIds: m.matchIds ?? [] })
+        : m.text,
+    }));
+
+    let fullText = "";
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: [{ role: "user", content: searchQuery }], systemPrompt }),
+        body: JSON.stringify({ messages: apiMsgs, systemPrompt }),
       });
       if (!res.ok || !res.body) throw new Error();
-      let text = "";
       const reader = res.body.getReader();
       const dec = new TextDecoder();
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
-        text += dec.decode(value, { stream: true });
+        fullText += dec.decode(value, { stream: true });
       }
       let parsed: { summary: string; matchIds: string[] } | null = null;
-      try { parsed = JSON.parse(text.trim()); } catch {
-        const m = text.match(/\{[\s\S]*\}/);
+      try { parsed = JSON.parse(fullText.trim()); } catch {
+        const m = fullText.match(/\{[\s\S]*\}/);
         if (m) parsed = JSON.parse(m[0]);
       }
-      if (parsed?.summary && Array.isArray(parsed.matchIds)) setSearchResult(parsed);
-      else throw new Error();
+      if (parsed?.summary && Array.isArray(parsed.matchIds)) {
+        setChatMsgs([...newMsgs, { role: "assistant", text: parsed.summary, matchIds: parsed.matchIds }]);
+        setCurrentMatchIds(parsed.matchIds);
+      } else throw new Error();
     } catch {
-      setSearchResult({ summary: t.searchError, matchIds: [] });
+      setChatMsgs([...newMsgs, { role: "assistant", text: t.searchError }]);
     } finally {
-      setSearchLoading(false);
+      setChatLoading(false);
+      scrollChat();
+      setTimeout(() => chatInputRef.current?.focus(), 100);
     }
   };
 
@@ -571,92 +606,107 @@ export default function Services({
         {t.offersDesc}
       </p>
 
-      {/* ── AI Search ── */}
-      <div className={`reveal d3 ${styles.searchSection}`}>
-        <div className={styles.searchInputRow}>
-          <LuSearch className={styles.searchIconEl} size={18} />
+      {/* ── Chat Search Panel ── */}
+      <div className={`reveal d3 ${styles.chatSearchPanel}`}>
+        <div className={styles.chatSearchHeader}>
+          <div className={styles.chatSearchAvatar}><LuBot size={15} /></div>
+          <div>
+            <div className={styles.chatSearchTitle}>{lang === "fr" ? "Recherche guidée par IA" : "AI-guided search"}</div>
+            <div className={styles.chatSearchSub}>{lang === "fr" ? "Affinez au fil de la conversation" : "Refine as you chat"}</div>
+          </div>
+        </div>
+
+        <div className={styles.chatSearchMessages}>
+          {chatMsgs.map((msg, i) => (
+            <div key={i} className={`${styles.chatMsg} ${msg.role === "user" ? styles.chatMsgUser : styles.chatMsgBot}`}>
+              {msg.role === "assistant" && (
+                <div className={styles.chatMsgAvatar}><LuBot size={11} /></div>
+              )}
+              <div className={`${styles.chatMsgBubble} ${msg.streaming ? styles.chatMsgTyping : ""}`}>
+                {msg.streaming ? <><span /><span /><span /></> : msg.text}
+              </div>
+            </div>
+          ))}
+          <div ref={chatEndRef} />
+        </div>
+
+        <div className={styles.chatSearchInputRow}>
           <input
-            className={styles.searchInput}
+            ref={chatInputRef}
+            className={styles.chatSearchInput}
             type="text"
-            placeholder={searchLoading ? t.searching : t.searchPlaceholder}
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-            onKeyDown={e => { if (e.key === "Enter") handleSearch(); }}
-            disabled={searchLoading}
+            placeholder={chatLoading ? t.searching : t.searchPlaceholder}
+            value={chatInput}
+            onChange={e => setChatInput(e.target.value)}
+            onKeyDown={e => { if (e.key === "Enter") handleChatSend(); }}
+            disabled={chatLoading}
           />
           <button
-            className={styles.searchBtn}
-            onClick={handleSearch}
-            disabled={searchLoading || !searchQuery.trim()}
+            className={styles.chatSearchSendBtn}
+            onClick={handleChatSend}
+            disabled={chatLoading || !chatInput.trim()}
+            aria-label={t.searchBtn}
           >
-            {searchLoading ? <span className={styles.searchSpinner} /> : t.searchBtn}
+            {chatLoading ? <span className={styles.chatSearchSpinner} /> : <LuSend size={14} />}
           </button>
         </div>
       </div>
 
-      {/* ── Search Results ── */}
-      {searchResult && (
+      {/* ── Matched results from chat ── */}
+      {currentMatchIds && currentMatchIds.length > 0 && (
         <div className={styles.searchResults}>
-          <div className={styles.searchSummaryWrap}>
-            <div className={styles.searchBotAvatar}><LuBot size={14} /></div>
-            <p className={styles.searchSummary}>{searchResult.summary}</p>
+          <div className={styles.searchResultsHeader}>
+            <span className={styles.searchResultsLine} />
+            <span className={styles.searchResultsLabel}>{lang === "fr" ? "Suggestions" : "Suggestions"}</span>
+            <span className={styles.searchResultsLine} />
           </div>
-
-          {searchResult.matchIds.length > 0 && (
-            <div className={styles.searchGrid}>
-              {searchResult.matchIds.map(id => {
-                const [ciStr, oiStr] = id.split("-");
-                const ci = parseInt(ciStr, 10), oi = parseInt(oiStr, 10);
-                const cat = t.categories[ci];
-                const offer = cat?.offers[oi];
-                if (!offer) return null;
-                const questions = CLIENT_QUESTIONS[ci]?.[oi];
-                const itemId = `${ci}-${oi}`;
-                const inCart = cartItemIds?.has(itemId);
-                return (
-                  <div
-                    key={id}
-                    className={styles.searchCard}
-                    style={{ "--card-cat": getCardBg(ci, oi) } as React.CSSProperties}
-                  >
-                    <span className={styles.searchCardCat}>{cat.label}</span>
-                    <div className={styles.searchCardTitle}>{offer.title}</div>
-                    <div className={styles.searchCardDesc}>{offer.desc}</div>
-                    {onAddToCart && (
-                      <button
-                        className={`${styles.addToCartBtn} ${inCart ? styles.addToCartBtnActive : ""}`}
-                        onClick={() => {
-                          if (inCart) {
-                            onAddToCart({ id: itemId, title: offer.title, category: cat.label });
-                          } else if (questions?.[lang]?.length) {
-                            setChatOffer({ cardId: itemId, title: offer.title, category: cat.label, questions: questions[lang] });
-                          } else {
-                            onAddToCart({ id: itemId, title: offer.title, category: cat.label });
-                          }
-                        }}
-                      >
-                        {inCart ? <LuCheck size={13} /> : <LuCalendarCheck size={13} />}
-                        {inCart
-                          ? (lang === "fr" ? "Commandé" : "Ordered")
-                          : (lang === "fr" ? "Commander & échanger" : "Order & discuss")}
-                      </button>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          )}
-
-          <button
-            className={styles.clearSearchBtn}
-            onClick={() => { setSearchResult(null); setSearchQuery(""); }}
-          >
-            {t.clearSearch}
-          </button>
+          <div className={styles.searchGrid}>
+            {currentMatchIds.map(id => {
+              const [ciStr, oiStr] = id.split("-");
+              const ci = parseInt(ciStr, 10), oi = parseInt(oiStr, 10);
+              const cat = t.categories[ci];
+              const offer = cat?.offers[oi];
+              if (!offer) return null;
+              const questions = CLIENT_QUESTIONS[ci]?.[oi];
+              const itemId = `${ci}-${oi}`;
+              const inCart = cartItemIds?.has(itemId);
+              return (
+                <div
+                  key={id}
+                  className={styles.searchCard}
+                  style={{ "--card-cat": getCardBg(ci, oi) } as React.CSSProperties}
+                >
+                  <span className={styles.searchCardCat}>{cat.label}</span>
+                  <div className={styles.searchCardTitle}>{offer.title}</div>
+                  <div className={styles.searchCardDesc}>{offer.desc}</div>
+                  {onAddToCart && (
+                    <button
+                      className={`${styles.addToCartBtn} ${inCart ? styles.addToCartBtnActive : ""}`}
+                      onClick={() => {
+                        if (inCart) {
+                          onAddToCart({ id: itemId, title: offer.title, category: cat.label });
+                        } else if (questions?.[lang]?.length) {
+                          setChatOffer({ cardId: itemId, title: offer.title, category: cat.label, questions: questions[lang] });
+                        } else {
+                          onAddToCart({ id: itemId, title: offer.title, category: cat.label });
+                        }
+                      }}
+                    >
+                      {inCart ? <LuCheck size={13} /> : <LuCalendarCheck size={13} />}
+                      {inCart
+                        ? (lang === "fr" ? "Commandé" : "Ordered")
+                        : (lang === "fr" ? "Commander & échanger" : "Order & discuss")}
+                    </button>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       )}
 
-      {!searchResult && <div className={styles.categories}>
+      {/* ── All services (always visible) ── */}
+      <div className={styles.categories}>
         {t.categories.map((cat, ci) => {
           const CatIcon = CAT_ICONS[ci];
           const catSlug = CAT_SLUGS[ci];
@@ -807,7 +857,7 @@ export default function Services({
             </div>
           );
         })}
-      </div>}
+      </div>
 
         {chatOffer && onAddToCart && (
           <OfferChatBot
