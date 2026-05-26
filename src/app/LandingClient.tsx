@@ -20,7 +20,6 @@ import Industries from "@/components/Industries";
 import OrbitalDiagram from "@/components/OrbitalDiagram";
 import BlogPreview from "@/components/BlogPreview";
 import Constat from "@/components/Constat";
-import Realisations from "@/components/Realisations";
 import type { IconType } from "react-icons";
 import { HiGlobeAlt, HiBolt, HiShieldCheck, HiCpuChip } from "react-icons/hi2";
 import {
@@ -481,9 +480,6 @@ export default function LandingClient({
 
       {/* ── CHATBOT / FAQ ── */}
       <ChatBot locale={locale} />
-
-      {/* ── RÉALISATIONS ── */}
-      <Realisations locale={locale} />
 
       {/* ── BLOG PREVIEW ── */}
       <BlogPreview locale={locale} />

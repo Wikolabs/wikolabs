@@ -407,8 +407,102 @@
   box-shadow: 0 12px 32px var(--gold-glow);
 }
 
+/* Sub-section headers (Plateformes démo / Agents Wikolabs) */
+.subHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  margin-top: 16px;
+}
+
+.subLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.subLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-border), transparent);
+}
+
+/* Offer grid — 3 columns for offer cards */
+.gridOffers {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Category badge on offer cards */
+.catBadge {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent, var(--gold));
+  background: rgba(4,8,15,0.75);
+  border: 1px solid var(--accent, var(--gold-border));
+  border-radius: 100px;
+  padding: 3px 9px;
+  backdrop-filter: blur(6px);
+}
+
+/* "Coming soon" row at bottom */
+.comingRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 56px;
+  flex-wrap: wrap;
+}
+
+.comingRow p {
+  font-size: 0.88rem;
+  color: var(--txt2);
+  margin: 0;
+}
+
+.comingBadge {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-border);
+  padding: 4px 14px;
+  border-radius: 100px;
+  background: var(--gold-dim);
+}
+
+@keyframes pulseLive {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.4); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1200px) {
+  .gridOffers { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 1024px) {
   .grid { grid-template-columns: 1fr; }
+  .gridOffers { grid-template-columns: repeat(2, 1fr); }
   .demo { padding: 80px 28px; }
 }
 
@@ -416,4 +510,5 @@
   .demo { padding: 64px 20px; }
   .cardBody { padding: 20px; }
   .modal { padding: 24px; }
+  .gridOffers { grid-template-columns: 1fr; }
 }
