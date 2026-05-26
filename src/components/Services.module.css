@@ -919,50 +919,54 @@
 }
 
 /* ═══════════════════════════════════════════════════
-   OFFER CARD — UNIFIED WHITE / GOLD PALETTE
-   Override all per-tech & per-metric colors so every
-   element in the card uses only white or gold tones.
+   OFFER CARD — UNIFIED WHITE PALETTE
+   Every element inside an offer card uses white only.
 ═══════════════════════════════════════════════════ */
 
 /* Title & description */
-.offerTitle { color: var(--txt1); }
+.offerTitle { color: #fff; }
 .offerDesc  { color: rgba(255,255,255,0.65); }
 
-/* Tech badges — strip per-tech colors, use unified palette */
+/* Illustration icon (large icon at card top) */
+.offerCard .offerIllust {
+  background:   rgba(255,255,255,0.09) !important;
+  border-color: rgba(255,255,255,0.16) !important;
+  color:        #fff                   !important;
+}
+
+/* Tech badges — strip per-tech colors */
 .offerCard .offerTech {
   background:   var(--card-badge-bg)     !important;
   border-color: var(--card-badge-border) !important;
   color:        var(--card-badge-color)  !important;
 }
 
-/* SVG / PNG logos inside tech badges — render as single white tone */
+/* SVG / PNG logos → single white tone */
 .offerCard .offerTech img {
   filter:  var(--card-badge-filter) !important;
   opacity: 0.7;
 }
-
-/* Icon components inside tech badges — inherit unified color */
 .offerCard .offerTech svg { color: inherit !important; }
 
 /* Agent metric row */
-.offerCard .agentMetricNum { color: var(--gold) !important; }
-.offerCard .agentMetricLbl { color: rgba(255,255,255,0.55) !important; }
+.offerCard .agentMetricNum { color: #fff !important; }
+.offerCard .agentMetricLbl { color: rgba(255,255,255,0.5) !important; }
 .offerCard .agentAutomBadge {
-  background:   var(--gold-dim)    !important;
-  color:        var(--gold)        !important;
-  border-color: var(--gold-border) !important;
+  background:   rgba(255,255,255,0.1)  !important;
+  color:        #fff                   !important;
+  border-color: rgba(255,255,255,0.2)  !important;
 }
 
-/* Toggle buttons (Avant/Après, Questions clés) */
+/* Toggle buttons */
 .offerCard .agentToggleBtn,
 .offerCard .questionsToggleBtn {
-  color:        rgba(255,255,255,0.5)  !important;
-  border-color: rgba(255,255,255,0.09) !important;
+  color:        rgba(255,255,255,0.45) !important;
+  border-color: rgba(255,255,255,0.08) !important;
 }
 .offerCard .agentToggleBtn:hover,
 .offerCard .questionsToggleBtn:hover {
-  color:   var(--gold) !important;
-  opacity: 1 !important;
+  color:   #fff !important;
+  opacity: 1    !important;
 }
 
 /* Before/After panels */
@@ -972,13 +976,17 @@
   border-color: rgba(255,255,255,0.08) !important;
   color:        rgba(255,255,255,0.62) !important;
 }
-.offerCard .afterCell { border-left-color: var(--gold) !important; }
-.offerCard .beforeCell .compareLabel { color: rgba(255,255,255,0.4)  !important; }
-.offerCard .afterCell  .compareLabel { color: var(--gold) !important; }
+.offerCard .afterCell        { border-left-color: rgba(255,255,255,0.4) !important; }
+.offerCard .compareLabel     { color: rgba(255,255,255,0.38) !important; }
+.offerCard .afterCell .compareLabel { color: rgba(255,255,255,0.75)     !important; }
 
 /* Questions list */
-.offerCard .questionsItem { color: rgba(255,255,255,0.6) !important; }
-.offerCard .questionsDot  { background: var(--gold) !important; }
+.offerCard .questionsItem { color: rgba(255,255,255,0.6)  !important; }
+.offerCard .questionsDot  { background: rgba(255,255,255,0.55) !important; }
+
+/* "En savoir plus →" link */
+.offerCard .offerCardLink { color: rgba(255,255,255,0.7) !important; }
+.offerCard .offerCardLink:hover { color: #fff !important; opacity: 1 !important; }
 
 @media (max-width: 640px) {
   .chatSearchPanel { border-radius: 14px; }
