@@ -11,6 +11,7 @@ import Services from "@/components/Services";
 import ServiceCartPanel from "@/components/ServiceCartPanel";
 import type { CartItem } from "@/components/ServiceCartPanel";
 import DemoApps from "@/components/DemoApps";
+import ContactModal from "@/components/ContactModal";
 import TechStack from "@/components/TechStack";
 import ChatBot from "@/components/ChatBot";
 import HeroSlider from "@/components/HeroSlider";
@@ -59,6 +60,7 @@ export default function LandingClient({
   const [menuOpen, setMenuOpen] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
   const [bookingPrefill, setBookingPrefill] = useState<BookingPrefill>({});
+  const [contactOpen, setContactOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const openBooking = useCallback((prefill?: BookingPrefill) => {
     setBookingPrefill(prefill || {});
@@ -298,7 +300,7 @@ export default function LandingClient({
           >
             {theme === "dark" ? "☀" : "☾"}
           </button>
-          <button onClick={() => openBooking()} className={s.navCta}>
+          <button onClick={() => setContactOpen(true)} className={s.navCta}>
             {t("nav.cta")}
           </button>
         </div>
@@ -337,7 +339,7 @@ export default function LandingClient({
           </div>
           <button
             className={s.btnPrimary}
-            onClick={() => { closeMenu(); openBooking(); }}
+            onClick={() => { closeMenu(); setContactOpen(true); }}
             style={{ marginTop: 8, textAlign: "center", justifyContent: "center" }}
           >
             {t("nav.cta_arrow")}
@@ -351,7 +353,7 @@ export default function LandingClient({
         <div className={`${s.heroGlow} ${s.heroGlow2}`} />
         <div className={`${s.heroGlow} ${s.heroGlow3}`} />
 
-        <HeroSlider locale={locale} onBooking={() => openBooking()} />
+        <HeroSlider locale={locale} onBooking={() => setContactOpen(true)} />
 
         <div className={s.heroStats} ref={statsRef}>
           {hero.stats.map((stat, i) => (
@@ -381,7 +383,7 @@ export default function LandingClient({
       <TechStack locale={locale} />
 
       {/* ── ORBITAL DIAGRAM ── */}
-      <OrbitalDiagram locale={locale} onBooking={() => openBooking()} />
+      <OrbitalDiagram locale={locale} onBooking={() => setContactOpen(true)} />
 
       {/* ── USE CASES ── */}
       <UseCases locale={locale} />
@@ -493,11 +495,16 @@ export default function LandingClient({
         <h2 className={`reveal d1 ${s.ctaTitle}`}>{t("cta.title")}</h2>
         <p className={`reveal d2 ${s.ctaText}`}>{t("cta.desc")}</p>
         <div className={`reveal d3 ${s.ctaActions}`}>
-          <button onClick={() => openBooking()} className={s.btnPrimary}>
+          <button onClick={() => setContactOpen(true)} className={s.btnPrimary}>
             {t("cta.button")}
           </button>
-          <a href="mailto:team@wikolabs.com" className={s.btnSecondary}>
-            {t("cta.email")} ✉
+          <a
+            href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet%20IA%20avec%20Wikolabs."
+            target="_blank"
+            rel="noopener noreferrer"
+            className={s.btnSecondary}
+          >
+            💬 WhatsApp
           </a>
         </div>
         <div className={`reveal d4 ${s.ctaContact}`}>
@@ -570,6 +577,13 @@ export default function LandingClient({
           </div>
         </div>
       </footer>
+
+      {/* ── CONTACT OPTIONS (Calendly / WhatsApp) ── */}
+      <ContactModal
+        open={contactOpen}
+        onClose={() => setContactOpen(false)}
+        locale={locale}
+      />
 
       {/* ── BOOKING MODAL ── */}
       <BookingModal
