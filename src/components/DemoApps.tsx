@@ -437,10 +437,10 @@ const APPS: App[] = [
 
 const i18n = {
   fr: {
-    tag: "Solutions en production",
-    title: "Des solutions réelles,",
-    titleEm: "déployées aujourd'hui",
-    desc: "Applications interactives et outils métiers — chacun avec son code source, son CI/CD et son infrastructure. Voyez ce que l'IA peut faire pour votre entreprise.",
+    tag: "Déjà en production",
+    title: "Des solutions livrées,",
+    titleEm: "qui tournent aujourd'hui",
+    desc: "Plateformes interactives et outils métiers déployés et opérationnels — voyez concrètement ce que l'IA peut faire pour votre entreprise.",
     liveLabel: "En ligne",
     btnDemo: "Voir en direct →",
     btnMore: "En savoir plus",
@@ -448,10 +448,10 @@ const i18n = {
     comingBadge: "En continu",
   },
   en: {
-    tag: "Solutions in production",
-    title: "Real solutions,",
-    titleEm: "deployed today",
-    desc: "Interactive apps and business tools — each with its own codebase, CI/CD pipeline, and infrastructure. See what AI can do for your business.",
+    tag: "Already in production",
+    title: "Solutions delivered,",
+    titleEm: "running today",
+    desc: "Live platforms and business tools — operational and accessible right now. See concretely what AI can do for your business.",
     liveLabel: "Live",
     btnDemo: "See live →",
     btnMore: "Learn more",
