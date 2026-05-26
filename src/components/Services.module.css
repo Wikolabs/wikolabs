@@ -918,6 +918,68 @@
   flex: 1;
 }
 
+/* ═══════════════════════════════════════════════════
+   OFFER CARD — UNIFIED WHITE / GOLD PALETTE
+   Override all per-tech & per-metric colors so every
+   element in the card uses only white or gold tones.
+═══════════════════════════════════════════════════ */
+
+/* Title & description */
+.offerTitle { color: var(--txt1); }
+.offerDesc  { color: rgba(255,255,255,0.65); }
+
+/* Tech badges — strip per-tech colors, use unified palette */
+.offerCard .offerTech {
+  background:   var(--card-badge-bg)     !important;
+  border-color: var(--card-badge-border) !important;
+  color:        var(--card-badge-color)  !important;
+}
+
+/* SVG / PNG logos inside tech badges — render as single white tone */
+.offerCard .offerTech img {
+  filter:  var(--card-badge-filter) !important;
+  opacity: 0.7;
+}
+
+/* Icon components inside tech badges — inherit unified color */
+.offerCard .offerTech svg { color: inherit !important; }
+
+/* Agent metric row */
+.offerCard .agentMetricNum { color: var(--gold) !important; }
+.offerCard .agentMetricLbl { color: rgba(255,255,255,0.55) !important; }
+.offerCard .agentAutomBadge {
+  background:   var(--gold-dim)    !important;
+  color:        var(--gold)        !important;
+  border-color: var(--gold-border) !important;
+}
+
+/* Toggle buttons (Avant/Après, Questions clés) */
+.offerCard .agentToggleBtn,
+.offerCard .questionsToggleBtn {
+  color:        rgba(255,255,255,0.5)  !important;
+  border-color: rgba(255,255,255,0.09) !important;
+}
+.offerCard .agentToggleBtn:hover,
+.offerCard .questionsToggleBtn:hover {
+  color:   var(--gold) !important;
+  opacity: 1 !important;
+}
+
+/* Before/After panels */
+.offerCard .beforeCell,
+.offerCard .afterCell {
+  background:   rgba(255,255,255,0.04) !important;
+  border-color: rgba(255,255,255,0.08) !important;
+  color:        rgba(255,255,255,0.62) !important;
+}
+.offerCard .afterCell { border-left-color: var(--gold) !important; }
+.offerCard .beforeCell .compareLabel { color: rgba(255,255,255,0.4)  !important; }
+.offerCard .afterCell  .compareLabel { color: var(--gold) !important; }
+
+/* Questions list */
+.offerCard .questionsItem { color: rgba(255,255,255,0.6) !important; }
+.offerCard .questionsDot  { background: var(--gold) !important; }
+
 @media (max-width: 640px) {
   .chatSearchPanel { border-radius: 14px; }
   .chatSearchMessages { max-height: 220px; }

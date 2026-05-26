@@ -390,7 +390,7 @@ const i18n = {
       ]},
       { label: "Développement Web & Mobile", offers: [
         { title: "Refonte UX/UI Web",             desc: "Audit UX + implémentation réelle sur votre stack. Le chatbot donne des conseils ; lui livre le code en production." },
-        { title: "Application Mobile (React Native)", desc: "App iOS/Android publiée sur les stores, mode offline, API REST intégrée. Un chatbot ne déploie rien sur l'App Store." },
+        { title: "Application Mobile",                desc: "App iOS/Android publiée sur les stores, mode offline, API REST intégrée. Un chatbot ne déploie rien sur l'App Store." },
         { title: "Débogage & Optimisation Performance", desc: "Analyse votre vrai codebase en exécution, corrige et couvre par des tests. Le chatbot devine sur un extrait ; lui mesure et corrige." },
         { title: "SEO Technique & Visibilité Organique", desc: "Audit complet puis implémentation directe sur votre site. Le chatbot liste des conseils ; lui les déploie vraiment." },
       ]},
@@ -448,7 +448,7 @@ const i18n = {
       ]},
       { label: "Web & Mobile Development", offers: [
         { title: "UX/UI Web Redesign",            desc: "UX audit + real implementation on your stack. A chatbot gives advice; this one ships code to production." },
-        { title: "Mobile App (React Native)",      desc: "iOS/Android app published on the stores, offline mode, integrated REST APIs. A chatbot deploys nothing to the App Store." },
+        { title: "Mobile App",                      desc: "iOS/Android app published on the stores, offline mode, integrated REST APIs. A chatbot deploys nothing to the App Store." },
         { title: "Debugging & Performance Optimization", desc: "Analyzes your real codebase in execution, fixes and covers with tests. A chatbot guesses from an excerpt; this one measures and corrects." },
         { title: "Technical SEO & Organic Growth",desc: "Full audit then direct implementation on your site. A chatbot lists recommendations; this one actually deploys them." },
       ]},
