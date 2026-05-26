@@ -128,6 +128,24 @@ const i18n = {
   },
 };
 
+// Index → portal edge position class + label placement class
+// 0=Cloud(left-top) 1=IA&LLM(right-top) 2=Data(left-bot) 3=Auto(right-bot) 4=Dev(bottom-center)
+const PORTAL_POS = [
+  styles.portalLeftTop,
+  styles.portalRightTop,
+  styles.portalLeftBot,
+  styles.portalRightBot,
+  styles.portalBotCenter,
+];
+
+const PORTAL_LBL = [
+  styles.labelRight,
+  styles.labelLeft,
+  styles.labelRight,
+  styles.labelLeft,
+  styles.labelAbove,
+];
+
 function SysPlanet({ node }: { node: SysNode }) {
   const preSpin = -(node.startAngle / 360) * node.period;
   const half = node.size / 2;
@@ -175,13 +193,33 @@ function SysPlanet({ node }: { node: SysNode }) {
   );
 }
 
-function SolarSystem({ sys, lang }: { sys: SolarSys; lang: "fr" | "en" }) {
+function SolarPortal({
+  sys,
+  lang,
+  posClass,
+  lblClass,
+}: {
+  sys: SolarSys;
+  lang: "fr" | "en";
+  posClass: string;
+  lblClass: string;
+}) {
   return (
-    <div className={styles.solarWrap}>
+    <div
+      className={`${styles.portal} ${posClass}`}
+      style={{ "--portal-color": sys.color } as React.CSSProperties}
+    >
+      {/* Dimensional ambient glow */}
+      <div
+        className={styles.portalGlow}
+        style={{ background: `radial-gradient(circle, ${sys.color}2a 0%, transparent 65%)` }}
+      />
+
+      {/* Solar system machinery */}
       <div className={styles.solarOrbit}>
         <div
           className={styles.sysGlow}
-          style={{ background: `radial-gradient(circle, ${sys.color}20 0%, transparent 65%)` }}
+          style={{ background: `radial-gradient(circle, ${sys.color}1c 0%, transparent 65%)` }}
         />
         <div className={styles.sysRing2} style={{ borderColor: `${sys.color}12` }} />
         <div className={styles.sysRing1} style={{ borderColor: `${sys.color}1e` }} />
@@ -189,7 +227,7 @@ function SolarSystem({ sys, lang }: { sys: SolarSys; lang: "fr" | "en" }) {
         <div
           className={styles.sysCenterBox}
           style={{
-            boxShadow: `0 0 0 1px ${sys.color}35, 0 0 28px ${sys.color}28, inset 0 0 14px ${sys.color}08`,
+            boxShadow: `0 0 0 1px ${sys.color}35, 0 0 32px ${sys.color}30, inset 0 0 14px ${sys.color}0a`,
             background: "rgba(255,255,255,0.03)",
           }}
         >
@@ -199,7 +237,9 @@ function SolarSystem({ sys, lang }: { sys: SolarSys; lang: "fr" | "en" }) {
           <SysPlanet key={i} node={node} />
         ))}
       </div>
-      <div className={styles.sysLabel}>
+
+      {/* Label floated into the visible half */}
+      <div className={`${styles.portalLabel} ${lblClass}`}>
         <div className={styles.sysName}>{sys.label[lang]}</div>
         <div className={styles.sysSublabel}>{sys.sublabel}</div>
       </div>
@@ -213,6 +253,7 @@ export default function TechStack({ locale }: { locale: string }) {
 
   return (
     <section className={styles.techStack}>
+      {/* Text block */}
       <div className={`reveal ${styles.header}`}>
         <div className={styles.sectionTag}>
           <span className={styles.sectionTagLine} />
@@ -225,9 +266,30 @@ export default function TechStack({ locale }: { locale: string }) {
         <p className={styles.sectionDesc}>{t.desc}</p>
       </div>
 
-      <div className={`reveal d1 ${styles.planetsGrid}`}>
+      {/* Category legend pills */}
+      <div className={`reveal d1 ${styles.legend}`}>
         {SYSTEMS.map((sys, i) => (
-          <SolarSystem key={i} sys={sys} lang={lang as "fr" | "en"} />
+          <div
+            key={i}
+            className={styles.legendPill}
+            style={{ "--pill-color": sys.color } as React.CSSProperties}
+          >
+            <sys.CenterIcon size={13} color={sys.color} />
+            <span>{sys.label[lang]}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Dimensional portal solar systems at screen edges */}
+      <div className={styles.portals} aria-hidden="true">
+        {SYSTEMS.map((sys, i) => (
+          <SolarPortal
+            key={i}
+            sys={sys}
+            lang={lang as "fr" | "en"}
+            posClass={PORTAL_POS[i]}
+            lblClass={PORTAL_LBL[i]}
+          />
         ))}
       </div>
     </section>

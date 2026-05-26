@@ -1,18 +1,23 @@
 /* ═══════════════════════════════════════════════════
-   TECH STACK — Planetary solar system showcase
+   TECH STACK — Dimensional Portal Solar Systems
+   5 solar systems half-hidden at screen edges
 ═══════════════════════════════════════════════════ */
 
 .techStack {
-  padding: 80px 0 100px;
+  position: relative;
+  min-height: 880px;
+  padding: 80px 0 0;
   background: var(--bg2);
   overflow: hidden;
-  position: relative;
 }
 
+/* ── Header ── */
 .header {
+  position: relative;
+  z-index: 5;
   text-align: center;
   padding: 0 48px;
-  margin-bottom: 64px;
+  margin-bottom: 40px;
 }
 
 .sectionTag {
@@ -55,57 +60,199 @@
   line-height: 1.6;
 }
 
-/* ═══ SOLAR SYSTEMS GRID ═══ */
-
-.planetsGrid {
+/* ── Category legend ── */
+.legend {
+  position: relative;
+  z-index: 5;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
-  gap: 48px 56px;
-  padding: 20px 48px 40px;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  padding: 0 48px 48px;
 }
 
-/* ─── One solar system ─── */
-.solarWrap {
+.legendPill {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 22px;
+  gap: 6px;
+  padding: 5px 14px 5px 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  color: var(--txt2);
+  white-space: nowrap;
+  transition: border-color 0.2s, color 0.2s;
 }
+
+.legendPill:hover {
+  color: var(--txt1);
+}
+
+/* ═══════════════════════════════════════════════════
+   PORTALS LAYER
+═══════════════════════════════════════════════════ */
+
+.portals {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Single portal container (360×360, center at screen edge) ── */
+.portal {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  pointer-events: auto;
+}
+
+/* Glowing arc ring at the dimensional boundary */
+.portal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--portal-color, var(--gold));
+  opacity: 0.16;
+  animation: portalRimPulse 4.5s ease-in-out infinite;
+}
+
+/* Second outer ring for depth */
+.portal::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px dashed var(--portal-color, var(--gold));
+  opacity: 0.07;
+  animation: portalRimPulse 4.5s ease-in-out 1s infinite;
+}
+
+@keyframes portalRimPulse {
+  0%, 100% { opacity: 0.08; transform: scale(1);    }
+  50%       { opacity: 0.22; transform: scale(1.015); }
+}
+
+/* ── Edge positions: center of portal = screen edge ── */
+/* left: -180px  → container left at -180px, center at 0 (left wall) */
+/* right: -180px → container right at 100%+180px, center at 100% (right wall) */
+/* bottom: -180px → container bottom at 100%+180px, center at 100% (floor) */
+
+.portalLeftTop   { left: -180px; top: 80px;    }
+.portalRightTop  { right: -180px; top: 80px;   }
+.portalLeftBot   { left: -180px; bottom: 80px; }
+.portalRightBot  { right: -180px; bottom: 80px;}
+.portalBotCenter {
+  bottom: -180px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ── Ambient glow emanating from the portal opening ── */
+.portalGlow {
+  position: absolute;
+  inset: -50px;
+  border-radius: 50%;
+  filter: blur(55px);
+  opacity: 0.65;
+  pointer-events: none;
+  animation: portalBreath 5s ease-in-out infinite;
+}
+
+@keyframes portalBreath {
+  0%, 100% { opacity: 0.45; transform: scale(0.92); }
+  50%       { opacity: 0.8;  transform: scale(1.06); }
+}
+
+/* ── Portal label positioned in the visible half ── */
+.portalLabel {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  line-height: 1.4;
+}
+
+/* For left-edge portals: label sits to the right of center (inside section) */
+.labelRight {
+  left: 200px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: left;
+}
+
+/* For right-edge portals: label sits to the left of center (inside section) */
+.labelLeft {
+  right: 200px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: right;
+}
+
+/* For bottom portal: label sits above center (inside section) */
+.labelAbove {
+  bottom: 210px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ── System label text ── */
+.sysName {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 3px;
+}
+
+.sysSublabel {
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  color: var(--txt3);
+  letter-spacing: 0.3px;
+}
+
+/* ═══════════════════════════════════════════════════
+   SOLAR SYSTEM — 360px diameter
+═══════════════════════════════════════════════════ */
 
 .solarOrbit {
   position: relative;
-  width: 270px;
-  height: 270px;
+  width: 360px;
+  height: 360px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Radial glow background */
 .sysGlow {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   filter: blur(52px);
   pointer-events: none;
 }
 
-/* ─── 3 concentric rings ─── */
+/* Rings scaled for 360px system (original 270px × 1.333) */
 .sysRing0 {
   position: absolute;
-  width: 160px;
-  height: 160px;
+  width: 213px;
+  height: 213px;
   border-radius: 50%;
   border: 1px solid;
 }
 
 .sysRing1 {
   position: absolute;
-  width: 224px;
-  height: 224px;
+  width: 299px;
+  height: 299px;
   border-radius: 50%;
   border: 1px dashed;
   animation: sysSpinCw 34s linear infinite;
@@ -113,8 +260,8 @@
 
 .sysRing2 {
   position: absolute;
-  width: 270px;
-  height: 270px;
+  width: 360px;
+  height: 360px;
   border-radius: 50%;
   border: 1px dotted;
   animation: sysSpinCcw 50s linear infinite;
@@ -123,7 +270,7 @@
 @keyframes sysSpinCw  { to { transform: rotate(360deg);  } }
 @keyframes sysSpinCcw { to { transform: rotate(-360deg); } }
 
-/* ─── Central icon hub ─── */
+/* Central hub */
 .sysCenterBox {
   position: relative;
   z-index: 3;
@@ -143,7 +290,7 @@
   50%       { transform: scale(1.08); }
 }
 
-/* ─── Orbital arm (zero-size pivot at center) ─── */
+/* ── Orbital mechanics ── */
 .orbitArm {
   position: absolute;
   top: 50%;
@@ -160,7 +307,6 @@
   to   { transform: rotate(360deg); }
 }
 
-/* ─── Planet wrapper (counter-rotates so planet stays upright) ─── */
 .orbitPlanetWrap {
   position: absolute;
   top: 0;
@@ -171,17 +317,16 @@
   animation: sysOrbitCounter var(--orbit-period) linear var(--orbit-pre-spin) infinite;
 }
 
-/* Ring radii for 270px solar system */
-.orbitPlanetWrap[data-ring="0"] { --orbit-r: 80px;  }
-.orbitPlanetWrap[data-ring="1"] { --orbit-r: 112px; }
-.orbitPlanetWrap[data-ring="2"] { --orbit-r: 135px; }
+/* Orbital radii for 360px system */
+.orbitPlanetWrap[data-ring="0"] { --orbit-r: 106px; }
+.orbitPlanetWrap[data-ring="1"] { --orbit-r: 149px; }
+.orbitPlanetWrap[data-ring="2"] { --orbit-r: 180px; }
 
 @keyframes sysOrbitCounter {
   from { transform: translateY(calc(-1 * var(--orbit-r))) rotate(0deg);    }
   to   { transform: translateY(calc(-1 * var(--orbit-r))) rotate(-360deg); }
 }
 
-/* ─── Planet circle (fades in with stagger) ─── */
 .orbitPlanet {
   border-radius: 50%;
   display: flex;
@@ -200,37 +345,90 @@
 }
 
 @keyframes sysPlanetAppear {
-  from { opacity: 0; transform: scale(0.15) rotate(60deg);  }
-  to   { opacity: 1; transform: scale(1)    rotate(0deg);   }
+  from { opacity: 0; transform: scale(0.15) rotate(60deg); }
+  to   { opacity: 1; transform: scale(1)    rotate(0deg);  }
 }
 
-/* ─── System label below the orbit ─── */
-.sysLabel {
-  text-align: center;
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════ */
+
+@media (max-width: 1100px) {
+  .techStack { min-height: 800px; }
+
+  .portal      { width: 300px; height: 300px; }
+  .portalLeftTop  { left: -150px;  }
+  .portalRightTop { right: -150px; }
+  .portalLeftBot  { left: -150px;  }
+  .portalRightBot { right: -150px; }
+  .portalBotCenter { bottom: -150px; }
+
+  .solarOrbit  { width: 300px; height: 300px; }
+  .sysGlow     { width: 180px; height: 180px; }
+  .sysRing0    { width: 178px; height: 178px; }
+  .sysRing1    { width: 249px; height: 249px; }
+  .sysRing2    { width: 300px; height: 300px; }
+
+  .orbitPlanetWrap[data-ring="0"] { --orbit-r: 89px;  }
+  .orbitPlanetWrap[data-ring="1"] { --orbit-r: 124px; }
+  .orbitPlanetWrap[data-ring="2"] { --orbit-r: 150px; }
+
+  .labelRight { left: 162px; }
+  .labelLeft  { right: 162px; }
+  .labelAbove { bottom: 174px; }
 }
 
-.sysName {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 4px;
+@media (max-width: 768px) {
+  .techStack { min-height: 620px; }
+
+  .portal      { width: 240px; height: 240px; }
+  .portalLeftTop  { left: -120px;  top: 60px;    }
+  .portalRightTop { right: -120px; top: 60px;    }
+  .portalLeftBot  { left: -120px;  bottom: 60px; }
+  .portalRightBot { right: -120px; bottom: 60px; }
+  .portalBotCenter { bottom: -120px; }
+
+  .solarOrbit  { width: 240px; height: 240px; }
+  .sysGlow     { width: 150px; height: 150px; }
+  .sysRing0    { width: 142px; height: 142px; }
+  .sysRing1    { width: 199px; height: 199px; }
+  .sysRing2    { width: 240px; height: 240px; }
+
+  .orbitPlanetWrap[data-ring="0"] { --orbit-r: 71px;  }
+  .orbitPlanetWrap[data-ring="1"] { --orbit-r: 99px;  }
+  .orbitPlanetWrap[data-ring="2"] { --orbit-r: 120px; }
+
+  .labelRight { left: 130px; }
+  .labelLeft  { right: 130px; }
+  .labelAbove { bottom: 138px; }
+  .sysName    { font-size: 0.65rem; }
+  .sysSublabel { display: none; }
+
+  .header { padding: 0 24px; }
+  .legend { padding: 0 24px 32px; }
 }
 
-.sysSublabel {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--txt3);
-  letter-spacing: 0.3px;
-}
+@media (max-width: 480px) {
+  .techStack { min-height: 520px; }
+  .portalBotCenter { display: none; }
 
-/* ─── Responsive ─── */
-@media (max-width: 1024px) {
-  .planetsGrid { gap: 40px 40px; padding: 16px 32px 32px; }
-}
+  .portal      { width: 200px; height: 200px; }
+  .portalLeftTop  { left: -100px;  top: 50px;    }
+  .portalRightTop { right: -100px; top: 50px;    }
+  .portalLeftBot  { left: -100px;  bottom: 50px; }
+  .portalRightBot { right: -100px; bottom: 50px; }
 
-@media (max-width: 640px) {
-  .planetsGrid { gap: 32px 20px; padding: 12px 20px 24px; }
-  .header { padding: 0 20px; }
+  .solarOrbit  { width: 200px; height: 200px; }
+  .sysGlow     { width: 120px; height: 120px; }
+  .sysRing0    { width: 118px; height: 118px; }
+  .sysRing1    { width: 166px; height: 166px; }
+  .sysRing2    { width: 200px; height: 200px; }
+
+  .orbitPlanetWrap[data-ring="0"] { --orbit-r: 59px; }
+  .orbitPlanetWrap[data-ring="1"] { --orbit-r: 83px; }
+  .orbitPlanetWrap[data-ring="2"] { --orbit-r: 100px; }
+
+  .labelRight { left: 108px; }
+  .labelLeft  { right: 108px; }
+  .sysCenterBox { width: 52px; height: 52px; }
 }
