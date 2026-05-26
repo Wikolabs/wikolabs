@@ -445,9 +445,9 @@
   font-size: 0.58rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--accent, var(--gold));
+  color: var(--gold);
   background: rgba(4,8,15,0.75);
-  border: 1px solid var(--accent, var(--gold-border));
+  border: 1px solid var(--gold-border);
   border-radius: 100px;
   padding: 3px 9px;
   backdrop-filter: blur(6px);

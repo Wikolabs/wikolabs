@@ -12,16 +12,12 @@ interface App {
   features: string[];
   url: string;
   live: boolean;
-  screenshot?: string;
-  accent?: string;
-  accentBg?: string;
-  type: "demo" | "offer";
+  screenshot: string;
   cat?: string;
 }
 
-const DEMOS: App[] = [
+const APPS: App[] = [
   {
-    type: "demo",
     icon: "🔎",
     stack: ["Python", "FastAPI", "Gemini", "Groq LLaMA", "React"],
     title: "ProductSearch",
@@ -33,7 +29,6 @@ const DEMOS: App[] = [
     screenshot: "/screenshots/productsearch.png",
   },
   {
-    type: "demo",
     icon: "🏢",
     stack: ["Python", "FastAPI", "Gemini Vision", "Groq", "Docker"],
     title: "PrestaSearch",
@@ -45,7 +40,6 @@ const DEMOS: App[] = [
     screenshot: "/screenshots/prestasearch.png",
   },
   {
-    type: "demo",
     icon: "📈",
     stack: ["Groq LLM", "MongoDB", "pgvector", "Chainlit", "Plotly"],
     title: "BI Wikolabs",
@@ -57,7 +51,6 @@ const DEMOS: App[] = [
     screenshot: "/screenshots/bi-wikolabs.png",
   },
   {
-    type: "demo",
     icon: "🏥",
     stack: ["Next.js 15", "NestJS", "Flutter", "Socket.IO", "AI"],
     title: "MediWyz",
@@ -68,134 +61,116 @@ const DEMOS: App[] = [
     live: true,
     screenshot: "/screenshots/mediwyz.png",
   },
-];
-
-const OFFERS: App[] = [
   {
-    type: "offer", icon: "📡", cat: "Intelligence marché",
+    icon: "📡",
+    cat: "Intelligence marché",
     stack: ["Python", "LangChain", "Slack API", "Next.js"],
     title: "PulseScope",
     tagline: "Veille marché 24h/24 dans votre Slack",
     desc: "Surveillance concurrentielle automatisée — 50+ sources, synthèse IA à 8h chaque matin. Zéro intervention humaine.",
     features: ["Veille multi-sources (web, LinkedIn, RSS)", "Synthèse IA quotidienne à 8h", "Alertes instantanées sur signaux critiques"],
-    url: "http://187.124.167.18:3001", live: true,
-    accent: "#0ea5e9", accentBg: "#f0f9ff",
+    url: "http://187.124.167.18:3001",
+    live: true,
+    screenshot: "/screenshots/pulsescope.png",
   },
   {
-    type: "offer", icon: "⚡", cat: "Prospection B2B",
+    icon: "⚡",
+    cat: "Prospection B2B",
     stack: ["Python", "Apollo", "GPT-4o", "HubSpot"],
     title: "LeadForge",
     tagline: "300 prospects qualifiés livrés chaque lundi",
     desc: "Sourcing ICP automatisé — enrichissement, scoring BANT, 94% d'emails valides. Votre pipeline se remplit sans intervention.",
     features: ["Scoring ICP automatique A/B/C", "94% d'emails vérifiés", "Sync CRM quotidien"],
-    url: "http://187.124.167.18:3002", live: true,
-    accent: "#6366f1", accentBg: "#eef2ff",
+    url: "http://187.124.167.18:3002",
+    live: true,
+    screenshot: "/screenshots/leadforge.png",
   },
   {
-    type: "offer", icon: "📢", cat: "Outreach multicanal",
+    icon: "📢",
+    cat: "Outreach multicanal",
     stack: ["Python", "Lemlist", "LinkedIn API", "Twilio"],
     title: "ReachWave",
     tagline: "Séquences Email · LinkedIn · SMS automatisées",
     desc: "Outreach multicanal orchestré — ×3 sur le taux de réponse en 72h. Personnalisation IA par profil.",
     features: ["3 canaux orchestrés en parallèle", "×3 taux de réponse moyen", "Premiers retours en 72h"],
-    url: "http://187.124.167.18:3003", live: true,
-    accent: "#f97316", accentBg: "#fff7ed",
+    url: "http://187.124.167.18:3003",
+    live: true,
+    screenshot: "/screenshots/reachwave.png",
   },
   {
-    type: "offer", icon: "✅", cat: "Qualification IA",
+    icon: "✅",
+    cat: "Qualification IA",
     stack: ["Python", "Whisper", "GPT-4o", "Salesforce"],
     title: "ScoreFlow",
     tagline: "80% des prospects qualifiés sans intervention",
     desc: "Scoring BANT IA et routing automatique — votre closer ne voit que les deals chauds. Pipeline propre, prévisions fiables.",
     features: ["Scoring BANT en temps réel", "Routing automatique HOT/COLD", "Pipeline CRM toujours à jour"],
-    url: "http://187.124.167.18:3004", live: true,
-    accent: "#10b981", accentBg: "#ecfdf5",
+    url: "http://187.124.167.18:3004",
+    live: true,
+    screenshot: "/screenshots/scoreflow.png",
   },
   {
-    type: "offer", icon: "📅", cat: "Prise de RDV",
+    icon: "📅",
+    cat: "Prise de RDV",
     stack: ["Next.js", "Calendly API", "GPT-4o", "Notion"],
     title: "BookLync",
     tagline: "Votre agenda rempli. Automatiquement.",
     desc: "Détection d'intention → 3 créneaux → confirmation → brief pré-call. De l'intention à la réunion en moins de 4 minutes.",
     features: ["Détection d'intention automatique", "+65% de RDV vs formulaire", "92% de taux de présence"],
-    url: "http://187.124.167.18:3005", live: true,
-    accent: "#a855f7", accentBg: "#faf5ff",
+    url: "http://187.124.167.18:3005",
+    live: true,
+    screenshot: "/screenshots/booklync.png",
   },
   {
-    type: "offer", icon: "✍️", cat: "Proposition commerciale",
+    icon: "✍️",
+    cat: "Proposition commerciale",
     stack: ["Python", "GPT-4o", "DocuSign", "WeasyPrint"],
     title: "PropGenAI",
     tagline: "De la discovery au contrat signé en 48h",
     desc: "Notes de call → proposition PDF → DocuSign. Relance automatique jusqu'à signature. −90% de temps de rédaction.",
     features: ["PDF professionnel en 5 minutes", "Envoi & suivi DocuSign auto", "Relances jusqu'à signature"],
-    url: "http://187.124.167.18:3006", live: true,
-    accent: "#f43f5e", accentBg: "#fff1f2",
+    url: "http://187.124.167.18:3006",
+    live: true,
+    screenshot: "/screenshots/propgenai.png",
   },
   {
-    type: "offer", icon: "🛡️", cat: "Rétention client",
+    icon: "🛡️",
+    cat: "Rétention client",
     stack: ["Python", "Mixpanel", "GPT-4o", "HubSpot"],
     title: "RetainIQ",
     tagline: "75% du churn détecté avant qu'il se produise",
     desc: "Monitoring comportemental continu, scoring churn IA et séquences de réengagement personnalisées. €42k de MRR sauvé/mois en moyenne.",
     features: ["75% du churn détecté à l'avance", "Réengagement automatique", "ROI ×3 au premier trimestre"],
-    url: "http://187.124.167.18:3007", live: true,
-    accent: "#f59e0b", accentBg: "#fffbeb",
+    url: "http://187.124.167.18:3007",
+    live: true,
+    screenshot: "/screenshots/retainiq.png",
   },
 ];
 
 const i18n = {
   fr: {
     tag: "Solutions en production",
-    title: "Des agents réels,",
-    titleEm: "déployés aujourd'hui",
-    desc: "Applications interactives et agents métiers — chacun avec son code source, son CI/CD et son infrastructure. Voyez ce que l'IA peut faire pour votre entreprise.",
-    subDemo: "Plateformes démo",
-    subOffer: "Agents Wikolabs",
+    title: "Des solutions réelles,",
+    titleEm: "déployées aujourd'hui",
+    desc: "Applications interactives et outils métiers — chacun avec son code source, son CI/CD et son infrastructure. Voyez ce que l'IA peut faire pour votre entreprise.",
     liveLabel: "En ligne",
     btnDemo: "Voir en direct →",
     btnMore: "En savoir plus",
-    comingSoon: "24 agents supplémentaires en cours de développement",
+    comingSoon: "24 solutions supplémentaires en cours de développement",
     comingBadge: "Bientôt disponibles",
   },
   en: {
     tag: "Solutions in production",
-    title: "Real agents,",
+    title: "Real solutions,",
     titleEm: "deployed today",
-    desc: "Interactive apps and business agents — each with its own codebase, CI/CD pipeline, and infrastructure. See what AI can do for your business.",
-    subDemo: "Demo platforms",
-    subOffer: "Wikolabs agents",
+    desc: "Interactive apps and business tools — each with its own codebase, CI/CD pipeline, and infrastructure. See what AI can do for your business.",
     liveLabel: "Live",
     btnDemo: "See live →",
     btnMore: "Learn more",
-    comingSoon: "24 additional agents in development",
+    comingSoon: "24 additional solutions in development",
     comingBadge: "Coming soon",
   },
 };
-
-function OfferPreview({ app }: { app: App }) {
-  return (
-    <div
-      className={styles.browserContent}
-      style={{ background: `linear-gradient(145deg, ${app.accentBg} 0%, white 100%)` }}
-    >
-      <div style={{ padding: "14px 16px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
-          <div style={{ width: 24, height: 24, borderRadius: 6, background: app.accent, opacity: 0.9 }} />
-          <div style={{ height: 8, width: 80, background: app.accent, borderRadius: 4, opacity: 0.7 }} />
-        </div>
-        <div style={{ height: 10, background: app.accent, borderRadius: 5, width: "75%", marginBottom: 6, opacity: 0.6 }} />
-        <div style={{ height: 7, background: app.accent, borderRadius: 4, width: "90%", marginBottom: 4, opacity: 0.25 }} />
-        <div style={{ height: 7, background: app.accent, borderRadius: 4, width: "65%", marginBottom: 14, opacity: 0.25 }} />
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 6, marginBottom: 10 }}>
-          {[0.18, 0.12, 0.15].map((op, i) => (
-            <div key={i} style={{ height: 44, background: app.accent, borderRadius: 8, opacity: op }} />
-          ))}
-        </div>
-        <div style={{ height: 28, background: app.accent, borderRadius: 8, width: "50%", opacity: 0.55 }} />
-      </div>
-    </div>
-  );
-}
 
 export default function DemoApps({ locale }: { locale: string }) {
   const lang = locale === "en" ? "en" : "fr";
@@ -216,19 +191,15 @@ export default function DemoApps({ locale }: { locale: string }) {
               {app.url.replace("https://", "").replace("http://", "")}
             </div>
           </div>
-          {app.type === "demo" && app.screenshot ? (
-            <div className={styles.browserContent}>
-              <img
-                src={app.screenshot}
-                alt={`${app.title} preview`}
-                className={styles.screenshotImg}
-                loading="lazy"
-                draggable={false}
-              />
-            </div>
-          ) : (
-            <OfferPreview app={app} />
-          )}
+          <div className={styles.browserContent}>
+            <img
+              src={app.screenshot}
+              alt={`${app.title} preview`}
+              className={styles.screenshotImg}
+              loading="lazy"
+              draggable={false}
+            />
+          </div>
         </div>
         {app.live && (
           <div className={styles.liveBadge}>
@@ -237,7 +208,7 @@ export default function DemoApps({ locale }: { locale: string }) {
           </div>
         )}
         {app.cat && (
-          <div className={styles.catBadge} style={{ "--accent": app.accent } as React.CSSProperties}>
+          <div className={styles.catBadge}>
             {app.cat}
           </div>
         )}
@@ -283,20 +254,8 @@ export default function DemoApps({ locale }: { locale: string }) {
         </h2>
         <p className={`reveal d2 ${styles.sectionDesc}`}>{t.desc}</p>
 
-        <div className={styles.subHeader}>
-          <span className={styles.subLabel}>{t.subDemo}</span>
-          <span className={styles.subLine} />
-        </div>
-        <div className={styles.grid}>
-          {DEMOS.map((app, i) => renderCard(app, i))}
-        </div>
-
-        <div className={styles.subHeader} style={{ marginTop: 64 }}>
-          <span className={styles.subLabel}>{t.subOffer}</span>
-          <span className={styles.subLine} />
-        </div>
         <div className={`${styles.grid} ${styles.gridOffers}`}>
-          {OFFERS.map((app, i) => renderCard(app, i))}
+          {APPS.map((app, i) => renderCard(app, i))}
         </div>
 
         <div className={`reveal d3 ${styles.comingRow}`}>
