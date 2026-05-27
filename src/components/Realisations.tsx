@@ -316,6 +316,142 @@ const PROJECTS = [
     bg: "#f0fdfa",
     cat: "BI conversationnelle",
   },
+  // ── ML / Data Science ──────────────────────────────────────────────────────
+  {
+    name: "FraudGuard",
+    tagline: "Chaque transaction scorée. Fraude bloquée en 100ms.",
+    desc: "Scoring de risque IA en temps réel — gradient boosting, device fingerprinting, 99.2% de précision.",
+    url: "http://187.124.167.18:3034",
+    accent: "#ef4444",
+    bg: "#fef2f2",
+    cat: "Détection de fraude",
+  },
+  {
+    name: "ChurnPredict",
+    tagline: "30 jours d'avance sur le départ de vos clients",
+    desc: "ML prédictif sur CRM — score churn quotidien, signaux comportementaux, playbooks de rétention.",
+    url: "http://187.124.167.18:3035",
+    accent: "#f97316",
+    bg: "#fff7ed",
+    cat: "Prédiction churn",
+  },
+  {
+    name: "RAG AI",
+    tagline: "Posez une question. Obtenez une réponse sourcée.",
+    desc: "RAG sur vos documents internes — embeddings haute dimension, 0 hallucination, RGPD conforme.",
+    url: "http://187.124.167.18:3036",
+    accent: "#8b5cf6",
+    bg: "#f5f3ff",
+    cat: "RAG & Knowledge Base",
+  },
+  {
+    name: "RecSys",
+    tagline: "+40% de conversion grâce aux recommandations IA",
+    desc: "Moteur de recommandation collaboratif & content-based — personnalisation temps réel, A/B testing intégré.",
+    url: "http://187.124.167.18:3037",
+    accent: "#10b981",
+    bg: "#ecfdf5",
+    cat: "Recommandation IA",
+  },
+  {
+    name: "SentimentLive",
+    tagline: "Votre réputation surveillée. Alertes en 60 secondes.",
+    desc: "Monitoring de sentiment multi-canal 24h/24 — 50+ sources, détection de crise, NPS automatique.",
+    url: "http://187.124.167.18:3038",
+    accent: "#0ea5e9",
+    bg: "#f0f9ff",
+    cat: "Analyse de sentiment",
+  },
+  {
+    name: "AgentFlow",
+    tagline: "Orchestrez vos agents IA visuellement",
+    desc: "Pipelines d'agents IA drag-and-drop — 50+ connecteurs, monitoring temps réel, déploiement en 10 minutes.",
+    url: "http://187.124.167.18:3039",
+    accent: "#6366f1",
+    bg: "#eef2ff",
+    cat: "Orchestration IA",
+  },
+  {
+    name: "CausalAI",
+    tagline: "Comprenez pourquoi. Pas seulement quoi.",
+    desc: "IA causale — graphes auto-découverts, simulations counterfactuelles et recommandations d'actions prouvées.",
+    url: "http://187.124.167.18:3040",
+    accent: "#14b8a6",
+    bg: "#f0fdfa",
+    cat: "IA causale",
+  },
+  {
+    name: "EntityResolution",
+    tagline: "Un client = un profil. Toujours. À l'échelle.",
+    desc: "Déduplication et matching ML 99.3% de précision — golden record unifié sur bases hétérogènes.",
+    url: "http://187.124.167.18:3041",
+    accent: "#f59e0b",
+    bg: "#fffbeb",
+    cat: "Déduplication ML",
+  },
+  {
+    name: "ImageGen",
+    tagline: "Votre identité visuelle. À l'infini. Automatiquement.",
+    desc: "Pipeline de génération d'images IA brand-consistent — Flux/SDXL/DALL-E orchestrés, export direct.",
+    url: "http://187.124.167.18:3042",
+    accent: "#ec4899",
+    bg: "#fdf2f8",
+    cat: "Génération d'images IA",
+  },
+  {
+    name: "MedicalIQA",
+    tagline: "L'assistant médical IA qui cite toujours ses sources",
+    desc: "QA médicale sur protocoles et guidelines — 0 hallucination, sources citées, hébergement HDS.",
+    url: "http://187.124.167.18:3043",
+    accent: "#3b82f6",
+    bg: "#eff6ff",
+    cat: "IA médicale",
+  },
+  {
+    name: "GraphFraud",
+    tagline: "La fraude organisée ne se cache plus dans votre graphe",
+    desc: "Graph Neural Network — détection de communautés frauduleuses et d'anneaux de fraude organisée.",
+    url: "http://187.124.167.18:3044",
+    accent: "#f43f5e",
+    bg: "#fff1f2",
+    cat: "Fraude réseau GNN",
+  },
+  {
+    name: "PricingRL",
+    tagline: "+12% de revenus dès le premier mois",
+    desc: "Pricing dynamique par reinforcement learning — prix optimal en <1ms, contraintes métier respectées.",
+    url: "http://187.124.167.18:3045",
+    accent: "#22c55e",
+    bg: "#f0fdf4",
+    cat: "Dynamic pricing RL",
+  },
+  {
+    name: "SyntheticData",
+    tagline: "Données illimitées. Conformes RGPD. Statistiquement fidèles.",
+    desc: "Génération de données synthétiques tabular/texte — fidélité statistique 99%, zéro PII, certification RGPD.",
+    url: "http://187.124.167.18:3046",
+    accent: "#06b6d4",
+    bg: "#ecfeff",
+    cat: "Données synthétiques",
+  },
+  {
+    name: "VoiceTranslate",
+    tagline: "Parlez. Votre audience comprend. En direct.",
+    desc: "Traduction vocale temps réel 40+ langues — ASR + traduction neurale + TTS, latence <500ms.",
+    url: "http://187.124.167.18:3047",
+    accent: "#7c3aed",
+    bg: "#f5f3ff",
+    cat: "Traduction vocale IA",
+  },
+  {
+    name: "FineTuneDLM",
+    tagline: "Votre LLM maison privé et souverain en 48h",
+    desc: "Fine-tuning LoRA/QLoRA sur vos données — LLM déployé sur votre infrastructure, 10× moins cher.",
+    url: "http://187.124.167.18:3048",
+    accent: "#ea580c",
+    bg: "#fff7ed",
+    cat: "LLM fine-tuning",
+  },
 ];
 
 export default function Realisations({ locale }: { locale: string }) {
@@ -335,8 +471,8 @@ export default function Realisations({ locale }: { locale: string }) {
       </h2>
       <p className={`reveal d2 ${s.desc}`}>
         {isFr
-          ? "34 projets Wikolabs — chacun sa codebase GitHub, son pipeline CI/CD et son URL en production."
-          : "34 Wikolabs projects — each with its own GitHub codebase, CI/CD pipeline and live production URL."}
+          ? "49 projets Wikolabs — chacun sa codebase GitHub, son pipeline CI/CD et son URL en production."
+          : "49 Wikolabs projects — each with its own GitHub codebase, CI/CD pipeline and live production URL."}
       </p>
 
       <div className={s.grid}>
