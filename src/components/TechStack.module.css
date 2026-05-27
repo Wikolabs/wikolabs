@@ -137,17 +137,14 @@
   50%       { opacity: 0.22; transform: scale(1.015); }
 }
 
-/* ── Edge positions: center of portal = screen edge ── */
-/* left: -180px  → container left at -180px, center at 0 (left wall) */
-/* right: -180px → container right at 100%+180px, center at 100% (right wall) */
-/* bottom: -180px → container bottom at 100%+180px, center at 100% (floor) */
+/* ── Positions: solar systems fully visible inside the section ── */
 
-.portalLeftTop   { left: -180px; top: 80px;    }
-.portalRightTop  { right: -180px; top: 80px;   }
-.portalLeftBot   { left: -180px; bottom: 80px; }
-.portalRightBot  { right: -180px; bottom: 80px;}
+.portalLeftTop   { left: 10px;  top: 80px;    }
+.portalRightTop  { right: 10px; top: 80px;   }
+.portalLeftBot   { left: 10px;  bottom: 80px; }
+.portalRightBot  { right: 10px; bottom: 80px;}
 .portalBotCenter {
-  bottom: -180px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -176,20 +173,21 @@
   line-height: 1.4;
 }
 
-/* For left-edge portals: label sits to the right of center (inside section) */
+/* For left/right portals: label centered below the solar system */
 .labelRight {
-  left: 200px;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: left;
+  top: 374px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: nowrap;
 }
 
-/* For right-edge portals: label sits to the left of center (inside section) */
 .labelLeft {
-  right: 200px;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: right;
+  top: 374px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: nowrap;
 }
 
 /* For bottom portal: label sits above center (inside section) */
@@ -357,11 +355,11 @@
   .techStack { min-height: 800px; }
 
   .portal      { width: 300px; height: 300px; }
-  .portalLeftTop  { left: -150px;  }
-  .portalRightTop { right: -150px; }
-  .portalLeftBot  { left: -150px;  }
-  .portalRightBot { right: -150px; }
-  .portalBotCenter { bottom: -150px; }
+  .portalLeftTop  { left: 10px;  }
+  .portalRightTop { right: 10px; }
+  .portalLeftBot  { left: 10px;  }
+  .portalRightBot { right: 10px; }
+  .portalBotCenter { bottom: 10px; }
 
   .solarOrbit  { width: 300px; height: 300px; }
   .sysGlow     { width: 180px; height: 180px; }
@@ -373,8 +371,8 @@
   .orbitPlanetWrap[data-ring="1"] { --orbit-r: 124px; }
   .orbitPlanetWrap[data-ring="2"] { --orbit-r: 150px; }
 
-  .labelRight { left: 162px; }
-  .labelLeft  { right: 162px; }
+  .labelRight { top: 314px; left: 50%; transform: translateX(-50%); }
+  .labelLeft  { top: 314px; left: 50%; transform: translateX(-50%); }
   .labelAbove { bottom: 174px; }
 }
 
@@ -382,11 +380,11 @@
   .techStack { min-height: 620px; }
 
   .portal      { width: 240px; height: 240px; }
-  .portalLeftTop  { left: -120px;  top: 60px;    }
-  .portalRightTop { right: -120px; top: 60px;    }
-  .portalLeftBot  { left: -120px;  bottom: 60px; }
-  .portalRightBot { right: -120px; bottom: 60px; }
-  .portalBotCenter { bottom: -120px; }
+  .portalLeftTop  { left: 8px;  top: 60px;    }
+  .portalRightTop { right: 8px; top: 60px;    }
+  .portalLeftBot  { left: 8px;  bottom: 60px; }
+  .portalRightBot { right: 8px; bottom: 60px; }
+  .portalBotCenter { bottom: 8px; }
 
   .solarOrbit  { width: 240px; height: 240px; }
   .sysGlow     { width: 150px; height: 150px; }
@@ -398,8 +396,8 @@
   .orbitPlanetWrap[data-ring="1"] { --orbit-r: 99px;  }
   .orbitPlanetWrap[data-ring="2"] { --orbit-r: 120px; }
 
-  .labelRight { left: 130px; }
-  .labelLeft  { right: 130px; }
+  .labelRight { top: 254px; left: 50%; transform: translateX(-50%); }
+  .labelLeft  { top: 254px; left: 50%; transform: translateX(-50%); }
   .labelAbove { bottom: 138px; }
   .sysName    { font-size: 0.65rem; }
   .sysSublabel { display: none; }
@@ -413,10 +411,10 @@
   .portalBotCenter { display: none; }
 
   .portal      { width: 200px; height: 200px; }
-  .portalLeftTop  { left: -100px;  top: 50px;    }
-  .portalRightTop { right: -100px; top: 50px;    }
-  .portalLeftBot  { left: -100px;  bottom: 50px; }
-  .portalRightBot { right: -100px; bottom: 50px; }
+  .portalLeftTop  { left: 6px;  top: 50px;    }
+  .portalRightTop { right: 6px; top: 50px;    }
+  .portalLeftBot  { left: 6px;  bottom: 50px; }
+  .portalRightBot { right: 6px; bottom: 50px; }
 
   .solarOrbit  { width: 200px; height: 200px; }
   .sysGlow     { width: 120px; height: 120px; }
@@ -428,7 +426,7 @@
   .orbitPlanetWrap[data-ring="1"] { --orbit-r: 83px; }
   .orbitPlanetWrap[data-ring="2"] { --orbit-r: 100px; }
 
-  .labelRight { left: 108px; }
-  .labelLeft  { right: 108px; }
+  .labelRight { top: 214px; left: 50%; transform: translateX(-50%); }
+  .labelLeft  { top: 214px; left: 50%; transform: translateX(-50%); }
   .sysCenterBox { width: 52px; height: 52px; }
 }
