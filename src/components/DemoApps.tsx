@@ -390,9 +390,9 @@ const APPS: App[] = [
     screenshot: "/screenshots/maintainiq.png",
   },
   {
-    icon: "🔎",
+    icon: "🛍️",
     stack: ["Python", "FastAPI", "Gemini", "Groq LLaMA", "React"],
-    title: "ProductSearch",
+    title: "Botsika.com",
     tagline: "Recherche de produits multimodale par IA",
     desc: "Trouvez des produits par description naturelle ou par photo. Combinez texte et image pour des résultats ultra-pertinents. Propulsé par Gemini Embeddings et Groq LLaMA.",
     features: ["Recherche en langage naturel et par image", "Réponses conversationnelles avec cartes produit", "Ajout de produits avec recherche immédiate", "Embeddings Gemini 3072 dimensions"],
@@ -401,11 +401,11 @@ const APPS: App[] = [
     screenshot: "/screenshots/productsearch.png",
   },
   {
-    icon: "🏢",
+    icon: "🔍",
     stack: ["Python", "FastAPI", "Gemini Vision", "Groq", "Docker"],
-    title: "PrestaSearch",
-    tagline: "Recherche sémantique de prestataires",
-    desc: "Trouvez le bon prestataire de services en décrivant votre besoin ou en envoyant une photo. L'IA comprend votre contexte et vous propose les profils les plus adaptés.",
+    title: "Karohy.mg",
+    tagline: "Trouvez le bon prestataire en quelques secondes",
+    desc: "Décrivez votre besoin ou envoyez une photo — l'IA trouve les prestataires les plus adaptés à votre contexte. Recherche sémantique + vision, streaming en temps réel.",
     features: ["Recherche par texte libre ou par image", "Analyse visuelle Gemini Flash pour la photo", "Chat IA avec streaming en temps réel", "Gestion des prestataires avec admin intégré"],
     url: "http://187.124.167.18:3050",
     live: true,
@@ -435,7 +435,7 @@ const APPS: App[] = [
   },
 ];
 
-const FLAGSHIP_TITLES = new Set(["ProductSearch", "PrestaSearch", "MediWyz"]);
+const FLAGSHIP_TITLES = new Set(["Botsika.com", "Karohy.mg", "MediWyz"]);
 
 const i18n = {
   fr: {
