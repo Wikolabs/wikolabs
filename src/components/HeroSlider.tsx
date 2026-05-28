@@ -27,7 +27,7 @@ import {
   LuLayers,
 } from "react-icons/lu";
 import {
-  SiHubspot, SiGmail, SiMicrosoftteams, SiLinkedin, SiFacebook,
+  SiHubspot, SiGmail, SiZoom, SiLinkedin, SiFacebook,
   SiWhatsapp, SiZoho, SiN8N, SiZapier,
 } from "react-icons/si";
 
@@ -123,7 +123,7 @@ const nodes5: OrbitalNode[] = [
   { Icon: LuNetwork,               ring: 1, startAngle: 255, period: 22, appearDelay: 1.35, size: 56 },
   { Icon: LuLayers,                ring: 2, startAngle: 335, period: 30, appearDelay: 1.70, size: 80 },
   { Icon: SiGmail,                 nodeColor: "#EA4335", ring: 0, startAngle: 180, period: 46, appearDelay: 2.00, size: 32 },
-  { Icon: SiMicrosoftteams,        nodeColor: "#6264A7", ring: 2, startAngle: 70,  period: 52, appearDelay: 2.20, size: 34 },
+  { Icon: SiZoom,                   nodeColor: "#2D8CFF", ring: 2, startAngle: 70,  period: 52, appearDelay: 2.20, size: 34 },
 ];
 
 const nodes6: OrbitalNode[] = [
