@@ -433,9 +433,45 @@ const APPS: App[] = [
     live: true,
     screenshot: "/screenshots/mediwyz.png",
   },
+  {
+    icon: "🚗",
+    cat: "Marketplace IA",
+    stack: ["Python", "FastAPI", "Gemini", "Groq LLaMA", "React"],
+    title: "okaiz.com",
+    tagline: "Achetez et vendez des véhicules d'occasion en toute confiance",
+    desc: "Marketplace IA de véhicules d'occasion à Madagascar — estimation de prix instantanée, annonces vérifiées par vision IA, recherche par description naturelle ou par photo.",
+    features: ["Estimation prix IA en 2 secondes", "Annonces vérifiées par vision IA", "Recherche par texte ou photo"],
+    url: "http://187.124.167.18:3052",
+    live: true,
+    screenshot: "/screenshots/okaiz.png",
+  },
+  {
+    icon: "🔮",
+    cat: "Conseil IA",
+    stack: ["Python", "FastAPI", "Groq LLaMA", "Big Data", "React"],
+    title: "Piskid.com",
+    tagline: "Assez des arnaques — place au big data pour une vraie vision",
+    desc: "Agent IA inspiré du mpisikidy malgache. Analyse big data pour conseiller les Malgaches sur famille, finances, opportunités et protection contre les arnaques religieuses.",
+    features: ["Analyse passé-présent-futur multi-source", "Protection anti-arnaques, conseils en malagasy et français"],
+    url: "http://187.124.167.18:3053",
+    live: true,
+    screenshot: "/screenshots/piskid.png",
+  },
+  {
+    icon: "👗",
+    cat: "Marketplace IA",
+    stack: ["Python", "FastAPI", "Gemini", "Groq LLaMA", "React"],
+    title: "Firipy",
+    tagline: "La friperie malgache réinventée par l'IA",
+    desc: "Marketplace IA de vêtements de seconde main à Madagascar — cherchez par photo de style, obtenez un prix juste automatique et des recommandations personnalisées.",
+    features: ["Recherche par photo de style", "Estimation prix automatique par l'IA"],
+    url: "http://187.124.167.18:3054",
+    live: true,
+    screenshot: "/screenshots/firipy.png",
+  },
 ];
 
-const FLAGSHIP_TITLES = new Set(["Botsika.com", "Karohy.mg", "MediWyz"]);
+const FLAGSHIP_TITLES = new Set(["Botsika.com", "Karohy.mg", "MediWyz", "okaiz.com", "Piskid.com", "Firipy"]);
 
 const i18n = {
   fr: {
