@@ -60,7 +60,7 @@ export default function LandingClient({
   const [bookingOpen, setBookingOpen] = useState(false);
   const [bookingPrefill, setBookingPrefill] = useState<BookingPrefill>({});
   const [contactOpen, setContactOpen] = useState(false);
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useState<"dark" | "light">("light");
   const openBooking = useCallback((prefill?: BookingPrefill) => {
     setBookingPrefill(prefill || {});
     setBookingOpen(true);

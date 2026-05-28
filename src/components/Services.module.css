@@ -918,9 +918,42 @@
   flex: 1;
 }
 
+/* ── Offer card screenshot thumbnail ── */
+.offerThumb {
+  width: 100%;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg3);
+  flex-shrink: 0;
+}
+
+.offerThumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* ── Demo link ── */
+.offerDemoLink {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--txt3);
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.offerDemoLink:hover { color: var(--txt1); }
+
 /* ═══════════════════════════════════════════════════
-   OFFER CARD — UNIFIED WHITE PALETTE
-   Every element inside an offer card uses white only.
+   OFFER CARD — DARK MODE WHITE PALETTE
 ═══════════════════════════════════════════════════ */
 
 /* Title & description */
@@ -987,6 +1020,40 @@
 /* "En savoir plus →" link */
 .offerCard .offerCardLink { color: rgba(255,255,255,0.7) !important; }
 .offerCard .offerCardLink:hover { color: #fff !important; opacity: 1 !important; }
+
+/* Demo link — dark mode */
+.offerCard .offerDemoLink { color: rgba(255,255,255,0.45) !important; }
+.offerCard .offerDemoLink:hover { color: rgba(255,255,255,0.9) !important; }
+
+/* Thumbnail — dark mode border */
+.offerCard .offerThumb { border-color: rgba(255,255,255,0.08) !important; }
+
+/* ═══════════════════════════════════════════════════
+   OFFER CARD — LIGHT MODE OVERRIDES
+   Revert white-text back to dark CSS variables.
+═══════════════════════════════════════════════════ */
+[data-theme="light"] .offerTitle { color: var(--txt1) !important; }
+[data-theme="light"] .offerDesc  { color: var(--txt2) !important; }
+
+[data-theme="light"] .offerCard .offerIllust {
+  background:   var(--gold-dim)    !important;
+  border-color: var(--gold-border) !important;
+  color:        var(--gold)        !important;
+}
+[data-theme="light"] .offerCard .offerTech img { filter: none !important; opacity: 1; }
+
+[data-theme="light"] .offerCard .agentMetricNum { color: var(--txt1) !important; }
+[data-theme="light"] .offerCard .agentMetricLbl { color: var(--txt2) !important; }
+[data-theme="light"] .offerCard .agentAutomBadge {
+  background:   unset !important;
+  color:        unset !important;
+  border-color: unset !important;
+}
+
+[data-theme="light"] .offerCard .offerCardLink  { color: var(--gold)  !important; }
+[data-theme="light"] .offerCard .offerDemoLink  { color: var(--txt3)  !important; }
+[data-theme="light"] .offerCard .offerDemoLink:hover { color: var(--txt1) !important; }
+[data-theme="light"] .offerCard .offerThumb     { border-color: var(--border) !important; }
 
 @media (max-width: 640px) {
   .chatSearchPanel { border-radius: 14px; }

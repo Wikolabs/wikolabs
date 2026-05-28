@@ -11,7 +11,7 @@ import {
   LuBell, LuNetwork, LuScan, LuChartBar, LuDatabase, LuFileSearch,
   LuBrain, LuLayers, LuWorkflow, LuScanLine, LuMap, LuBox,
   LuMonitor, LuSmartphone, LuBug, LuCpu, LuTriangle,
-  LuCheck, LuZap, LuClock, LuRocket, LuBot, LuChevronDown, LuCircleHelp, LuSend,
+  LuCheck, LuZap, LuBot, LuSend,
 } from "react-icons/lu";
 import {
   SiPython, SiLangchain, SiFastapi, SiN8N,
@@ -145,6 +145,26 @@ const OFFER_CARD_BG = [
 const CAT_OFFSETS = [0, 7, 11, 15, 19, 23, 27];
 const getCardBg = (ci: number, oi: number) =>
   OFFER_CARD_BG[CAT_OFFSETS[ci] + oi] ?? OFFER_CARD_BG[0];
+
+const OFFER_SCREENSHOTS: string[][] = [
+  ["/screenshots/pulsescope.png","/screenshots/leadforge.png","/screenshots/reachwave.png","/screenshots/scoreflow.png","/screenshots/booklync.png","/screenshots/propgenai.png","/screenshots/retainiq.png"],
+  ["/screenshots/helpiqai.png","/screenshots/triageiq.png","/screenshots/onboardai.png","/screenshots/callnotes.png"],
+  ["/screenshots/datavoice.png","/screenshots/reportly.png","/screenshots/forecastiq.png","/screenshots/nexuscrm.png"],
+  ["/screenshots/semantiq.png","/screenshots/personaai.png","/screenshots/datastream.png","/screenshots/modelops.png"],
+  ["/screenshots/docextract.png","/screenshots/detectvision.png","/screenshots/bimflow.png","/screenshots/geomapai.png"],
+  ["/screenshots/uxforge.png","/screenshots/appcraft.png","/screenshots/perfoptiq.png","/screenshots/seowave.png"],
+  ["/screenshots/edgeai.png","/screenshots/iotwatch.png","/screenshots/visioncam.png","/screenshots/maintainiq.png"],
+];
+
+const OFFER_DEMO_URLS: string[][] = [
+  ["http://187.124.167.18:3001","http://187.124.167.18:3002","http://187.124.167.18:3003","http://187.124.167.18:3004","http://187.124.167.18:3005","http://187.124.167.18:3006","http://187.124.167.18:3007"],
+  ["http://187.124.167.18:3008","http://187.124.167.18:3009","http://187.124.167.18:3010","http://187.124.167.18:3011"],
+  ["http://187.124.167.18:3012","http://187.124.167.18:3013","http://187.124.167.18:3014","http://187.124.167.18:3015"],
+  ["http://187.124.167.18:3016","http://187.124.167.18:3017","http://187.124.167.18:3018","http://187.124.167.18:3019"],
+  ["http://187.124.167.18:3020","http://187.124.167.18:3021","http://187.124.167.18:3022","http://187.124.167.18:3023"],
+  ["http://187.124.167.18:3024","http://187.124.167.18:3025","http://187.124.167.18:3026","http://187.124.167.18:3027"],
+  ["http://187.124.167.18:3028","http://187.124.167.18:3029","http://187.124.167.18:3030","http://187.124.167.18:3031"],
+];
 
 /* ─── Agent meta: CommercialCycle data for specific agents ─── */
 interface AgentMeta {
@@ -496,8 +516,6 @@ export default function Services({
   const lang = locale === "en" ? "en" : "fr";
   const t = i18n[lang];
 
-  const [openQ, setOpenQ] = useState<Set<string>>(new Set());
-  const [openMeta, setOpenMeta] = useState<Set<string>>(new Set());
   const [chatOffer, setChatOffer] = useState<{
     cardId: string;
     title: string;
@@ -580,18 +598,6 @@ export default function Services({
       setTimeout(() => chatInputRef.current?.focus(), 100);
     }
   };
-
-  const toggleQ = (id: string) => setOpenQ(prev => {
-    const next = new Set(prev);
-    next.has(id) ? next.delete(id) : next.add(id);
-    return next;
-  });
-
-  const toggleMeta = (id: string) => setOpenMeta(prev => {
-    const next = new Set(prev);
-    next.has(id) ? next.delete(id) : next.add(id);
-    return next;
-  });
 
   return (
     <section id="services" className={styles.services}>
@@ -729,8 +735,8 @@ export default function Services({
                   const meta = AGENT_META[ci]?.[oi] ?? null;
                   const questions = CLIENT_QUESTIONS[ci]?.[oi];
                   const cardId = `${ci}-${oi}`;
-                  const isMetaOpen = openMeta.has(cardId);
-                  const isQOpen = openQ.has(cardId);
+                  const screenshot = OFFER_SCREENSHOTS[ci]?.[oi];
+                  const demoUrl = OFFER_DEMO_URLS[ci]?.[oi];
 
                   return (
                     <div
@@ -738,13 +744,15 @@ export default function Services({
                       className={styles.offerCard}
                       style={{ "--card-cat": getCardBg(ci, oi) } as React.CSSProperties}
                     >
-                      {OfferIcon && (
-                        <div className={styles.offerIllust}>
-                          <OfferIcon size={36} />
+                      {/* Screenshot thumbnail */}
+                      {screenshot && (
+                        <div className={styles.offerThumb}>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={screenshot} alt={`${offer.title} preview`} className={styles.offerThumbImg} loading="lazy" />
                         </div>
                       )}
 
-                      {/* Agent metric badge (CommercialCycle data) */}
+                      {/* Agent metric badge */}
                       {meta && (
                         <div className={styles.agentMetaRow}>
                           <span className={styles.agentMetricNum} style={{ color: meta.color }}>{meta.metric}</span>
@@ -762,67 +770,15 @@ export default function Services({
                         {techs.map((tech, ti) => <TechBadge key={ti} tech={tech} />)}
                       </div>
 
-                      {/* Before / After toggle */}
-                      {meta && (
-                        <>
-                          <button
-                            className={styles.agentToggleBtn}
-                            onClick={() => toggleMeta(cardId)}
-                            style={{ color: meta.color, borderColor: `${meta.color}30` }}
-                          >
-                            <LuClock size={11} />
-                            <span>{lang === "fr" ? "Avant / Après →" : "Before / After →"}</span>
-                            <LuChevronDown size={12} style={{ marginLeft: "auto", transform: isMetaOpen ? "rotate(180deg)" : "none", transition: "transform 0.25s" }} />
-                          </button>
-                          {isMetaOpen && (
-                            <div className={styles.agentPanel}>
-                              <div className={styles.beforeCell}>
-                                <div className={styles.compareLabel}>
-                                  <LuClock size={10} />
-                                  <span>{lang === "fr" ? "Aujourd'hui" : "Today"}</span>
-                                </div>
-                                <p>{meta.before[lang]}</p>
-                              </div>
-                              <div className={styles.afterCell} style={{ borderLeftColor: meta.color }}>
-                                <div className={styles.compareLabel} style={{ color: meta.color }}>
-                                  <LuRocket size={10} />
-                                  <span>{lang === "fr" ? "Avec notre Agent" : "With our Agent"}</span>
-                                </div>
-                                <p>{meta.after[lang]}</p>
-                              </div>
-                            </div>
-                          )}
-                        </>
-                      )}
-
-                      {/* Client questions */}
-                      {questions && (
-                        <>
-                          <button
-                            className={styles.questionsToggleBtn}
-                            onClick={() => toggleQ(cardId)}
-                          >
-                            <LuCircleHelp size={11} />
-                            <span>{lang === "fr" ? `Questions clés (${questions.fr.length})` : `Key questions (${questions.en.length})`}</span>
-                            <LuChevronDown size={12} style={{ marginLeft: "auto", transform: isQOpen ? "rotate(180deg)" : "none", transition: "transform 0.25s" }} />
-                          </button>
-                          {isQOpen && (
-                            <ul className={styles.questionsList}>
-                              {questions[lang].map((q, qi) => (
-                                <li key={qi} className={styles.questionsItem}>
-                                  <span className={styles.questionsDot} />
-                                  {q}
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </>
-                      )}
-
                       <div className={styles.offerCardFooter}>
                         <Link href={`/${locale}/services/offer/${OFFER_SLUGS[ci]?.[oi] ?? catSlug}`} className={styles.offerCardLink}>
                           {lang === "fr" ? "En savoir plus →" : "Learn more →"}
                         </Link>
+                        {demoUrl && (
+                          <a href={demoUrl} target="_blank" rel="noopener noreferrer" className={styles.offerDemoLink}>
+                            {lang === "fr" ? "Démo →" : "Demo →"}
+                          </a>
+                        )}
                         {onAddToCart && (() => {
                           const itemId = `${ci}-${oi}`;
                           const inCart = cartItemIds?.has(itemId);
@@ -830,14 +786,14 @@ export default function Services({
                             <button
                               className={`${styles.addToCartBtn} ${inCart ? styles.addToCartBtnActive : ""}`}
                               onClick={() => {
-                              if (inCart) {
-                                onAddToCart({ id: itemId, title: offer.title, category: cat.label });
-                              } else if (questions?.[lang]?.length) {
-                                setChatOffer({ cardId: itemId, title: offer.title, category: cat.label, questions: questions[lang] });
-                              } else {
-                                onAddToCart({ id: itemId, title: offer.title, category: cat.label });
-                              }
-                            }}
+                                if (inCart) {
+                                  onAddToCart({ id: itemId, title: offer.title, category: cat.label });
+                                } else if (questions?.[lang]?.length) {
+                                  setChatOffer({ cardId: itemId, title: offer.title, category: cat.label, questions: questions[lang] });
+                                } else {
+                                  onAddToCart({ id: itemId, title: offer.title, category: cat.label });
+                                }
+                              }}
                               aria-label={inCart
                                 ? (lang === "fr" ? "Retirer du panier" : "Remove from cart")
                                 : (lang === "fr" ? "Commander ce service" : "Order this service")}

@@ -435,12 +435,14 @@ const APPS: App[] = [
   },
 ];
 
+const FLAGSHIP_TITLES = new Set(["ProductSearch", "PrestaSearch", "BI Wikolabs", "MediWyz"]);
+
 const i18n = {
   fr: {
-    tag: "Nos réalisations",
-    title: "Des solutions déployées,",
-    titleEm: "opérationnelles aujourd'hui",
-    desc: "Plateformes métiers et agents IA livrés, accessibles en ligne — voyez concrètement ce que l'IA peut faire pour votre entreprise.",
+    tag: "En production",
+    title: "Produits Wikolabs",
+    titleEm: "accessibles maintenant",
+    desc: "Quatre produits SaaS déployés, accessibles en ligne — entrez, testez, voyez.",
     liveLabel: "En ligne",
     btnDemo: "Voir en direct →",
     btnMore: "En savoir plus",
@@ -448,10 +450,10 @@ const i18n = {
     comingBadge: "En continu",
   },
   en: {
-    tag: "Our work",
-    title: "Solutions delivered,",
-    titleEm: "live and operational",
-    desc: "Business platforms and AI agents — deployed, accessible, and running right now. See concretely what AI can do for your business.",
+    tag: "Live products",
+    title: "Wikolabs products,",
+    titleEm: "accessible now",
+    desc: "Four SaaS products deployed and live — enter, test, see for yourself.",
     liveLabel: "Live",
     btnDemo: "See live →",
     btnMore: "Learn more",
@@ -543,7 +545,7 @@ export default function DemoApps({ locale }: { locale: string }) {
         <p className={`reveal d2 ${styles.sectionDesc}`}>{t.desc}</p>
 
         <div className={`${styles.grid} ${styles.gridOffers}`}>
-          {APPS.map((app, i) => renderCard(app, i))}
+          {APPS.filter(a => FLAGSHIP_TITLES.has(a.title)).map((app, i) => renderCard(app, i))}
         </div>
 
         <div className={`reveal d3 ${styles.comingRow}`}>
