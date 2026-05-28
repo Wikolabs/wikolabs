@@ -18,10 +18,10 @@ Containers : `wikolabs_app` (interne) + `wikolabs_nginx` (80/443) + `wikolabs_db
 
 Ces 6 projets apparaissent comme cartes dans la section flagship de wikolabs.com.
 
-| Projet        | LP (port)            | App démo (port) | URL carte wikolabs.com      |
-|---------------|----------------------|-----------------|-----------------------------|
-| Botsika.com   | productsearch-lp (3049) | productsearch-frontend (3032) | http://187.124.167.18:3049 |
-| Karohy.mg     | prestasearch-lp (3050)  | prestasearch-frontend (3033)  | http://187.124.167.18:3050 |
+| Projet        | GitHub repo              | Port VM | URL carte wikolabs.com      |
+|---------------|--------------------------|---------|------------------------------|
+| Botsika.com   | Wikolabs/botsika         | 3049    | http://187.124.167.18:3049  |
+| Karohy.mg     | Wikolabs/karohy          | 3050    | http://187.124.167.18:3050  |
 | BI Wikolabs   | bi-wikolabs-lp (3051)   | bi-wikolabs-app (8000)        | http://187.124.167.18:3051 |
 | MediWyz       | —                    | propre infra    | https://mediwyz.com         |
 | okaiz.com     | okaiz (3052)         | okaiz-frontend (3055)         | http://187.124.167.18:3052 |
@@ -68,16 +68,16 @@ Ces 6 projets apparaissent comme cartes dans la section flagship de wikolabs.com
 
 ---
 
-## Apps démo Botsika / Karohy — ports 3032–3033
+## Repos unifiés Botsika / Karohy — port 3049–3050 (docker-compose 3 services)
 
-| Projet        | Container                  | Port VM | Note                        |
-|---------------|----------------------------|---------|-----------------------------|
-| Botsika.com   | productsearch-frontend     | 3032    | React + Vite demo app       |
-|               | productsearch-backend      | interne | FastAPI + pgvector           |
-|               | productsearch-db           | interne | PostgreSQL                  |
-| Karohy.mg     | prestasearch-frontend      | 3033    | React + Vite demo app       |
-|               | prestasearch-backend       | interne | FastAPI + pgvector           |
-|               | prestasearch-db            | interne | PostgreSQL                  |
+| Projet      | Container        | Port VM | Note                              |
+|-------------|------------------|---------|-----------------------------------|
+| Botsika.com | botsika          | 3049    | Next.js LP + ChatInterface intégrée |
+|             | botsika-backend  | interne | FastAPI + pgvector                |
+|             | botsika-db       | interne | PostgreSQL pgvector               |
+| Karohy.mg   | karohy           | 3050    | Next.js LP + ChatInterface intégrée |
+|             | karohy-backend   | interne | FastAPI + pgvector                |
+|             | karohy-db        | interne | PostgreSQL pgvector               |
 
 ---
 
@@ -110,14 +110,6 @@ Ces 6 projets apparaissent comme cartes dans la section flagship de wikolabs.com
 
 ---
 
-## LPs Flagship Botsika / Karohy — ports 3049–3050
-
-| Projet        | Container          | Port VM |
-|---------------|--------------------|---------|
-| Botsika.com   | productsearch-lp   | 3049    |
-| Karohy.mg     | prestasearch-lp    | 3050    |
-
----
 
 ## Flagship LP + App — okaiz / piskid / wefreep — ports 3052–3057
 
