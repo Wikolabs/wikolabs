@@ -1,0 +1,73 @@
+.marquee {
+  overflow: hidden;
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+  position: relative;
+}
+
+/* fade edges */
+.marquee::before,
+.marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg2), transparent);
+}
+.marquee::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg2), transparent);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: techScroll 16s linear infinite;
+  will-change: transform;
+}
+
+@keyframes techScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 20px;
+  white-space: nowrap;
+}
+
+.icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  color: var(--txt3);
+  white-space: nowrap;
+}
+
+.sep {
+  color: var(--gold);
+  font-size: 0.45rem;
+  padding: 0 4px;
+  opacity: 0.6;
+}

@@ -14,6 +14,7 @@ import DemoApps from "@/components/DemoApps";
 import ContactModal from "@/components/ContactModal";
 import ChatBot from "@/components/ChatBot";
 import HeroSlider from "@/components/HeroSlider";
+import TechMarquee from "@/components/TechMarquee";
 import Values from "@/components/Values";
 import UseCases from "@/components/UseCases";
 import Industries from "@/components/Industries";
@@ -55,7 +56,6 @@ export default function LandingClient({
     process,
   } = content;
 
-  const marqueeDouble = [...hero.marquee_items, ...hero.marquee_items];
   const [menuOpen, setMenuOpen] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
   const [bookingPrefill, setBookingPrefill] = useState<BookingPrefill>({});
@@ -366,14 +366,8 @@ export default function LandingClient({
 
       </section>
 
-      {/* ── MARQUEE ── */}
-      <div className={s.marquee}>
-        <div className={s.marqueeTrack}>
-          {marqueeDouble.map((item, i) => (
-            <span className={s.marqueeItem} key={i}>{item}</span>
-          ))}
-        </div>
-      </div>
+      {/* ── TECH MARQUEE ── */}
+      <TechMarquee />
 
       {/* ── SERVICES ── */}
       <Services locale={locale} onAddToCart={handleAddToCart} cartItemIds={cartItemIds} />

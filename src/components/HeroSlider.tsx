@@ -26,18 +26,25 @@ import {
   LuShield,
   LuLayers,
 } from "react-icons/lu";
+import {
+  SiHubspot, SiGmail, SiMicrosoftteams, SiLinkedin, SiFacebook,
+  SiWhatsapp, SiZoho, SiN8N, SiZapier,
+} from "react-icons/si";
 
 // ─── Per-slide orbital node (planet)
-// size: planet circle diameter in px (variable per node)
-// ring: 0=inner(r135), 1=middle(r180), 2=outer(r222) — planet center sits on that ring
+// Icon / imgSrc: at least one must be provided
+// nodeColor: overrides slide color for business logo nodes
+// ring: 0=inner(r135), 1=middle(r180), 2=outer(r222)
 // startAngle: 0=top(12h), 90=right, 180=bottom, 270=left
 interface OrbitalNode {
-  Icon: IconType;
+  Icon?: IconType;
+  imgSrc?: string;
+  nodeColor?: string;
   ring: 0 | 1 | 2;
   startAngle: number;
   period: number;
   appearDelay: number;
-  size: number;     // planet circle diameter in px
+  size: number;
 }
 
 interface Slide {
@@ -52,8 +59,8 @@ interface Slide {
 }
 
 // ─── Orbital constellations — unique per slide ─────────────────────────────
-// Each slide has different icon set, count (4-7), ring distribution,
-// start angles, sizes and orbital periods for a solar-system look.
+// Each slide has 6-8 content nodes + 2 business-known brand logo nodes.
+// Business logo nodes use nodeColor (their brand color) and slow periods (42-52s).
 
 const nodes0: OrbitalNode[] = [
   { Icon: LuDatabase,              ring: 0, startAngle: 25,  period: 13, appearDelay: 0.30, size: 72 },
@@ -62,85 +69,105 @@ const nodes0: OrbitalNode[] = [
   { Icon: LuSearch,                ring: 1, startAngle: 255, period: 20, appearDelay: 1.20, size: 36 },
   { Icon: LuBrain,                 ring: 2, startAngle: 325, period: 28, appearDelay: 1.50, size: 56 },
   { Icon: LuNetwork,               ring: 0, startAngle: 195, period: 13, appearDelay: 1.80, size: 28 },
+  { imgSrc: "/logos/powerbi.svg",  nodeColor: "#F2C811", ring: 2, startAngle: 80,  period: 44, appearDelay: 2.00, size: 34 },
+  { imgSrc: "/logos/airtable.svg", nodeColor: "#18BFFF", ring: 2, startAngle: 248, period: 50, appearDelay: 2.20, size: 32 },
 ];
 
 const nodes1: OrbitalNode[] = [
-  { Icon: LuMail,     ring: 0, startAngle: 45,  period: 12, appearDelay: 0.30, size: 78 },
-  { Icon: LuUsers,    ring: 2, startAngle: 125, period: 27, appearDelay: 0.65, size: 32 },
-  { Icon: LuTarget,   ring: 1, startAngle: 200, period: 19, appearDelay: 1.00, size: 54 },
-  { Icon: LuZap,      ring: 2, startAngle: 285, period: 27, appearDelay: 1.35, size: 28 },
-  { Icon: LuChartBar, ring: 1, startAngle: 355, period: 19, appearDelay: 1.70, size: 68 },
+  { Icon: LuMail,                  ring: 0, startAngle: 45,  period: 12, appearDelay: 0.30, size: 78 },
+  { Icon: LuUsers,                 ring: 2, startAngle: 125, period: 27, appearDelay: 0.65, size: 32 },
+  { Icon: LuTarget,                ring: 1, startAngle: 200, period: 19, appearDelay: 1.00, size: 54 },
+  { Icon: LuZap,                   ring: 2, startAngle: 285, period: 27, appearDelay: 1.35, size: 28 },
+  { Icon: LuChartBar,              ring: 1, startAngle: 355, period: 19, appearDelay: 1.70, size: 68 },
+  { Icon: SiHubspot,               nodeColor: "#FF7A59", ring: 2, startAngle: 20,  period: 46, appearDelay: 2.00, size: 34 },
+  { Icon: SiLinkedin,              nodeColor: "#0A66C2", ring: 2, startAngle: 175, period: 52, appearDelay: 2.20, size: 32 },
 ];
 
 const nodes2: OrbitalNode[] = [
-  { Icon: LuGlobe,    ring: 1, startAngle: 0,   period: 18, appearDelay: 0.25, size: 76 },
-  { Icon: LuBrain,    ring: 2, startAngle: 52,  period: 25, appearDelay: 0.50, size: 28 },
-  { Icon: LuFileText, ring: 0, startAngle: 110, period: 11, appearDelay: 0.75, size: 44 },
-  { Icon: LuDatabase, ring: 2, startAngle: 168, period: 25, appearDelay: 1.00, size: 80 },
-  { Icon: LuNetwork,  ring: 1, startAngle: 230, period: 18, appearDelay: 1.25, size: 30 },
-  { Icon: LuLayers,   ring: 0, startAngle: 290, period: 11, appearDelay: 1.50, size: 58 },
-  { Icon: LuCloud,    ring: 2, startAngle: 330, period: 25, appearDelay: 1.75, size: 34 },
+  { Icon: LuGlobe,                 ring: 1, startAngle: 0,   period: 18, appearDelay: 0.25, size: 76 },
+  { Icon: LuBrain,                 ring: 2, startAngle: 52,  period: 25, appearDelay: 0.50, size: 28 },
+  { Icon: LuFileText,              ring: 0, startAngle: 110, period: 11, appearDelay: 0.75, size: 44 },
+  { Icon: LuDatabase,              ring: 2, startAngle: 168, period: 25, appearDelay: 1.00, size: 80 },
+  { Icon: LuNetwork,               ring: 1, startAngle: 230, period: 18, appearDelay: 1.25, size: 30 },
+  { Icon: LuLayers,                ring: 0, startAngle: 290, period: 11, appearDelay: 1.50, size: 58 },
+  { Icon: LuCloud,                 ring: 2, startAngle: 330, period: 25, appearDelay: 1.75, size: 34 },
+  { Icon: SiFacebook,              nodeColor: "#1877F2", ring: 0, startAngle: 210, period: 42, appearDelay: 2.00, size: 34 },
+  { Icon: SiGmail,                 nodeColor: "#EA4335", ring: 1, startAngle: 115, period: 48, appearDelay: 2.20, size: 32 },
 ];
 
 const nodes3: OrbitalNode[] = [
-  { Icon: LuRefreshCw, ring: 0, startAngle: 15,  period: 10, appearDelay: 0.30, size: 74 },
-  { Icon: LuNetwork,   ring: 2, startAngle: 80,  period: 29, appearDelay: 0.65, size: 30 },
-  { Icon: LuZap,       ring: 1, startAngle: 155, period: 20, appearDelay: 1.00, size: 52 },
-  { Icon: LuCode,      ring: 2, startAngle: 240, period: 29, appearDelay: 1.35, size: 80 },
-  { Icon: LuCloud,     ring: 1, startAngle: 315, period: 20, appearDelay: 1.70, size: 28 },
+  { Icon: LuRefreshCw,             ring: 0, startAngle: 15,  period: 10, appearDelay: 0.30, size: 74 },
+  { Icon: LuNetwork,               ring: 2, startAngle: 80,  period: 29, appearDelay: 0.65, size: 30 },
+  { Icon: LuZap,                   ring: 1, startAngle: 155, period: 20, appearDelay: 1.00, size: 52 },
+  { Icon: LuCode,                  ring: 2, startAngle: 240, period: 29, appearDelay: 1.35, size: 80 },
+  { Icon: LuCloud,                 ring: 1, startAngle: 315, period: 20, appearDelay: 1.70, size: 28 },
+  { imgSrc: "/logos/anthropic.svg",nodeColor: "#D97757", ring: 2, startAngle: 0,   period: 46, appearDelay: 2.00, size: 36 },
+  { imgSrc: "/logos/openai.svg",   nodeColor: "#74AA9C", ring: 2, startAngle: 160, period: 44, appearDelay: 2.20, size: 34 },
 ];
 
 const nodes4: OrbitalNode[] = [
-  { Icon: LuChartBar,   ring: 0, startAngle: 55,  period: 14, appearDelay: 0.30, size: 32 },
-  { Icon: LuTrendingUp, ring: 2, startAngle: 130, period: 26, appearDelay: 0.60, size: 78 },
-  { Icon: LuDatabase,   ring: 1, startAngle: 200, period: 21, appearDelay: 0.90, size: 28 },
-  { Icon: LuSearch,     ring: 2, startAngle: 270, period: 26, appearDelay: 1.20, size: 60 },
-  { Icon: LuBrain,      ring: 0, startAngle: 330, period: 14, appearDelay: 1.50, size: 80 },
-  { Icon: LuLayers,     ring: 1, startAngle: 20,  period: 21, appearDelay: 1.80, size: 34 },
+  { Icon: LuChartBar,              ring: 0, startAngle: 55,  period: 14, appearDelay: 0.30, size: 32 },
+  { Icon: LuTrendingUp,            ring: 2, startAngle: 130, period: 26, appearDelay: 0.60, size: 78 },
+  { Icon: LuDatabase,              ring: 1, startAngle: 200, period: 21, appearDelay: 0.90, size: 28 },
+  { Icon: LuSearch,                ring: 2, startAngle: 270, period: 26, appearDelay: 1.20, size: 60 },
+  { Icon: LuBrain,                 ring: 0, startAngle: 330, period: 14, appearDelay: 1.50, size: 80 },
+  { Icon: LuLayers,                ring: 1, startAngle: 20,  period: 21, appearDelay: 1.80, size: 34 },
+  { imgSrc: "/logos/powerbi.svg",  nodeColor: "#F2C811", ring: 2, startAngle: 40,  period: 50, appearDelay: 2.00, size: 34 },
+  { imgSrc: "/logos/notion.svg",   nodeColor: "#888888", ring: 2, startAngle: 195, period: 44, appearDelay: 2.20, size: 32 },
 ];
 
 const nodes5: OrbitalNode[] = [
-  { Icon: LuSearch,   ring: 0, startAngle: 0,   period: 12, appearDelay: 0.30, size: 30 },
-  { Icon: LuBrain,    ring: 1, startAngle: 85,  period: 22, appearDelay: 0.65, size: 76 },
-  { Icon: LuDatabase, ring: 2, startAngle: 165, period: 30, appearDelay: 1.00, size: 28 },
-  { Icon: LuNetwork,  ring: 1, startAngle: 255, period: 22, appearDelay: 1.35, size: 56 },
-  { Icon: LuLayers,   ring: 2, startAngle: 335, period: 30, appearDelay: 1.70, size: 80 },
+  { Icon: LuSearch,                ring: 0, startAngle: 0,   period: 12, appearDelay: 0.30, size: 30 },
+  { Icon: LuBrain,                 ring: 1, startAngle: 85,  period: 22, appearDelay: 0.65, size: 76 },
+  { Icon: LuDatabase,              ring: 2, startAngle: 165, period: 30, appearDelay: 1.00, size: 28 },
+  { Icon: LuNetwork,               ring: 1, startAngle: 255, period: 22, appearDelay: 1.35, size: 56 },
+  { Icon: LuLayers,                ring: 2, startAngle: 335, period: 30, appearDelay: 1.70, size: 80 },
+  { Icon: SiGmail,                 nodeColor: "#EA4335", ring: 0, startAngle: 180, period: 46, appearDelay: 2.00, size: 32 },
+  { Icon: SiMicrosoftteams,        nodeColor: "#6264A7", ring: 2, startAngle: 70,  period: 52, appearDelay: 2.20, size: 34 },
 ];
 
 const nodes6: OrbitalNode[] = [
-  { Icon: LuUsers,         ring: 0, startAngle: 20,  period: 11, appearDelay: 0.25, size: 76 },
-  { Icon: LuMessageSquare, ring: 2, startAngle: 75,  period: 27, appearDelay: 0.50, size: 30 },
-  { Icon: LuTrendingUp,    ring: 1, startAngle: 130, period: 19, appearDelay: 0.75, size: 80 },
-  { Icon: LuTarget,        ring: 2, startAngle: 195, period: 27, appearDelay: 1.00, size: 28 },
-  { Icon: LuMail,          ring: 0, startAngle: 250, period: 11, appearDelay: 1.25, size: 54 },
-  { Icon: LuChartBar,      ring: 1, startAngle: 315, period: 19, appearDelay: 1.50, size: 32 },
-  { Icon: LuZap,           ring: 2, startAngle: 350, period: 27, appearDelay: 1.75, size: 62 },
+  { Icon: LuUsers,                 ring: 0, startAngle: 20,  period: 11, appearDelay: 0.25, size: 76 },
+  { Icon: LuMessageSquare,         ring: 2, startAngle: 75,  period: 27, appearDelay: 0.50, size: 30 },
+  { Icon: LuTrendingUp,            ring: 1, startAngle: 130, period: 19, appearDelay: 0.75, size: 80 },
+  { Icon: LuTarget,                ring: 2, startAngle: 195, period: 27, appearDelay: 1.00, size: 28 },
+  { Icon: LuMail,                  ring: 0, startAngle: 250, period: 11, appearDelay: 1.25, size: 54 },
+  { Icon: LuChartBar,              ring: 1, startAngle: 315, period: 19, appearDelay: 1.50, size: 32 },
+  { Icon: LuZap,                   ring: 2, startAngle: 350, period: 27, appearDelay: 1.75, size: 62 },
+  { Icon: SiHubspot,               nodeColor: "#FF7A59", ring: 0, startAngle: 135, period: 44, appearDelay: 2.00, size: 34 },
+  { Icon: SiZoho,                  nodeColor: "#C8202C", ring: 1, startAngle: 220, period: 48, appearDelay: 2.20, size: 32 },
 ];
 
 const nodes7: OrbitalNode[] = [
   { Icon: LuChartColumnIncreasing, ring: 1, startAngle: 30,  period: 18, appearDelay: 0.30, size: 78 },
-  { Icon: LuBrain,    ring: 0, startAngle: 115, period: 13, appearDelay: 0.60, size: 28 },
-  { Icon: LuSearch,   ring: 2, startAngle: 195, period: 25, appearDelay: 0.90, size: 62 },
-  { Icon: LuDatabase, ring: 1, startAngle: 260, period: 18, appearDelay: 1.20, size: 30 },
-  { Icon: LuCloud,    ring: 0, startAngle: 330, period: 13, appearDelay: 1.50, size: 80 },
-  { Icon: LuNetwork,  ring: 2, startAngle: 70,  period: 25, appearDelay: 1.80, size: 34 },
+  { Icon: LuBrain,                 ring: 0, startAngle: 115, period: 13, appearDelay: 0.60, size: 28 },
+  { Icon: LuSearch,                ring: 2, startAngle: 195, period: 25, appearDelay: 0.90, size: 62 },
+  { Icon: LuDatabase,              ring: 1, startAngle: 260, period: 18, appearDelay: 1.20, size: 30 },
+  { Icon: LuCloud,                 ring: 0, startAngle: 330, period: 13, appearDelay: 1.50, size: 80 },
+  { Icon: LuNetwork,               ring: 2, startAngle: 70,  period: 25, appearDelay: 1.80, size: 34 },
+  { Icon: SiN8N,                   nodeColor: "#EA4B71", ring: 2, startAngle: 300, period: 42, appearDelay: 2.00, size: 34 },
+  { Icon: SiZapier,                nodeColor: "#FF4A00", ring: 2, startAngle: 30,  period: 50, appearDelay: 2.20, size: 32 },
 ];
 
 const nodes8: OrbitalNode[] = [
-  { Icon: LuDatabase,  ring: 0, startAngle: 40,  period: 15, appearDelay: 0.30, size: 80 },
-  { Icon: LuCode,      ring: 2, startAngle: 120, period: 27, appearDelay: 0.65, size: 28 },
-  { Icon: LuShield,    ring: 1, startAngle: 200, period: 22, appearDelay: 1.00, size: 62 },
-  { Icon: LuRefreshCw, ring: 2, startAngle: 295, period: 27, appearDelay: 1.35, size: 30 },
-  { Icon: LuNetwork,   ring: 1, startAngle: 15,  period: 22, appearDelay: 1.70, size: 76 },
+  { Icon: LuDatabase,              ring: 0, startAngle: 40,  period: 15, appearDelay: 0.30, size: 80 },
+  { Icon: LuCode,                  ring: 2, startAngle: 120, period: 27, appearDelay: 0.65, size: 28 },
+  { Icon: LuShield,                ring: 1, startAngle: 200, period: 22, appearDelay: 1.00, size: 62 },
+  { Icon: LuRefreshCw,             ring: 2, startAngle: 295, period: 27, appearDelay: 1.35, size: 30 },
+  { Icon: LuNetwork,               ring: 1, startAngle: 15,  period: 22, appearDelay: 1.70, size: 76 },
+  { imgSrc: "/logos/slack.svg",    nodeColor: "#4A154B", ring: 2, startAngle: 45,  period: 46, appearDelay: 2.00, size: 34 },
+  { Icon: SiWhatsapp,              nodeColor: "#25D366", ring: 2, startAngle: 205, period: 44, appearDelay: 2.20, size: 32 },
 ];
 
 const nodes9: OrbitalNode[] = [
-  { Icon: LuCloud,     ring: 0, startAngle: 0,   period: 12, appearDelay: 0.30, size: 34 },
-  { Icon: LuRefreshCw, ring: 1, startAngle: 75,  period: 20, appearDelay: 0.60, size: 78 },
-  { Icon: LuNetwork,   ring: 2, startAngle: 150, period: 29, appearDelay: 0.90, size: 28 },
-  { Icon: LuSearch,    ring: 0, startAngle: 225, period: 12, appearDelay: 1.20, size: 66 },
-  { Icon: LuBrain,     ring: 2, startAngle: 300, period: 29, appearDelay: 1.50, size: 30 },
-  { Icon: LuLayers,    ring: 1, startAngle: 355, period: 20, appearDelay: 1.80, size: 80 },
+  { Icon: LuCloud,                 ring: 0, startAngle: 0,   period: 12, appearDelay: 0.30, size: 34 },
+  { Icon: LuRefreshCw,             ring: 1, startAngle: 75,  period: 20, appearDelay: 0.60, size: 78 },
+  { Icon: LuNetwork,               ring: 2, startAngle: 150, period: 29, appearDelay: 0.90, size: 28 },
+  { Icon: LuSearch,                ring: 0, startAngle: 225, period: 12, appearDelay: 1.20, size: 66 },
+  { Icon: LuBrain,                 ring: 2, startAngle: 300, period: 29, appearDelay: 1.50, size: 30 },
+  { Icon: LuLayers,                ring: 1, startAngle: 355, period: 20, appearDelay: 1.80, size: 80 },
+  { imgSrc: "/logos/airtable.svg", nodeColor: "#18BFFF", ring: 2, startAngle: 60,  period: 48, appearDelay: 2.00, size: 34 },
+  { imgSrc: "/logos/twilio.svg",   nodeColor: "#F22F46", ring: 2, startAngle: 225, period: 52, appearDelay: 2.20, size: 32 },
 ];
 
 // ─── Slide data ────────────────────────────────────────────────────────────
@@ -366,11 +393,13 @@ function SlideIllust({ slide, slideKey }: { slide: Slide; slideKey: number }) {
         <slide.Icon size={62} color={slide.color} />
       </div>
 
-      {/* Orbital planets — unique per slide (different icons, count, sizes, angles) */}
+      {/* Orbital planets — per-slide content nodes + brand logo nodes */}
       {slide.nodes.map((node, i) => {
         const preSpin = -(node.startAngle / 360) * node.period;
         const half = node.size / 2;
         const iconSize = Math.round(node.size * 0.38);
+        const imgSize = Math.round(node.size * 0.55);
+        const nodeColor = node.nodeColor || slide.color;
 
         return (
           <div
@@ -399,11 +428,16 @@ function SlideIllust({ slide, slideKey }: { slide: Slide; slideKey: number }) {
                   "--appear-delay": `${node.appearDelay}s`,
                   width: node.size,
                   height: node.size,
-                  background: `${slide.color}16`,
-                  boxShadow: `0 0 0 1px ${slide.color}45, 0 8px 28px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.1)`,
+                  background: `${nodeColor}16`,
+                  boxShadow: `0 0 0 1px ${nodeColor}45, 0 8px 28px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.1)`,
                 } as React.CSSProperties}
               >
-                <node.Icon size={iconSize} color={slide.color} />
+                {node.imgSrc ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={node.imgSrc} alt="" width={imgSize} height={imgSize} style={{ objectFit: "contain", display: "block" }} />
+                ) : node.Icon ? (
+                  <node.Icon size={iconSize} color={nodeColor} />
+                ) : null}
               </div>
             </div>
           </div>
