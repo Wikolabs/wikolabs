@@ -27,9 +27,10 @@ import {
   LuLayers,
 } from "react-icons/lu";
 import {
-  SiHubspot, SiGmail, SiZoom, SiLinkedin, SiFacebook,
+  SiHubspot, SiGmail, SiZoom, SiFacebook,
   SiWhatsapp, SiZoho, SiN8N, SiZapier,
 } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa6";
 
 // ─── Per-slide orbital node (planet)
 // Icon / imgSrc: at least one must be provided
@@ -80,7 +81,7 @@ const nodes1: OrbitalNode[] = [
   { Icon: LuZap,                   ring: 2, startAngle: 285, period: 27, appearDelay: 1.35, size: 28 },
   { Icon: LuChartBar,              ring: 1, startAngle: 355, period: 19, appearDelay: 1.70, size: 68 },
   { Icon: SiHubspot,               nodeColor: "#FF7A59", ring: 2, startAngle: 20,  period: 46, appearDelay: 2.00, size: 34 },
-  { Icon: SiLinkedin,              nodeColor: "#0A66C2", ring: 2, startAngle: 175, period: 52, appearDelay: 2.20, size: 32 },
+  { Icon: FaLinkedin,              nodeColor: "#0A66C2", ring: 2, startAngle: 175, period: 52, appearDelay: 2.20, size: 32 },
 ];
 
 const nodes2: OrbitalNode[] = [
