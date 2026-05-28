@@ -461,17 +461,17 @@ const APPS: App[] = [
     icon: "👗",
     cat: "Marketplace IA",
     stack: ["Python", "FastAPI", "Gemini", "Groq LLaMA", "React"],
-    title: "Firipy",
+    title: "wefreep.com",
     tagline: "La friperie malgache réinventée par l'IA",
     desc: "Marketplace IA de vêtements de seconde main à Madagascar — cherchez par photo de style, obtenez un prix juste automatique et des recommandations personnalisées.",
     features: ["Recherche par photo de style", "Estimation prix automatique par l'IA"],
     url: "http://187.124.167.18:3054",
     live: true,
-    screenshot: "/screenshots/firipy.png",
+    screenshot: "/screenshots/wefreep.png",
   },
 ];
 
-const FLAGSHIP_TITLES = new Set(["Botsika.com", "Karohy.mg", "MediWyz", "okaiz.com", "Piskid.com", "Firipy"]);
+const FLAGSHIP_TITLES = new Set(["Botsika.com", "Karohy.mg", "MediWyz", "okaiz.com", "Piskid.com", "wefreep.com"]);
 
 const i18n = {
   fr: {
