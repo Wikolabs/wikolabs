@@ -398,7 +398,7 @@ const APPS: App[] = [
     features: ["Recherche en langage naturel et par image", "Réponses conversationnelles avec cartes produit", "Ajout de produits avec recherche immédiate", "Embeddings Gemini 3072 dimensions"],
     url: "http://187.124.167.18:3049",
     live: true,
-    screenshot: "/screenshots/productsearch.png",
+    screenshot: "/screenshots/botsika.png",
   },
   {
     icon: "🔍",
@@ -409,7 +409,7 @@ const APPS: App[] = [
     features: ["Recherche par texte libre ou par image", "Analyse visuelle Gemini Flash pour la photo", "Chat IA avec streaming en temps réel", "Gestion des prestataires avec admin intégré"],
     url: "http://187.124.167.18:3050",
     live: true,
-    screenshot: "/screenshots/prestasearch.png",
+    screenshot: "/screenshots/karohy.png",
   },
   {
     icon: "📈",
