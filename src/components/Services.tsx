@@ -11,7 +11,7 @@ import {
   LuBell, LuNetwork, LuScan, LuChartBar, LuDatabase, LuFileSearch,
   LuBrain, LuLayers, LuWorkflow, LuScanLine, LuMap, LuBox,
   LuMonitor, LuSmartphone, LuBug, LuCpu, LuTriangle,
-  LuCheck, LuZap, LuBot, LuSend,
+  LuCheck, LuBot, LuSend,
 } from "react-icons/lu";
 import {
   SiPython, SiLangchain, SiFastapi, SiN8N,
@@ -731,8 +731,6 @@ export default function Services({
               <div className={styles.offersGrid}>
                 {cat.offers.map((offer, oi) => {
                   const OfferIcon = OFFER_ICONS[ci]?.[oi];
-                  const techs = CATEGORY_TECHS[ci]?.[oi] ?? [];
-                  const meta = AGENT_META[ci]?.[oi] ?? null;
                   const questions = CLIENT_QUESTIONS[ci]?.[oi];
                   const cardId = `${ci}-${oi}`;
                   const screenshot = OFFER_SCREENSHOTS[ci]?.[oi];
@@ -752,23 +750,8 @@ export default function Services({
                         </div>
                       )}
 
-                      {/* Agent metric badge */}
-                      {meta && (
-                        <div className={styles.agentMetaRow}>
-                          <span className={styles.agentMetricNum} style={{ color: meta.color }}>{meta.metric}</span>
-                          <span className={styles.agentMetricLbl}>{meta.metricLabel[lang]}</span>
-                          <span className={styles.agentAutomBadge} style={{ background: `${meta.color}18`, color: meta.color, borderColor: `${meta.color}35` }}>
-                            <LuZap size={9} />
-                            {meta.automation} {lang === "fr" ? "auto" : "auto"}
-                          </span>
-                        </div>
-                      )}
-
                       <div className={styles.offerTitle}>{offer.title}</div>
                       <div className={styles.offerDesc}>{offer.desc}</div>
-                      <div className={styles.offerTechs}>
-                        {techs.map((tech, ti) => <TechBadge key={ti} tech={tech} />)}
-                      </div>
 
                       <div className={styles.offerCardFooter}>
                         <Link href={`/${locale}/services/offer/${OFFER_SLUGS[ci]?.[oi] ?? catSlug}`} className={styles.offerCardLink}>

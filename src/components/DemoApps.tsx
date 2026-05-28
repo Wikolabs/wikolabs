@@ -435,14 +435,14 @@ const APPS: App[] = [
   },
 ];
 
-const FLAGSHIP_TITLES = new Set(["ProductSearch", "PrestaSearch", "BI Wikolabs", "MediWyz"]);
+const FLAGSHIP_TITLES = new Set(["ProductSearch", "PrestaSearch", "MediWyz"]);
 
 const i18n = {
   fr: {
-    tag: "En production",
-    title: "Produits Wikolabs",
-    titleEm: "accessibles maintenant",
-    desc: "Quatre produits SaaS déployés, accessibles en ligne — entrez, testez, voyez.",
+    tag: "Ils nous font confiance",
+    title: "Projets livrés,",
+    titleEm: "accessibles en ligne",
+    desc: "Des solutions concrètes déployées pour nos clients — entrez, testez, voyez ce que l'IA fait pour eux.",
     liveLabel: "En ligne",
     btnDemo: "Voir en direct →",
     btnMore: "En savoir plus",
@@ -450,10 +450,10 @@ const i18n = {
     comingBadge: "En continu",
   },
   en: {
-    tag: "Live products",
-    title: "Wikolabs products,",
-    titleEm: "accessible now",
-    desc: "Four SaaS products deployed and live — enter, test, see for yourself.",
+    tag: "They trust us",
+    title: "Delivered projects,",
+    titleEm: "live online",
+    desc: "Concrete solutions deployed for our clients — enter, test, see what AI does for them.",
     liveLabel: "Live",
     btnDemo: "See live →",
     btnMore: "Learn more",

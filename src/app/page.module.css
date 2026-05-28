@@ -1665,8 +1665,12 @@
 
   .pricingWrap { margin: 64px -20px 0; padding: 0 20px; }
 
-  .footerCols { flex-direction: column; gap: 36px; }
-  .footerTop { flex-direction: column; }
+  .footerCols { flex-direction: column; gap: 36px; align-items: center; }
+  .footerTop { flex-direction: column; align-items: center; text-align: center; }
+  .footerBrand { text-align: center; }
+  .footerCol { text-align: center; }
+  .footerBottom { flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+  .footerLegal { text-align: center; }
 }
 
 @media (max-width: 480px) {

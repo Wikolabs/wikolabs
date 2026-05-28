@@ -79,8 +79,7 @@ const OFFERS: Offer[] = [
       ],
     },
     cta: { fr: "Démarrer un projet →", en: "Start a project →" },
-    highlighted: true,
-    bg: "hsla(43, 90%, 55%, 0.20)",
+    bg: "hsla(43, 90%, 55%, 0.17)",
     prefill: {
       type: "mvp-saas", scale: "medium", startStep: 2,
       offerLabel: { fr: "Déploiement Complet", en: "Full Deployment" },
@@ -155,11 +154,11 @@ export default function PackagedOffers({ locale, onBooking }: { locale: string; 
       <div className={styles.grid}>
         {OFFERS.map((offer, i) => (
           <div
-            className={`reveal d${i + 1} ${styles.card} ${offer.highlighted ? styles.cardHighlighted : ""}`}
+            className={`reveal d${i + 1} ${styles.card}`}
             key={i}
             style={{ "--card-bg": offer.bg } as React.CSSProperties}
           >
-            <div className={`${styles.badge} ${offer.highlighted ? styles.badgeHighlighted : ""}`}>
+            <div className={styles.badge}>
               {offer.badge[lang]}
             </div>
 
@@ -182,7 +181,7 @@ export default function PackagedOffers({ locale, onBooking }: { locale: string; 
             </ul>
 
             <button
-              className={`${styles.cta} ${offer.highlighted ? styles.ctaHighlighted : ""}`}
+              className={styles.cta}
               onClick={() => onBooking?.(offer.prefill)}
             >
               {offer.cta[lang]}
