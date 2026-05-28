@@ -2,7 +2,6 @@
 
 import styles from "./ContactModal.module.css";
 
-const CALENDLY_URL = "https://calendly.com/wikolabs";
 const WHATSAPP_URL = "https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet%20IA%20avec%20Wikolabs.";
 
 const i18n = {
@@ -27,10 +26,12 @@ const i18n = {
 export default function ContactModal({
   open,
   onClose,
+  onCalClick,
   locale = "fr",
 }: {
   open: boolean;
   onClose: () => void;
+  onCalClick?: () => void;
   locale?: string;
 }) {
   if (!open) return null;
@@ -43,13 +44,10 @@ export default function ContactModal({
         <p className={styles.title}>{t.title}</p>
 
         <div className={styles.options}>
-          {/* Calendly */}
-          <a
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Cal.com booking */}
+          <button
             className={styles.option}
-            onClick={onClose}
+            onClick={() => { onClose(); onCalClick?.(); }}
           >
             <span className={styles.optionIcon}>📅</span>
             <div>
@@ -57,7 +55,7 @@ export default function ContactModal({
               <div className={styles.optionDesc}>{t.calendlyDesc}</div>
             </div>
             <span className={styles.arrow}>→</span>
-          </a>
+          </button>
 
           <div className={styles.divider}>{t.or}</div>
 

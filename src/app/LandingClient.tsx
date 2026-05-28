@@ -572,6 +572,7 @@ export default function LandingClient({
       <ContactModal
         open={contactOpen}
         onClose={() => setContactOpen(false)}
+        onCalClick={() => { setContactOpen(false); openBooking(); }}
         locale={locale}
       />
 
