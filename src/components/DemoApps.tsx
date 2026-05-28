@@ -437,25 +437,25 @@ const APPS: App[] = [
 
 const i18n = {
   fr: {
-    tag: "Déjà en production",
-    title: "Des solutions livrées,",
-    titleEm: "qui tournent aujourd'hui",
-    desc: "Plateformes interactives et outils métiers déployés et opérationnels — voyez concrètement ce que l'IA peut faire pour votre entreprise.",
+    tag: "Nos réalisations",
+    title: "Des solutions déployées,",
+    titleEm: "opérationnelles aujourd'hui",
+    desc: "Plateformes métiers et agents IA livrés, accessibles en ligne — voyez concrètement ce que l'IA peut faire pour votre entreprise.",
     liveLabel: "En ligne",
     btnDemo: "Voir en direct →",
     btnMore: "En savoir plus",
-    comingSoon: "D'autres solutions arrivent chaque mois",
+    comingSoon: "De nouvelles solutions chaque mois",
     comingBadge: "En continu",
   },
   en: {
-    tag: "Already in production",
+    tag: "Our work",
     title: "Solutions delivered,",
-    titleEm: "running today",
-    desc: "Live platforms and business tools — operational and accessible right now. See concretely what AI can do for your business.",
+    titleEm: "live and operational",
+    desc: "Business platforms and AI agents — deployed, accessible, and running right now. See concretely what AI can do for your business.",
     liveLabel: "Live",
     btnDemo: "See live →",
     btnMore: "Learn more",
-    comingSoon: "More solutions ship every month",
+    comingSoon: "New solutions ship every month",
     comingBadge: "Ongoing",
   },
 };
@@ -532,7 +532,7 @@ export default function DemoApps({ locale }: { locale: string }) {
 
   return (
     <>
-      <section id="demos" className={styles.demo}>
+      <section id="realisations" className={styles.demo}>
         <div className={`reveal ${styles.sectionTag}`}>
           <span className={styles.sectionTagLine} />
           {t.tag}

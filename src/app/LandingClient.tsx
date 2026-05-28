@@ -11,9 +11,7 @@ import Services from "@/components/Services";
 import ServiceCartPanel from "@/components/ServiceCartPanel";
 import type { CartItem } from "@/components/ServiceCartPanel";
 import DemoApps from "@/components/DemoApps";
-import Realisations from "@/components/Realisations";
 import ContactModal from "@/components/ContactModal";
-import TechStack from "@/components/TechStack";
 import ChatBot from "@/components/ChatBot";
 import HeroSlider from "@/components/HeroSlider";
 import Values from "@/components/Values";
@@ -287,7 +285,6 @@ export default function LandingClient({
         </a>
         <div className={s.navLinks}>
           <a href="#services" className={s.navLink}>{t("nav.offers")}</a>
-          <a href="#demos" className={s.navLink}>{t("nav.demos")}</a>
           <a href="#realisations" className={s.navLink}>{locale === "fr" ? "Réalisations" : "Work"}</a>
           <a href="#processus" className={s.navLink}>{t("nav.process")}</a>
           <a href="#expertise" className={s.navLink}>{t("nav.team")}</a>
@@ -331,7 +328,6 @@ export default function LandingClient({
       >
         <div className={s.mobileNav} onClick={(e) => e.stopPropagation()}>
           <a href="#services" className={s.mobileLink} onClick={closeMenu}>{t("nav.offers")}</a>
-          <a href="#demos" className={s.mobileLink} onClick={closeMenu}>{t("nav.demos")}</a>
           <a href="#realisations" className={s.mobileLink} onClick={closeMenu}>{locale === "fr" ? "Réalisations" : "Work"}</a>
           <a href="#processus" className={s.mobileLink} onClick={closeMenu}>{t("nav.process")}</a>
           <a href="#expertise" className={s.mobileLink} onClick={closeMenu}>{t("nav.team")}</a>
@@ -382,9 +378,6 @@ export default function LandingClient({
       {/* ── SERVICES ── */}
       <Services locale={locale} onAddToCart={handleAddToCart} cartItemIds={cartItemIds} />
 
-      {/* ── TECH STACK ── */}
-      <TechStack locale={locale} />
-
       {/* ── ORBITAL DIAGRAM ── */}
       <OrbitalDiagram locale={locale} onBooking={() => setContactOpen(true)} />
 
@@ -399,9 +392,6 @@ export default function LandingClient({
 
       {/* ── DEMO APPS ── */}
       <DemoApps locale={locale} />
-
-      {/* ── RÉALISATIONS ── */}
-      <Realisations locale={locale} />
 
       {/* ── WHY CLIENTS ── */}
       <section className={`${s.section} ${s.valuesSection}`}>
