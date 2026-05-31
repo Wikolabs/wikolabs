@@ -937,6 +937,13 @@
   object-fit: cover;
   object-position: top center;
   display: block;
+  filter: blur(1.4px) saturate(1.08);
+  transition: filter 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.offerCard:hover .offerThumbImg {
+  filter: blur(0) saturate(1);
+  transform: scale(1.03);
 }
 
 /* ── Demo link ── */
