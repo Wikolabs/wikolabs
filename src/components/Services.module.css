@@ -322,23 +322,28 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
+  /* Robot heads stick out from each card's top; ensure first row isn't clipped */
+  padding-top: 4px;
 }
 
+/* ─── Robot-shaped card: round head + rounded body ─── */
 .offerCard {
   background: linear-gradient(135deg, var(--card) 0%, var(--card-cat, var(--card)) 100%);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 20px;
+  border-radius: 22px;
+  padding: 58px 18px 18px;
+  margin-top: 46px;
   transition: border-color 0.22s, transform 0.22s, box-shadow 0.22s;
   display: flex;
   flex-direction: column;
   box-shadow: var(--card-sh);
-  cursor: pointer;
+  cursor: default;
+  position: relative;
 }
 
 .offerCard:hover {
   border-color: var(--gold-border);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--card-sh-h);
 }
 
@@ -349,19 +354,25 @@
 
 .offerTitle {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--txt1);
-  margin-bottom: 10px;
+  text-align: center;
+  margin-bottom: 8px;
   line-height: 1.3;
 }
 
 .offerDesc {
-  font-size: 0.875rem;
+  font-size: 0.83rem;
   color: var(--txt2);
-  line-height: 1.65;
-  margin-bottom: 14px;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 16px;
   flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* Offer card illustration */
@@ -386,68 +397,70 @@
   margin-top: auto;
 }
 
+/* ── Robot BODY footer: 3 full-width stacked buttons ── */
 .offerCardFooter {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 7px;
   margin-top: 14px;
-  gap: 8px;
+  width: 100%;
 }
 
-.offerCardLink {
-  display: inline-flex;
-  align-items: center;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--gold);
-  text-decoration: none;
-  transition: opacity 0.2s;
-  white-space: nowrap;
-}
-
-.offerCardLink:hover {
-  opacity: 0.7;
-}
-
+.offerCardLink,
+.offerDemoLink,
 .addToCartBtn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 4px 10px;
-  border-radius: 100px;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 11px;
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.64rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  background: var(--card);
-  border: 1px solid var(--border);
-  color: var(--txt2);
-  cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  text-decoration: none;
   white-space: nowrap;
-  flex-shrink: 0;
+  cursor: pointer;
+  transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease, transform 0.18s ease;
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.offerCardLink {
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+}
+
+.offerCardLink:hover {
+  background: rgba(212, 175, 55, 0.18);
+  transform: translateY(-1px);
+}
+
+.addToCartBtn {
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  color: #04080f;
 }
 
 .addToCartBtn:hover {
-  background: var(--gold-dim);
-  border-color: var(--gold-border);
-  color: var(--gold);
-  transform: scale(1.04);
+  opacity: 0.92;
+  transform: translateY(-1px);
 }
 
 .addToCartBtnActive {
-  background: var(--gold-dim);
-  border-color: var(--gold-border);
+  background: var(--card);
+  border: 1px solid var(--gold-border);
   color: var(--gold);
 }
 
 .addToCartBtnActive:hover {
-  background: rgba(248, 113, 113, 0.1);
-  border-color: rgba(248, 113, 113, 0.35);
+  background: rgba(248, 113, 113, 0.08);
+  border-color: rgba(248, 113, 113, 0.40);
   color: #f87171;
 }
 
@@ -919,16 +932,27 @@
   flex: 1;
 }
 
-/* ── Offer card screenshot thumbnail ── */
+/* ── Robot HEAD: round circle floating above the card body ── */
 .offerThumb {
-  width: 100%;
-  height: 110px;
+  position: absolute;
+  top: -44px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
   overflow: hidden;
-  border-radius: 10px;
-  margin-bottom: 14px;
-  border: 1px solid var(--border);
+  border: 3px solid var(--bg);
   background: var(--bg3);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.22), 0 0 0 1px var(--border);
   flex-shrink: 0;
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+
+.offerCard:hover .offerThumb {
+  transform: translateX(-50%) translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28), 0 0 0 1px var(--gold-border);
 }
 
 .offerThumbImg {
@@ -937,28 +961,27 @@
   object-fit: cover;
   object-position: top center;
   display: block;
-  filter: blur(1.4px) saturate(1.08);
+  filter: blur(2.4px) saturate(1.08) brightness(0.96);
   transition: filter 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .offerCard:hover .offerThumbImg {
   filter: blur(0) saturate(1);
-  transform: scale(1.03);
+  transform: scale(1.08);
 }
 
 /* ── Demo link ── */
 .offerDemoLink {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: var(--txt3);
-  text-decoration: none;
-  transition: color 0.2s;
-  white-space: nowrap;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--txt2);
 }
-.offerDemoLink:hover { color: var(--txt1); }
+.offerDemoLink:hover {
+  background: var(--card-h);
+  border-color: var(--gold-border);
+  color: var(--txt1);
+  transform: translateY(-1px);
+}
 
 /* ═══════════════════════════════════════════════════
    OFFER CARD — DARK MODE WHITE PALETTE
