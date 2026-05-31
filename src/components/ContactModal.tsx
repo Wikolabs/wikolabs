@@ -1,8 +1,12 @@
 "use client";
 
+import { useEffect } from "react";
+import { getCalApi } from "@calcom/embed-react";
 import styles from "./ContactModal.module.css";
 
 const WHATSAPP_URL = "https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet%20IA%20avec%20Wikolabs.";
+const CAL_NS = "wk30";
+const CAL_LINK = "wikolabs-team/30min";
 
 const i18n = {
   fr: {
@@ -26,14 +30,27 @@ const i18n = {
 export default function ContactModal({
   open,
   onClose,
-  onCalClick,
   locale = "fr",
 }: {
   open: boolean;
   onClose: () => void;
+  /** @deprecated kept for backwards compat — Cal.com modal now opens directly via data-cal-link */
   onCalClick?: () => void;
   locale?: string;
 }) {
+  // Initialize Cal.com namespace so data-cal-link buttons open the embed popup directly
+  useEffect(() => {
+    (async () => {
+      const cal = await getCalApi({ namespace: CAL_NS });
+      cal("init", CAL_NS, { origin: "https://app.cal.com" });
+      cal("ui", {
+        theme: "dark",
+        hideEventTypeDetails: false,
+        layout: "month_view",
+      });
+    })();
+  }, []);
+
   if (!open) return null;
   const t = i18n[locale === "en" ? "en" : "fr"];
 
@@ -44,10 +61,13 @@ export default function ContactModal({
         <p className={styles.title}>{t.title}</p>
 
         <div className={styles.options}>
-          {/* Cal.com booking */}
+          {/* Cal.com booking — opens the embed modal directly */}
           <button
             className={styles.option}
-            onClick={() => { onClose(); onCalClick?.(); }}
+            data-cal-link={CAL_LINK}
+            data-cal-namespace={CAL_NS}
+            data-cal-config='{"layout":"month_view"}'
+            onClick={() => setTimeout(onClose, 120)}
           >
             <span className={styles.optionIcon}>📅</span>
             <div>

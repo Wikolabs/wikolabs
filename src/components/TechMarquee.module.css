@@ -30,7 +30,7 @@
 .track {
   display: flex;
   width: max-content;
-  animation: techScroll 16s linear infinite;
+  animation: techScroll 48s linear infinite;
   will-change: transform;
 }
 

@@ -16,7 +16,6 @@ import ChatBot from "@/components/ChatBot";
 import HeroSlider from "@/components/HeroSlider";
 import TechMarquee from "@/components/TechMarquee";
 import Values from "@/components/Values";
-import UseCases from "@/components/UseCases";
 import Industries from "@/components/Industries";
 import OrbitalDiagram from "@/components/OrbitalDiagram";
 import BlogPreview from "@/components/BlogPreview";
@@ -374,9 +373,6 @@ export default function LandingClient({
 
       {/* ── ORBITAL DIAGRAM ── */}
       <OrbitalDiagram locale={locale} onBooking={() => setContactOpen(true)} />
-
-      {/* ── USE CASES ── */}
-      <UseCases locale={locale} />
 
       {/* ── CLIENT PROBLEM / SOLUTION ── */}
       <Constat locale={locale} />
