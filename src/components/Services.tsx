@@ -11,7 +11,7 @@ import {
   LuBell, LuNetwork, LuScan, LuChartBar, LuDatabase, LuFileSearch,
   LuBrain, LuLayers, LuWorkflow, LuScanLine, LuMap, LuBox,
   LuMonitor, LuSmartphone, LuBug, LuCpu, LuTriangle,
-  LuCheck, LuBot, LuSend,
+  LuCheck, LuBot, LuSend, LuLandmark,
 } from "react-icons/lu";
 import {
   SiPython, SiLangchain, SiFastapi, SiN8N,
@@ -94,7 +94,7 @@ const CAT_SLUGS = [
 const OFFER_SLUGS: string[][] = [
   ["agent-veille-marche","agent-sourcing-leads","agent-outreach-multicanal","agent-qualification-bant","agent-setter-rdv","agent-proposition-commerciale","agent-retention-upsell"],
   ["agent-sav-ecommerce-rag","agent-triage-escalade","agent-onboarding-client","agent-notes-discovery"],
-  ["agent-bi-langage-naturel","reporting-automatique","forecasting-anomalies","crm-multi-agent"],
+  ["agent-bi-langage-naturel","reporting-automatique","forecasting-anomalies","crm-multi-agent","agent-patrimoine-ia"],
   ["moteur-recherche-semantique","recommandation-personnalisee","pipeline-donnees-intelligent","fine-tuning-mlops"],
   ["ocr-extraction-documentaire","vision-ia-detection-objets","bim-point-cloud","cartographie-geolocalisation"],
   ["refonte-ux-ui-web","application-mobile-react-native","debogage-optimisation-performance","seo-technique-visibilite"],
@@ -121,6 +121,8 @@ const OFFER_CARD_BG = [
   "hsla( 52, 88%, 54%, 0.17)",  // yellow
   "hsla(155, 75%, 46%, 0.15)",  // emerald
   "hsla(290, 70%, 60%, 0.17)",  // violet
+  /* 2 extra — PatrimIA */
+  "hsla(228, 78%, 58%, 0.17)",  // finance blue
   /* 3 — Search (4) */
   "hsla( 16, 88%, 56%, 0.17)",  // red-orange
   "hsla(100, 70%, 46%, 0.15)",  // olive
@@ -142,14 +144,14 @@ const OFFER_CARD_BG = [
   "hsla(285, 68%, 58%, 0.17)",  // medium purple
   "hsla(145, 70%, 44%, 0.15)",  // forest green
 ];
-const CAT_OFFSETS = [0, 7, 11, 15, 19, 23, 27];
+const CAT_OFFSETS = [0, 7, 11, 16, 20, 24, 28];
 const getCardBg = (ci: number, oi: number) =>
   OFFER_CARD_BG[CAT_OFFSETS[ci] + oi] ?? OFFER_CARD_BG[0];
 
 const OFFER_SCREENSHOTS: string[][] = [
   ["/screenshots/pulsescope.png","/screenshots/leadforge.png","/screenshots/reachwave.png","/screenshots/scoreflow.png","/screenshots/booklync.png","/screenshots/propgenai.png","/screenshots/retainiq.png"],
   ["/screenshots/helpiqai.png","/screenshots/triageiq.png","/screenshots/onboardai.png","/screenshots/callnotes.png"],
-  ["/screenshots/datavoice.png","/screenshots/reportly.png","/screenshots/forecastiq.png","/screenshots/nexuscrm.png"],
+  ["/screenshots/datavoice.png","/screenshots/reportly.png","/screenshots/forecastiq.png","/screenshots/nexuscrm.png","/screenshots/patrimai.png"],
   ["/screenshots/semantiq.png","/screenshots/personaai.png","/screenshots/datastream.png","/screenshots/modelops.png"],
   ["/screenshots/docextract.png","/screenshots/detectvision.png","/screenshots/bimflow.png","/screenshots/geomapai.png"],
   ["/screenshots/uxforge.png","/screenshots/appcraft.png","/screenshots/perfoptiq.png","/screenshots/seowave.png"],
@@ -159,7 +161,7 @@ const OFFER_SCREENSHOTS: string[][] = [
 const OFFER_DEMO_URLS: string[][] = [
   ["http://187.124.167.18:3001","http://187.124.167.18:3002","http://187.124.167.18:3003","http://187.124.167.18:3004","http://187.124.167.18:3005","http://187.124.167.18:3006","http://187.124.167.18:3007"],
   ["http://187.124.167.18:3008","http://187.124.167.18:3009","http://187.124.167.18:3010","http://187.124.167.18:3011"],
-  ["http://187.124.167.18:3012","http://187.124.167.18:3013","http://187.124.167.18:3014","http://187.124.167.18:3015"],
+  ["http://187.124.167.18:3012","http://187.124.167.18:3013","http://187.124.167.18:3014","http://187.124.167.18:3015","http://187.124.167.18:3058"],
   ["http://187.124.167.18:3016","http://187.124.167.18:3017","http://187.124.167.18:3018","http://187.124.167.18:3019"],
   ["http://187.124.167.18:3020","http://187.124.167.18:3021","http://187.124.167.18:3022","http://187.124.167.18:3023"],
   ["http://187.124.167.18:3024","http://187.124.167.18:3025","http://187.124.167.18:3026","http://187.124.167.18:3027"],
@@ -208,7 +210,7 @@ const AGENT_META: (AgentMeta | null)[][] = [
     },
     null, null, null,
   ],
-  [null, null, null, null], /* Cat 2 */
+  [null, null, null, null, null], /* Cat 2 */
   [null, null, null, null], /* Cat 3 */
   [null, null, null, null], /* Cat 4 */
   [null, null, null, null], /* Cat 5 */
@@ -246,6 +248,8 @@ const CLIENT_QUESTIONS: { fr: string[]; en: string[] }[][] = [
   [ /* Cat 2 — BI */
     { fr: ["Sources de données à connecter (BigQuery, Snowflake, PostgreSQL...) ?", "Nombre d'utilisateurs finaux ?", "Volume de requêtes par jour ?", "Outil de visualisation préféré (Metabase, Power BI, Looker) ?"],
       en: ["Data sources to connect (BigQuery, Snowflake, PostgreSQL...)?", "Number of end users?", "Query volume per day?", "Preferred visualization tool (Metabase, Power BI, Looker)?"] },
+    { fr: ["Taille du portefeuille à analyser (particulier, family office, institutionnel) ?", "Classes d'actifs concernées (actions, obligations, immobilier, crypto, private equity) ?", "Sources de données à connecter (broker, banque, fichiers CSV, PDF de relevés) ?", "Reporting souhaité (fréquence, format, destinataires) ?"],
+      en: ["Portfolio size to analyze (individual, family office, institutional)?", "Asset classes involved (equities, bonds, real estate, crypto, private equity)?", "Data sources to connect (broker, bank, CSV files, statement PDFs)?", "Desired reporting (frequency, format, recipients)?"] },
     { fr: ["Formats de livrables souhaités (PDF, PPT, Excel, email) ?", "Fréquence de génération (quotidien / hebdo / mensuel) ?", "Nombre de rapports ou dashboards distincts ?", "Sources de données principales (e-commerce, CRM, ERP...) ?"],
       en: ["Desired deliverable formats (PDF, PPT, Excel, email)?", "Generation frequency (daily / weekly / monthly)?", "Number of distinct reports or dashboards?", "Main data sources (e-commerce, CRM, ERP...)?"] },
     { fr: ["Horizon de prévision souhaité (1, 3, 6 ou 12 mois) ?", "Volume d'historique disponible (en années) ?", "Métriques cibles (CA, volume, taux de churn...) ?", "Seuils d'alerte : définis à l'avance ou à calibrer ?"],
@@ -320,6 +324,7 @@ const CATEGORY_TECHS: Tech[][][] = [
     [PY, BQ, FA, N8, PBI, MB],         // Reporting Automatique (PPT/PDF)
     [SK, TF, PT, BQ, PY, MB],          // Forecasting & Anomalies
     [LG, SK, OA, N8, GHL, PY],         // CRM Multi-agent & Pipeline
+    [AN, LG, FA, PY, OA, NX],          // Agent Patrimoine IA
   ],
   /* 3 — Recherche & Données Structurées */
   [
@@ -355,7 +360,7 @@ const CATEGORY_TECHS: Tech[][][] = [
 const OFFER_ICONS: IconType[][] = [
   [LuEye, LuSearch, LuMegaphone, LuTarget, LuCalendarCheck, LuFileText, LuActivity],
   [LuMessageSquare, LuBell, LuNetwork, LuScan],
-  [LuChartBar, LuFileSearch, LuTrendingUp, LuDatabase],
+  [LuChartBar, LuFileSearch, LuTrendingUp, LuDatabase, LuLandmark],
   [LuSearch, LuLayers, LuWorkflow, LuBrain],
   [LuScanLine, LuEye, LuBox, LuMap],
   [LuMonitor, LuSmartphone, LuBug, LuSearch],
@@ -366,7 +371,7 @@ const OFFER_ICONS: IconType[][] = [
 const i18n = {
   fr: {
     offersTag: "Nos agents & solutions",
-    offersTitle: "30+ offres concrètes",
+    offersTitle: "31+ offres concrètes",
     offersTitleEm: "et déployables",
     offersDesc: "Chaque solution est un agent IA ou un système autonome testé en production, intégrable dans votre stack existante.",
     searchPlaceholder: "Décrivez votre besoin... ex : automatiser ma prospection commerciale",
@@ -395,6 +400,7 @@ const i18n = {
         { title: "Reporting Automatique (PPT/PDF)",desc: "Rapport exécutif généré et envoyé automatiquement le 1er du mois. Aucun copier-coller, aucun humain dans la boucle." },
         { title: "Forecasting & Anomalies",       desc: "Modèles ML sur vos données réelles, alertes automatiques sur churn risk et dérives. Un chatbot ne prédit rien en continu." },
         { title: "CRM Multi-agent & Pipeline",    desc: "Pipeline orchestré, scoring LTV, alertes renouvellement — en fond, sans intervention. Le chatbot ne pilote pas votre CRM." },
+        { title: "Agent IA de Gestion de Patrimoine", desc: "Analyse fondamentale, macro, technique et risque légal en un seul agent multi-expert. Zéro hallucination — toutes les données vérifiées avant chaque réponse." },
       ]},
       { label: "Recherche & Données Structurées", offers: [
         { title: "Moteur de Recherche Sémantique",desc: "Vos 50 000 références indexées et servies en temps réel. Le chatbot ne connaît pas votre catalogue ; lui le maîtrise entièrement." },
@@ -424,7 +430,7 @@ const i18n = {
   },
   en: {
     offersTag: "Our agents & solutions",
-    offersTitle: "30+ concrete,",
+    offersTitle: "31+ concrete,",
     offersTitleEm: "deployable solutions",
     offersDesc: "Every solution is a production-tested AI agent or autonomous system, integrable into your existing stack.",
     searchPlaceholder: "Describe your need... e.g. automate my sales outreach",
@@ -453,6 +459,7 @@ const i18n = {
         { title: "Automatic Reporting (PPT/PDF)", desc: "Executive report generated and sent automatically on the 1st of the month. No copy-paste, no human in the loop." },
         { title: "Forecasting & Anomaly Detection",desc: "ML models on your real data, automatic alerts on churn risk and drift. A chatbot predicts nothing continuously." },
         { title: "Multi-agent CRM & Pipeline",    desc: "Pipeline orchestrated, LTV scoring, renewal alerts — running in the background. A chatbot doesn't drive your CRM." },
+        { title: "AI Wealth Management Agent",     desc: "Fundamental, macro, technical and legal risk analysis in one multi-expert agent. Zero-hallucination — all data verified before every response." },
       ]},
       { label: "Search & Structured Data", offers: [
         { title: "Semantic Search Engine",        desc: "Your 50,000 references indexed and served in real time. A chatbot doesn't know your catalog; this one masters it entirely." },
