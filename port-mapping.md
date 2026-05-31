@@ -111,29 +111,22 @@ Ces 6 projets apparaissent comme cartes dans la section flagship de wikolabs.com
 ---
 
 
-## Flagship LP + App — okaiz / piskid / wefreep — ports 3052–3057
+## Flagship LP + App — okaiz / piskid / wefreep / patrimai — ports 3052–3058
 
-| Projet      | Container       | Port VM | Note                        |
-|-------------|-----------------|---------|------------------------------|
-| okaiz.com   | okaiz           | 3052    | LP Next.js (Wikolabs/okaiz) |
-|             | okaiz-frontend  | 3055    | React demo app               |
-|             | okaiz-backend   | interne | FastAPI + pgvector           |
-|             | okaiz-db        | interne | PostgreSQL                  |
-| piskid.com  | piskid          | 3053    | LP Next.js (Wikolabs/piskid)|
-|             | piskid-frontend | 3056    | React demo app               |
-|             | piskid-backend  | interne | FastAPI (Groq only)          |
-| wefreep.com | wefreep         | 3054    | LP Next.js (Wikolabs/wefreep)|
-|             | firipy-frontend | 3057    | React demo app               |
-|             | firipy-backend  | interne | FastAPI + pgvector           |
-|             | firipy-db       | interne | PostgreSQL                  |
-
----
-
-## PatrimIA LP — port 3058
-
-| Projet     | Container | Port VM | Note                              |
-|------------|-----------|---------|-----------------------------------|
-| patrimai   | patrimai  | 3058    | LP Next.js (Wikolabs/patrimai-lp) |
+| Projet         | Container       | Port VM | Note                                        |
+|----------------|-----------------|---------|---------------------------------------------|
+| okaiz.com      | okaiz           | 3052    | LP Next.js (Wikolabs/okaiz)                 |
+|                | okaiz-frontend  | 3055    | React demo app                              |
+|                | okaiz-backend   | interne | FastAPI + pgvector                          |
+|                | okaiz-db        | interne | PostgreSQL                                  |
+| piskid.com     | piskid          | 3053    | LP Next.js (Wikolabs/piskid-lp)             |
+|                | piskid-frontend | 3056    | React demo app                              |
+|                | piskid-backend  | interne | FastAPI (Groq only)                         |
+| wefreep.com    | wefreep         | 3054    | LP Next.js (Wikolabs/wefreep)               |
+|                | firipy-frontend | 3057    | React demo app                              |
+|                | firipy-backend  | interne | FastAPI + pgvector                          |
+|                | firipy-db       | interne | PostgreSQL                                  |
+| patrimai.com   | patrimai        | 3058    | LP Next.js (Wikolabs/patrimai-lp) — agent BI catalogue wikolabs.com |
 
 ---
 
