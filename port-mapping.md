@@ -129,6 +129,14 @@ Ces 6 projets apparaissent comme cartes dans la section flagship de wikolabs.com
 
 ---
 
+## PatrimIA LP — port 3058
+
+| Projet     | Container | Port VM | Note                              |
+|------------|-----------|---------|-----------------------------------|
+| patrimai   | patrimai  | 3058    | LP Next.js (Wikolabs/patrimai-lp) |
+
+---
+
 ## Configuration Hostinger — étapes
 1. DNS → ajouter un enregistrement **A** pour chaque sous-domaine → `187.124.167.18`
 2. Sur la VM : configurer nginx pour router chaque sous-domaine vers le bon port
