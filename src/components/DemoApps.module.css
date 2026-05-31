@@ -63,24 +63,14 @@
   transition: transform 0.4s cubic-bezier(0.34,1.2,0.64,1), box-shadow 0.4s ease, border-color 0.25s;
   position: relative;
   transform-style: preserve-3d;
-  box-shadow:
-    0 8px 32px rgba(0,0,0,0.22),
-    0 -3px 10px rgba(0,0,0,0.06),
-    -4px 0 12px rgba(0,0,0,0.06),
-    4px 0 12px rgba(0,0,0,0.06),
-    0 1px 0 rgba(255,255,255,0.05) inset;
+  cursor: pointer;
+  box-shadow: var(--card-sh);
 }
 
 .card:hover {
   border-color: var(--gold-border);
   transform: translateY(-10px) rotate(-1deg) scale(1.02);
-  box-shadow:
-    0 24px 60px rgba(0,0,0,0.38),
-    0 -4px 16px rgba(0,0,0,0.08),
-    -6px 0 16px rgba(0,0,0,0.08),
-    6px 0 16px rgba(0,0,0,0.08),
-    0 0 0 1px var(--gold-border),
-    0 2px 0 rgba(255,255,255,0.08) inset;
+  box-shadow: var(--card-sh-h), 0 0 0 1px var(--gold-border);
 }
 
 .card:active {

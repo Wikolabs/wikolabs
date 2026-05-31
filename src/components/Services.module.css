@@ -329,16 +329,17 @@
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 20px;
-  transition: border-color 0.2s, transform 0.22s, box-shadow 0.22s;
+  transition: border-color 0.22s, transform 0.22s, box-shadow 0.22s;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  box-shadow: var(--card-sh);
+  cursor: pointer;
 }
 
 .offerCard:hover {
   border-color: var(--gold-border);
   transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+  box-shadow: var(--card-sh-h);
 }
 
 .offerCard:active {
@@ -957,8 +958,8 @@
 ═══════════════════════════════════════════════════ */
 
 /* Title & description */
-.offerTitle { color: #fff; }
-.offerDesc  { color: rgba(255,255,255,0.65); }
+.offerTitle { color: var(--txt1); }
+.offerDesc  { color: var(--txt2); }
 
 /* Illustration icon (large icon at card top) */
 .offerCard .offerIllust {
@@ -1054,6 +1055,27 @@
 [data-theme="light"] .offerCard .offerDemoLink  { color: var(--txt3)  !important; }
 [data-theme="light"] .offerCard .offerDemoLink:hover { color: var(--txt1) !important; }
 [data-theme="light"] .offerCard .offerThumb     { border-color: var(--border) !important; }
+
+[data-theme="light"] .offerCard .agentToggleBtn,
+[data-theme="light"] .offerCard .questionsToggleBtn {
+  color:        var(--txt3)  !important;
+  border-color: var(--border) !important;
+}
+[data-theme="light"] .offerCard .agentToggleBtn:hover,
+[data-theme="light"] .offerCard .questionsToggleBtn:hover { color: var(--txt1) !important; }
+
+[data-theme="light"] .offerCard .beforeCell,
+[data-theme="light"] .offerCard .afterCell {
+  background:   var(--card-badge-bg)     !important;
+  border-color: var(--card-badge-border) !important;
+  color:        var(--txt2)              !important;
+}
+[data-theme="light"] .offerCard .afterCell      { border-left-color: var(--gold-border) !important; }
+[data-theme="light"] .offerCard .compareLabel   { color: var(--txt3) !important; }
+[data-theme="light"] .offerCard .afterCell .compareLabel { color: var(--txt2) !important; }
+
+[data-theme="light"] .offerCard .questionsItem  { color: var(--txt2) !important; }
+[data-theme="light"] .offerCard .questionsDot   { background: var(--txt3) !important; }
 
 @media (max-width: 640px) {
   .chatSearchPanel { border-radius: 14px; }

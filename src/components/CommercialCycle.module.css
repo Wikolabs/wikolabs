@@ -122,8 +122,8 @@
 
 /* ── Card ── */
 .card {
-  background: rgba(255,255,255,0.018);
-  border: 1px solid rgba(255,255,255,0.055);
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 26px 28px 22px;
   margin-bottom: 32px;
@@ -143,8 +143,8 @@
   opacity: 0.5;
 }
 .stage:hover .card {
-  background: rgba(255,255,255,0.028);
-  border-color: rgba(255,255,255,0.09);
+  background: var(--card-h);
+  border-color: var(--gold-border);
   transform: translateY(-3px);
 }
 
@@ -199,8 +199,9 @@
   flex-shrink: 0;
   padding: 10px 16px;
   border-radius: 14px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-sh);
   min-width: 72px;
   text-align: center;
 }
@@ -210,6 +211,7 @@
   font-weight: 800;
   line-height: 1;
   letter-spacing: -1px;
+  animation: countPop 0.5s cubic-bezier(0.34,1.3,0.64,1) both;
 }
 .metricLabel {
   font-family: var(--font-mono);
@@ -267,14 +269,14 @@
   font-size: 0.68rem;
   letter-spacing: 0.3px;
   color: var(--txt1);
-  background: rgba(255,255,255,0.04);
-  border: 1px solid;
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 5px 11px;
   transition: background 0.2s;
 }
 .activityChip:hover {
-  background: rgba(255,255,255,0.07);
+  background: var(--card-h);
 }
 
 .activityArrow {
@@ -309,15 +311,15 @@
   font-family: var(--font-mono);
   font-size: 0.62rem;
   color: var(--txt2);
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.09);
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 6px;
   padding: 3px 9px;
   transition: color 0.2s, border-color 0.2s;
 }
 .stage:hover .toolChip {
   color: var(--txt1);
-  border-color: rgba(255,255,255,0.15);
+  border-color: var(--gold-border);
 }
 
 /* ── Before / After ── */
@@ -347,7 +349,7 @@
 .afterBox {
   border: 1px solid;
   border-left-width: 3px;
-  background: rgba(255,255,255,0.025);
+  background: var(--card);
 }
 .afterBox:hover { transform: translateY(-3px); }
 
