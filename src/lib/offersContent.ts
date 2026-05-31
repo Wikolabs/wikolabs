@@ -954,6 +954,68 @@ export const OFFERS_CONTENT: OfferPageContent[] = [
   },
 
   /* ─────────────────────────────────────────────────
+     2-4  Agent IA de Gestion de Patrimoine
+  ───────────────────────────────────────────────── */
+  {
+    slug: "agent-patrimoine-ia",
+    catSlug: "decision-intelligence",
+    fr: {
+      metaTitle: "Agent IA de Gestion de Patrimoine — Wikolabs",
+      metaDesc: "Analyse fondamentale, macro, technique et risque légal en un seul agent multi-expert. Zéro hallucination — toutes les données sont vérifiées avant chaque réponse.",
+      tag: "BI & Intelligence Décisionnelle",
+      title: "Agent IA de Gestion de Patrimoine",
+      subtitle: "Quatre experts IA, zéro hallucination, une seule décision patrimoniale",
+      intro: "Les conseillers patrimoniaux traditionnels lisent des rapports statiques, consultent des bases de données disparates et rédigent des recommandations à la main. PatrimIA orchestre quatre agents spécialisés — analyste fondamental, stratège macro, analyste technique et avocat du diable — qui croisent des données en temps réel (marchés, BCE/Fed, réglementation, actualités) pour produire une analyse patrimoniale rigoureuse, sourcée et sans hallucination.",
+      problem: "Les particuliers fortunés et family offices naviguent entre des conseillers qui parlent sans données fraîches, des LLM publics qui inventent des chiffres, et des outils professionnels réservés aux institutionnels. Résultat : des décisions patrimoniales prises sur des intuitions ou des rapports vieux de 3 mois.",
+      solution: "PatrimIA déploie quatre agents en parallèle sur chaque décision : l'analyste fondamental examine les bilans et ratios financiers sur données réelles, le stratège macro contextualise la politique monétaire BCE/Fed/BRI, l'analyste technique lit les signaux de prix et volumes, et l'avocat du diable identifie risques réglementaires et juridiques. Toutes les sources sont citées. Zéro affirmation non vérifiée.",
+      steps: [
+        { n: 1, title: "Connexion des sources de données", desc: "Intégration des flux marchés (Polygon.io), documents réglementaires BCE/Fed, relevés PDF et fichiers CSV du portefeuille client." },
+        { n: 2, title: "Configuration du profil patrimonial", desc: "Définition des classes d'actifs, de l'horizon d'investissement, du profil de risque et des contraintes fiscales spécifiques au client." },
+        { n: 3, title: "Déploiement des quatre agents", desc: "Lancement des agents fondamental, macro, technique et risque juridique — chacun spécialisé sur son domaine d'expertise." },
+        { n: 4, title: "Rapport consolidé & alertes", desc: "Synthèse multiagent en un rapport structuré avec sources citées, recommandations actionables et alertes automatiques sur événements critiques." },
+      ],
+      benefits: [
+        { title: "Zéro hallucination", desc: "Chaque affirmation est sourcée sur des données réelles vérifiées avant d'être incluse dans l'analyse. Aucune invention de chiffres ou de tendances." },
+        { title: "Analyse en 4 dimensions", desc: "Fondamentale, macro, technique et risque légal — le niveau d'un comité d'investissement institutionnel, disponible à la demande." },
+        { title: "Données en temps réel", desc: "Flux marchés Polygon.io, publications BCE/Fed, actualités financières et documents réglementaires intégrés en temps réel, pas des rapports statiques." },
+      ],
+      faq: [
+        { q: "PatrimIA remplace-t-il un conseiller en gestion de patrimoine (CGP) ?", a: "Non. PatrimIA produit l'analyse et la documentation que le CGP utilise pour conseiller le client. Il élimine le travail de recherche et de rédaction, pas la relation client." },
+        { q: "Les données du portefeuille sont-elles sécurisées ?", a: "Oui. Les données sont chiffrées en transit et au repos. Aucune donnée client n'est utilisée pour entraîner des modèles tiers." },
+        { q: "Quels actifs sont couverts ?", a: "Actions cotées, obligations, ETF, immobilier (via données de marché), private equity (sur documents fournis), crypto et produits structurés." },
+        { q: "Le service est-il réglementé ?", a: "PatrimIA est un outil d'analyse et d'aide à la décision, non un service de conseil en investissement réglementé. Les recommandations sont à titre indicatif uniquement." },
+      ],
+    },
+    en: {
+      metaTitle: "AI Wealth Management Agent — Wikolabs",
+      metaDesc: "Fundamental, macro, technical and legal risk analysis in one multi-expert agent. Zero-hallucination — all data verified before every response.",
+      tag: "BI & Decision Intelligence",
+      title: "AI Wealth Management Agent",
+      subtitle: "Four AI experts, zero hallucination, one wealth decision",
+      intro: "Traditional wealth advisors read static reports, consult disparate databases and write recommendations by hand. PatrimIA orchestrates four specialized agents — fundamental analyst, macro strategist, technical analyst and devil's advocate — that cross real-time data (markets, ECB/Fed, regulation, news) to produce rigorous, sourced and hallucination-free wealth analysis.",
+      problem: "High-net-worth individuals and family offices navigate between advisors who speak without fresh data, public LLMs that fabricate numbers, and professional tools reserved for institutions. Result: wealth decisions made on intuition or 3-month-old reports.",
+      solution: "PatrimIA deploys four agents in parallel on each decision: the fundamental analyst examines balance sheets and financial ratios on real data, the macro strategist contextualizes ECB/Fed/BIS monetary policy, the technical analyst reads price and volume signals, and the devil's advocate identifies regulatory and legal risks. All sources are cited. Zero unverified claims.",
+      steps: [
+        { n: 1, title: "Data source connection", desc: "Integration of market feeds (Polygon.io), ECB/Fed regulatory documents, PDF statements and CSV portfolio files." },
+        { n: 2, title: "Wealth profile configuration", desc: "Definition of asset classes, investment horizon, risk profile and client-specific tax constraints." },
+        { n: 3, title: "Four-agent deployment", desc: "Launch of fundamental, macro, technical and legal risk agents — each specialized in their area of expertise." },
+        { n: 4, title: "Consolidated report & alerts", desc: "Multi-agent synthesis into a structured report with cited sources, actionable recommendations and automatic alerts on critical events." },
+      ],
+      benefits: [
+        { title: "Zero hallucination", desc: "Every claim is sourced from verified real data before being included in the analysis. No invented numbers or trends." },
+        { title: "4-dimensional analysis", desc: "Fundamental, macro, technical and legal risk — institutional investment committee level, available on demand." },
+        { title: "Real-time data", desc: "Polygon.io market feeds, ECB/Fed publications, financial news and regulatory documents integrated in real time, not static reports." },
+      ],
+      faq: [
+        { q: "Does PatrimIA replace a wealth management advisor?", a: "No. PatrimIA produces the analysis and documentation that advisors use to counsel clients. It eliminates research and writing work, not the client relationship." },
+        { q: "Is portfolio data secure?", a: "Yes. Data is encrypted in transit and at rest. No client data is used to train third-party models." },
+        { q: "What assets are covered?", a: "Listed equities, bonds, ETFs, real estate (via market data), private equity (from provided documents), crypto and structured products." },
+        { q: "Is the service regulated?", a: "PatrimIA is an analysis and decision-support tool, not a regulated investment advisory service. Recommendations are for informational purposes only." },
+      ],
+    },
+  },
+
+  /* ─────────────────────────────────────────────────
      3-0  Moteur de Recherche Sémantique
   ───────────────────────────────────────────────── */
   {
